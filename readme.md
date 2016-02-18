@@ -18,6 +18,7 @@ Git the bucket.
 
 This is my push!
 
+I am gitting this...ha ha
 
 >I'm sorry, I don't understand "Git the bucket."
 
