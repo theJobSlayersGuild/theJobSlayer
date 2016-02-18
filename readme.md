@@ -16,4 +16,11 @@ Look at the wall.  There is a picture of a dancing hamster.
 
 Git the bucket.
 
+This is my push!
+
+
+>I'm sorry, I don't understand "Git the bucket."
+
+Get the bucket.
+>You pick up the bucket. It smells like sadness.
 
