@@ -9,3 +9,7 @@ You have been imprisoned by the evil No Jobba. To escape the dungeon of Uhnimplo
 Or The Job Slayer. We haven't decided yet.
 
 Git the bucket.
+>I'm sorry, I don't understand "Git the bucket."
+
+Get the bucket.
+>You pick up the bucket. It smells like sadness.
