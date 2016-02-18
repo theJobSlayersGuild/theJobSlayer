@@ -1,4 +1,4 @@
-# The Job Slayer
+# Jobba: The Hunt 
 
 You find yourself in a room...
 
