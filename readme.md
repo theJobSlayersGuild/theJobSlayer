@@ -8,6 +8,12 @@ You have been imprisoned by the evil No Jobba. To escape the dungeon of Uhnimplo
 
 Or The Job Slayer. We haven't decided yet.
 
+
 Git the bucket is the bucketedsedsed!
+
+
+Look at the wall.  There is a picture of a dancing hamster.
+
+Git the bucket.
 
 
