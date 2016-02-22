@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var JobSchema = mongoose.Schema({
+var jobSchema = mongoose.Schema({
 
     _author: {type: mongoose.Schema.Types.ObjectId, ref: 'Hero'}
   , dateCreated: {type: Date, default: new Date()}
@@ -27,4 +27,4 @@ var JobSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Job', JobSchema);
+module.exports = mongoose.model('Job', jobSchema);
