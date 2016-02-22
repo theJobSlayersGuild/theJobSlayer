@@ -8,8 +8,8 @@ var gulp = require('gulp')
   , path = require('path');
 
 var paths = {
-  jsSource: ['./core/app/**/*.js', '!/core/app/bundle.js'],
-  sassSource: ['./core/app/styles/sass/*.sass']
+  jsSource: ['./core/public/app/**/*.js'],
+  sassSource: ['./core/public/styles/sass/*.sass']
 };
 
 gulp.task('js', function() {
@@ -17,7 +17,7 @@ gulp.task('js', function() {
   .pipe(plumber())
   .pipe(concat('bundle.js'))
   .pipe(annotate())
-  .pipe(gulp.dest('./core/app'));
+  .pipe(gulp.dest('./core/public'));
 });
 
 gulp.task('sass', function () {
@@ -26,7 +26,7 @@ gulp.task('sass', function () {
       paths: path.sassSource
     }))
     .pipe(concat('style.css'))
-    .pipe(gulp.dest('./core/app/styles'));
+    .pipe(gulp.dest('./core/public/styles'));
 });
 
 gulp.task('watch', function() {

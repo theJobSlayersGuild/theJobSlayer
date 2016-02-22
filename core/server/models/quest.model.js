@@ -6,9 +6,9 @@ var questSchema = mongoose.Schema({
   , _job: {type: mongoose.Schema.Types.ObjectId, ref: 'Job'}
   , progress: [{
       _step: {type: mongoose.Schema.Types.ObjectId, ref: 'Step'}
-    , completed: {type: Boolean}
+    , completed: {type: Boolean, default: false}
     }]
-  , completed: {type: Boolean}
+  , completed: {type: Boolean, default: false}
 
 });
 

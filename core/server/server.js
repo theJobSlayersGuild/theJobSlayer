@@ -16,7 +16,7 @@ mongoose.connection.once('open', function() {
     console.log("Mongoing like a boss");
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + './../public'));
 
 
 // CONTROLLERS
@@ -31,8 +31,8 @@ var stepCtrl = require('./controllers/stepCtrl');
 
 //ENDPOINTS
                 //AUTHENTICATION
-// app.post('api/hero/signUp', heroCtrl.createHero);
-// app.post('api/hero/login', heroCtrl.loginHero);
+// public.post('api/hero/signUp', heroCtrl.createHero);
+// public.post('api/hero/login', heroCtrl.loginHero);
 
                 //HERO
 app.get('api/hero', heroCtrl.readHero);
@@ -58,7 +58,7 @@ app.put('/api/quest/:id', questCtrl.updateQuest);
 app.delete('/api/quest/:id', questCtrl.deleteQuest);
 
                 //STEP
-app.post('/api/step', stepCtrl.createStep)
+app.post('/api/step', stepCtrl.createStep);
 app.get('/api/step', stepCtrl.readStep);
 app.put('/api/step/:id', stepCtrl.updateStep);
 app.delete('/api/step/:id', stepCtrl.deleteStep);
