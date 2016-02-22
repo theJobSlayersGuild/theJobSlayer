@@ -1,17 +1,41 @@
 var Guild = require('../models/guild.model.js');
 
 module.exports = {
-  createGuild: function() {
+  createGuild: function (req, res) {
+        Guild.create(req.body, function (err, result) {
+            if (err) {
+                res.status(500).send(err);
+            }
+            res.status(200).send(result);
+        })
+    },
 
-  } ,
-  readGuild: function() {
+    readGuild: function (req, res) {
+        Guild.find(req.query, function(err, result) {
+            if (err) {
+                res.status(500).send(err);
+            }
+            res.status(200).send(result)
+        })
+    },
 
-  } ,
-  updateGuild: function() {
+    updateGuild: function (req, res) {
+        Guild.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+            if (err) {
+                res.status(500).send(err);
+            }
+            res.status(200).send(result);
+        })
+    },
 
-  } ,
-  deleteGuild: function() {
+    deleteGuild: function (req, res) {
+        Guild.findByIdAndRemove(req.params.id, function (err, result) {
+            if (err) {
+                res.status(500).send(err);
+            }
+            res.status(200).send(result);
+        })
+    }
 
-  }
 
-}
+};

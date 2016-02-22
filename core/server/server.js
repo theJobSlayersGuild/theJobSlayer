@@ -25,7 +25,8 @@ var jobCtrl = require('./controllers/jobCtrl');
 var guildCtrl = require('./controllers/guildCtrl');
 var questCtrl = require('./controllers/questCtrl');
 var stepCtrl = require('./controllers/stepCtrl');
-// var resourceCtrl = require('./controllers/resourceCtrl');
+// var resourceCtrl = require('./controllers/resourceCtrl')
+
 
 
 //ENDPOINTS
@@ -34,39 +35,40 @@ var stepCtrl = require('./controllers/stepCtrl');
 // public.post('api/hero/login', heroCtrl.loginHero);
 
                 //HERO
-// public.get('api/hero/:id', heroCtrl.readHero);
-// public.put('api/hero/:id', heroCtrl.updateHero);
-// public.delete('api/hero/:id', heroCtrl.deleteHero);
+app.get('api/hero', heroCtrl.readHero);
+app.put('api/hero/:id', heroCtrl.updateHero);
+app.delete('api/hero/:id', heroCtrl.deleteHero);
 
                 //JOB
-// public.post('api/job/new', jobCtrl.createJob);
-// public.get('api/job/:id', jobCtrl.readJobs);
-// public.put('api/job/:id', jobCtrl.updateJob);
-// public.delete('api/job/:id', jobCtrl.deleteJob);
+app.post('/api/job', jobCtrl.createJob);
+app.get('/api/job', jobCtrl.readJobs);
+app.put('/api/job/:id', jobCtrl.updateJob);
+app.delete('/api/job/:id', jobCtrl.deleteJob);
 
                 //GUILD
-// public.post('api/guild/new', guildCtrl.createGuild);
-// public.get('api/guild/:id', guildCtrl.readGuild);
-// public.put('api/guild/:id', guildCtrl.updateGuild);
-// public.delete('api/guild/:id', guildCtrl.deleteGuild);
+app.post('/api/guild', guildCtrl.createGuild);
+app.get('/api/guild', guildCtrl.readGuild);
+app.put('/api/guild/:id', guildCtrl.updateGuild);
+app.delete('/api/guild/:id', guildCtrl.deleteGuild);
 
                 //QUEST
-// public.post('api/quest/new', questCtrl.addQuest);
-// public.get('api/quest/:id', questCtrl.readQuest);
-// public.put('api/quest/:id', questCtrl.updateQuest);
-// public.delete('api/quest/:id', questCtrl.deleteQuest);
+app.post('/api/quest', questCtrl.createQuest);
+app.get('/api/quest', questCtrl.readQuests);
+app.put('/api/quest/:id', questCtrl.updateQuest);
+app.delete('/api/quest/:id', questCtrl.deleteQuest);
 
                 //STEP
-//public.post('api/step/new', stepCtrl.createStep)
-// public.get('api/step/:id', stepCtrl.readStep);
-// public.put('api/step/:id', stepCtrl.updateStep);
-// public.delete('api/step/:id', stepCtrl.deleteStep);
+app.post('/api/step', stepCtrl.createStep);
+app.get('/api/step', stepCtrl.readStep);
+app.put('/api/step/:id', stepCtrl.updateStep);
+app.delete('/api/step/:id', stepCtrl.deleteStep);
 
                 //RESOURCE
-// public.post('api/resource/new', resourceCtrl.addResource);
-// public.get('api/resource/:id', resourceCtrl.readResource);
-// public.put('api/resource/:id', resourceCtrl.updateResource);
-// public.delete('api/resource/:id', resourceCtrl.deleteResource);
+// app.post('api/resource', resourceCtrl.addResource);
+// app.get('api/resource', resourceCtrl.readResources);
+// app.put('api/resource/:id', resourceCtrl.updateResource);
+// app.delete('api/resource/:id', resourceCtrl.deleteResource);
+
 
 
 var port = config.PORT;
