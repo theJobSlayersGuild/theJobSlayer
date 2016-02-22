@@ -11,7 +11,7 @@ module.exports = {
         })
     },
 
-    readQuest: function (req, res) {
+    readQuests: function (req, res) {
         Quest.find(req.query, function(err, result) {
             if (err) {
                 res.status(500).send(err);
