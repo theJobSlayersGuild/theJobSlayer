@@ -1,9 +1,9 @@
-var Job = require('../models/job.model.js');
+var Resource = require('../models/resource.model.js');
 
 module.exports = {
 
-    createJob: function (req, res) {
-        Job.create(req.body, function (err, result) {
+    createResource: function (req, res) {
+        Resource.create(req.body, function (err, result) {
             if (err) {
                 res.status(500).send(err);
             }
@@ -11,8 +11,8 @@ module.exports = {
         })
     },
 
-    readJobs: function (req, res) {
-        Job.find(req.query, function(err, result) {
+    readResources: function (req, res) {
+        Resource.find(req.query, function(err, result) {
             if (err) {
                 res.status(500).send(err);
             }
@@ -20,8 +20,8 @@ module.exports = {
         })
     },
 
-    updateJob: function (req, res) {
-        Job.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+    updateResource: function (req, res) {
+        Resource.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
             if (err) {
                 res.status(500).send(err);
             }
@@ -29,8 +29,8 @@ module.exports = {
         })
     },
 
-    deleteJob: function (req, res) {
-        Job.findByIdAndRemove(req.params.id, function (err, result) {
+    deleteResource: function (req, res) {
+        Resource.findByIdAndRemove(req.params.id, function (err, result) {
             if (err) {
                 res.status(500).send(err);
             }
