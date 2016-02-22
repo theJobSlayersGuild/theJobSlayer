@@ -1,5 +1,30 @@
 jobs view
 
 <dir-nav-bar></dir-nav-bar>
+<h1>Bounty Board</h1>
+<h3>Adventurer's Wanted</h3>
+<div ng-repeat="job in jobs"></div>
+<a ng-src="{{job.companyUrl}}">{{job.companyName}}</a>
+position{{job.position}}
+location{{job.location}}
+<a href="">Details</a>
 
-{{test}}
+<div>
+    <div>
+        <a ng-src="{{job.companyUrl}}">{{job.companyName}}</a>
+        {{job.dateCreated}}
+        {{job.description}}
+        {{job.summary}}
+        {{job.contact}}
+        {{job.salary}}
+        {{job.equity}}
+        {{job.public}}
+        {{job.guild}}
+    </div>
+</div>
+
+<button ng-click="acceptjob(job._id, hero._id)">accept</button>
+<button ng-click="editJob(job._id, hero._id)">edit</button>
+<button ng-click="">delete</button>
+
+<
