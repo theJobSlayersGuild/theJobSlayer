@@ -1,0 +1,37 @@
+{
+  "name": "the-job-slayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "core/server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theJobSlayersGuild/theJobSlayer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theJobSlayersGuild/theJobSlayer/issues"
+  },
+  "homepage": "https://github.com/theJobSlayersGuild/theJobSlayer#readme",
+  "dependencies": {
+    "body-parser": "1.15.0",
+    "cors": "2.7.1",
+    "express": "4.13.4",
+    "express-session": "1.13.0",
+    "mongoose": "4.4.4",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5"
+  }
+}
