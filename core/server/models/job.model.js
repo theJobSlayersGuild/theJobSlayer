@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var JobSchema = mongoose.Schema({
 
-    _author: {type: Schema.Types.ObjectId, ref: 'Hero'}
+    _author: {type: mongoose.Schema.Types.ObjectId, ref: 'Hero'}
   , dateCreated: {type: Date, default: new Date()}
   , companyName: {type: String}
   , companyUrl: {type: String}
@@ -23,7 +23,7 @@ var JobSchema = mongoose.Schema({
   , equity: {type: Boolean}
   , positionType: {type: String} //full-time, part-time, internship, apprenticeship
   , public: {type: Boolean}
-  , _guild: [{type: Schema.Types.ObjectId, ref: 'Guild'}]
+  , _guild: [{type: mongoose.Schema.Types.ObjectId, ref: 'Guild'}]
 
 });
 

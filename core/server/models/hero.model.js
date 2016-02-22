@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var HeroSchema = mongoose.Schema({
+var heroSchema = mongoose.Schema({
 
     email: { type: String }
   , password: { type: String }
@@ -21,4 +21,4 @@ var HeroSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Hero', HeroSchema);
+module.exports = mongoose.model('Hero', heroSchema);
