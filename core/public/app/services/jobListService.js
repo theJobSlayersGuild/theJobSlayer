@@ -4,7 +4,7 @@
 angular.module('app')
     .service('jobListService', function ($http) {
 
-        this.getQuests = function() {
+        /*this.getQuests = function() {
             return $http({
                 method: 'GET',
                 url: 'api/job/:id'
@@ -22,6 +22,6 @@ angular.module('app')
             }).then(function(response) {
                 return response.data;
             });
-        };
+        };*/
 
     });
