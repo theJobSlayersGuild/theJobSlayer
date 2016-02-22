@@ -23,7 +23,7 @@ gulp.task('js', function() {
 gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sass({
-      paths: path.sassSource
+      paths: paths.sassSource
     }))
     .pipe(concat('style.css'))
     .pipe(gulp.dest('./core/public/styles'));
