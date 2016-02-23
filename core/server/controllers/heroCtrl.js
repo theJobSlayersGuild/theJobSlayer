@@ -6,8 +6,18 @@ module.exports = {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send(result);
-        })
+            newHero = result.toObject();
+            newHero.password = null;
+            res.status(200).send(newHero);
+        });
+    },
+
+    me: function(req, res) {
+      if (!req.user) {
+        res.status(401).send('current user not defined');
+      }
+      req.user.password = null;
+      res.status(200).json(req.user);
     },
 
     readHero: function (req, res) {
@@ -15,8 +25,8 @@ module.exports = {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send(result)
-        })
+            res.status(200).send(result);
+        });
     },
 
     updateHero: function (req, res) {
@@ -24,8 +34,8 @@ module.exports = {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send(result);
-        })
+            res.status(200).send('user updated', result);
+        });
     },
 
     deleteHero: function (req, res) {
@@ -33,8 +43,8 @@ module.exports = {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send(result);
-        })
+            res.status(200).send('user deleted', result);
+        });
     }
 
-}
+};
