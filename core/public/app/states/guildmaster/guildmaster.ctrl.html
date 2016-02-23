@@ -2,4 +2,13 @@ guildmaster view
 
 <dir-nav-bar></dir-nav-bar>
 
+<div>GUILDMASTER</div>
+<div><button ng-click="openGuildModal()">New Guild</button></div>
+
+<div>Job Slayers Guild{{guild.name}}</div>
+<button>Edit</button>
+<button>Delete</button>
+<div ng-repeat="member in guild"></div>
+{{member.name}}
+
 {{test}}
