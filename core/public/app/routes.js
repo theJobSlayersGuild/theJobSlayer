@@ -3,15 +3,15 @@ var app = angular.module('app');
 app.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-        .state('home', {
-            url: '/home',
-            templateUrl: './app/states/home/home.ctrl.html',
-            controller: 'homeCtrl'
-        })
         .state('splash', {
             url: '/splash',
             templateUrl: './app/states/splash/splash.ctrl.html',
             controller: 'splashCtrl'
+        })
+        .state('home', {
+            url: '/home',
+            templateUrl: './app/states/home/home.ctrl.html',
+            controller: 'homeCtrl'
         })
         .state('profile', {
             url: '/profile',
@@ -35,5 +35,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         })
 
     $urlRouterProvider
-        .otherwise('home');
+        .otherwise('splash');
 });

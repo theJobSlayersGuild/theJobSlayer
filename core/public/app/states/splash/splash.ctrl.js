@@ -1,4 +1,4 @@
-app.controller('splashCtrl', function($scope, ModalService) {
+app.controller('splashCtrl', function($scope, ModalService, jobListService) {
 
   $scope.test = 'splashCtrl connected';
 
@@ -8,9 +8,12 @@ app.controller('splashCtrl', function($scope, ModalService) {
       controller: "signUpCtrl"
     }).then(function(modal) {
       // Function that runs when modal closes
-      modal.close.then(function(then) {
-      });
+      modal.close.then(function(then) {});
     });
+  };
+  
+  $scope.submitLogin = function(hero) {
+    jobListService.submitHero(hero);
   };
 
 });
