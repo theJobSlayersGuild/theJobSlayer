@@ -8,7 +8,7 @@ var gulp = require('gulp')
   , path = require('path');
 
 var paths = {
-  jsSource: ['./core/public/app/**/*.js'],
+  jsSource: ['./core/public/app/**/*.js', './node_modules/angular-modal-service/dst/angular-modal-service.min.js'],
   sassSource: ['./core/public/styles/sass/*.sass']
 };
 
@@ -23,7 +23,7 @@ gulp.task('js', function() {
 gulp.task('sass', function () {
   return gulp.src(paths.sassSource)
     .pipe(sass({
-      paths: path.sassSource
+      paths: paths.sassSource
     }))
     .pipe(concat('style.css'))
     .pipe(gulp.dest('./core/public/styles'));
