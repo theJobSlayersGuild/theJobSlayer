@@ -3,30 +3,33 @@ var bcrypt = require('bcryptjs');
 
 var heroSchema = mongoose.Schema({
 
-    email: { type: String, required: true }
-  , password: { type: String, required: true }
-  , name: { type: String, required: true }
-  , dateCreated: { type: Date, default: new Date() }
-  , xp: { type: Number, default: 0 }
-  , level: { type: Number, default: 1 }
-  , equipment: {
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    name: { type: String, required: true },
+    dateCreated: { type: Date, default: new Date() },
+    xp: { type: Number, default: 0 },
+    level: { type: Number, default: 1 },
+    equipment: {
       resume: {
         name: { type: String, default: 'Resume' },
-        url: { type: String }
-      }
-    , linkedin: {
-      name: { type: String, default: 'LinkedIn' },
-      url: { type: String }
-    }
-    , portfolioSite: {
+        url: { type: String },
+        done: { type: Boolean }
+      },
+      linkedin: {
+        name: { type: String, default: 'LinkedIn' },
+        url: { type: String },
+        done: { type: Boolean }
+      },
+      portfolioSite: {
       name: { type: String, default: 'Portfolio' },
-      url: { type: String }
-    }
-    , meetups: { type: Number }
-    , skills: [{ type: String }]
-    , projects: [{
-        name: { type: String }
-      , url: { type: String }
+      url: { type: String },
+      done: { type: Boolean }
+      },
+      meetups: { type: Number, default: 0 },
+      skills: [{ type: String }],
+      projects: [{
+        name: { type: String },
+        url: { type: String }
       }]
     }
 });
