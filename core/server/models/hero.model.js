@@ -6,6 +6,7 @@ var heroSchema = mongoose.Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     name: { type: String, required: true },
+    title: { type: String, default: "the Barbarian" },
     dateCreated: { type: Date, default: new Date() },
     xp: { type: Number, default: 0 },
     level: { type: Number, default: 1 },
