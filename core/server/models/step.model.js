@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 var stepSchema = mongoose.Schema({
 
-    description: { type: String }
-  , order: { type: String }
+    description: { type: String, required: true }
+  , order: { type: String, required: true }
 
 });
 
