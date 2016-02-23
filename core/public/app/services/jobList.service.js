@@ -4,6 +4,15 @@
 angular.module('app')
     .service('jobListService', function ($http) {
 
+      this.submitHero = function(hero) {
+        return $http({
+            method: 'POST',
+            url: 'api/hero/signUp',
+            data: hero
+        }).then(function(response) {
+            return response.data;
+        });
+      };
 
 
         /*this.getQuests = function() {

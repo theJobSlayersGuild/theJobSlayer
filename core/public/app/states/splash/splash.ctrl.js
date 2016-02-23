@@ -11,9 +11,13 @@ app.controller('splashCtrl', function($scope, ModalService, jobListService) {
       modal.close.then(function(then) {});
     });
   };
-  
+
   $scope.submitLogin = function(hero) {
-    jobListService.submitHero(hero);
+    console.log(hero);
+    jobListService.submitHero(hero)
+    .then(function(response){
+      console.log(response);
+    });
   };
 
 });

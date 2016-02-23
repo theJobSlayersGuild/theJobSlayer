@@ -41,13 +41,13 @@ app.use(passport.session());
 
 //ENDPOINTS
                 //AUTHENTICATION
-// public.post('api/hero/signUp', heroCtrl.createHero);
-// public.post('api/hero/login', heroCtrl.loginHero);
+app.post('/api/hero/signUp', heroCtrl.createHero);
+// app.post('/api/hero/login', heroCtrl.loginHero);
 
                 //HERO
-app.get('api/hero', heroCtrl.readHero);
-app.put('api/hero/:id', isAuthed, heroCtrl.updateHero);
-app.delete('api/hero/:id', isAuthed, heroCtrl.deleteHero);
+app.get('/api/hero', heroCtrl.readHero);
+app.put('/api/hero/:id', isAuthed, heroCtrl.updateHero);
+app.delete('/api/hero/:id', isAuthed, heroCtrl.deleteHero);
 
                 //JOB
 app.post('/api/job', isAuthed, jobCtrl.createJob);
