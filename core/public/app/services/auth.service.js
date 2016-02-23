@@ -23,4 +23,14 @@ angular.module('app')
         });
     };
 
+    this.logout = function() {
+      return $http({
+        method: 'GET',
+        url: '/api/hero/logout'
+      })
+      .then(function(response) {
+        return response;
+      });
+    };
+
   });
