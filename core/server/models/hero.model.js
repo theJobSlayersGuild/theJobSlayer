@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var bcrypt = require('bcryptjs');
 
 var heroSchema = mongoose.Schema({
 
@@ -20,5 +21,19 @@ var heroSchema = mongoose.Schema({
       }]
     }
 });
+
+heroSchema.pre('save', function(next) {
+  var hero = this;
+  if (!hero.isModified('password')) return next();
+  var salt = bcrypt.genSaltSync(10);
+  var hash = bcrypt.hashSync(hero.password, salt);
+  hero.password = hash;
+  return next(null, hero);
+});
+
+heroSchema.methods.verifyPassword = function(reqBodyPassword) {
+  var hero = this;
+  return bcrypt.compareSync(reqBodyPassword, hero.password);
+};
 
 module.exports = mongoose.model('Hero', heroSchema);

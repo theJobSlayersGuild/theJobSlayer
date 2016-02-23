@@ -4,17 +4,17 @@ angular.module('app')
       this.getHeroes = function() {
           return $http({
             method: 'GET',
-            url: '/hero'
+            url: '/api/hero'
           })
           .then(function(response){
             return response;
           });
         };
 
-        this.getHero = function() {
+        this.getHero = function(id) {
             return $http({
               method: 'GET',
-              url: '/hero?_id=' + id
+              url: '/api/hero?_id=' + id
             })
             .then(function(response){
               return response;
