@@ -1,6 +1,16 @@
+app.controller('splashCtrl', function($scope, ModalService) {
 
-app.controller('splashCtrl', function ($scope) {
+  $scope.test = 'splashCtrl connected';
 
-    $scope.test = 'splashCtrl connected'
+  $scope.openSignUpModal = function() {
+    ModalService.showModal({
+      templateUrl: "./app/modals/signup/signup.ctrl.html",
+      controller: "signUpCtrl"
+    }).then(function(modal) {
+      // Function that runs when modal closes
+      modal.close.then(function(then) {
+      });
+    });
+  };
 
 });

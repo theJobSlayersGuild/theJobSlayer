@@ -8,7 +8,7 @@ var gulp = require('gulp')
   , path = require('path');
 
 var paths = {
-  jsSource: ['./core/public/app/**/*.js'],
+  jsSource: ['./core/public/app/**/*.js', './node_modules/angular-modal-service/dst/angular-modal-service.min.js'],
   sassSource: ['./core/public/styles/sass/*.sass']
 };
 
