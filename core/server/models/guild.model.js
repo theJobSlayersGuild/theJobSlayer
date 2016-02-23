@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 
 var guildSchema = mongoose.Schema({
 
-    name: {type: String}
-  , _guildMaster: {type: mongoose.Schema.Types.ObjectId, ref: 'Hero'}
-  , _guildMembers: [{type: mongoose.Schema.Types.ObjectId, ref: 'Guild'}]
+    name: { type: String, required: true }
+  , _guildMaster: { type: mongoose.Schema.Types.ObjectId, ref: 'Hero', required: true }
+  , _guildMembers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Guild', required: true }]
 
 });
 
