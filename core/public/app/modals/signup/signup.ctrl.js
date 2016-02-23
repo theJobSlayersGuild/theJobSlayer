@@ -2,8 +2,11 @@ angular.module("app").controller("signUpCtrl", function($scope, close, authServi
   $scope.close = close;
   
   $scope.signUp = function (hero) {
-      return authService.signUp(hero);
-      close(hero);
-  }
+      
+      authService.signUp(hero).then(function (response) {
+           console.log(response.data);
+           $scope.close();
+      });
+  };
     
 });
