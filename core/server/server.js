@@ -45,6 +45,11 @@ app.post('/api/hero/signUp', heroCtrl.createHero);
 app.post('/api/hero/login', passport.authenticate('local', {
   successRedirect: '/api/me'
 }));
+app.get('/api/hero/logout', function(req, res, next) {
+  req.logout();
+  return res.status(200).send('logged out');
+});
+//maybe refactor /me, /login, and /logout to one controller?
 
                 //HERO
 app.get('/api/me', heroCtrl.me);
