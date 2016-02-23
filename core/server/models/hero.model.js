@@ -3,16 +3,25 @@ var bcrypt = require('bcryptjs');
 
 var heroSchema = mongoose.Schema({
 
-    email: { type: String }
-  , password: { type: String }
-  , name: { type: String }
+    email: { type: String, required: true }
+  , password: { type: String, required: true }
+  , name: { type: String, required: true }
   , dateCreated: { type: Date, default: new Date() }
-  , xp: { type: Number }
-  , level: { type: Number }
+  , xp: { type: Number, default: 0 }
+  , level: { type: Number, default: 1 }
   , equipment: {
-      resume: { type: String }
-    , linkedin: { type: String }
-    , portfolioSite: { type: String }
+      resume: {
+        name: { type: String, default: 'Resume' },
+        url: { type: String }
+      }
+    , linkedin: {
+      name: { type: String, default: 'LinkedIn' },
+      url: { type: String }
+    }
+    , portfolioSite: {
+      name: { type: String, default: 'Portfolio' },
+      url: { type: String }
+    }
     , meetups: { type: Number }
     , skills: [{ type: String }]
     , projects: [{

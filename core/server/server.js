@@ -42,9 +42,12 @@ app.use(passport.session());
 //ENDPOINTS
                 //AUTHENTICATION
 app.post('/api/hero/signUp', heroCtrl.createHero);
-app.post('/api/hero/login', heroCtrl.loginHero);
+app.post('/api/hero/login', passport.authenticate('local', {
+  successRedirect: '/api/me'
+}));
 
                 //HERO
+app.get('/api/me', heroCtrl.me);
 app.get('/api/hero', heroCtrl.readHero);
 app.put('/api/hero/:id', isAuthed, heroCtrl.updateHero);
 app.delete('/api/hero/:id', isAuthed, heroCtrl.deleteHero);
