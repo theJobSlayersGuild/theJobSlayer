@@ -2,4 +2,18 @@ splash view
 
 <dir-nav-bar></dir-nav-bar>
 
+<div class="loginWrapper">
+    <div class="loginBox">
+        <h4>Log in with your email</h4>
+        <h4>account</h4>
+        <label>Email</label>
+        <input ng-model="hero.email" type="text" placeholder="email">
+        <label>Password</label>
+        <input ng-model="hero.password" type="text" placeholder="password">
+        <button ng-click="submitLogin(hero)">Submit</button>
+    </div>
+</div>
+
+<button ng-click="openSignUpModal()">Sign Up</button>
+
 {{test}}

@@ -4,6 +4,8 @@
 angular.module('app')
     .service('jobListService', function ($http) {
 
+
+
         /*this.getQuests = function() {
             return $http({
                 method: 'GET',
