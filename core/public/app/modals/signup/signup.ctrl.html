@@ -1,2 +1,9 @@
-<div class="overlay">TEST</div>
+<div class="overlay">
+    <h4>Create New Hero</h4>
+    <label>Email</label>
+        <input ng-model="hero.email" type="text" placeholder="Email">
+        <label>Password</label>
+        <input ng-model="hero.password" type="text" placeholder="Password">
+        <button ng-click="createHero(hero)">Start New Campaign!</button>
+</div>
 <div class="fade" ng-click="close()"></div>
