@@ -1,7 +1,7 @@
 angular.module('app')
     .service('resourceService', function ($http) {
 
-      this.createJob = function(resource) {
+      this.createResource = function(resource) {
         return $http({
           method: 'POST',
           url: '/api/resource',
@@ -12,7 +12,7 @@ angular.module('app')
         });
       };
 
-      this.getJobs = function() {
+      this.getResources = function() {
           return $http({
               method: 'GET',
               url: '/api/resource'
@@ -22,18 +22,28 @@ angular.module('app')
           });
       };
 
-      this.editJob = function(id, resource) {
+      this.editResource = function(id, resource) {
           return $http({
             method: 'PUT',
             url: '/api/resource/' + id,
-            data: message
+            data: resource
           })
           .then(function(response){
             return response.data;
           });
       };
 
-        this.deleteJob = function(id) {
+      this.getResource = function(id) {
+          return $http({
+            method: 'GET',
+            url: '/api/resource?_id=' + id
+          })
+          .then(function(response){
+            return response.data;
+          });
+        };
+
+        this.deleteResource = function(id) {
           return $http({
             method: 'DELETE',
             url: '/api/resource/' + id

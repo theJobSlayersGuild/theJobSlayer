@@ -25,11 +25,21 @@ angular.module('app')
           });
       };
 
+      this.getJob = function(id) {
+          return $http({
+            method: 'GET',
+            url: '/api/job?_id=' + id
+          })
+          .then(function(response){
+            return response.data;
+          });
+        };
+
       this.editJob = function(id, job) {
           return $http({
             method: 'PUT',
             url: '/api/job/' + id,
-            data: message
+            data: job
           })
           .then(function(response){
             return response.data;

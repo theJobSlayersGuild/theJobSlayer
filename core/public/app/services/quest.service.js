@@ -1,7 +1,7 @@
 angular.module('app')
     .service('questService', function ($http) {
 
-      this.createJob = function(quest) {
+      this.createQuest = function(quest) {
         return $http({
           method: 'POST',
           url: '/api/quest',
@@ -12,7 +12,7 @@ angular.module('app')
         });
       };
 
-      this.getJobs = function() {
+      this.getQuests = function() {
           return $http({
               method: 'GET',
               url: '/api/quest'
@@ -22,18 +22,28 @@ angular.module('app')
           });
       };
 
-      this.editJob = function(id, quest) {
+      this.getQuest = function(id) {
+          return $http({
+            method: 'GET',
+            url: '/api/quest?_id=' + id
+          })
+          .then(function(response){
+            return response.data;
+          });
+        };
+
+      this.editQuest = function(id, quest) {
           return $http({
             method: 'PUT',
             url: '/api/quest/' + id,
-            data: message
+            data: quest
           })
           .then(function(response){
             return response.data;
           });
       };
 
-        this.deleteJob = function(id) {
+        this.deleteQuest = function(id) {
           return $http({
             method: 'DELETE',
             url: '/api/quest/' + id
