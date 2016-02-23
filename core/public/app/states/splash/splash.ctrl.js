@@ -1,4 +1,4 @@
-app.controller('splashCtrl', function($scope, ModalService, jobListService) {
+app.controller('splashCtrl', function($scope, ModalService, authService) {
 
   $scope.test = 'splashCtrl connected';
 
@@ -13,8 +13,7 @@ app.controller('splashCtrl', function($scope, ModalService, jobListService) {
   };
 
   $scope.submitLogin = function(hero) {
-    console.log(hero);
-    jobListService.submitHero(hero)
+    authService.login(hero)
     .then(function(response){
       console.log(response);
     });
