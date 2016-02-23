@@ -1,41 +1,55 @@
+/**
+ * Created by brandonhebbert on 2/22/16.
+ */
 angular.module('app')
-  .service('heroService', function($http) {
+  .service('jobService', function($http) {
 
-    this.getHeroes = function() {
+    this.createJob = function(job) {
       return $http({
-          method: 'GET',
-          url: '/api/hero'
+          method: 'POST',
+          url: '/api/job',
+          data: job
         })
         .then(function(response) {
           return response.data;
         });
     };
 
-    this.getHero = function(id) {
+    this.getJobs = function() {
       return $http({
           method: 'GET',
-          url: '/api/hero?_id=' + id
+          url: '/api/job'
         })
         .then(function(response) {
           return response.data;
         });
     };
 
-    this.editHero = function(id, hero) {
+    this.getJob = function(id) {
+      return $http({
+          method: 'GET',
+          url: '/api/job?_id=' + id
+        })
+        .then(function(response) {
+          return response.data;
+        });
+    };
+
+    this.editJob = function(id, job) {
       return $http({
           method: 'PUT',
-          url: '/api/hero/' + id,
-          data: hero
+          url: '/api/job/' + id,
+          data: job
         })
         .then(function(response) {
           return response.data;
         });
     };
 
-    this.removeHero = function(id) {
+    this.deleteJob = function(id) {
       return $http({
           method: 'DELETE',
-          url: '/api/hero/' + id
+          url: '/api/job/' + id
         })
         .then(function(response) {
           return response.data;

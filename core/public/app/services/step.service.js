@@ -1,41 +1,52 @@
 angular.module('app')
-  .service('heroService', function($http) {
+  .service('stepService', function($http) {
 
-    this.getHeroes = function() {
+    this.createStep = function(step) {
       return $http({
-          method: 'GET',
-          url: '/api/hero'
+          method: 'POST',
+          url: '/api/step',
+          data: step
         })
         .then(function(response) {
           return response.data;
         });
     };
 
-    this.getHero = function(id) {
+    this.getSteps = function() {
       return $http({
           method: 'GET',
-          url: '/api/hero?_id=' + id
+          url: '/api/step'
         })
         .then(function(response) {
           return response.data;
         });
     };
 
-    this.editHero = function(id, hero) {
+    this.getStep = function(id) {
+      return $http({
+          method: 'GET',
+          url: '/api/step?_id=' + id
+        })
+        .then(function(response) {
+          return response.data;
+        });
+    };
+
+    this.editStep = function(id, step) {
       return $http({
           method: 'PUT',
-          url: '/api/hero/' + id,
-          data: hero
+          url: '/api/step/' + id,
+          data: step
         })
         .then(function(response) {
           return response.data;
         });
     };
 
-    this.removeHero = function(id) {
+    this.deleteStep = function(id) {
       return $http({
           method: 'DELETE',
-          url: '/api/hero/' + id
+          url: '/api/step/' + id
         })
         .then(function(response) {
           return response.data;

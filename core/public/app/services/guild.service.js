@@ -1,41 +1,52 @@
 angular.module('app')
-  .service('heroService', function($http) {
+  .service('guildService', function($http) {
 
-    this.getHeroes = function() {
+    this.createGuild = function(guild) {
       return $http({
-          method: 'GET',
-          url: '/api/hero'
+          method: 'POST',
+          url: '/api/guild',
+          data: guild
         })
         .then(function(response) {
           return response.data;
         });
     };
 
-    this.getHero = function(id) {
+    this.getGuilds = function() {
       return $http({
           method: 'GET',
-          url: '/api/hero?_id=' + id
+          url: '/api/guild'
         })
         .then(function(response) {
           return response.data;
         });
     };
 
-    this.editHero = function(id, hero) {
+    this.getGuild = function(id) {
+      return $http({
+          method: 'GET',
+          url: '/api/guild?_id=' + id
+        })
+        .then(function(response) {
+          return response.data;
+        });
+    };
+
+    this.editGuild = function(id, guild) {
       return $http({
           method: 'PUT',
-          url: '/api/hero/' + id,
-          data: hero
+          url: '/api/guild/' + id,
+          data: guild
         })
         .then(function(response) {
           return response.data;
         });
     };
 
-    this.removeHero = function(id) {
+    this.deleteGuild = function(id) {
       return $http({
           method: 'DELETE',
-          url: '/api/hero/' + id
+          url: '/api/guild/' + id
         })
         .then(function(response) {
           return response.data;
