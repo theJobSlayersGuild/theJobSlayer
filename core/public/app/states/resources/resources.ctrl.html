@@ -1,5 +1,10 @@
-resources view
-
 <dir-nav-bar></dir-nav-bar>
-
-{{test}}
+<h1>Resources</h1>
+<button ng-click="openNewResourceModal()">Add New Resource</button>
+<div class="resourcesWrapper" ng-repeat="resource in resources">
+   <div class="resource">
+       {{resource.title}} | {{resource.url}} | {{resource.description}}
+   </div>
+    
+   
+</div>
