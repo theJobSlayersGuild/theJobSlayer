@@ -1,5 +1,5 @@
 
-app.controller('guildMasterCtrl', function ($scope, ModalService) {
+app.controller('guildMasterCtrl', function ($scope, ModalService, guildService, hero) {
 
     $scope.test = 'guildMasterCtrl connected';
 
@@ -12,6 +12,13 @@ app.controller('guildMasterCtrl', function ($scope, ModalService) {
       });
     };
 
-    // $scope.guild = 
+    $scope.getGuilds = function() {
+      guildService.getGuildsByMaster(hero._id)
+      .then(function(response){
+        $scope.guilds = response;
+      });
+    };
+
+    $scope.getGuilds();
 
 });

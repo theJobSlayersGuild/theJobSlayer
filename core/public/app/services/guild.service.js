@@ -32,6 +32,16 @@ angular.module('app')
         });
     };
 
+    this.getGuildsByMaster = function(id) {
+      return $http({
+          method: 'GET',
+          url: '/api/guild?_guildMaster=' + id
+        })
+        .then(function(response) {
+          return response.data;
+        });
+    };
+
     this.editGuild = function(id, guild) {
       return $http({
           method: 'PUT',

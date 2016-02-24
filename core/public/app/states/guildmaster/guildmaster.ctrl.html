@@ -5,10 +5,16 @@ guildmaster view
 <div>GUILDMASTER</div>
 <div><button ng-click="openGuildModal()">New Guild</button></div>
 
-<div>Job Slayers Guild{{guild.name}}</div>
-<button>Edit</button>
-<button>Delete</button>
-<div ng-repeat="member in guild"></div>
+
+<div ng-repeat="guild in guilds">
+  Job Slayers Guild{{guild.name}}
+  <button>Edit</button>
+  <button>Delete</button>
+  {{guild._guildMaster.name}}
+  <div ng-repeat="member in guild._guildMembers">
+    {{member.name}}
+  </div>
+</div>
 {{member.name}}
 
 {{test}}

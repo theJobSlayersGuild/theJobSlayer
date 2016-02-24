@@ -23,4 +23,14 @@ angular.module('app')
         });
     };
 
+    this.currentHero = function() {
+      return $http({
+        method: 'GET',
+        url: '/api/me'
+      })
+      .then(function(response) {
+        return response;
+      });
+    };
+
   });
