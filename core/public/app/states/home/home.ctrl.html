@@ -34,14 +34,14 @@
 </div>
 
 <div>
-  <h2>Jedi Goat Says:</h2>
-  <div ng-show="tip === 0">
-    A resume is a powerful weapon in the fight against No Jobba.
-    <input type="text" ng-model="resumeUrl"><button ng-click="addResume(resumeUrl)">I have a resume!</button>
+  <h2>Jedi Infinite Wisdom Goat Wizard Says:</h2>
+  <div>
+    {{ tip.text }}
+    <input type="text"><button ng-click="addResume(resumeUrl)">I have a resume!</button>
   </div>
 
   <div ng-show="tip === 1">
-    In this battle, a LinkedIn profile is your first line of defense.
+
     <input type="text" ng-model="linkedInUrl"><button ng-click="addLinkedIn(linkedInUrl)">I have a LinkedIn Account!</button>
   </div>
 

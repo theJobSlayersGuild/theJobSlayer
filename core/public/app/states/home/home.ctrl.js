@@ -1,40 +1,43 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope) {
+  .controller('homeCtrl', function($scope, authService) {
 
-    //set $scope.hero = currentUser, hit /me endpoint
+    // $scope.hero = authService.currentHero;
 
     $scope.hero = {
-      email: '3chordme@gmail.com',
-      password: '$2a$10$ezhZdjmo7mmGbCh64/K4uugceF0UeC4kqOSxZ7KGn.AQ7ZK9LW3ZO',
-      name: 'David Moore',
-      title: 'the Barbarian',
-      profileImage: './assets/images/angry_unicorn.png',
-      dateCreated: new Date(),
-      xp: 834,
-      level: 1,
-      equipment: {
-        resume: {
-          name: 'Resume',
-          url: 'https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-primary-button',
-          done: true
+      "email": '3chordme@gmail.com',
+      "password": '$2a$10$ezhZdjmo7mmGbCh64/K4uugceF0UeC4kqOSxZ7KGn.AQ7ZK9LW3ZO',
+      "name": 'David Moore',
+      "title": 'the Barbarian',
+      "profileImage": './assets/images/angry_unicorn.png',
+      "dateCreated": new Date(),
+      "xp": 834,
+      "level": 1,
+      "equipment": {
+        "resume": {
+          "name": 'Resume',
+          "url": 'https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-primary-button',
+          "done": true
         },
-        linkedin: {
-          name: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/davidcollinsmoore',
-          done: true
+        "linkedin": {
+          "name": 'LinkedIn',
+          "url": 'https://www.linkedin.com/in/davidcollinsmoore',
+          "done": true
         },
-        portfolioSite: {
-          name: 'Portfolio',
-          done: false
+        "portfolioSite": {
+          "name": 'Portfolio',
+          "done": false
         },
-        meetups: 2,
-        skills: ['HTML', 'CSS', 'AngularJS', 'NodeJS', 'mongoose'],
-        projects: [{
-          name: 'Wearther'
-        }, {
-          name: 'Reviewnicorn',
-          url: 'https://limitless-shelf-17558.herokuapp.com/#/login'
-        }]
+        "meetups": 2,
+        "skills": ['HTML', 'CSS', 'AngularJS', 'NodeJS', 'mongoose'],
+        "projects": [
+          {
+          "name": 'Wearther'
+          },
+          {
+          "name": 'Reviewnicorn',
+          "url": 'https://limitless-shelf-17558.herokuapp.com/#/login'
+          }
+        ]
       }
     };
 
@@ -77,14 +80,48 @@ angular.module('app')
         break;
     }
 
-    $scope.tip = 0;
+    $scope.tips = [{
+      title: "resume",
+      text: "A resume is a powerful weapon in the fight against No Jobba."
+      // input: true,
+      // buttonText: "I have a resume!"
+    }, {
+      title: "linkedin",
+      text: "In this battle, a LinkedIn profile is your first line of defense."
+    }];
+
+    for (var i = 0; i < $scope.tips.length; i++) {
+      if ($scope.tips[i].title === "resume" && hero.equipment.resume.done) {
+        $scope.tips.splice(i, 1);
+      }
+      if ($scope.tips[i].title === "linkedin" && hero.equipment.linkedin.done) {
+        $scope.tips.splice(i, 1);
+      }
+      if ($scope.tips[i].title === "portfolioSite" && hero.equipment.portfolioSite.done) {
+        $scope.tips.splice(i, 1);
+      }
+    }
+
+    var num = 0;
+
+    $scope.goatSays = $scope.tips[num];
 
     $scope.nextTip = function() {
-
+      if (num < $scope.tips.length) {
+        num++;
+      } else {
+        num = 0;
+      }
+      //before this, previousTip button is hidden
+      //on click, show previousTip button.
     };
 
     $scope.previousTip = function() {
-
+      if (num < $scope.tips.length) {
+        num--;
+      } else {
+        num = $scope.tips.length;
+      }
     };
 
     //other helmet ideas: batman mask? football helmet? propeller beanie? baseball hat with tag attached?
