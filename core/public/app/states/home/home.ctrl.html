@@ -1,27 +1,68 @@
 <dir-nav-bar></dir-nav-bar>
-<h1>Home</h1>
 
 <h1>Jobba: the Hunt</h1>
 
 <h2>Home</h2>
 
-<p>This is a paragraph of text</p>
+<img class="homeImage" ng-src="{{hero.profileImage}}" style="display: inline-block" />
 
-<img class="homeImage" ng-src="{{hero.profileImage}}"/>
+<div style="display: inline-block">
+  <br />Name: {{hero.name}} {{hero.title}}
+  <br />Level: {{hero.level}}
+  <br />XP: {{hero.xp}}
+  <br />Playing Since: {{hero.dateCreated | date:'shortDate'}}
+  <br />INVENTORY
+  <br />Armor:
+  <span ng-show="hero.equipment.linkedin.done">{{armor}}</span>
+  <span ng-hide="hero.equipment.linkedin.done">None</span>
+  <br />Weapon:
+  <span ng-show="hero.equipment.resume.done">{{weapon}}</span>
+  <span ng-hide="hero.equipment.resume.done">None</span>
+  <br />Shield:
+  <span ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
+  <span ng-hide="hero.equipment.portfolioSite.done">None</span>
+  <!-- <br />Helmet:
+  <span ng-show="hero.equipment.portfolioSite.done">{{helmet}}</span> -->
+  <!-- <span ng-hide="hero.equipment.portfolioSite.done">None</span> -->
+  <br />{{hero.equipment.projects.length}} Majickal Gemeralds
+  <br />{{hero.equipment.skills.length}} Spellbooks
+  <br />{{hero.equipment.meetups}} Gold Pieces <!-- maybe a new contact is gold, meetup is silver? -->
 
-<br />Name: {{hero.name}} {{hero.title}}
-<br />XP: {{hero.xp}}
-<br />Level: {{hero.level}}
-<br />Email: {{hero.email}}
-<br />Date Created: {{hero.dateCreated | date:'shortDate'}}
-<br />EQUIPMENT:
-<br />Resume: {{hero.equipment.resume.url}}
-<br />LinkedIn: {{hero.equipment.linked.url}}
-<br />Portfolio Site: {{hero.equipment.portfolioSite.url}}
-<br />Meetups: {{hero.equipment.meetups}}
-<br />Skills: <span ng-repeat="skill in hero.equipment.skills">{{skill}} </span>
-<br />
 
-<h2>Current Quests</h2>
+  <!-- <br />Skills: <span ng-repeat="skill in hero.equipment.skills">{{skill}} </span> -->
+  <br />
+</div>
 
-<h2>Bounty Board</h2>
+<div>
+  <h2>Jedi Goat Says:</h2>
+  <div ng-show="tip === 0">
+    A resume is a powerful weapon in the fight against No Jobba.
+    <input type="text" ng-model="resumeUrl"><button ng-click="addResume(resumeUrl)">I have a resume!</button>
+  </div>
+
+  <div ng-show="tip === 1">
+    In this battle, a LinkedIn profile is your first line of defense.
+    <input type="text" ng-model="linkedInUrl"><button ng-click="addLinkedIn(linkedInUrl)">I have a LinkedIn Account!</button>
+  </div>
+
+  <div ng-show="tip === 2">
+    You don't have a website? You're practically naked.
+    <input type="text" ng-model="linkedInUrl"><button ng-click="addLinkedIn(linkedInUrl)">I have a LinkedIn Account!</button>
+  </div>
+</div>
+<button ng-click="nextTip()">Next Tip</button>
+<button ng-click="previousTip()">Previous Tip</button>
+
+<div>
+  <h2>Current Quests</h2>
+  <p>quest 1 progress</p>
+  <p>quest 2 progress</p>
+  <p>quest 3 progress</p>
+  <p>quest 4 progress</p>
+</div>
+
+<div>
+  <h2>Bounty Board</h2>
+
+  <p>job directive here</p>
+</div>
