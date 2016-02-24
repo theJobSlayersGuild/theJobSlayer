@@ -2,4 +2,19 @@ guildmaster view
 
 <dir-nav-bar></dir-nav-bar>
 
+<div>GUILDMASTER</div>
+<div><button ng-click="openGuildModal()">New Guild</button></div>
+
+
+<div ng-repeat="guild in guilds">
+  {{guild.name}}
+  <button>Edit</button>
+  <button>Delete</button>
+  {{guild._guildMaster.email}}
+  <div ng-repeat="member in guild._guildMembers">
+    {{member.email}}
+  </div>
+</div>
+{{member.name}}
+
 {{test}}

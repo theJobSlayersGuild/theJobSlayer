@@ -22,7 +22,7 @@ var jobCtrl = require('./controllers/jobCtrl');
 var guildCtrl = require('./controllers/guildCtrl');
 var questCtrl = require('./controllers/questCtrl');
 var stepCtrl = require('./controllers/stepCtrl');
-var resourceCtrl = require('./controllers/resourceCtrl')
+var resourceCtrl = require('./controllers/resourceCtrl');
 
 //EXPRESS
 

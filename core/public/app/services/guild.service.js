@@ -2,12 +2,14 @@ angular.module('app')
   .service('guildService', function($http) {
 
     this.createGuild = function(guild) {
+      console.log(guild);
       return $http({
           method: 'POST',
           url: '/api/guild',
           data: guild
         })
         .then(function(response) {
+          console.log(response);
           return response.data;
         });
     };
@@ -26,6 +28,16 @@ angular.module('app')
       return $http({
           method: 'GET',
           url: '/api/guild?_id=' + id
+        })
+        .then(function(response) {
+          return response.data;
+        });
+    };
+
+    this.getGuildsByMaster = function(id) {
+      return $http({
+          method: 'GET',
+          url: '/api/guild?_guildMaster=' + id
         })
         .then(function(response) {
           return response.data;
