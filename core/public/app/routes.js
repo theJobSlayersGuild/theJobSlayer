@@ -31,8 +31,19 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('guildmaster', {
             url: '/guildmaster',
             templateUrl: './app/states/guildmaster/guildmaster.ctrl.html',
-            controller: 'guildMasterCtrl'
-        })
+            controller: 'guildMasterCtrl',
+            resolve: {
+              hero: function(authService, $state){
+                return authService.currentHero()
+                .then(function(response){
+                  if (response.status !== 200) {
+                    $state.go('splash');
+                  }
+                  return response.data;
+                });
+              }
+            }
+        });
 
     $urlRouterProvider
         .otherwise('splash');
