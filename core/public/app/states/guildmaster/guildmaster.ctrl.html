@@ -8,11 +8,11 @@ guildmaster view
 
 <div ng-repeat="guild in guilds">
   {{guild.name}}
-  <button>Edit</button>
-  <button>Delete</button>
-  {{guild._guildMaster.email}}
+  <button ng-click="openEditGuildModal(guild)">Edit</button>
+  <button ng-click="deleteGuild(guild._id)">Delete</button>
+  {{guild._guildMaster.name}}
   <div ng-repeat="member in guild._guildMembers">
-    {{member.email}}
+    {{member.name}}
   </div>
 </div>
 {{member.name}}
