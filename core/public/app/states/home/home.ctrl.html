@@ -1,27 +1,44 @@
 <dir-nav-bar></dir-nav-bar>
-<h1>Home</h1>
 
 <h1>Jobba: the Hunt</h1>
 
 <h2>Home</h2>
 
-<p>This is a paragraph of text</p>
+<img class="homeImage" ng-src="{{hero.profileImage}}" style="display: inline-block" />
 
-<img class="homeImage" ng-src="{{hero.profileImage}}"/>
+<div style="display: inline-block">
+  <br />Name: {{hero.name}} {{hero.title}}
+  <br />Level: {{hero.level}}
+  <br />XP: {{hero.xp}}
+  <br />Playing Since: {{hero.dateCreated | date:'shortDate'}}
+  <br />EQUIPMENT:
+  <br />Armor:
+  <span ng-show="hero.equipment.linkedin.done">{{armor}}</span>
+  <span ng-hide="hero.equipment.linkedin.done">None</span>
+  <br />Weapon:
+  <span ng-show="hero.equipment.resume.done">{{weapon}}</span>
+  <span ng-hide="hero.equipment.resume.done">None</span>
+  <br />Shield:
+  <span ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
+  <span ng-hide="hero.equipment.portfolioSite.done">None</span>
+  <!-- <br />Helmet:
+  <span ng-show="hero.equipment.portfolioSite.done">{{helmet}}</span> -->
+  <!-- <span ng-hide="hero.equipment.portfolioSite.done">None</span> -->
+  <br />Meetups: {{hero.equipment.meetups}}
+  <br />Skills: <span ng-repeat="skill in hero.equipment.skills">{{skill}} </span>
+  <br />
+</div>
 
-<br />Name: {{hero.name}} {{hero.title}}
-<br />XP: {{hero.xp}}
-<br />Level: {{hero.level}}
-<br />Email: {{hero.email}}
-<br />Date Created: {{hero.dateCreated | date:'shortDate'}}
-<br />EQUIPMENT:
-<br />Resume: {{hero.equipment.resume.url}}
-<br />LinkedIn: {{hero.equipment.linked.url}}
-<br />Portfolio Site: {{hero.equipment.portfolioSite.url}}
-<br />Meetups: {{hero.equipment.meetups}}
-<br />Skills: <span ng-repeat="skill in hero.equipment.skills">{{skill}} </span>
-<br />
+<div>
+  <h2>Current Quests</h2>
+  <p>quest 1 progress</p>
+  <p>quest 2 progress</p>
+  <p>quest 3 progress</p>
+  <p>quest 4 progress</p>
+</div>
 
-<h2>Current Quests</h2>
+<div>
+  <h2>Bounty Board</h2>
 
-<h2>Bounty Board</h2>
+  <p>job directive here</p>
+</div>

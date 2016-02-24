@@ -6,7 +6,7 @@ angular.module('app')
           password: '$2a$10$ezhZdjmo7mmGbCh64/K4uugceF0UeC4kqOSxZ7KGn.AQ7ZK9LW3ZO',
           name: 'David Moore',
           title: 'the Barbarian',
-          profileImage: 'https://github.com/images/error/angry_unicorn.png',
+          profileImage: './assets/images/angry_unicorn.png',
           dateCreated: new Date(),
           xp: 834,
           level: 1,
@@ -36,5 +36,57 @@ angular.module('app')
             }]
           }
         };
+
+        switch ($scope.hero.level) {
+          case 1:
+            $scope.weapon = "Thumping Stick";
+            $scope.shield = "Stop Sign";
+            $scope.armor = "Peasant Robe";
+            $scope.helmet = "Feathered Cap";
+            break;
+          case 2:
+            $scope.weapon = "Dagger";
+            $scope.shield = "Buckler";
+            $scope.armor = "Leather Armor";
+            $scope.helmet = "Viking Helmet";
+            break;
+          case 3:
+            $scope.weapon = "Warhammer";
+            $scope.shield = "Wooden Shield";
+            $scope.armor = "Chain Mail";
+            $scope.helmet = "Spartan Helmet";
+            break;
+          case 4:
+            $scope.weapon = "Longsword";
+            $scope.shield = "Steel Shield";
+            $scope.armor = "Plate Mail";
+            $scope.helmet = "Knight Helmet";
+            break;
+          case 5:
+            $scope.weapon = "Battle Axe";
+            $scope.shield = "Mithril Tower Shield";
+            $scope.armor = "Spiked Plate Mail";
+            $scope.helmet = "Dragon Skull Helmet";
+            break;
+          case 6:
+            $scope.weapon = "Lightsaber";
+            $scope.shield = "Legendary Golden Shield of Aslan";
+            $scope.armor = "Dragon Scale Armor";
+            $scope.helmet = "Darth Vader Helmet";
+            break;
+          }
+
+        //AVATAR DISPLAY:
+
+        //if (linkedin url) { weapon }
+        //if (resume) { shield }
+        //if (portfolio site) { hat }
+
+        //other helmets batman mask? football helmet? propeller beanie? baseball hat with tag attached?
+
+        //meetups = silver coins
+        //what about networking contacts? gold coins?
+        //skills = potions
+        //projects = gems
 
     });
