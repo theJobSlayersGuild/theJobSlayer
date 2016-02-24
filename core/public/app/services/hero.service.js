@@ -21,6 +21,16 @@ angular.module('app')
         });
     };
 
+    this.getHeroByEmail = function(email) {
+      return $http({
+          method: 'GET',
+          url: '/api/hero?email=' + email
+        })
+        .then(function(response) {
+          return response.data;
+        });
+    };
+
     this.editHero = function(id, hero) {
       return $http({
           method: 'PUT',

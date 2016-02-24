@@ -7,12 +7,12 @@ guildmaster view
 
 
 <div ng-repeat="guild in guilds">
-  Job Slayers Guild{{guild.name}}
+  {{guild.name}}
   <button>Edit</button>
   <button>Delete</button>
-  {{guild._guildMaster.name}}
+  {{guild._guildMaster.email}}
   <div ng-repeat="member in guild._guildMembers">
-    {{member.name}}
+    {{member.email}}
   </div>
 </div>
 {{member.name}}

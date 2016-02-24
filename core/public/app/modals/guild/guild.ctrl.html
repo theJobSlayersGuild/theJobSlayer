@@ -1,5 +1,10 @@
 <div class="overlay">
-  TEST
+  Guild Name: <input ng-model="guild.name" placeholder:"Guild Name">
+  Add User:<input ng-model="newMember" type="email" placeholder="User Email">
+  <button ng-click="addMember(newMember)">Add</button>
+  <div ng-repeat="member in members">
+    {{member.email}}
+  </div>
 <button ng-click="addGuild(guild)">SUBMIT</button>
 </div>
 

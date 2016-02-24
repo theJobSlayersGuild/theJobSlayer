@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema({
+var resourceSchema = mongoose.Schema({
 
     title: { type: String, required: true },
     url: { type: String, required: true },
@@ -10,4 +10,4 @@ var Schema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('', Schema);
+module.exports = mongoose.model('Resource', resourceSchema);

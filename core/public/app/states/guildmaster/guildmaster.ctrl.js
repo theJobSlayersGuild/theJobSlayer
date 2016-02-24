@@ -6,9 +6,14 @@ app.controller('guildMasterCtrl', function ($scope, ModalService, guildService, 
     $scope.openGuildModal = function() {
       ModalService.showModal({
         templateUrl: "./app/modals/guild/guild.ctrl.html",
-        controller: "guildCtrl"
+        controller: "guildCtrl",
+        inputs: {
+          _guildMaster: hero._id
+        }
       }).then(function(modal) {
-        modal.close.then(function(then) {});
+        modal.close.then(function(then) {
+          $scope.getGuilds();
+        });
       });
     };
 

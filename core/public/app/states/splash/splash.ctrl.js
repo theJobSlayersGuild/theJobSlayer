@@ -1,4 +1,4 @@
-app.controller('splashCtrl', function($scope, ModalService, authService) {
+app.controller('splashCtrl', function($state, $scope, ModalService, authService) {
 
   $scope.test = 'splashCtrl connected';
 
@@ -7,8 +7,8 @@ app.controller('splashCtrl', function($scope, ModalService, authService) {
       templateUrl: "./app/modals/signup/signup.ctrl.html",
       controller: "signUpCtrl"
     }).then(function(modal) {
-      // Function that runs when modal closes
-      modal.close.then(function(then) {});
+      modal.close.then(function(then) {
+      });
     });
   };
 
@@ -16,6 +16,7 @@ app.controller('splashCtrl', function($scope, ModalService, authService) {
     authService.login(hero)
     .then(function(response){
       console.log(response);
+      $state.go('home');
     });
   };
 
