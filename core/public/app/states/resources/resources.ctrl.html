@@ -3,7 +3,7 @@
 <button ng-click="openNewResourceModal()">Add New Resource</button>
 <div class="resourcesWrapper" ng-repeat="resource in resources">
    <div class="resource">
-       {{resource.title}} | {{resource.url}} | {{resource.description}}
+       {{resource._author.name}} | {{resource.title}} | <a href="{{resource.url}}">{{resource.url}}</a> | {{resource.description}}
    </div>
     
    

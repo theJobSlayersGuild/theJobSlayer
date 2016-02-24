@@ -12,7 +12,9 @@ module.exports = {
     },
 
     readResources: function (req, res) {
-        Resource.find(req.query, function(err, result) {
+        Resource.find(req.query)
+        .populate('_author')
+        .exec(function(err, result) {
             if (err) {
                 res.status(500).send(err);
             }
