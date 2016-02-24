@@ -11,7 +11,7 @@
   <br />Level: {{hero.level}}
   <br />XP: {{hero.xp}}
   <br />Playing Since: {{hero.dateCreated | date:'shortDate'}}
-  <br />INVENTORY
+  <br />INVENTORY <button>?</button>
   <br />Armor:
   <span ng-show="hero.equipment.linkedin.done">{{armor}}</span>
   <span ng-hide="hero.equipment.linkedin.done">None</span>
@@ -36,7 +36,7 @@
 <div>
   <h2>Jedi Infinite Wisdom Goat Wizard Says:</h2>
   <div>
-    {{ tip.text }}
+    {{ goatSays.text }}
     <input type="text"><button ng-click="addResume(resumeUrl)">I have a resume!</button>
   </div>
 
@@ -50,8 +50,8 @@
     <input type="text" ng-model="linkedInUrl"><button ng-click="addLinkedIn(linkedInUrl)">I have a LinkedIn Account!</button>
   </div>
 </div>
+<button ng-show="showPreviousButton" ng-click="previousTip()">Previous Tip</button>
 <button ng-click="nextTip()">Next Tip</button>
-<button ng-click="previousTip()">Previous Tip</button>
 
 <div>
   <h2>Current Quests</h2>

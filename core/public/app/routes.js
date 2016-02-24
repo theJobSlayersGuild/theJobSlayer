@@ -11,22 +11,66 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('home', {
             url: '/home',
             templateUrl: './app/states/home/home.ctrl.html',
-            controller: 'homeCtrl'
+            controller: 'homeCtrl',
+            resolve: {
+              hero: function(authService, $state){
+                return authService.currentHero()
+                .then(function(response){
+                  if (response.status !== 200) {
+                    $state.go('splash');
+                  }
+                  return response.data;
+                });
+              }
+            }
         })
         .state('profile', {
             url: '/profile',
             templateUrl: './app/states/profile/profile.ctrl.html',
-            controller: 'profileCtrl'
+            controller: 'profileCtrl',
+            resolve: {
+              hero: function(authService, $state){
+                return authService.currentHero()
+                .then(function(response){
+                  if (response.status !== 200) {
+                    $state.go('splash');
+                  }
+                  return response.data;
+                });
+              }
+            }
         })
         .state('jobs', {
             url: '/jobs',
             templateUrl: './app/states/jobs/jobs.ctrl.html',
-            controller: 'jobsCtrl'
+            controller: 'jobsCtrl',
+            resolve: {
+              hero: function(authService, $state){
+                return authService.currentHero()
+                .then(function(response){
+                  if (response.status !== 200) {
+                    $state.go('splash');
+                  }
+                  return response.data;
+                });
+              }
+            }
         })
         .state('resources', {
             url: '/resources',
             templateUrl: './app/states/resources/resources.ctrl.html',
-            controller: 'resourcesCtrl'
+            controller: 'resourcesCtrl',
+            resolve: {
+              hero: function(authService, $state){
+                return authService.currentHero()
+                .then(function(response){
+                  if (response.status !== 200) {
+                    $state.go('splash');
+                  }
+                  return response.data;
+                });
+              }
+            }
         })
         .state('guildmaster', {
             url: '/guildmaster',

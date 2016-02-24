@@ -2,6 +2,11 @@ app.controller('splashCtrl', function($state, $scope, ModalService, authService)
 
   $scope.test = 'splashCtrl connected';
 
+  $scope.hero = {
+    email: "dood@dood.com",
+    password: "dood"
+  }
+
   $scope.openSignUpModal = function() {
     ModalService.showModal({
       templateUrl: "./app/modals/signup/signup.ctrl.html",
