@@ -77,6 +77,16 @@ angular.module('app')
         break;
     }
 
+    $scope.tip = 0;
+
+    $scope.nextTip = function() {
+
+    };
+
+    $scope.previousTip = function() {
+
+    };
+
     //other helmet ideas: batman mask? football helmet? propeller beanie? baseball hat with tag attached?
 
     //find all quests where _hero === currentUser, populate _job, populate the _steps, make an array of those quests, ng-repeat through them on the template. Also display the progress. Ugh. Too tired to even fake-code this. Goodnight.
