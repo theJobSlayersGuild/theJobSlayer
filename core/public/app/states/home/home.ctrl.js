@@ -1,48 +1,49 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope, authService) {
+  .controller('homeCtrl', function($scope, hero) {
 
-    // $scope.hero = authService.currentHero();
-    // console.log($scope.hero);
+    $scope.hero = hero;
 
+    console.log($scope.hero);
 
-    $scope.hero = {
-      "email": '3chordme@gmail.com',
-      "password": '$2a$10$ezhZdjmo7mmGbCh64/K4uugceF0UeC4kqOSxZ7KGn.AQ7ZK9LW3ZO',
-      "name": 'David Moore',
-      "title": 'the Barbarian',
-      "profileImage": './assets/images/angry_unicorn.png',
-      "dateCreated": new Date(),
-      "xp": 834,
-      "level": 1,
-      "equipment": {
-        "resume": {
-          "name": 'Resume',
-          "url": 'https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-primary-button',
-          "done": false
-        },
-        "linkedin": {
-          "name": 'LinkedIn',
-          "url": 'https://www.linkedin.com/in/davidcollinsmoore',
-          "done": false
-        },
-        "portfolioSite": {
-          "name": 'Portfolio',
-          "done": false
-        },
-        "meetups": 2,
-        "skills": ['HTML', 'CSS', 'AngularJS', 'NodeJS', 'mongoose'],
-        "projects": [
-          {
-          "name": 'Wearther'
-          },
-          {
-          "name": 'Reviewnicorn',
-          "url": 'https://limitless-shelf-17558.herokuapp.com/#/login'
-          }
-        ]
-      }
-    };
-
+    //
+    // $scope.hero = {
+    //   "email": '3chordme@gmail.com',
+    //   "password": '$2a$10$ezhZdjmo7mmGbCh64/K4uugceF0UeC4kqOSxZ7KGn.AQ7ZK9LW3ZO',
+    //   "name": 'David Moore',
+    //   "title": 'the Barbarian',
+    //   "profileImage": './assets/images/angry_unicorn.png',
+    //   "dateCreated": new Date(),
+    //   "xp": 834,
+    //   "level": 1,
+    //   "equipment": {
+    //     "resume": {
+    //       "name": 'Resume',
+    //       "url": 'https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-primary-button',
+    //       "done": false
+    //     },
+    //     "linkedin": {
+    //       "name": 'LinkedIn',
+    //       "url": 'https://www.linkedin.com/in/davidcollinsmoore',
+    //       "done": false
+    //     },
+    //     "portfolioSite": {
+    //       "name": 'Portfolio',
+    //       "done": false
+    //     },
+    //     "meetups": 2,
+    //     "skills": ['HTML', 'CSS', 'AngularJS', 'NodeJS', 'mongoose'],
+    //     "projects": [
+    //       {
+    //       "name": 'Wearther'
+    //       },
+    //       {
+    //       "name": 'Reviewnicorn',
+    //       "url": 'https://limitless-shelf-17558.herokuapp.com/#/login'
+    //       }
+    //     ]
+    //   }
+    // };
+    //
     switch ($scope.hero.level) {
       case 1:
         $scope.weapon = "Thumping Stick";
