@@ -11,7 +11,7 @@
   <br />Level: {{hero.level}}
   <br />XP: {{hero.xp}}
   <br />Playing Since: {{hero.dateCreated | date:'shortDate'}}
-  <br />EQUIPMENT:
+  <br />INVENTORY
   <br />Armor:
   <span ng-show="hero.equipment.linkedin.done">{{armor}}</span>
   <span ng-hide="hero.equipment.linkedin.done">None</span>
@@ -24,8 +24,12 @@
   <!-- <br />Helmet:
   <span ng-show="hero.equipment.portfolioSite.done">{{helmet}}</span> -->
   <!-- <span ng-hide="hero.equipment.portfolioSite.done">None</span> -->
-  <br />Meetups: {{hero.equipment.meetups}}
-  <br />Skills: <span ng-repeat="skill in hero.equipment.skills">{{skill}} </span>
+  <br />{{hero.equipment.projects.length}} Majickal Gemeralds
+  <br />{{hero.equipment.skills.length}} Spellbooks
+  <br />{{hero.equipment.meetups}} Gold Pieces <!-- maybe a new contact is gold, meetup is silver? -->
+
+
+  <!-- <br />Skills: <span ng-repeat="skill in hero.equipment.skills">{{skill}} </span> -->
   <br />
 </div>
 
