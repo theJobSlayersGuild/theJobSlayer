@@ -7,7 +7,7 @@ angular.module('app')
           name: 'David Moore',
           title: 'the Barbarian',
           profileImage: 'https://github.com/images/error/angry_unicorn.png',
-          dateCreated: 'Tue Feb 23 2016 16:42:51 GMT-0700 (MST)',
+          dateCreated: new Date(),
           xp: 834,
           level: 1,
           equipment: {

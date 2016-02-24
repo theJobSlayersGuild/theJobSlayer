@@ -9,4 +9,19 @@
 
 <img class="homeImage" ng-src="{{hero.profileImage}}"/>
 
-{{hero}}
+<br />Name: {{hero.name}} {{hero.title}}
+<br />XP: {{hero.xp}}
+<br />Level: {{hero.level}}
+<br />Email: {{hero.email}}
+<br />Date Created: {{hero.dateCreated | date:'shortDate'}}
+<br />EQUIPMENT:
+<br />Resume: {{hero.equipment.resume.url}}
+<br />LinkedIn: {{hero.equipment.linked.url}}
+<br />Portfolio Site: {{hero.equipment.portfolioSite.url}}
+<br />Meetups: {{hero.equipment.meetups}}
+<br />Skills: <span ng-repeat="skill in hero.equipment.skills">{{skill}} </span>
+<br />
+
+<h2>Current Quests</h2>
+
+<h2>Bounty Board</h2>
