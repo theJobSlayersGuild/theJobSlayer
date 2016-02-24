@@ -22,7 +22,7 @@ var jobCtrl = require('./controllers/jobCtrl');
 var guildCtrl = require('./controllers/guildCtrl');
 var questCtrl = require('./controllers/questCtrl');
 var stepCtrl = require('./controllers/stepCtrl');
-// var resourceCtrl = require('./controllers/resourceCtrl')
+var resourceCtrl = require('./controllers/resourceCtrl')
 
 //EXPRESS
 
@@ -83,10 +83,10 @@ app.put('/api/step/:id', isAuthed, stepCtrl.updateStep);
 app.delete('/api/step/:id', isAuthed, stepCtrl.deleteStep);
 
                 //RESOURCE
-// app.post('api/resource', isAuthed, resourceCtrl.addResource);
-// app.get('api/resource', isAuthed, resourceCtrl.readResources);
-// app.put('api/resource/:id', isAuthed, resourceCtrl.updateResource);
-// app.delete('api/resource/:id', isAuthed, resourceCtrl.deleteResource);
+app.post('/api/resource', resourceCtrl.createResource);
+app.get('/api/resource',  resourceCtrl.readResources);
+app.put('/api/resource/:id', isAuthed, resourceCtrl.updateResource);
+app.delete('/api/resource/:id', isAuthed, resourceCtrl.deleteResource);
 
 
 //CONNECTIONS
