@@ -1,5 +1,7 @@
 angular.module('app')
-    .controller('jobsCtrl', function ($scope) {
+    .controller('jobsCtrl', function ($scope, hero) {
+
+        $scope.hero = hero;
 
 
         $scope.test = 'jobsCtrl connected';
