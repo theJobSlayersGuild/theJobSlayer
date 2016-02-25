@@ -1,18 +1,21 @@
+<div class="guildmasterWrapper">
+
 <dir-nav-bar hero="hero"></dir-nav-bar>
 
-<div>GUILDMASTER</div>
+<div><h1>GUILDMASTER</h1></div>
 <div><button ng-click="openGuildModal()">New Guild</button></div>
+<br/>
 
-
-<div ng-repeat="guild in guilds">
-  {{guild.name}}
+<div class="guildList" ng-repeat="guild in guilds">
+  <h2>{{guild.name}}</h2>
   <button ng-click="openEditGuildModal(guild)">Edit</button>
   <button ng-click="deleteGuild(guild._id)">Delete</button>
-  {{guild._guildMaster.name}}
+  <p>GUILDMASTER:</p> {{guild._guildMaster.name}}
   <div ng-repeat="member in guild._guildMembers">
+    <p>GUILDMEMBERS: </p>
     {{member.name}}
   </div>
 </div>
 {{member.name}}
 
-{{test}}
+</div>
