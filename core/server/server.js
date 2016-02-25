@@ -72,7 +72,7 @@ app.delete('/api/guild/:id', isAuthed, guildCtrl.deleteGuild);
 
                 //QUEST
 app.post('/api/quest', isAuthed, questCtrl.createQuest);
-app.get('/api/quest', isAuthed, questCtrl.readQuests);
+app.get('/api/quest', questCtrl.readQuests);
 app.put('/api/quest/:id', isAuthed, questCtrl.updateQuest);
 app.delete('/api/quest/:id', isAuthed, questCtrl.deleteQuest);
 

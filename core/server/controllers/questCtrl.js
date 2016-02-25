@@ -12,12 +12,14 @@ module.exports = {
     },
 
     readQuests: function (req, res) {
-        Quest.find(req.query, function(err, result) {
+        Quest.find(req.query)
+        .populate('_job progress._step')
+        .exec(function(err, result) {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send(result)
-        })
+            res.status(200).send(result);
+        });
     },
 
     updateQuest: function (req, res) {

@@ -12,10 +12,10 @@ angular.module('app')
         });
     };
 
-      this.getQuests = function() {
+      this.getQuests = function(id) {
           return $http({
               method: 'GET',
-              url: '/api/quest'
+              url: '/api/quest?_hero=' + id
           })
           .then(function(response) {
               return response.data;
