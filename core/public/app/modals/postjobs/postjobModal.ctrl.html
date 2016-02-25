@@ -14,6 +14,9 @@
     <div><input ng-model="job.salary" type="text" placeholder="salary"></div>
     <div><input ng-model="job.equity" type="text" placeholder="equity"></div>
     <div><input ng-model="job.positionType" type="text" placeholder="positionType"></div>
+
+    <div><input ng-model="guild" type="text" placeholder="guilds"></div>
+    <button class="submitSkill" ng-click="submitGuild(guild)">submit skill</button>
     <!--public<input ng-model="job.public" type="checkbox">-->
     <div>
         <button ng-click="createQuest(job)">Post Job</button>
@@ -25,7 +28,7 @@
             <button ng-click="removeSkill(skill)">X</button>
         </div>
     </div>
-
+    {{}}
 </div>
 
 

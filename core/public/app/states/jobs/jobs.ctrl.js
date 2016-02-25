@@ -1,6 +1,6 @@
 angular.module('app')
 
-    .controller('jobsCtrl', function ($scope, ModalService, hero, jobService) {
+    .controller('jobsCtrl', function ($scope, ModalService, hero, jobService, guildService) {
 
         $scope.hero = hero;
 
@@ -12,6 +12,13 @@ angular.module('app')
         }
 
         $scope.getJobs();
+
+        /*$scope.getGuilds = function(hero) {
+            console.log(hero);
+           $scope.guilds =  guildService.getGuilds(hero)
+        }
+
+        $scope.getGuilds();*/
 
         $scope.openPostJobModal = function () {
             ModalService.showModal({

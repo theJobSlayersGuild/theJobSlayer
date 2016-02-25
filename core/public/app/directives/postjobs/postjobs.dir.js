@@ -7,7 +7,7 @@ angular.module('app')
                 job: '=',
                 hero: '='
             },
-            controller: function ($scope, jobService, questService, ModalService) {
+            controller: function ($scope, jobService, questService, ModalService, guildService) {
 
                 $scope.acceptQuest = function (jobId, heroId) {
                     questService.createQuest({_job: jobId, _hero: heroId})
@@ -22,6 +22,13 @@ angular.module('app')
                     jobService.deleteJob(jobId)
                     $scope.getJobs();
                 }
+
+                /*$scope.getGuild = function(hero) {
+                    guildService.getGuilds();
+                }
+
+                $scope.getGuild();*/
+
                 $scope.openEditJobModal = function (job) {
                     console.log(job, $scope.job);
                     ModalService.showModal({
@@ -36,3 +43,5 @@ angular.module('app')
             }
         }
     });
+
+//guild?_member =
