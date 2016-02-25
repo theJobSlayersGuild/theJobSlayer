@@ -3,16 +3,11 @@ angular.module('app')
         return {
             restrict: 'AE',
             templateUrl: './app/directives/postjobs/postjobs.dir.html',
-            controller: function ($scope, jobService, questService) {
-
-                $scope.getJobs = function () {
-                    jobService.getJobs()
-                        .then(function (response) {
-                            $scope.jobs = response;
-                        })
-                }
-
-                $scope.getJobs();
+            scope: {
+                job: '=',
+                hero: '='
+            },
+            controller: function ($scope, jobService, questService, ModalService) {
 
                 $scope.acceptQuest = function (jobId, heroId) {
                     questService.createQuest({_job: jobId, _hero: heroId})
@@ -27,6 +22,17 @@ angular.module('app')
                     jobService.deleteJob(jobId)
                     $scope.getJobs();
                 }
+                $scope.openEditJobModal = function (job) {
+                    console.log(job, $scope.job);
+                    ModalService.showModal({
+                        templateUrl: "./app/modals/editjobs/editjobModal.ctrl.html",
+                        controller: "editjobCtrl",
+                        inputs: {hero: $scope.hero, job:job}
+                    }).then(function (modal) {
+                        modal.close.then(function (then) {
+                        });
+                    });
+                };
             }
         }
     });
