@@ -3,6 +3,6 @@
   <a class="bountyboard" ui-sref="jobs">Bounty Board</a>
   <a class="resources" ui-sref="resources">Resources</a>
   <a class="guildmaster" ui-sref="guildmaster">Guildmaster</a>
-  <a class="splash" ui-sref="splash">login</a>
-  <button class="logout" ng-click="logout()">Logout</a>
+  <a class="profile" ui-sref="profile">Profile</a>
+  <a class="logout" ng-if="hero" ng-click="logout()" ui-sref="splash">Logout</a>
 </div>

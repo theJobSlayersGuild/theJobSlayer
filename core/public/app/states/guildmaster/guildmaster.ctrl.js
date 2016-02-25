@@ -1,6 +1,8 @@
 
 app.controller('guildMasterCtrl', function ($scope, ModalService, guildService, hero) {
 
+    $scope.hero = hero;
+
     $scope.openGuildModal = function() {
       ModalService.showModal({
         templateUrl: "./app/modals/guild/guild.ctrl.html",

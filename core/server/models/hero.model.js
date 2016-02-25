@@ -15,17 +15,17 @@ var heroSchema = mongoose.Schema({
       resume: {
         name: { type: String, default: 'Resume' },
         url: { type: String },
-        done: { type: Boolean }
+        done: { type: Boolean, default: false }
       },
       linkedin: {
         name: { type: String, default: 'LinkedIn' },
         url: { type: String },
-        done: { type: Boolean }
+        done: { type: Boolean, default: false }
       },
       portfolioSite: {
       name: { type: String, default: 'Portfolio' },
       url: { type: String },
-      done: { type: Boolean }
+      done: { type: Boolean, default: false }
       },
       meetups: { type: Number, default: 0 },
       skills: [{ type: String }],

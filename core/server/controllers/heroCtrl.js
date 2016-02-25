@@ -14,10 +14,10 @@ module.exports = {
 
     me: function(req, res) {
       if (!req.user) {
-        res.status(401).send('current user not defined');
+        res.status(500).send('current user not defined');
       }
       req.user.password = null;
-      res.status(200).json(req.user);
+      res.status(200).send(req.user);
     },
 
     readHero: function (req, res) {

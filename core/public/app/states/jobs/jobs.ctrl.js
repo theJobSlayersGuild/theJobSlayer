@@ -1,4 +1,5 @@
 angular.module('app')
+
     .controller('jobsCtrl', function ($scope, ModalService, jobService, questService, hero) {
 
         $scope.hero = hero;
@@ -26,6 +27,5 @@ angular.module('app')
         $scope.deleteJob = function(jobId) {
             jobService.deleteJob(jobId)
         }
-
 
     });

@@ -6,7 +6,18 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('splash', {
             url: '/splash',
             templateUrl: './app/states/splash/splash.ctrl.html',
-            controller: 'splashCtrl'
+            controller: 'splashCtrl',
+            // resolve: {
+            //   hero: function(authService, $state){
+            //     return authService.currentHero()
+            //     .then(function(response){
+            //       if (response.status !== 200) {
+            //         return false;
+            //       }
+            //       return response.data;
+            //     });
+            //   }
+            // }
         })
         .state('home', {
             url: '/home',
