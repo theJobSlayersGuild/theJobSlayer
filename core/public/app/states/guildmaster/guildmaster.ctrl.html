@@ -1,4 +1,4 @@
-<div class="guildmasterBg">
+<div class="guildmasterWrapper">
 
 <dir-nav-bar hero="hero"></dir-nav-bar>
 
@@ -6,7 +6,7 @@
 <div><button ng-click="openGuildModal()">New Guild</button></div>
 <br/>
 
-<div ng-repeat="guild in guilds">
+<div class="guildList" ng-repeat="guild in guilds">
   <h2>{{guild.name}}</h2>
   <button ng-click="openEditGuildModal(guild)">Edit</button>
   <button ng-click="deleteGuild(guild._id)">Delete</button>
