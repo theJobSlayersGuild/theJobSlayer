@@ -40,6 +40,7 @@ app.controller('profileCtrl', function($scope, jobService, resourceService, hero
   };
 
   $scope.updateHero = function(){
+    delete $scope.hero.password;
     heroService.editHero($scope.hero)
     .then(function(response){
       $scope.getHero();
