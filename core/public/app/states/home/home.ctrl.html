@@ -1,8 +1,7 @@
 <dir-nav-bar hero="hero"></dir-nav-bar>
 
-<h1>Jobba: the Hunt</h1>
 
-<h2>Home</h2>
+<h1>Home</h1>
 
 <img class="homeImage" ng-src="{{hero.profileImage}}" style="display: inline-block" />
 
@@ -58,10 +57,8 @@
 
 <div>
   <h2>Current Quests</h2>
-  <p>quest 1 progress</p>
-  <p>quest 2 progress</p>
-  <p>quest 3 progress</p>
-  <p>quest 4 progress</p>
+  {{quests}}
+  <p ng-repeat="quest in quests">{{quest._job.position}} at {{quest._job.companyName}}: {{quest.completed}}</p>
 </div>
 
 <div>
