@@ -45,15 +45,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: './app/states/jobs/jobs.ctrl.html',
             controller: 'jobsCtrl',
             resolve: {
-              hero: function(authService, $state){
-                return authService.currentHero()
-                .then(function(response){
-                  if (response.status !== 200) {
-                    $state.go('splash');
-                  }
-                  return response.data;
-                });
-              }
+                hero: function(authService, $state){
+                    return authService.currentHero()
+                        .then(function(response){
+                            if (response.status !== 200) {
+                                $state.go('splash');
+                            }
+                            return response.data;
+                        });
+                }
             }
         })
         .state('resources', {

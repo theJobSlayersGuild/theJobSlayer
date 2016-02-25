@@ -2,9 +2,9 @@
 app.controller('resourcesCtrl', function ($scope, resourceService, ModalService, hero) {
 
     $scope.hero = hero;
-    
-    
-    
+    console.log($scope.hero);
+
+
     $scope.getResources = function () {
         resourceService.getResources().then(function(response) {
             $scope.resources = response;

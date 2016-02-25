@@ -1,22 +1,31 @@
 angular.module('app')
-    .controller('jobsCtrl', function ($scope) {
+    .controller('jobsCtrl', function ($scope, ModalService, jobService, questService, hero) {
+
+        $scope.hero = hero;
+
+        $scope.openPostJobModal = function () {
+            ModalService.showModal({
+                templateUrl: "./app/modals/postjobs/postjobModal.ctrl.html",
+                controller: "postjobCtrl",
+                inputs: {hero: $scope.hero}
+            }).then(function (modal) {
+                modal.close.then(function (then) {
+                });
+            });
+        };
 
 
-        $scope.test = 'jobsCtrl connected';
+        $scope.acceptQuest = function (jobId, heroId) {
+            questService.createQuest({_job: jobId, _hero: heroId})
+        }
 
-        /*  $scope.getJobs = function() {
-         jobListService.getQuests()
-         .then(function(response) {
-         $scope.jobs = response;
-         })
-         }
+        $scope.editJob = function(jobId, heroId) {
+            jobService.editJob({_job:jobId, _hero:heroId})
+        }
 
-         $scope.acceptJob = function(job, hero) {
-         jobListService.acceptQuest({_job:job, _hero:hero})
-         }
+        $scope.deleteJob = function(jobId) {
+            jobService.deleteJob(jobId)
+        }
 
-         $scope.editJob = function(job, hero) {
-         jobListService
-         }*/
 
     });
