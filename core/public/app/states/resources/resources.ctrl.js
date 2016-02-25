@@ -3,15 +3,20 @@ app.controller('resourcesCtrl', function ($scope, resourceService, ModalService,
 
     $scope.hero = hero;
     
-    
-    
-    $scope.getResources = function () {
-        resourceService.getResources().then(function(response) {
+     $scope.getResources = function () {
+            resourceService.getResources().then(function(response) {
             $scope.resources = response;
-        })
-    }
+            })
+        }
     
     $scope.getResources();
+         
+    $scope.deleteResource = function () {
+        resourceService.deleteResource().then(function (response) {
+            alert("Resource Deleted!")
+        })
+    }
+   
     
      $scope.openNewResourceModal = function() {
         ModalService.showModal({
