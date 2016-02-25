@@ -5,7 +5,7 @@
 <div class="resourcesWrapper">
     <div class="resourceWrapper" ng-repeat="resource in resources">
     <dir-resources></dir-resources>
-    <button ng-click="deleteResource()"></button>
+    <button ng-if="resource._author === hero._id" ng-click="deleteResource(resource._id)">Delete Resource</button>
     </div>
 </div>
     
