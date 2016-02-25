@@ -5,7 +5,9 @@ app.controller('splashCtrl', function($state, $scope, ModalService, authService)
   $scope.hero = {
     email: "dood@dood.com",
     password: "dood"
-  }
+  };
+
+  $scope.user = false;
 
   $scope.openSignUpModal = function() {
     ModalService.showModal({
