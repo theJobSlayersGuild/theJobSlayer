@@ -39,8 +39,13 @@
   <div>
     {{ currentTip.goatSays }}
     <div>
-      <div ng-show="currentTip.input">
-        <input type="text" ng-model="tipInput" />
+      <div>
+        <span ng-show="currentTip.inputs > 0">
+          {{currentTip.description1}}: <input type="text" ng-model="input1" placeholder="{{currentTip.description1}}"/>
+        </span>
+        <span ng-show="currentTip.inputs > 1">
+          {{currentTip.description2}}: <input type="text" ng-model="input2" placeholder="{{currentTip.description2}}"/>
+        </span>
       </div>
       <button ng-click="currentTip.invoked()">{{currentTip.buttonText}}</button>
     </div>

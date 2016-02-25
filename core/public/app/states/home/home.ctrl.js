@@ -45,49 +45,55 @@ angular.module('app')
     $scope.tips = [{
       title: 'resume',
       goatSays: 'A resume is a powerful weapon in the fight against No Jobba.',
-      input: true,
+      inputs: 1,
+      description1: "Resume URL",
       buttonText: 'I have a resume!',
       invoked: function() {
-        $scope.hero.equipment.resume.url = $scope.tipInput;
+        $scope.hero.equipment.resume.url = $scope.input1;
         $scope.hero.equipment.resume.done = true;
         delete $scope.hero.password;
         heroService.editHero($scope.hero);
-        $scope.tipInput = "";
+        $scope.input1 = "";
         $scope.tips.splice(num, 1);
         $scope.currentTip = $scope.tips[num];
       }
-    }, {
+    },
+    {
       title: 'linkedin',
       goatSays: 'In this battle, a LinkedIn profile is your first line of defense.',
-      input: true,
+      inputs: 1,
+      description1: "LinkedIn URL",
       buttonText: 'I have a LinkedIn profile!',
       invoked: function() {
-        $scope.hero.equipment.linkedin.url = $scope.tipInput;
+        $scope.hero.equipment.linkedin.url = $scope.input1;
         $scope.hero.equipment.linkedin.done = true;
         delete $scope.hero.password;
         heroService.editHero($scope.hero);
-        $scope.tipInput = "";
+        $scope.input1 = "";
         $scope.tips.splice(num, 1);
         $scope.currentTip = $scope.tips[num];
       }
-    }, {
+    },
+    {
       title: 'portfolioSite',
-      goatSays: 'Shield yourself from looking dumb with a sweet website.',
-      input: true,
+      goatSays: 'Shield yourself from looking dumb with a suh-weet portfolio website.',
+      inputs: 1,
+      description1: "Portfolio Site URL",
       buttonText: 'I have a website!',
       invoked: function() {
-        $scope.hero.equipment.portfolioSite.url = $scope.tipInput;
+        $scope.hero.equipment.portfolioSite.url = $scope.input1;
         $scope.hero.equipment.portfolioSite.done = true;
         delete $scope.hero.password;
         heroService.editHero($scope.hero);
-        $scope.tipInput = "";
+        $scope.input1 = "";
         $scope.tips.splice(num, 1);
         $scope.currentTip = $scope.tips[num];
       }
-    }, {
+    },
+    {
       title: 'meetups',
-      goatSays: 'Meetups are gold, brah.',
-      input: false,
+      goatSays: 'Meetups are golden, brah.',
+      inputs: 0,
       buttonText: 'I attended a meetup!',
       invoked: function() {
         $scope.hero.equipment.meetups++;
@@ -100,19 +106,22 @@ angular.module('app')
         }
         $scope.currentTip = $scope.tips[num];
       }
-    }, {
+    },
+    {
       title: 'projects',
-      goatSays: 'Baaaaaaaa do some projects. Something something gemeralds.',
-      input: true,
+      goatSays: 'Baa-a-a-a-a-a do some projects. Something something gemeralds.',
+      inputs: 2,
+      description1: "Project Name",
+      description2: "Project URL",
       buttonText: 'I finished a project!',
       invoked: function() {
         var newProject = {};
-        newProject.name = $scope.tipInput;
-        newProject.url = "test-url.com";
+        newProject.name = $scope.input1;
+        newProject.url = $scope.input2;
         $scope.hero.equipment.projects.push(newProject);
         delete $scope.hero.password;
         heroService.editHero($scope.hero);
-        $scope.tipInput = "";
+        $scope.input1 = "";
         if (num < $scope.tips.length - 1) {
           num++;
         } else {
@@ -120,13 +129,15 @@ angular.module('app')
         }
         $scope.currentTip = $scope.tips[num];
       }
-    }, {
+    },
+    {
       title: 'skills',
       goatSays: 'Acquire skills you must. (Sorry, my first language English is not.)',
-      input: true,
+      inputs: 1,
+      description1: "Skill Name",
       buttonText: 'I learned a new skill!',
       invoked: function() {
-        $scope.hero.equipment.skills.push($scope.tipInput);
+        $scope.hero.equipment.skills.push($scope.input1);
         delete $scope.hero.password;
         heroService.editHero($scope.hero);
         if (num < $scope.tips.length - 1) {
@@ -134,7 +145,7 @@ angular.module('app')
         } else {
           num = 0;
         }
-        $scope.tipInput = "";
+        $scope.input1 = "";
         $scope.currentTip = $scope.tips[num];
       }
     }];
