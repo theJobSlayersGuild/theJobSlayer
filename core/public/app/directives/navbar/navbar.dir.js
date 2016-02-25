@@ -3,15 +3,19 @@ angular.module('app')
     return {
       restrict: 'AE',
       templateUrl: './app/directives/navbar/navbar.dir.html',
+      scope: {
+        hero: '='
+      },
       controller: function($scope, $state, authService) {
+
         $scope.logout = function() {
 
           authService.logout()
-          .then(function(response) {
-            console.log(response);
-          });
+            .then(function(response) {
+            });
           $state.go('splash');
         };
+
       }
     };
   });
