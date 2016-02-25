@@ -1,8 +1,17 @@
 angular.module('app')
 
-    .controller('jobsCtrl', function ($scope, ModalService, hero) {
+    .controller('jobsCtrl', function ($scope, ModalService, hero, jobService) {
 
         $scope.hero = hero;
+
+        $scope.getJobs = function () {
+            jobService.getJobs()
+                .then(function (response) {
+                    $scope.jobs = response;
+                })
+        }
+
+        $scope.getJobs();
 
         $scope.openPostJobModal = function () {
             ModalService.showModal({

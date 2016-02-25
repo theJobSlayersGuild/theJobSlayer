@@ -1,29 +1,30 @@
-angular.module("app").controller("postjobCtrl", function($scope, jobService, questService, close, hero) {
+angular.module("app").controller("editjobCtrl", function($scope, jobService, questService, close, hero, job) {
     $scope.close = close;
 
     $scope.hero = hero;
-
-    $scope.job = {
-        companyName: null,
-        companyUrl: null,
-        skillsRequired: [],
-        position: null,
-        location: {
-            city: null,
-            state: null,
-        },
-        descriptionUrl: null,
-        summary: null,
-        contact: {
-            name: null,
-            email: null,
-            phone: null,
-        },
-        salary: null,
-        equity: null,
-        positionType: null,
-        public: null
-    };
+    $scope.job = job;
+    console.log(job);
+    //$scope.job = {
+    //    companyName: null,
+    //    companyUrl: null,
+    //    skillsRequired: [],
+    //    position: null,
+    //    location: {
+    //        city: null,
+    //        state: null,
+    //    },
+    //    descriptionUrl: null,
+    //    summary: null,
+    //    contact: {
+    //        name: null,
+    //        email: null,
+    //        phone: null,
+    //    },
+    //    salary: null,
+    //    equity: null,
+    //    positionType: null,
+    //    public: null
+    //};
 
     $scope.getJobs = function () {
         jobService.getJobs()
