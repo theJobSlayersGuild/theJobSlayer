@@ -2,7 +2,7 @@
 
 <h1>Profile</h1>
 
-<img class="profileImage" ng-src="{{hero.profileImage}}" style="display: inline-block" />
+<img class="profileImage" ng-src="{{hero.profileImage}}" style="display: inline-block" ng-click="openProfileImageModal()"/>
 
 <div style="display: inline-block">
   <br /> <h2>{{hero.name}} {{hero.title}}</h2>
@@ -26,6 +26,9 @@
 
 <div>
   <br /> <h2>Resources Submitted</h2>
+  <div ng-repeat="resource in resources | filter: {_author : hero._id}">
+    <dir-resources resource="resource" hero="hero"></dir-resources>
+  </div>
 </div>
 
 <div>
