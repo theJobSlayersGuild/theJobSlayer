@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope, hero, heroService) {
+  .controller('homeCtrl', function($scope, hero, heroService, questService) {
 
     $scope.hero = hero;
 
@@ -186,6 +186,14 @@ angular.module('app')
     };
 
     //other helmet ideas: batman mask? football helmet? propeller beanie? baseball hat with tag attached?
+
+    questService.getQuests(hero._id)
+    .then(function(response) {
+      console.log('quest', response);
+      $scope.quests = response;
+    });
+
+
 
     //find all quests where _hero === currentUser, populate _job, populate the _steps, make an array of those quests, ng-repeat through them on the template. Also display the progress. Ugh. Too tired to even fake-code this. Goodnight.
 
