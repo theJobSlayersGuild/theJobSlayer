@@ -34,22 +34,20 @@
 </div>
 
 <div>
+
   <h2>Jedi Infinite Wisdom Goat Wizard Says:</h2>
   <div>
-    {{ goatSays.text }}
-    <input type="text"><button ng-click="addResume(resumeUrl)">I have a resume!</button>
+    {{ currentTip.goatSays }}
+    <div>
+      <div ng-show="currentTip.input">
+        <input type="text" ng-model="tipInput" />
+      </div>
+      <button ng-click="currentTip.invoked()">{{currentTip.buttonText}}</button>
+    </div>
   </div>
 
-  <div ng-show="tip === 1">
-
-    <input type="text" ng-model="linkedInUrl"><button ng-click="addLinkedIn(linkedInUrl)">I have a LinkedIn Account!</button>
-  </div>
-
-  <div ng-show="tip === 2">
-    You don't have a website? You're practically naked.
-    <input type="text" ng-model="linkedInUrl"><button ng-click="addLinkedIn(linkedInUrl)">I have a LinkedIn Account!</button>
-  </div>
 </div>
+
 <button ng-show="showPreviousButton" ng-click="previousTip()">Previous Tip</button>
 <button ng-click="nextTip()">Next Tip</button>
 

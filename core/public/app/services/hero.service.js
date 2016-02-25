@@ -31,10 +31,10 @@ angular.module('app')
         });
     };
 
-    this.editHero = function(id, hero) {
+    this.editHero = function(hero) {
       return $http({
           method: 'PUT',
-          url: '/api/hero/' + id,
+          url: '/api/hero/' + hero._id,
           data: hero
         })
         .then(function(response) {

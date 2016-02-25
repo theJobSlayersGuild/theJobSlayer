@@ -1,125 +1,159 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope, hero) {
+  .controller('homeCtrl', function($scope, hero, heroService) {
 
     $scope.hero = hero;
 
-    console.log($scope.hero);
-
-    //
-    // $scope.hero = {
-    //   "email": '3chordme@gmail.com',
-    //   "password": '$2a$10$ezhZdjmo7mmGbCh64/K4uugceF0UeC4kqOSxZ7KGn.AQ7ZK9LW3ZO',
-    //   "name": 'David Moore',
-    //   "title": 'the Barbarian',
-    //   "profileImage": './assets/images/angry_unicorn.png',
-    //   "dateCreated": new Date(),
-    //   "xp": 834,
-    //   "level": 1,
-    //   "equipment": {
-    //     "resume": {
-    //       "name": 'Resume',
-    //       "url": 'https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-primary-button',
-    //       "done": false
-    //     },
-    //     "linkedin": {
-    //       "name": 'LinkedIn',
-    //       "url": 'https://www.linkedin.com/in/davidcollinsmoore',
-    //       "done": false
-    //     },
-    //     "portfolioSite": {
-    //       "name": 'Portfolio',
-    //       "done": false
-    //     },
-    //     "meetups": 2,
-    //     "skills": ['HTML', 'CSS', 'AngularJS', 'NodeJS', 'mongoose'],
-    //     "projects": [
-    //       {
-    //       "name": 'Wearther'
-    //       },
-    //       {
-    //       "name": 'Reviewnicorn',
-    //       "url": 'https://limitless-shelf-17558.herokuapp.com/#/login'
-    //       }
-    //     ]
-    //   }
-    // };
-    //
     switch ($scope.hero.level) {
       case 1:
-        $scope.weapon = "Thumping Stick";
-        $scope.shield = "Stop Sign";
-        $scope.armor = "Peasant Robe";
-        $scope.helmet = "Feathered Cap";
+        $scope.weapon = 'Thumping Stick';
+        $scope.shield = 'Stop Sign';
+        $scope.armor = 'Peasant Robe';
+        $scope.helmet = 'Feathered Cap';
         break;
       case 2:
-        $scope.weapon = "Dagger";
-        $scope.shield = "Buckler";
-        $scope.armor = "Leather Armor";
-        $scope.helmet = "Viking Helmet";
+        $scope.weapon = 'Dagger';
+        $scope.shield = 'Buckler';
+        $scope.armor = 'Leather Armor';
+        $scope.helmet = 'Viking Helmet';
         break;
       case 3:
-        $scope.weapon = "Warhammer";
-        $scope.shield = "Wooden Shield";
-        $scope.armor = "Chain Mail";
-        $scope.helmet = "Spartan Helmet";
+        $scope.weapon = 'Warhammer';
+        $scope.shield = 'Wooden Shield';
+        $scope.armor = 'Chain Mail';
+        $scope.helmet = 'Spartan Helmet';
         break;
       case 4:
-        $scope.weapon = "Longsword";
-        $scope.shield = "Steel Shield";
-        $scope.armor = "Plate Mail";
-        $scope.helmet = "Knight Helmet";
+        $scope.weapon = 'Longsword';
+        $scope.shield = 'Steel Shield';
+        $scope.armor = 'Plate Mail';
+        $scope.helmet = 'Knight Helmet';
         break;
       case 5:
-        $scope.weapon = "Battle Axe";
-        $scope.shield = "Mithril Tower Shield";
-        $scope.armor = "Spiked Plate Mail";
-        $scope.helmet = "Dragon Skull Helmet";
+        $scope.weapon = 'Battle Axe';
+        $scope.shield = 'Mithril Tower Shield';
+        $scope.armor = 'Spiked Plate Mail';
+        $scope.helmet = 'Dragon Skull Helmet';
         break;
       case 6:
-        $scope.weapon = "Lightsaber";
-        $scope.shield = "Legendary Golden Shield of Aslan";
-        $scope.armor = "Dragon Scale Armor";
-        $scope.helmet = "Darth Vader Helmet";
+        $scope.weapon = 'Lightsaber';
+        $scope.shield = 'Legendary Golden Shield of Aslan';
+        $scope.armor = 'Dragon Scale Armor';
+        $scope.helmet = 'Darth Vader Helmet';
         break;
     }
 
     $scope.tips = [{
-      title: "resume",
-      text: "A resume is a powerful weapon in the fight against No Jobba."
-      // input: true,
-      // buttonText: "I have a resume!"
+      title: 'resume',
+      goatSays: 'A resume is a powerful weapon in the fight against No Jobba.',
+      input: true,
+      buttonText: 'I have a resume!',
+      invoked: function() {
+        $scope.hero.equipment.resume.url = $scope.tipInput;
+        $scope.hero.equipment.resume.done = true;
+        delete $scope.hero.password;
+        heroService.editHero($scope.hero);
+        $scope.tipInput = "";
+        $scope.tips.splice(num, 1);
+        $scope.currentTip = $scope.tips[num];
+      }
     }, {
-      title: "linkedin",
-      text: "In this battle, a LinkedIn profile is your first line of defense."
+      title: 'linkedin',
+      goatSays: 'In this battle, a LinkedIn profile is your first line of defense.',
+      input: true,
+      buttonText: 'I have a LinkedIn profile!',
+      invoked: function() {
+        $scope.hero.equipment.linkedin.url = $scope.tipInput;
+        $scope.hero.equipment.linkedin.done = true;
+        delete $scope.hero.password;
+        heroService.editHero($scope.hero);
+        $scope.tipInput = "";
+        $scope.tips.splice(num, 1);
+        $scope.currentTip = $scope.tips[num];
+      }
     }, {
-      title: "portfolioSite",
-      text: "Get a portfolio."
+      title: 'portfolioSite',
+      goatSays: 'Shield yourself from looking dumb with a sweet website.',
+      input: true,
+      buttonText: 'I have a website!',
+      invoked: function() {
+        $scope.hero.equipment.portfolioSite.url = $scope.tipInput;
+        $scope.hero.equipment.portfolioSite.done = true;
+        delete $scope.hero.password;
+        heroService.editHero($scope.hero);
+        $scope.tipInput = "";
+        $scope.tips.splice(num, 1);
+        $scope.currentTip = $scope.tips[num];
+      }
     }, {
-      title: "meetups",
-      text: "Go meet up."
+      title: 'meetups',
+      goatSays: 'Meetups are gold, brah.',
+      input: false,
+      buttonText: 'I attended a meetup!',
+      invoked: function() {
+        $scope.hero.equipment.meetups++;
+        delete $scope.hero.password;
+        heroService.editHero($scope.hero);
+        if (num < $scope.tips.length - 1) {
+          num++;
+        } else {
+          num = 0;
+        }
+        $scope.currentTip = $scope.tips[num];
+      }
     }, {
-      title: "projects",
-      text: "Mekka project."
+      title: 'projects',
+      goatSays: 'Baaaaaaaa do some projects. Something something gemeralds.',
+      input: true,
+      buttonText: 'I finished a project!',
+      invoked: function() {
+        var newProject = {};
+        newProject.name = $scope.tipInput;
+        newProject.url = "test-url.com";
+        $scope.hero.equipment.projects.push(newProject);
+        delete $scope.hero.password;
+        heroService.editHero($scope.hero);
+        $scope.tipInput = "";
+        if (num < $scope.tips.length - 1) {
+          num++;
+        } else {
+          num = 0;
+        }
+        $scope.currentTip = $scope.tips[num];
+      }
     }, {
-      title: "skills",
-      text: "Skills acquire you must advance in order to your career. Sorry, not my first language English is."
+      title: 'skills',
+      goatSays: 'Acquire skills you must. (Sorry, my first language English is not.)',
+      input: true,
+      buttonText: 'I learned a new skill!',
+      invoked: function() {
+        $scope.hero.equipment.skills.push($scope.tipInput);
+        delete $scope.hero.password;
+        heroService.editHero($scope.hero);
+        if (num < $scope.tips.length - 1) {
+          num++;
+        } else {
+          num = 0;
+        }
+        $scope.tipInput = "";
+        $scope.currentTip = $scope.tips[num];
+      }
     }];
 
     for (var i = 0; i < $scope.tips.length; i++) {
-      if ($scope.tips[i].title === "resume" && $scope.hero.equipment.resume.done) {
+      if ($scope.tips[i].title === 'resume' && $scope.hero.equipment.resume.done) {
         $scope.tips.splice(i, 1);
       }
-      if ($scope.tips[i].title === "linkedin" && $scope.hero.equipment.linkedin.done) {
+      if ($scope.tips[i].title === 'linkedin' && $scope.hero.equipment.linkedin.done) {
         $scope.tips.splice(i, 1);
       }
-      if ($scope.tips[i].title === "portfolioSite" && $scope.hero.equipment.portfolioSite.done) {
+      if ($scope.tips[i].title === 'portfolioSite' && $scope.hero.equipment.portfolioSite.done) {
         $scope.tips.splice(i, 1);
       }
     }
 
     var num = 0;
 
-    $scope.goatSays = $scope.tips[num];
+    $scope.currentTip = $scope.tips[num];
 
     $scope.nextTip = function() {
       if (num < $scope.tips.length - 1) {
@@ -127,8 +161,8 @@ angular.module('app')
       } else {
         num = 0;
       }
-    $scope.goatSays = $scope.tips[num];
-    $scope.showPreviousButton = true;
+      $scope.currentTip = $scope.tips[num];
+      $scope.showPreviousButton = true;
     };
 
     $scope.previousTip = function() {
@@ -137,7 +171,7 @@ angular.module('app')
       } else {
         num = $scope.tips.length - 1;
       }
-    $scope.goatSays = $scope.tips[num];
+      $scope.currentTip = $scope.tips[num];
     };
 
     //other helmet ideas: batman mask? football helmet? propeller beanie? baseball hat with tag attached?
