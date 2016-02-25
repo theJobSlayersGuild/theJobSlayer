@@ -1,5 +1,34 @@
-profile view
-
 <dir-nav-bar hero="hero"></dir-nav-bar>
 
-{{test}}
+<h1>Profile</h1>
+
+<img class="profileImage" ng-src="{{hero.profileImage}}" style="display: inline-block" />
+
+<div style="display: inline-block">
+  <br /> <h2>{{hero.name}} {{hero.title}}</h2>
+  <br />Level: {{hero.level}}
+  <br />XP: {{hero.xp}}
+</div>
+
+<div style="display: inline-block">
+  <br /> <h2>ACHIEVEMENTS</h2>
+  <br />Resume: {{hero.equipment.resume.done}}
+  <br />LinkedIn: {{hero.equipment.linkedin.done}}
+  <br />Portfolio: {{hero.equipment.portfolio.done}}
+</div>
+
+<div>
+  <br /> <h2>Jobs Submitted</h2>
+  <div ng-repeat="job in jobs | filter: {_author : hero._id}">
+    <dir-job-listing job="job" hero="hero"></dir-job-listing>
+  </div>
+</div>
+
+<div>
+  <br /> <h2>Resources Submitted</h2>
+</div>
+
+<div>
+  <br /> <h2>Progress</h2>
+  <div class="progressChart">Chart Placeholder</div>
+</div>
