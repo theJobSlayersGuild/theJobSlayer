@@ -14,8 +14,10 @@
     <div><input ng-model="job.salary" type="text" placeholder="salary"></div>
     <div><input ng-model="job.equity" type="text" placeholder="equity"></div>
     <div><input ng-model="job.positionType" type="text" placeholder="positionType"></div>
-    public<input ng-model="job.public" type="checkbox">
-    <div><button ng-click="createQuest(job)">Post Job</button></div>
+    <!--public<input ng-model="job.public" type="checkbox">-->
+    <div>
+        <button ng-click="createQuest(job)">Post Job</button>
+    </div>
 
     <div class="postJobSkills">
         <div class="skill" ng-repeat="skill in job.skillsRequired">

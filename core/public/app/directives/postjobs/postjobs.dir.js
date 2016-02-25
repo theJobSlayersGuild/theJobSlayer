@@ -4,7 +4,7 @@ angular.module('app')
             restrict: 'AE',
             templateUrl: './app/directives/postjobs/postjobs.dir.html',
             controller: function ($scope, jobService, questService) {
-                
+
                 $scope.getJobs = function () {
                     jobService.getJobs()
                         .then(function (response) {
@@ -18,11 +18,11 @@ angular.module('app')
                     questService.createQuest({_job: jobId, _hero: heroId})
                 }
 
-                $scope.editJob = function(jobId, heroId) {
-                    jobService.editJob({_job:jobId, _hero:heroId})
+                $scope.editJob = function (jobId, heroId) {
+                    jobService.editJob({_job: jobId, _hero: heroId})
                 }
 
-                $scope.deleteJob = function(jobId) {
+                $scope.deleteJob = function (jobId) {
                     console.log(jobId);
                     jobService.deleteJob(jobId)
                     $scope.getJobs();
