@@ -11,11 +11,15 @@ module.exports = {
         });
     },
 
+
     readStep: function (req, res) {
-        Step.find(req.query, function(err, result) {
+        Step.find(req.query, '_id', function(err, result) {
             if (err) {
                 res.status(500).send(err);
             }
+            result = result.map(function(doc) {
+                return doc._id;
+            });
             res.status(200).send(result);
         });
     },
