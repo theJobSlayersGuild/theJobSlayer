@@ -67,8 +67,8 @@
       <span ng-show="quest.progress + 1 === step.order">Wisdom Goat Says: {{step.flavorText}} {{step.description}}<button ng-click="nextStep(quest)">Step Complete!</button></span>
     </p>
     Castle destroyed? {{quest.completed}}
-    <button ng-click="deleteQuest()">Archive Quest</button>
-    <button ng-click="deleteQuest()">Delete Quest</button>
+    <button ng-click="archiveQuest(quest)">Archive Quest</button>
+    <button ng-click="deleteQuest(quest)">Delete Quest</button>
   </div>
 </div>
 
