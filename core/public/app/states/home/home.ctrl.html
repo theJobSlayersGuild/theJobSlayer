@@ -61,11 +61,13 @@
     {{quest._job.position}} at {{quest._job.companyName}}
     <p ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is inside!</p>
     <p ng-repeat="step in quest._steps">
-      <button title="{{step.description}}">O</button>
+      <span ng-show="quest.progress >= step.order">dead enemy</span>
+      <button ng-attr-title="{{step.description}}">O</button>
       <span ng-show="quest.progress === step.order">You are here</span>
       <span ng-show="quest.progress + 1 === step.order">Wisdom Goat Says: {{step.flavorText}} {{step.description}}<button ng-click="nextStep(quest, $parent.$parent.$index)">Step Complete!</button></span>
     </p>
-    quest completed? {{quest.completed}}
+    Castle destroyed? {{quest.completed}}
+    <button ng-click="deleteQuest()">Archive Quest</button>
     <button ng-click="deleteQuest()">Delete Quest</button>
   </div>
 </div>
