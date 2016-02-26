@@ -194,6 +194,9 @@ angular.module('app')
 
     $scope.nextStep = function(currentQuest, i) {
       currentQuest.progress++; //updates $scope.quests??
+      if (currentQuest.progress === currentQuest._steps.length) {
+          currentQuest.completed = true;
+      }
       console.log('$scope.quests', $scope.quests);
       // $scope.quests.splice(i, 1, currentQuest); //does nothing
       // $scope.apply();
@@ -201,8 +204,6 @@ angular.module('app')
       .then(function(response) {
       });
     };
-
-
 
     //find all quests where _hero === currentUser, populate _job, populate the _steps, make an array of those quests, ng-repeat through them on the template. Also display the progress. Ugh. Too tired to even fake-code this. Goodnight.
 
