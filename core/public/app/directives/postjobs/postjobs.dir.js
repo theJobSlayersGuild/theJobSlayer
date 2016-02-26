@@ -7,6 +7,7 @@ angular.module('app')
                 job: '=',
                 hero: '='
             },
+
             controller: function ($scope, jobService, questService, ModalService, stepService, guildService) {
 
                 $scope.getAllSteps = function () {
