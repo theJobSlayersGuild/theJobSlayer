@@ -1,4 +1,4 @@
-app.controller('profileCtrl', function($scope, jobService, resourceService, hero, ModalService, authService, heroService) {
+app.controller('profileCtrl', function($scope, jobService, resourceService, hero, ModalService, authService, heroService, guildService) {
 
   $scope.hero = hero;
 
@@ -20,6 +20,7 @@ app.controller('profileCtrl', function($scope, jobService, resourceService, hero
 
   $scope.getResources();
 
+
   $scope.openProfileImageModal = function() {
     ModalService.showModal({
       templateUrl: "./app/modals/editImage/editimage.ctrl.html",
@@ -31,6 +32,15 @@ app.controller('profileCtrl', function($scope, jobService, resourceService, hero
       });
     });
   };
+
+  $scope.getGuilds = function() {
+    guildService.getGuildsByMember($scope.hero._id)
+    .then(function(response){
+      $scope.guilds = response;
+    });
+  };
+
+  $scope.getGuilds();
 
   $scope.getHero = function(){
     authService.currentHero()

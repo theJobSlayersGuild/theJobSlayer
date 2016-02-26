@@ -35,7 +35,7 @@
 
 <div>
   <br /> <h2>Resources Submitted</h2>
-  <div ng-repeat="resource in resources | filter: {_author : hero._id}">
+  <div ng-repeat="resource in resources | filter: {_author : {_id:hero._id}}">
     <dir-resources resource="resource" hero="hero"></dir-resources>
   </div>
 </div>
