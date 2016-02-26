@@ -3,7 +3,7 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
 
     $scope.hero = hero;
     $scope.id = hero._id;
-    console.log($scope.id);
+
 
     $scope.job = {
         companyName: null,
@@ -31,7 +31,7 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         guildService.getGuilds(id)
             .then(function (response) {
                 $scope.guilds = response;
-                //console.log(response);
+
             })
     }
 
@@ -41,7 +41,7 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         guildService.getAllGuilds()
             .then(function (response) {
                 $scope.allGuilds = response;
-                //console.log($scope.allGuilds);
+
             })
     }
     $scope.getAllGuild();

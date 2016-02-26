@@ -19,7 +19,6 @@ angular.module('app')
         })
         .then(function(response) {
           return response.data;
-            //console.log(response.data);
         });
     };
 

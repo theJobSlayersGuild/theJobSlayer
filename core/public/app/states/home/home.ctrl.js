@@ -189,12 +189,19 @@ angular.module('app')
 
     questService.getQuests(hero._id)
     .then(function(response) {
-      console.log('quest', response);
       $scope.quests = response;
     });
 
+    $scope.nextStep = function(currentQuest) {
+      currentQuest.progress++;
 
-
-    //find all quests where _hero === currentUser, populate _job, populate the _steps, make an array of those quests, ng-repeat through them on the template. Also display the progress. Ugh. Too tired to even fake-code this. Goodnight.
+      if (currentQuest.progress === currentQuest._steps.length) {
+          currentQuest.completed = true;
+      }
+      console.log('$scope.quests', $scope.quests);
+      questService.editQuest(currentQuest._id, currentQuest)
+      .then(function(response) {
+      });
+    };
 
   });

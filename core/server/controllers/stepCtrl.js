@@ -8,20 +8,9 @@ module.exports = {
                 res.status(500).send(err);
             }
             res.status(200).send(result);
-        })
+        });
     },
 
-    /*readStep: function (req, res) {
-        //Step.find(req.query, function(err, result) {
-        //    Step.find(req.query).select('_id').exec(function(err, result) {
-        result = result.map(function(doc) {
-            return doc._id;
-            if (err) {
-                res.status(500).send(err);
-            }
-            res.status(200).send(result)
-        })
-    },*/
 
     readStep: function (req, res) {
         Step.find(req.query, '_id', function(err, result) {
@@ -41,7 +30,7 @@ module.exports = {
                 res.status(500).send(err);
             }
             res.status(200).send(result);
-        })
+        });
     },
 
     deleteStep: function (req, res) {
@@ -50,7 +39,7 @@ module.exports = {
                 res.status(500).send(err);
             }
             res.status(200).send(result);
-        })
+        });
     }
 
 
