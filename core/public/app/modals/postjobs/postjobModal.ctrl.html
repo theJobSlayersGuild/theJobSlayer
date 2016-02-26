@@ -1,3 +1,4 @@
+<div class="row">
 <div class="postjobOverlayWrapper">
     <div><input ng-model="job.companyName" type="text" placeholder="companyName"></div>
     <div><input ng-model="job.companyUrl" type="text" placeholder="companyUrl"></div>
@@ -15,26 +16,37 @@
     <div><input ng-model="job.equity" type="text" placeholder="equity"></div>
     <div><input ng-model="job.positionType" type="text" placeholder="positionType"></div>
 
-    <div><input ng-model="guild" type="text" placeholder="guilds"></div>
-    <button class="submitSkill" ng-click="submitGuild(guild)">submit skill</button>
     <!--public<input ng-model="job.public" type="checkbox">-->
     <div>
         <button ng-click="createQuest(job)">Post Job</button>
     </div>
 
-    <div class="postJobSkills">
-        <div class="skill" ng-repeat="skill in job.skillsRequired">
-            {{skill}}
-            <button ng-click="removeSkill(skill)">X</button>
+    <div class="column">
+        <div class="postJobSkills">
+            <div class="skill" ng-repeat="skill in job.skillsRequired">
+                {{skill}}
+                <button ng-click="removeSkill(skill)">X</button>
+            </div>
         </div>
+
+        <div>Sharing quest with these guilds:</div>
+        <hr>
+        <br>
+        <div ng-repeat="guilds in guildsAdded">
+        {{guilds.name}}
+            <button ng-click="removeGuildFromJobGuildArray(guilds.name, guilds._id)">X</button>
+        </div>
+        <hr>
+        <div ng-repeat="guild in guilds">
+            {{guild.name}}
+
+            <button class="submitSkill" ng-click="addGuildToJobGuildArray(guild._id, guild)">submit guild</button>
+
+        </div>
+
     </div>
 
-<div ng-repeat="guild in guilds">
-    {{guild.name}}
-    <!--<button class="submitSkill" ng-click="addGuild(guild._id)">submit guild</button>-->
 </div>
-
 </div>
-
 
 <div class="fade" ng-click="close()"></div>

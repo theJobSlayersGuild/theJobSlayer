@@ -8,7 +8,14 @@ angular.module('app')
                 hero: '='
             },
 
-            controller: function ($scope, jobService, questService, ModalService, stepService, guildService) {
+            controller: function ($scope, jobService, questService, ModalService, stepService) {
+
+                $scope.getJobs = function () {
+                    jobService.getJobs()
+                        .then(function (response) {
+                            $scope.jobs = response;
+                        })
+                }
 
                 $scope.getAllSteps = function () {
                     stepService.getSteps()

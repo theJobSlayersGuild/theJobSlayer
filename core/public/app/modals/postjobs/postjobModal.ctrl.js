@@ -3,7 +3,7 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
 
     $scope.hero = hero;
     $scope.id = hero._id;
-
+    $scope.guildsAdded = [];
 
     $scope.job = {
         companyName: null,
@@ -24,7 +24,8 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         salary: null,
         equity: null,
         positionType: null,
-        public: null
+        public: null,
+        _guild: []
     };
 
     $scope.getguild = function () {
@@ -37,7 +38,21 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
 
     $scope.getguild();
 
+    $scope.addGuildToJobGuildArray = function(guildId, guildName) {
+        console.log(guildName, guildId);
+        $scope.job._guild.push(guildId);
+        $scope.guildsAdded.push(guildName);
+    }
 
+    $scope.removeGuildFromJobGuildArray = function(guildId, guildName) {
+        console.log(guildName, guildId);
+
+        var guildNameToRemove = $scope.guildsAdded.indexOf(guildName);
+        $scope.guildsAdded.splice(guildNameToRemove, 1);
+
+        var guildIdToRemove = $scope.job._guild.indexOf(guildId);
+        $scope.job._guild.splice(guildIdToRemove, 1);
+    }
 
 
     $scope.getJobs = function () {
@@ -60,6 +75,7 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         $scope.job._author = $scope.hero._id;
         jobService.createJob(job)
         $scope.getJobs();
+
     }
 
 
