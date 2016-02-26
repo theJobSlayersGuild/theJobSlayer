@@ -8,7 +8,7 @@ module.exports = {
                 res.status(500).send(err);
             }
             res.status(200).send(result);
-        })
+        });
     },
 
     readStep: function (req, res) {
@@ -16,8 +16,8 @@ module.exports = {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send(result)
-        })
+            res.status(200).send(result);
+        });
     },
 
     updateStep: function (req, res) {
@@ -26,7 +26,7 @@ module.exports = {
                 res.status(500).send(err);
             }
             res.status(200).send(result);
-        })
+        });
     },
 
     deleteStep: function (req, res) {
@@ -35,7 +35,7 @@ module.exports = {
                 res.status(500).send(err);
             }
             res.status(200).send(result);
-        })
+        });
     }
 
 
