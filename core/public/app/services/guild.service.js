@@ -14,20 +14,11 @@ angular.module('app')
         });
     };
 
-    this.getGuilds = function(id) {
-      return $http({
-          method: 'GET',
-          url: '/api/guild?_member=' + id
-        })
-        .then(function(response) {
-          return response.data;
-        });
-    };
 
-      this.getAllGuilds = function() {
+      this.getGuildsByMember = function(id) {
           return $http({
               method: 'GET',
-              url: '/api/guild'
+              url: '/api/guild/member?_guildMembers=' + id
           })
               .then(function(response) {
                   return response.data;

@@ -7,6 +7,7 @@ angular.module('app')
                 job: '=',
                 hero: '='
             },
+
             controller: function ($scope, jobService, questService, ModalService, stepService, guildService) {
 
                 $scope.getAllSteps = function () {
@@ -29,13 +30,6 @@ angular.module('app')
                     jobService.deleteJob(jobId)
                     $scope.getJobs();
                 }
-
-
-                /*$scope.getGuild = function(hero) {
-                 guildService.getGuilds();
-                 }
-
-                 $scope.getGuild();*/
 
                 $scope.openEditJobModal = function (job) {
                     console.log(job, $scope.job);
