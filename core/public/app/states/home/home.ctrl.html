@@ -57,8 +57,19 @@
 
 <div>
   <h2>Current Quests</h2>
-  {{quests}}
-  <p ng-repeat="quest in quests">{{quest._job.position}} at {{quest._job.companyName}}: {{quest.completed}}</p>
+  <div ng-repeat="quest in quests | filter:{archived:false} track by $index">
+    {{quest._job.position}} at {{quest._job.companyName}}
+    <p ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is inside!</p>
+    <p ng-repeat="step in quest._steps">
+      <span ng-show="quest.progress >= step.order">dead enemy</span>
+      <button ng-attr-title="{{step.description}}">O</button>
+      <span ng-show="quest.progress === step.order">You are here</span>
+      <span ng-show="quest.progress + 1 === step.order">Wisdom Goat Says: {{step.flavorText}} {{step.description}}<button ng-click="nextStep(quest)">Step Complete!</button></span>
+    </p>
+    Castle destroyed? {{quest.completed}}
+    <button ng-click="archiveQuest(quest)">Archive Quest</button>
+    <button ng-click="deleteQuest(quest, $index)">Delete Quest</button>
+  </div>
 </div>
 
 <div>

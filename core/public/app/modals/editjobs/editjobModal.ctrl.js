@@ -48,5 +48,10 @@ angular.module("app").controller("editjobCtrl", function($scope, jobService, que
         $scope.getJobs();
     }
 
+    $scope.editJobs = function(id, job) {
+        jobService.editJob(id, job);
+        console.log(id, job);
+    }
+
 
 });
