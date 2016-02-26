@@ -8,10 +8,11 @@ angular.module('app')
           hero: '='
       },
       controller: function ($scope, ModalService, resourceService) {
-          $scope.openEditResourceModal = function() {
+          $scope.openEditResourceModal = function(resource) {
+              console.log('fired')
         ModalService.showModal({
-            templateUrl: "./app/modals/editResource/editResource.html",
-            controller: "editResourceCtrl",
+            templateUrl: "./app/modals/editResource/editResourceModal.html",
+            controller: "editResourceModal",
             inputs: {hero: $scope.hero, resource: $scope.resource}
         }).then(function (modal) {
             modal.close.then(function (then) {
