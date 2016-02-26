@@ -199,9 +199,21 @@ angular.module('app')
           currentQuest.completed = true;
       }
       console.log('$scope.quests', $scope.quests);
-      questService.editQuest(currentQuest._id, currentQuest)
-      .then(function(response) {
-      });
+      questService.editQuest(currentQuest._id, currentQuest);
+    };
+
+    $scope.archiveQuest = function(currentQuest) {
+      currentQuest.archived = true;
+      questService.editQuest(currentQuest._id, currentQuest);
+    };
+
+    $scope.deleteQuest = function(currentQuest) {
+      questService.deleteQuest(currentQuest._id);
+      for (var i = 0; i < $scope.quests.length; i++) {
+        if ($scope.quests[i]._id === currentQuest._id) {
+          $scope.quests.splice(i, 1);
+        }
+      }
     };
 
   });

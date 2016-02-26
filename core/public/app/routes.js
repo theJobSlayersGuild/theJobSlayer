@@ -80,8 +80,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                   }
                   return response.data;
                 });
+               }
               }
-            }
         })
         .state('guildmaster', {
             url: '/guildmaster',
@@ -98,8 +98,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 });
               }
             }
-        });
+        })
 
     $urlRouterProvider
-        .otherwise('splash');
+        .otherwise('splash')
 });

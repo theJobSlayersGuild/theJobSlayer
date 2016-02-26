@@ -7,7 +7,7 @@
 <br/>
 
 <div class="guildList" ng-repeat="guild in guilds">
-  <h2>{{guild.name}}</h2>
+  <h2><br/>{{guild.name}}</h2>
   <button ng-click="openEditGuildModal(guild)">Edit</button>
   <button ng-click="deleteGuild(guild._id)">Delete</button>
   <p>GUILDMASTER:</p> {{guild._guildMaster.name}}
