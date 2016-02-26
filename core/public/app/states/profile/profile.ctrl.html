@@ -1,8 +1,10 @@
+<div class="profileWrapper">
+
 <dir-nav-bar hero="hero"></dir-nav-bar>
 
 <h1>Profile</h1>
 
-<img class="profileImage" ng-src="{{hero.profileImage}}" style="display: inline-block" ng-click="openProfileImageModal()"/>
+<img class="profileImage" ng-src="{{hero.profileImage}}" style="display: inline-block" ng-click="openProfileImageModal()" title="Edit Avatar"/>
 
 <div style="display: inline-block">
   <br /> <h2>{{hero.name}} {{hero.title}}</h2>
@@ -15,6 +17,13 @@
   <br />Resume: {{hero.equipment.resume.done}}
   <br />LinkedIn: {{hero.equipment.linkedin.done}}
   <br />Portfolio: {{hero.equipment.portfolio.done}}
+</div>
+
+<div>
+  <br /> <h2>{{hero.name}}'s Guilds</h2>
+  <div ng-repeat="guild in guilds">
+    {{guild.name}}
+  </div>
 </div>
 
 <div>
@@ -34,4 +43,6 @@
 <div>
   <br /> <h2>Progress</h2>
   <div class="progressChart">Chart Placeholder</div>
+</div>
+
 </div>
