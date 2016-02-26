@@ -1,11 +1,10 @@
 <div class="resourcePageWrapper">
-<dir-nav-bar></dir-nav-bar>
+<dir-nav-bar hero="hero"></dir-nav-bar>
 <h1>Resources</h1>
 <button ng-click="openNewResourceModal()">Add New Resource</button>
 <div class="resourcesWrapper">
     <div class="resourceWrapper" ng-repeat="resource in resources">
-    <dir-resources></dir-resources>
-    <button ng-if="resource.author === hero._id" ng-click="deleteResource(resource._id)">Delete Resource</button>
+    <dir-resources hero="hero" resource="resource"></dir-resources>
     </div>
 </div>
     

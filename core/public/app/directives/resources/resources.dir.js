@@ -3,14 +3,21 @@ angular.module('app')
     return {
       restrict: 'AE',
       templateUrl: './app/directives/resources/resources.dir.html',
-      controller: function($scope, $state, resourceService) {
-         $scope.getResources = function () {
-            resourceService.getResources().then(function(response) {
-            $scope.resources = response;
-            })
-        }
-    
-        $scope.getResources();
+      scope: {
+          resource: '=',
+          hero: '='
+      },
+      controller: function ($scope, ModalService, resourceService) {
+          $scope.openNewResourceModal = function(resource) {
+        ModalService.showModal({
+            templateUrl: "./app/modals/editResource/editResource.html",
+            controller: "editResourceCtrl",
+            inputs: {hero: $scope.hero}
+        }).then(function (modal) {
+            modal.close.then(function (then) {
+            });
+        });
+    };
          
        
       }

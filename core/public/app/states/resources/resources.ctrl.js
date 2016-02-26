@@ -1,6 +1,7 @@
 app.controller('resourcesCtrl', function ($scope, resourceService, ModalService, hero) {
 
     $scope.hero = hero;
+
     
      $scope.getResources = function () {
             resourceService.getResources().then(function(response) {
@@ -18,11 +19,10 @@ app.controller('resourcesCtrl', function ($scope, resourceService, ModalService,
    
     
      $scope.openNewResourceModal = function() {
-
         ModalService.showModal({
             templateUrl: "./app/modals/newResource/newResource.ctrl.html",
             controller: "newResourceCtrl",
-            inputs: {hero: hero}
+            inputs: {hero: $scope.hero}
         }).then(function (modal) {
             modal.close.then(function (then) {
             });

@@ -1,4 +1,6 @@
 <div class="resource">
-    {{resource._author.name}} | {{resource.title}} | <a href="{{resource.url}}">{{resource.url}}</a> | {{resource.description}}
+   Posted by: {{resource._author.name}} | Title: {{resource.title}} | Url: <a href="{{resource.url}}">{{resource.url}}</a> | Description: {{resource.description}}
 </div>   
 
+<button ng-click="openEditResourceModal(resource)" ng-click="editResource(resource._id, hero._id)">edit</button>
+<button ng-if="hero._id === resource._author" ng-click="deleteResource(resource._id)">delete</button>
