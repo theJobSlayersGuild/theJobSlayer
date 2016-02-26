@@ -1,4 +1,5 @@
 var Quest = require('../models/quest.model.js');
+var mongoose = require('mongoose');
 
 module.exports = {
 
@@ -8,17 +9,17 @@ module.exports = {
                 res.status(500).send(err);
             }
             res.status(200).send(result);
-        })
+        });
     },
 
     readQuests: function (req, res) {
         Quest.find(req.query)
-        .populate('_job progress._step')
+        .populate('_job _steps')
         .exec(function(err, result) {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send(result);
+            res.send(result);
         });
     },
 

@@ -193,7 +193,7 @@ angular.module('app')
       $scope.quests = response;
     });
 
-
+    
 
     //find all quests where _hero === currentUser, populate _job, populate the _steps, make an array of those quests, ng-repeat through them on the template. Also display the progress. Ugh. Too tired to even fake-code this. Goodnight.
 

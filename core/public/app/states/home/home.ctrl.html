@@ -57,8 +57,15 @@
 
 <div>
   <h2>Current Quests</h2>
-  {{quests}}
-  <p ng-repeat="quest in quests">{{quest._job.position}} at {{quest._job.companyName}}: {{quest.completed}}</p>
+  <div ng-repeat="quest in quests">
+    Goat Says:
+    {{quest._job.position}} at {{quest._job.companyName}}:
+    <button>Next Step</button>
+    <p ng-repeat="step in quest.steps">
+      {{step.description}}
+    </p>
+    quest completed? {{quest.completed}}
+  </div>
 </div>
 
 <div>
