@@ -27,24 +27,18 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         public: null
     };
 
-    $scope.getguild = function (id) {
-        guildService.getGuilds(id)
+    $scope.getguild = function () {
+        guildService.getGuildsByMember($scope.id)
             .then(function (response) {
                 $scope.guilds = response;
-
+                console.log(response);
             })
     }
 
     $scope.getguild();
 
-    $scope.getAllGuild = function () {
-        guildService.getAllGuilds()
-            .then(function (response) {
-                $scope.allGuilds = response;
 
-            })
-    }
-    $scope.getAllGuild();
+
 
     $scope.getJobs = function () {
         jobService.getJobs()

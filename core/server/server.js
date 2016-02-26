@@ -67,6 +67,7 @@ app.delete('/api/job/:id', isAuthed, jobCtrl.deleteJob);
                 //GUILD
 app.post('/api/guild', isAuthed, guildCtrl.createGuild);
 app.get('/api/guild', isAuthed, guildCtrl.readGuild);
+app.get('/api/guild/member', isAuthed, guildCtrl.readGuildMembers);
 app.put('/api/guild/:id', isAuthed, guildCtrl.updateGuild);
 app.delete('/api/guild/:id', isAuthed, guildCtrl.deleteGuild);
 
