@@ -31,13 +31,6 @@ angular.module('app')
                     $scope.getJobs();
                 }
 
-
-                /*$scope.getGuild = function(hero) {
-                 guildService.getGuilds();
-                 }
-
-                 $scope.getGuild();*/
-
                 $scope.openEditJobModal = function (job) {
                     console.log(job, $scope.job);
                     ModalService.showModal({
