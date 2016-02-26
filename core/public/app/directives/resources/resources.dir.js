@@ -7,22 +7,21 @@ angular.module('app')
           resource: '=',
           hero: '='
       },
-      controller: function ($scope, ModalService, resourceService) {
+      controller: function ($scope, ModalService, resourceService, authService) {
+      
           $scope.openEditResourceModal = function(resource) {
-              console.log('fired')
-        ModalService.showModal({
-            templateUrl: "./app/modals/editResource/editResourceModal.html",
-            controller: "editResourceModal",
-            inputs: {hero: $scope.hero, resource: $scope.resource}
-        }).then(function (modal) {
-            modal.close.then(function (then) {
+            ModalService.showModal({
+                templateUrl: "./app/modals/editResource/editResourceModal.html",
+                controller: "editResourceModal",
+                inputs: {hero: $scope.hero, resource: $scope.resource}
+            }).then(function (modal) {
+                modal.close.then(function (then) {
+                });
             });
-        });
     };
       $scope.deleteResource = function (resourceId) {
         resourceService.deleteResource(resourceId).then(function (response) {
             alert("Resource Deleted!")
-            console.log(response);
         })
     }   
        

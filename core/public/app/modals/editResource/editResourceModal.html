@@ -6,6 +6,6 @@
     <input ng-model="resource.url" type="text" placeholder="Url">
     <label>Description</label>
     <input ng-model="resource.description" type="text" placeholder="Description">
-    <button ng-click="updateResource(resource)">Submit Resource</button>
+    <button ng-click="updateResource(resource._id, resource)">Submit Resource</button>
 </div>
 <div class="fade" ng-click="close()"></div>

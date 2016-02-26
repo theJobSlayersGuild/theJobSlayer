@@ -3,9 +3,9 @@ angular.module("app").controller("editResourceModal", function($scope, resourceS
     $scope.hero = hero;
     $scope.resource = resource;
     
-    $scope.editResource = function (resource, hero) {
-        console.log('edit fired')
-        resourceService.editResource({_id : resource._id, _author: hero._id}).then(function (response) {
+    $scope.updateResource = function (id, resource) {
+        resourceService.editResource(id, resource).then(function (response) {
+            $scope.close();
             alert('Resource updated successfully!');
         })
     }

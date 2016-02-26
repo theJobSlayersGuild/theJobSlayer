@@ -8,7 +8,6 @@ angular.module('app')
                 hero: '='
             },
             controller: function ($scope, jobService, questService, ModalService) {
-
                 $scope.acceptQuest = function (jobId, heroId) {
                     questService.createQuest({_job: jobId, _hero: heroId})
                 }
