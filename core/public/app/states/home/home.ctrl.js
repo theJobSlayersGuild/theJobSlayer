@@ -207,9 +207,10 @@ angular.module('app')
       questService.editQuest(currentQuest._id, currentQuest);
     };
 
-    $scope.deleteQuest = function(currentQuest) {
+    $scope.deleteQuest = function(currentQuest, i) {
       console.log('deleteQuest');
-
+      questService.deleteQuest(currentQuest._id);
+      $scope.quests.splice(i, 1);
     };
 
   });
