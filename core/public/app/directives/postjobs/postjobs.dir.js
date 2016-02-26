@@ -7,10 +7,12 @@ angular.module('app')
                 job: '=',
                 hero: '='
             },
-            controller: function ($scope, jobService, questService, ModalService, guildService) {
+            controller: function ($scope, jobService, questService, ModalService, stepService, guildService) {
 
-                $scope.acceptQuest = function (jobId, heroId) {
-                    questService.createQuest({_job: jobId, _hero: heroId})
+
+
+                $scope.acceptQuest = function (jobId, heroId, stepsId) {
+                    questService.createQuest({_job: jobId, _hero: heroId, _step: stepsId})
                 }
 
                 $scope.editJob = function (jobId, heroId) {
@@ -22,6 +24,15 @@ angular.module('app')
                     jobService.deleteJob(jobId)
                     $scope.getJobs();
                 }
+                $scope.getAllSteps = function() {
+                    stepService.getSteps()
+                        .then(function(response) {
+                            console.log(response);
+                            $scope.steps = response;
+                        })
+                }
+                $scope.getAllSteps();
+
 
                 /*$scope.getGuild = function(hero) {
                     guildService.getGuilds();

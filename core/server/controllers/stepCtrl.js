@@ -11,13 +11,28 @@ module.exports = {
         })
     },
 
-    readStep: function (req, res) {
-        Step.find(req.query, function(err, result) {
+    /*readStep: function (req, res) {
+        //Step.find(req.query, function(err, result) {
+        //    Step.find(req.query).select('_id').exec(function(err, result) {
+        result = result.map(function(doc) {
+            return doc._id;
             if (err) {
                 res.status(500).send(err);
             }
             res.status(200).send(result)
         })
+    },*/
+
+    readStep: function (req, res) {
+        Step.find(req.query, '_id', function(err, result) {
+            if (err) {
+                res.status(500).send(err);
+            }
+            result = result.map(function(doc) {
+                return doc._id;
+            });
+            res.status(200).send(result);
+        });
     },
 
     updateStep: function (req, res) {

@@ -14,7 +14,7 @@ angular.module('app')
         });
     };
 
-    /*this.getGuilds = function(id) {
+    this.getGuilds = function(id) {
       return $http({
           method: 'GET',
           url: '/api/guild?_member=' + id
@@ -22,7 +22,17 @@ angular.module('app')
         .then(function(response) {
           return response.data;
         });
-    };*/
+    };
+
+      this.getAllGuilds = function() {
+          return $http({
+              method: 'GET',
+              url: '/api/guild'
+          })
+              .then(function(response) {
+                  return response.data;
+              });
+      };
 
     this.getGuild = function(id) {
       return $http({
