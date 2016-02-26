@@ -8,17 +8,22 @@ angular.module('app')
           hero: '='
       },
       controller: function ($scope, ModalService, resourceService) {
-          $scope.openNewResourceModal = function(resource) {
+          $scope.openEditResourceModal = function() {
         ModalService.showModal({
             templateUrl: "./app/modals/editResource/editResource.html",
             controller: "editResourceCtrl",
-            inputs: {hero: $scope.hero}
+            inputs: {hero: $scope.hero, resource: $scope.resource}
         }).then(function (modal) {
             modal.close.then(function (then) {
             });
         });
     };
-         
+      $scope.deleteResource = function (resourceId) {
+        resourceService.deleteResource(resourceId).then(function (response) {
+            alert("Resource Deleted!")
+            console.log(response);
+        })
+    }   
        
       }
     };

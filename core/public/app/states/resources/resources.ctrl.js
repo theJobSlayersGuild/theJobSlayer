@@ -11,11 +11,7 @@ app.controller('resourcesCtrl', function ($scope, resourceService, ModalService,
     
     $scope.getResources();
          
-    $scope.deleteResource = function () {
-        resourceService.deleteResource().then(function (response) {
-            alert("Resource Deleted!")
-        })
-    }
+    
    
     
      $scope.openNewResourceModal = function() {
