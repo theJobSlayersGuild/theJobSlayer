@@ -3,7 +3,9 @@ angular.module('app')
     .controller('jobsCtrl', function ($scope, ModalService, hero, jobService) {
 
         $scope.hero = hero;
+        $scope.id = $scope.hero._id;
 
+        
         $scope.getJobs = function () {
             jobService.getJobs()
                 .then(function (response) {
@@ -12,6 +14,7 @@ angular.module('app')
         }
 
         $scope.getJobs();
+
 
         $scope.openPostJobModal = function () {
             ModalService.showModal({
