@@ -64,7 +64,7 @@
       <span ng-show="quest.progress >= step.order">dead enemy</span>
       <button ng-attr-title="{{step.description}}">O</button>
       <span ng-show="quest.progress === step.order">You are here</span>
-      <span ng-show="quest.progress + 1 === step.order">Wisdom Goat Says: {{step.flavorText}} {{step.description}}<button ng-click="nextStep(quest, $parent.$parent.$index)">Step Complete!</button></span>
+      <span ng-show="quest.progress + 1 === step.order">Wisdom Goat Says: {{step.flavorText}} {{step.description}}<button ng-click="nextStep(quest)">Step Complete!</button></span>
     </p>
     Castle destroyed? {{quest.completed}}
     <button ng-click="deleteQuest()">Archive Quest</button>
