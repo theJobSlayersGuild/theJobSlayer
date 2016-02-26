@@ -8,7 +8,7 @@ app.controller('guildMasterCtrl', function ($scope, ModalService, guildService, 
         templateUrl: "./app/modals/guild/guild.ctrl.html",
         controller: "guildCtrl",
         inputs: {
-          _guildMaster: hero._id
+          _guildMaster: hero
         }
       }).then(function(modal) {
         modal.close.then(function(then) {
