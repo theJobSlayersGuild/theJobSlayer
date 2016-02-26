@@ -198,7 +198,6 @@ angular.module('app')
       if (currentQuest.progress === currentQuest._steps.length) {
           currentQuest.completed = true;
       }
-      console.log('$scope.quests', $scope.quests);
       questService.editQuest(currentQuest._id, currentQuest);
     };
 

@@ -2,14 +2,12 @@ angular.module('app')
   .service('guildService', function($http) {
 
     this.createGuild = function(guild) {
-      console.log(guild);
       return $http({
           method: 'POST',
           url: '/api/guild',
           data: guild
         })
         .then(function(response) {
-          console.log(response);
           return response.data;
         });
     };

@@ -31,7 +31,6 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         guildService.getGuildsByMember($scope.id)
             .then(function (response) {
                 $scope.guilds = response;
-                console.log(response);
             })
     }
 
@@ -53,7 +52,6 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
 
     $scope.removeSkill = function (skill) {
         var skillToRemove = $scope.job.skillsRequired.indexOf(skill);
-        console.log($scope.job.skillsRequired.splice(skillToRemove, 1));
     }
 
     $scope.createQuest = function (job) {

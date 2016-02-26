@@ -32,7 +32,6 @@ angular.module('app')
                 }
 
                 $scope.openEditJobModal = function (job) {
-                    console.log(job, $scope.job);
                     ModalService.showModal({
                         templateUrl: "./app/modals/editjobs/editjobModal.ctrl.html",
                         controller: "editjobCtrl",

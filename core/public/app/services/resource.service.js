@@ -44,7 +44,6 @@ angular.module('app')
     };
 
     this.deleteResource = function(id) {
-        console.log(id);
       return $http({
           method: 'DELETE',
           url: '/api/resource/' + id
