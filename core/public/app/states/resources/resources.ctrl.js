@@ -21,6 +21,7 @@ app.controller('resourcesCtrl', function ($scope, resourceService, ModalService,
             inputs: {hero: $scope.hero}
         }).then(function (modal) {
             modal.close.then(function (then) {
+                $scope.getResources();            
             });
         });
     };

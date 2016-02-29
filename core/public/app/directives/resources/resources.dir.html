@@ -1,5 +1,5 @@
 <div class="resource">
-   Posted by: {{resource._author.name}} | Title: {{resource.title}} | Url: <a href="{{resource.url}}">{{resource.url}}</a> | Description: {{resource.description}}
+   Posted by: {{resource._author.name}} | {{resource.title}} | <a target="_blank" href="{{resource.url}}">{{resource.url}}</a> | {{resource.description}}
 </div>   
 
 <button ng-if="hero._id === resource._author._id" ng-click="openEditResourceModal(resource)">edit</button>

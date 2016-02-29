@@ -3,9 +3,11 @@ angular.module('app').controller('newResourceCtrl', function ($scope, close, res
     
     $scope.hero = hero;
     
+    
     $scope.createResource = function (resource) {
         $scope.resource._author = $scope.hero._id;
         resourceService.createResource(resource).then(function (response) {
+           
             $scope.close();
         })
     }

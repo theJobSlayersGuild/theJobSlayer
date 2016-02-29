@@ -19,8 +19,11 @@ angular.module('app')
                 });
             });
     };
-      $scope.deleteResource = function (resourceId) {
+    
+      
+    $scope.deleteResource = function (resourceId) {
         resourceService.deleteResource(resourceId).then(function (response) {
+            
             alert("Resource Deleted!")
         })
     }   
