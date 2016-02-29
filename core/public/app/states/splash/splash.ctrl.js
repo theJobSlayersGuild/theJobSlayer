@@ -20,7 +20,7 @@ app.controller('splashCtrl', function ($state, $scope, ModalService, authService
     $scope.submitLogin = function (hero) {
       authService.login(hero)
         .then(function (response) {
-          xpService.add(response.data, 1);
+          xpService.addAndUpdate(response.data, 1);
           $state.go('home');
         });
     };

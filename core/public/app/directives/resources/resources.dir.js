@@ -31,9 +31,7 @@ angular.module('app')
         };
 
         $scope.addXp = function() {
-          console.log('$scope.hero', $scope.hero);
-
-          xpService.add($scope.hero, 5);
+          xpService.addAndUpdate($scope.hero, 5);
         };
 
       }

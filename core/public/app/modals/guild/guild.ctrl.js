@@ -1,9 +1,10 @@
-angular.module("app").controller("guildCtrl", function($scope, close, guildService, _guildMaster, heroService) {
+angular.module("app").controller("guildCtrl", function($scope, close, guildService, _guildMaster, heroService, xpService) {
 
   $scope.addGuild = function(guild) {
     guild._guildMaster = _guildMaster._id;
     guildService.createGuild(guild)
     .then(function(response){
+      xpService.addAndUpdate(_guildMaster, 15);
       close();
     });
   };

@@ -22,7 +22,7 @@ angular.module('app')
                 $scope.acceptQuest = function (jobId, heroId, stepsId) {
                     questService.createQuest({_job: jobId, _hero: heroId, _steps: stepsId})
                     .then(function() {
-                      xpService.add($scope.hero, 10);
+                      xpService.addAndUpdate($scope.hero, 10);
                       $scope.getQuests();
                     });
                 };

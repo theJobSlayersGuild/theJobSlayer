@@ -6,7 +6,7 @@ angular.module('app').controller('newResourceCtrl', function ($scope, close, res
     $scope.createResource = function (resource) {
         $scope.resource._author = $scope.hero._id;
         resourceService.createResource(resource).then(function (response) {
-            xpService.add($scope.hero, 5);
+            xpService.addAndUpdate($scope.hero, 5);
             $scope.close();
         });
     };

@@ -205,10 +205,10 @@ angular.module('app')
       currentQuest.progress++;
 
       if (currentQuest.progress === currentQuest._steps.length) {
-        xpService.add(hero, 15);
+        xpService.addAndUpdate(hero, 15);
         currentQuest.completed = true;
       } else {
-        xpService.add(hero, 10);
+        xpService.addAndUpdate(hero, 10);
       }
       questService.editQuest(currentQuest._id, currentQuest);
     };

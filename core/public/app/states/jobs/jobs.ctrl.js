@@ -22,7 +22,7 @@ angular.module('app')
                 controller: "postjobCtrl",
                 inputs: {hero: $scope.hero}
             }).then(function (modal) {
-                xpService.add($scope.hero, 10);
+                xpService.addAndUpdate($scope.hero, 10);
                 modal.close.then(function (then) {
                 });
             });
