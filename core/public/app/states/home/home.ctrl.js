@@ -220,7 +220,6 @@ angular.module('app')
     };
 
     $scope.getJobs = function () {
-      console.log('getJobs called');
 
       jobService.getJobs()
         .then(function (response) {
