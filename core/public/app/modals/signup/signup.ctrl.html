@@ -1,11 +1,13 @@
 <div class="overlay">
     <h4>Create New Hero</h4>
-    <label>Email</label>
-    <input ng-model="hero.email" type="text" placeholder="Email">
-    <label>Password</label>
-    <input ng-model="hero.password" type="password" placeholder="Password">
-    <label>Name</label>
-    <input ng-model="hero.name" type="text" placeholder="Name">
-    <button ng-click="signUp(hero)">Start New Campaign!</button>
+    <form>
+        <label>Email</label>
+        <input ng-model="hero.email" type="text" placeholder="Email">
+        <label>Password</label>
+        <input ng-model="hero.password" type="password" placeholder="Password">
+        <label>Name</label>
+        <input ng-model="hero.name" type="text" placeholder="Name">
+        <button type="submit" ng-click="signUp(hero)">Start New Campaign!</button>
+    </form>
 </div>
 <div class="fade" ng-click="close()"></div>
