@@ -39,8 +39,6 @@ angular.module('app')
           data: hero
         })
         .then(function(response) {
-          console.log('editHero.then firing');
-
           return response.data;
         });
     };

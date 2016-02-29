@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService) {
+  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService) {
 
     $scope.hero = hero;
 
@@ -51,7 +51,6 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.resume.url = $scope.input1;
         $scope.hero.equipment.resume.done = true;
-        delete $scope.hero.password;
         heroService.editHero($scope.hero);
         $scope.input1 = "";
         $scope.tips.splice(num, 1);
@@ -67,7 +66,6 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.linkedin.url = $scope.input1;
         $scope.hero.equipment.linkedin.done = true;
-        delete $scope.hero.password;
         heroService.editHero($scope.hero);
         $scope.input1 = "";
         $scope.tips.splice(num, 1);
@@ -83,7 +81,6 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.portfolioSite.url = $scope.input1;
         $scope.hero.equipment.portfolioSite.done = true;
-        delete $scope.hero.password;
         heroService.editHero($scope.hero);
         $scope.input1 = "";
         $scope.tips.splice(num, 1);
@@ -97,7 +94,6 @@ angular.module('app')
       buttonText: 'I attended a meetup!',
       invoked: function() {
         $scope.hero.equipment.meetups++;
-        delete $scope.hero.password;
         heroService.editHero($scope.hero);
         if (num < $scope.tips.length - 1) {
           num++;
@@ -119,7 +115,6 @@ angular.module('app')
         newProject.name = $scope.input1;
         newProject.url = $scope.input2;
         $scope.hero.equipment.projects.push(newProject);
-        delete $scope.hero.password;
         heroService.editHero($scope.hero);
         $scope.input1 = "";
         if (num < $scope.tips.length - 1) {
@@ -138,7 +133,6 @@ angular.module('app')
       buttonText: 'I learned a new skill!',
       invoked: function() {
         $scope.hero.equipment.skills.push($scope.input1);
-        delete $scope.hero.password;
         heroService.editHero($scope.hero);
         if (num < $scope.tips.length - 1) {
           num++;
