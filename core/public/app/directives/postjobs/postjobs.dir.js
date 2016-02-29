@@ -5,7 +5,8 @@ angular.module('app')
             templateUrl: './app/directives/postjobs/postjobs.dir.html',
             scope: {
                 job: '=',
-                hero: '='
+                hero: '=',
+                getQuests: '&'
             },
 
             controller: function ($scope, jobService, questService, ModalService, stepService, guildService) {
@@ -20,6 +21,9 @@ angular.module('app')
 
                 $scope.acceptQuest = function (jobId, heroId, stepsId) {
                     questService.createQuest({_job: jobId, _hero: heroId, _steps: stepsId})
+                    .then(function() {
+                      $scope.getQuests();
+                    });
                 }
 
                 $scope.editJob = function (jobId, heroId) {
@@ -44,4 +48,3 @@ angular.module('app')
             }
         }
     });
-
