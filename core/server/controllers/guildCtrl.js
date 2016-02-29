@@ -19,7 +19,7 @@ module.exports = {
                 if (err) {
                     res.status(500).send(err);
                 }
-                /*find all members put in results array find guild masters put in results2 array combine arrays*/
+                /*find all members/ put in results array/ find guild masters/ put in results2 array/ combine arrays*/
                 results = results.concat(guilds)
                 res.status(200).send(results);
             })

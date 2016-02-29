@@ -1,10 +1,10 @@
-angular.module("app").controller("postjobCtrl", function ($scope, jobService, questService, close, hero, guildService, stepService) {
+angular.module("app").controller("postjobCtrl", function ($scope, jobService, questService, close, hero, guildService, guilds) {
     $scope.close = close;
 
     $scope.hero = hero;
     $scope.id = hero._id;
-    $scope.guildsAdded = [];
-
+    $scope.name = [];
+    $scope.guilds = guilds;
     $scope.job = {
         companyName: null,
         companyUrl: null,
@@ -28,54 +28,74 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         _guild: []
     };
 
-    $scope.getguild = function () {
+
+
+   /* $scope.getguild = function () {
         guildService.getGuildsByMember($scope.id)
             .then(function (response) {
                 $scope.guilds = response;
-                console.log(response);
+                //console.log(response);
             })
     }
 
-    $scope.getguild();
+    $scope.getguild();*/
 
-    $scope.addGuildToJobGuildArray = function(guildId, guildName) {
+
+
+    /*$scope.addGuildToJobGuildArray = function(guildId, guildName) {
+     console.log(guildName, guildId);
+     $scope.job._guild.push(guildId);
+     $scope.guildsAdded.push(guildName);
+     }*/
+    $scope.updateJobGuildArray = function (guildName, guildId) {
         console.log(guildName, guildId);
-        $scope.job._guild.push(guildId);
-        $scope.guildsAdded.push(guildName);
+        if ($scope.name.indexOf(guildName) === -1) {
+            $scope.job._guild.push(guildId)
+            $scope.name.push(guildName);
+        } else {
+
+            if ($scope.name.indexOf(guildName) !== -1) {
+                $scope.job._guild.splice($scope.job._guild.IndexOf(guildId), 1);
+                $scope.name.splice($scope.name.indexOf(guildName), 1);
+            }
+        }
     }
 
-    $scope.removeGuildFromJobGuildArray = function(guildId, guildName) {
-        console.log(guildName, guildId);
+    $scope.changeToPrivate = function () {
 
-        var guildNameToRemove = $scope.guildsAdded.indexOf(guildName);
-        $scope.guildsAdded.splice(guildNameToRemove, 1);
-
-        var guildIdToRemove = $scope.job._guild.indexOf(guildId);
-        $scope.job._guild.splice(guildIdToRemove, 1);
+        $scope.job.public = false;
     }
 
+    /*$scope.removeGuildFromJobGuildArray = function(guildId, guildName) {
+     console.log(guildName, guildId);
 
-    $scope.getJobs = function () {
-        jobService.getJobs()
-            .then(function (response) {
-                $scope.jobs = response;
-            })
-    }
+     var guildNameToRemove = $scope.guildsAdded.indexOf(guildName);
+     $scope.guildsAdded.splice(guildNameToRemove, 1);
+
+     var guildIdToRemove = $scope.job._guild.indexOf(guildId);
+     $scope.job._guild.splice(guildIdToRemove, 1);
+     }*/
+
 
     $scope.addSkill = function (skill) {
-        $scope.job.skillsRequired.push(skill);
+        if (skill !== null && skill !== undefined && skill !== "") {
+            $scope.job.skillsRequired.push(skill);
+        }
+        $scope.skills = "";
     }
 
     $scope.removeSkill = function (skill) {
         var skillToRemove = $scope.job.skillsRequired.indexOf(skill);
-        console.log($scope.job.skillsRequired.splice(skillToRemove, 1));
+        $scope.job.skillsRequired.splice(skillToRemove, 1);
     }
 
     $scope.createQuest = function (job) {
         $scope.job._author = $scope.hero._id;
         jobService.createJob(job)
-        $scope.getJobs();
-
+            .then(function () {
+                close($scope.guilds);
+                alert("Quest Created");
+            })
     }
 
 
