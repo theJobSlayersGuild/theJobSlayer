@@ -5,7 +5,8 @@ angular.module('app')
       templateUrl: './app/directives/resources/resources.dir.html',
       scope: {
           resource: '=',
-          hero: '='
+          hero: '=',
+          getResources: '&'
       },
       controller: function ($scope, ModalService, resourceService, authService) {
       
@@ -23,7 +24,7 @@ angular.module('app')
       
     $scope.deleteResource = function (resourceId) {
         resourceService.deleteResource(resourceId).then(function (response) {
-            
+            $scope.getResources();
             alert("Resource Deleted!")
         })
     }   
