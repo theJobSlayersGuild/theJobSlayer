@@ -4,8 +4,8 @@
 
 <h1>Profile</h1>
 
-<div class-"profileImageWrapper" style="display: inline-block">
-<img class="profileImage" ng-src="{{hero.profileImage}}" ng-click="openProfileImageModal()" title="Edit Avatar"/>
+<div class-"profileImageWrapper">
+<img class="profileImage" ng-src="{{hero.profileImage}}" style="display: inline-block" ng-click="openProfileImageModal()" title="Edit Avatar"/>
 </div>
 
 <div style="display: inline-block">
@@ -33,7 +33,7 @@
 <div>
   <br /> <h2>Jobs Submitted</h2>
   <div ng-repeat="job in jobs">
-    <dir-job-listing job="job" hero="hero"></dir-job-listing>
+    <dir-member-job-listing job="job" hero="hero"></dir-member-job-listing>
   </div>
   <div ng-if="jobs.length < 1">You have not posted any jobs yet</div>
 </div>
@@ -41,7 +41,7 @@
 <div>
   <br /> <h2>Resources Submitted</h2>
   <div ng-repeat="resource in resources">
-    <dir-resources resource="resource" hero="hero"></dir-resources>
+    <dir-member-resources resource="resource" hero="hero"></dir-member-resources>
   </div>
   <div ng-if="resources.length < 1">You have not posted any resources yet</div>
 </div>
