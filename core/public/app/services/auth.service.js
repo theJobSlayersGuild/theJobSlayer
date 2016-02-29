@@ -29,6 +29,7 @@ angular.module('app')
         url: '/api/me'
       })
       .then(function(response) {
+        delete response.data.password;
         return response;
       })
       .catch(function(err) {
