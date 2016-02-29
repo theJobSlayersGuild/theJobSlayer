@@ -1,5 +1,5 @@
 angular.module('app')
-  .service('authService', function($http) {
+  .service('authService', function($http, $state) {
 
     this.signUp = function(hero) {
       return $http({
@@ -30,6 +30,9 @@ angular.module('app')
       })
       .then(function(response) {
         return response;
+      })
+      .catch(function(err) {
+        $state.go('splash');
       });
     };
 
