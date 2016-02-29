@@ -8,15 +8,16 @@
 
 <div style="display: inline-block">
   <br /> <h2>{{hero.name}} {{hero.title}}</h2>
+  <br />Playing Since: {{hero.dateCreated | date:'shortDate'}}
   <br />Level: {{hero.level}}
   <br />XP: {{hero.xp}}
 </div>
 
 <div style="display: inline-block">
   <br /> <h2>ACHIEVEMENTS</h2>
-  <br />Resume: {{hero.equipment.resume.done}}
-  <br />LinkedIn: {{hero.equipment.linkedin.done}}
-  <br />Portfolio: {{hero.equipment.portfolio.done}}
+  <br />Resume: {{hero.equipment.resume.url}}
+  <br />LinkedIn: {{hero.equipment.linkedin.url}}
+  <br />Portfolio: {{hero.equipment.portfolio.url}}
 </div>
 
 <div>
