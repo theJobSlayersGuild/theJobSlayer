@@ -36,7 +36,6 @@ angular.module('app')
     };
 
     this.editJob = function(id, job) {
-        console.log(id, job);
       return $http({
           method: 'PUT',
           url: '/api/job/' + id,

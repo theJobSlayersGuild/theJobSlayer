@@ -3,7 +3,6 @@ angular.module("app").controller("editjobCtrl", function($scope, jobService, que
 
     $scope.hero = hero;
     $scope.job = job;
-    console.log(job);
     //$scope.job = {
     //    companyName: null,
     //    companyUrl: null,
@@ -39,7 +38,6 @@ angular.module("app").controller("editjobCtrl", function($scope, jobService, que
 
     $scope.removeSkill = function(skill) {
         var skillToRemove = $scope.job.skillsRequired.indexOf(skill);
-        console.log($scope.job.skillsRequired.splice(skillToRemove,1));
     }
 
     $scope.createQuest = function(job) {
@@ -50,7 +48,6 @@ angular.module("app").controller("editjobCtrl", function($scope, jobService, que
 
     $scope.editJobs = function(id, job) {
         jobService.editJob(id, job);
-        console.log(id, job);
     }
 
 
