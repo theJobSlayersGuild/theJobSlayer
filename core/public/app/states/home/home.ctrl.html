@@ -62,6 +62,7 @@
     <p ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is inside!</p>
     <p ng-repeat="step in quest._steps">
       <span ng-show="quest.progress >= step.order">dead enemy</span>
+      <span ng-show="quest.progress < step.order">enemy!</span>
       <button ng-attr-title="{{step.description}}">O</button>
       <span ng-show="quest.progress === step.order">You are here</span>
       <span ng-show="quest.progress + 1 === step.order">Wisdom Goat Says: {{step.flavorText}} {{step.description}}<button ng-click="nextStep(quest)">Step Complete!</button></span>
@@ -74,6 +75,7 @@
 
 <div>
   <h2>Bounty Board</h2>
-
-  <p>job directive here</p>
+  <div ng-repeat="job in jobs | limitTo:5">
+    <dir-job-listing hero="hero" job="job" get-quests="getQuests()"></dir-job-listing>
+  </div>
 </div>

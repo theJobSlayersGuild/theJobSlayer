@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope, hero, heroService, questService) {
+  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService) {
 
     $scope.hero = hero;
 
@@ -187,10 +187,14 @@ angular.module('app')
 
     //other helmet ideas: batman mask? football helmet? propeller beanie? baseball hat with tag attached?
 
-    questService.getQuests(hero._id)
-    .then(function(response) {
-      $scope.quests = response;
-    });
+    $scope.getQuests = function() {
+      questService.getQuests(hero._id)
+      .then(function(response) {
+        $scope.quests = response;
+      });
+    };
+
+    $scope.getQuests();
 
     $scope.nextStep = function(currentQuest) {
       currentQuest.progress++;
@@ -214,5 +218,16 @@ angular.module('app')
         }
       }
     };
+
+    $scope.getJobs = function () {
+      console.log('getJobs called');
+
+      jobService.getJobs()
+        .then(function (response) {
+            $scope.jobs = response;
+        });
+    };
+
+    $scope.getJobs();
 
   });
