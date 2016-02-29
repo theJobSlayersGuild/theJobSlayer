@@ -27,9 +27,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
               hero: function(authService, $state){
                 return authService.currentHero()
                 .then(function(response){
-                  if (response.status !== 200) {
-                    $state.go('splash');
-                  }
                   return response.data;
                 });
               }
@@ -43,9 +40,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
               hero: function(authService, $state){
                 return authService.currentHero()
                 .then(function(response){
-                  if (response.status !== 200) {
-                    $state.go('splash');
-                  }
                   return response.data;
                 });
               }
@@ -59,9 +53,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 hero: function(authService, $state){
                     return authService.currentHero()
                         .then(function(response){
-                            if (response.status !== 200) {
-                                $state.go('splash');
-                            }
                             return response.data;
                         });
                 }
@@ -75,9 +66,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
               hero: function(authService, $state){
                 return authService.currentHero()
                 .then(function(response){
-                  if (response.status !== 200) {
-                    $state.go('splash');
-                  }
                   return response.data;
                 });
                }
@@ -91,15 +79,38 @@ app.config(function ($stateProvider, $urlRouterProvider) {
               hero: function(authService, $state){
                 return authService.currentHero()
                 .then(function(response){
-                  if (response.status !== 200) {
-                    $state.go('splash');
-                  }
                   return response.data;
                 });
               }
             }
         })
+        .state('heroes', {
+            url: '/heroes',
+            templateUrl: './app/states/heroes/heroes.ctrl.html',
+            controller: 'heroesCtrl',
+            resolve: {
+              hero: function(authService, $state){
+                return authService.currentHero()
+                .then(function(response){
+                  return response.data;
+                });
+              }
+            }
+        })
+        .state('member', {
+            url: '/member/:id',
+            templateUrl: './app/states/member/member.ctrl.html',
+            controller: 'memberCtrl',
+            resolve: {
+              hero: function(heroService, $state, $stateParams){
+                return heroService.getHero($stateParams.id)
+                .then(function(response){
+                  return response[0];
+                });
+              }
+            }
+        });
 
     $urlRouterProvider
-        .otherwise('splash')
+        .otherwise('splash');
 });

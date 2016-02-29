@@ -22,6 +22,16 @@ angular.module('app')
         });
     };
 
+    this.getResourceByAuthor = function(id) {
+      return $http({
+          method: 'GET',
+          url: '/api/resource?_author=' + id
+        })
+        .then(function(response) {
+          return response.data;
+        });
+    };
+
     this.editResource = function(id, resource) {
       return $http({
           method: 'PUT',

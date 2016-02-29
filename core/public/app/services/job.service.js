@@ -35,6 +35,16 @@ angular.module('app')
         });
     };
 
+    this.getJobByAuthor = function(id) {
+      return $http({
+          method: 'GET',
+          url: '/api/job?_author=' + id
+        })
+        .then(function(response) {
+          return response.data;
+        });
+    };
+
     this.editJob = function(id, job) {
       return $http({
           method: 'PUT',
