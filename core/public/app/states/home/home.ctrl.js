@@ -1,7 +1,9 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService) {
+  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService) {
 
     $scope.hero = hero;
+
+//EQUIPMENT SWITCH CASE
 
     switch ($scope.hero.level) {
       case 1:
@@ -42,6 +44,10 @@ angular.module('app')
         break;
     }
 
+    //other helmet ideas: batman mask? football helmet? propeller beanie? baseball hat with tag attached?
+
+//WISDOM GOAT TIPS
+
     $scope.tips = [{
       title: 'resume',
       goatSays: 'A resume is a powerful weapon in the fight against No Jobba.',
@@ -51,7 +57,7 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.resume.url = $scope.input1;
         $scope.hero.equipment.resume.done = true;
-        delete $scope.hero.password;
+        $scope.hero.xp += 20;
         heroService.editHero($scope.hero);
         $scope.input1 = "";
         $scope.tips.splice(num, 1);
@@ -67,7 +73,7 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.linkedin.url = $scope.input1;
         $scope.hero.equipment.linkedin.done = true;
-        delete $scope.hero.password;
+        $scope.hero.xp += 15;
         heroService.editHero($scope.hero);
         $scope.input1 = "";
         $scope.tips.splice(num, 1);
@@ -83,7 +89,7 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.portfolioSite.url = $scope.input1;
         $scope.hero.equipment.portfolioSite.done = true;
-        delete $scope.hero.password;
+        $scope.hero.xp += 25;
         heroService.editHero($scope.hero);
         $scope.input1 = "";
         $scope.tips.splice(num, 1);
@@ -97,7 +103,7 @@ angular.module('app')
       buttonText: 'I attended a meetup!',
       invoked: function() {
         $scope.hero.equipment.meetups++;
-        delete $scope.hero.password;
+        $scope.hero.xp += 10;
         heroService.editHero($scope.hero);
         if (num < $scope.tips.length - 1) {
           num++;
@@ -119,7 +125,7 @@ angular.module('app')
         newProject.name = $scope.input1;
         newProject.url = $scope.input2;
         $scope.hero.equipment.projects.push(newProject);
-        delete $scope.hero.password;
+        $scope.hero.xp += 20;
         heroService.editHero($scope.hero);
         $scope.input1 = "";
         if (num < $scope.tips.length - 1) {
@@ -138,7 +144,7 @@ angular.module('app')
       buttonText: 'I learned a new skill!',
       invoked: function() {
         $scope.hero.equipment.skills.push($scope.input1);
-        delete $scope.hero.password;
+        $scope.hero.xp += 15;
         heroService.editHero($scope.hero);
         if (num < $scope.tips.length - 1) {
           num++;
@@ -161,7 +167,6 @@ angular.module('app')
         $scope.tips.splice(i, 1);
       }
     }
-
     var num = 0;
 
     $scope.currentTip = $scope.tips[num];
@@ -185,7 +190,7 @@ angular.module('app')
       $scope.currentTip = $scope.tips[num];
     };
 
-    //other helmet ideas: batman mask? football helmet? propeller beanie? baseball hat with tag attached?
+//OTHER STUFF
 
     $scope.getQuests = function() {
       questService.getQuests(hero._id)
@@ -200,7 +205,10 @@ angular.module('app')
       currentQuest.progress++;
 
       if (currentQuest.progress === currentQuest._steps.length) {
-          currentQuest.completed = true;
+        xpService.add(hero, 15);
+        currentQuest.completed = true;
+      } else {
+        xpService.add(hero, 10);
       }
       questService.editQuest(currentQuest._id, currentQuest);
     };
@@ -220,8 +228,6 @@ angular.module('app')
     };
 
     $scope.getJobs = function () {
-      console.log('getJobs called');
-
       jobService.getJobs()
         .then(function (response) {
             $scope.jobs = response;

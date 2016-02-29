@@ -9,31 +9,32 @@ angular.module('app')
                 getQuests: '&'
             },
 
-            controller: function ($scope, jobService, questService, ModalService, stepService, guildService) {
+            controller: function ($scope, jobService, questService, ModalService, stepService, guildService, xpService) {
 
                 $scope.getAllSteps = function () {
                     stepService.getSteps()
                         .then(function (response) {
                             $scope.stepsId = response;
-                        })
-                }
+                        });
+                };
                 $scope.getAllSteps();
 
                 $scope.acceptQuest = function (jobId, heroId, stepsId) {
                     questService.createQuest({_job: jobId, _hero: heroId, _steps: stepsId})
                     .then(function() {
+                      xpService.add($scope.hero, 10);
                       $scope.getQuests();
                     });
-                }
+                };
 
                 $scope.editJob = function (jobId, heroId) {
-                    jobService.editJob({_job: jobId, _hero: heroId})
-                }
+                    jobService.editJob({_job: jobId, _hero: heroId});
+                };
 
                 $scope.deleteJob = function (jobId) {
-                    jobService.deleteJob(jobId)
+                    jobService.deleteJob(jobId);
                     $scope.getJobs();
-                }
+                };
 
                 $scope.openEditJobModal = function (job) {
                     ModalService.showModal({
@@ -46,5 +47,5 @@ angular.module('app')
                     });
                 };
             }
-        }
+        };
     });

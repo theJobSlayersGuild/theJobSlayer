@@ -4,7 +4,7 @@
 <button ng-click="openNewResourceModal()">Add New Resource</button>
 <div class="resourcesWrapper">
     <div class="resourceWrapper" ng-repeat="resource in resources">
-    <dir-resources hero="hero" resource="resource"></dir-resources>
+    <dir-resources hero="hero" resource="resource" get-resources="getResources()"></dir-resources>
     </div>
 </div>
     

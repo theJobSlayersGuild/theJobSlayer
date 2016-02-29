@@ -1,11 +1,11 @@
 angular.module('app')
 
-    .controller('jobsCtrl', function ($scope, ModalService, hero, jobService) {
+    .controller('jobsCtrl', function ($scope, ModalService, hero, jobService, xpService) {
 
         $scope.hero = hero;
         $scope.id = $scope.hero._id;
 
-        
+
         $scope.getJobs = function () {
             jobService.getJobs()
                 .then(function (response) {
@@ -22,6 +22,7 @@ angular.module('app')
                 controller: "postjobCtrl",
                 inputs: {hero: $scope.hero}
             }).then(function (modal) {
+                xpService.add($scope.hero, 10);
                 modal.close.then(function (then) {
                 });
             });
