@@ -32,12 +32,15 @@ angular.module('app')
     };
 
     this.editHero = function(hero) {
+      delete hero.password;
       return $http({
           method: 'PUT',
           url: '/api/hero/' + hero._id,
           data: hero
         })
         .then(function(response) {
+          console.log('editHero.then firing');
+
           return response.data;
         });
     };

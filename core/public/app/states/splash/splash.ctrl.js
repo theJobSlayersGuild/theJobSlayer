@@ -1,4 +1,4 @@
-app.controller('splashCtrl', function ($state, $scope, ModalService, authService) {
+app.controller('splashCtrl', function ($state, $scope, ModalService, authService, heroService) {
 
     $scope.hero = {
         email: "dood@dood.com",
@@ -18,10 +18,12 @@ app.controller('splashCtrl', function ($state, $scope, ModalService, authService
     };
 
     $scope.submitLogin = function (hero) {
-        authService.login(hero)
-            .then(function (response) {
-                $state.go('home');
-            });
+      authService.login(hero)
+        .then(function (response) {
+          response.data.xp++;
+          heroService.editHero(response.data);
+          $state.go('home');
+        });
     };
 
 });
