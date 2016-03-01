@@ -3,10 +3,11 @@ var bcrypt = require('bcryptjs');
 
 var heroSchema = mongoose.Schema({
 
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     name: { type: String, required: true },
     title: { type: String, default: "the Barbarian" },
+    profileImage: { type: String, default: "./assets/images/angry_unicorn.png" },
     dateCreated: { type: Date, default: new Date() },
     xp: { type: Number, default: 0 },
     level: { type: Number, default: 1 },
@@ -14,17 +15,17 @@ var heroSchema = mongoose.Schema({
       resume: {
         name: { type: String, default: 'Resume' },
         url: { type: String },
-        done: { type: Boolean }
+        done: { type: Boolean, default: false }
       },
       linkedin: {
         name: { type: String, default: 'LinkedIn' },
         url: { type: String },
-        done: { type: Boolean }
+        done: { type: Boolean, default: false }
       },
       portfolioSite: {
       name: { type: String, default: 'Portfolio' },
       url: { type: String },
-      done: { type: Boolean }
+      done: { type: Boolean, default: false }
       },
       meetups: { type: Number, default: 0 },
       skills: [{ type: String }],

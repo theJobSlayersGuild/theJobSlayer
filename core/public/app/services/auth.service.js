@@ -1,5 +1,5 @@
 angular.module('app')
-  .service('authService', function($http) {
+  .service('authService', function($http, $state) {
 
     this.signUp = function(hero) {
       return $http({
@@ -21,6 +21,30 @@ angular.module('app')
         .then(function(response) {
           return response;
         });
+    };
+
+    this.currentHero = function() {
+      return $http({
+        method: 'GET',
+        url: '/api/me'
+      })
+      .then(function(response) {
+        delete response.data.password;
+        return response;
+      })
+      .catch(function(err) {
+        $state.go('splash');
+      });
+    };
+
+    this.logout = function() {
+      return $http({
+        method: 'GET',
+        url: '/api/hero/logout'
+      })
+      .then(function(response) {
+        return response;
+      });
     };
 
   });

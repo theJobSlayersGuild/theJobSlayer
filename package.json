@@ -17,8 +17,9 @@
   },
   "homepage": "https://github.com/theJobSlayersGuild/theJobSlayer#readme",
   "dependencies": {
-    "bcryptjs": "2.3.0",
     "angular-modal-service": "^0.6.10",
+    "angular-password": "^1.0.1",
+    "bcryptjs": "2.3.0",
     "body-parser": "1.15.0",
     "cors": "2.7.1",
     "express": "4.13.4",

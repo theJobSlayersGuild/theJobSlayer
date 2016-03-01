@@ -1,5 +1,80 @@
-home view
+<dir-nav-bar hero="hero"></dir-nav-bar>
 
-<dir-nav-bar></dir-nav-bar>
 
-{{test}}
+<h1>Home</h1>
+
+<img class="homeImage" ng-src="{{hero.profileImage}}" style="display: inline-block" />
+
+<div style="display: inline-block">
+  <br />Name: {{hero.name}} {{hero.title}}
+  <br />Level: {{hero.level}}
+  <br />XP: {{hero.xp}}
+  <br />INVENTORY <button>?</button>
+  <br />Armor:
+  <span ng-show="hero.equipment.linkedin.done">{{armor}}</span>
+  <span ng-hide="hero.equipment.linkedin.done">None</span>
+  <br />Weapon:
+  <span ng-show="hero.equipment.resume.done">{{weapon}}</span>
+  <span ng-hide="hero.equipment.resume.done">None</span>
+  <br />Shield:
+  <span ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
+  <span ng-hide="hero.equipment.portfolioSite.done">None</span>
+  <!-- <br />Helmet:
+  <span ng-show="hero.equipment.portfolioSite.done">{{helmet}}</span> -->
+  <!-- <span ng-hide="hero.equipment.portfolioSite.done">None</span> -->
+  <br />{{hero.equipment.projects.length}} Majickal Gemeralds
+  <br />{{hero.equipment.skills.length}} Spellbooks
+  <br />{{hero.equipment.meetups}} Gold Pieces <!-- maybe a new contact is gold, meetup is silver? -->
+
+
+  <!-- <br />Skills: <span ng-repeat="skill in hero.equipment.skills">{{skill}} </span> -->
+  <br />
+</div>
+
+<div>
+
+  <h2>Jedi Infinite Wisdom Goat Wizard Says:</h2>
+  <div>
+    {{ currentTip.goatSays }}
+    <div>
+      <div>
+        <span ng-show="currentTip.inputs > 0">
+          {{currentTip.description1}}: <input type="text" ng-model="input1" placeholder="{{currentTip.description1}}"/>
+        </span>
+        <span ng-show="currentTip.inputs > 1">
+          {{currentTip.description2}}: <input type="text" ng-model="input2" placeholder="{{currentTip.description2}}"/>
+        </span>
+      </div>
+      <button ng-click="currentTip.invoked()">{{currentTip.buttonText}}</button>
+    </div>
+  </div>
+
+</div>
+
+<button ng-show="showPreviousButton" ng-click="previousTip()">Previous Tip</button>
+<button ng-click="nextTip()">Next Tip</button>
+
+<div>
+  <h2>Current Quests</h2>
+  <div ng-repeat="quest in quests | filter:{archived:false}">
+    {{quest._job.position}} at {{quest._job.companyName}}
+    <p ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is inside!</p>
+    <p ng-repeat="step in quest._steps">
+      <span ng-show="quest.progress >= step.order">dead enemy</span>
+      <span ng-show="quest.progress < step.order">enemy!</span>
+      <button ng-attr-title="{{step.description}}">O</button>
+      <span ng-show="quest.progress === step.order">You are here</span>
+      <span ng-show="quest.progress + 1 === step.order">Wisdom Goat Says: {{step.flavorText}} {{step.description}}<button ng-click="nextStep(quest)">Step Complete!</button></span>
+    </p>
+    Castle destroyed? {{quest.completed}}
+    <button ng-click="archiveQuest(quest)">Archive Quest</button>
+    <button ng-click="deleteQuest(quest)">Delete Quest</button>
+  </div>
+</div>
+
+<div>
+  <h2>Bounty Board</h2>
+  <div ng-repeat="job in jobs | limitTo:5">
+    <dir-job-listing hero="hero" job="job" get-quests="getQuests()"></dir-job-listing>
+  </div>
+</div>

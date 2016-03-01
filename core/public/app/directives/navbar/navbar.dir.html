@@ -1,8 +1,9 @@
 <div class="navbar">
-     <a class="home" ui-sref="home">Home</a>
-     <a class="bountyboard" ui-sref="jobs">Bounty Board</a>
-     <a class="resources" ui-sref="resources">Resources</a>
-     <a class="guildmaster" ui-sref="guildmaster">Guildmaster</a>
-    <a class="splash" ui-sref="splash">login</a>
-    <a class="logout" ng-click="logout()">Logout</a>
+  <a class="home" ui-sref="home">Home</a>
+  <a class="bountyboard" ui-sref="jobs">Bounty Board</a>
+  <a class="resources" ui-sref="resources">Resources</a>
+  <a class="heroes" ui-sref="heroes">Heroes</a>
+  <a class="guildmaster" ui-sref="guildmaster">Guildmaster</a>
+  <a class="profile" ui-sref="profile">Profile</a>
+  <a class="logout" ng-if="hero" ng-click="logout()" ui-sref="splash">Logout</a>
 </div>

@@ -12,20 +12,31 @@ angular.module('app')
         });
     };
 
-    this.getGuilds = function() {
+
+      this.getGuildsByMember = function(id) {
+          return $http({
+              method: 'GET',
+              url: '/api/guild/member?_guildMembers=' + id
+          })
+              .then(function(response) {
+                  return response.data;
+              });
+      };
+
+    this.getGuild = function(id) {
       return $http({
           method: 'GET',
-          url: '/api/guild'
+          url: '/api/guild?_id=' + id
         })
         .then(function(response) {
           return response.data;
         });
     };
 
-    this.getGuild = function(id) {
+    this.getGuildsByMaster = function(id) {
       return $http({
           method: 'GET',
-          url: '/api/guild?_id=' + id
+          url: '/api/guild?_guildMaster=' + id
         })
         .then(function(response) {
           return response.data;

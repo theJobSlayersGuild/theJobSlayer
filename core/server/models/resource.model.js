@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema({
-
+var resourceSchema = mongoose.Schema({
+    _author: { type: mongoose.Schema.Types.ObjectId, ref: 'Hero', required: true },
     title: { type: String, required: true },
     url: { type: String, required: true },
     description: { type: String },
@@ -10,4 +10,4 @@ var Schema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('', Schema);
+module.exports = mongoose.model('Resource', resourceSchema);

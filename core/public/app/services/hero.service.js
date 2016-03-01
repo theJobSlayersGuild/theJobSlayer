@@ -21,10 +21,21 @@ angular.module('app')
         });
     };
 
-    this.editHero = function(id, hero) {
+    this.getHeroByEmail = function(email) {
+      return $http({
+          method: 'GET',
+          url: '/api/hero?email=' + email
+        })
+        .then(function(response) {
+          return response.data;
+        });
+    };
+
+    this.editHero = function(hero) {
+      delete hero.password;
       return $http({
           method: 'PUT',
-          url: '/api/hero/' + id,
+          url: '/api/hero/' + hero._id,
           data: hero
         })
         .then(function(response) {

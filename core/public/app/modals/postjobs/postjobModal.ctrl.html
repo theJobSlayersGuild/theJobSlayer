@@ -1,0 +1,40 @@
+<div class="postjobOverlayWrapper">
+    <div><input ng-model="job.companyName" type="text" placeholder="companyName"></div>
+    <div><input ng-model="job.companyUrl" type="text" placeholder="companyUrl"></div>
+    <div><input ng-model="skills" type="text" placeholder="skillsRequired"></div>
+    <button class="submitSkill" ng-click="addSkill(skills)">submit skill</button>
+    <div><input ng-model="job.position" type="text" placeholder="position"></div>
+    <div><input ng-model="job.location.city" type="text" placeholder="city"></div>
+    <div><input ng-model="job.location.state" type="text" placeholder="state"></div>
+    <div><input ng-model="job.descriptionUrl" type="text" placeholder="descriptionUrl"></div>
+    <div><input ng-model="job.summary" type="text" placeholder="summary"></div>
+    <div><input ng-model="job.contact.name" type="text" placeholder="name"></div>
+    <div><input ng-model="job.contact.email" type="text" placeholder="email"></div>
+    <div><input ng-model="job.contact.phone" type="text" placeholder="phone"></div>
+    <div><input ng-model="job.salary" type="text" placeholder="salary"></div>
+    <div><input ng-model="job.equity" type="text" placeholder="equity"></div>
+    <div><input ng-model="job.positionType" type="text" placeholder="positionType"></div>
+
+    <div><input ng-model="guild" type="text" placeholder="guilds"></div>
+    <button class="submitSkill" ng-click="submitGuild(guild)">submit skill</button>
+    <!--public<input ng-model="job.public" type="checkbox">-->
+    <div>
+        <button ng-click="createQuest(job)">Post Job</button>
+    </div>
+
+    <div class="postJobSkills">
+        <div class="skill" ng-repeat="skill in job.skillsRequired">
+            {{skill}}
+            <button ng-click="removeSkill(skill)">X</button>
+        </div>
+    </div>
+
+<div ng-repeat="guild in guilds">
+    {{guild.name}}
+    <!--<button class="submitSkill" ng-click="addGuild(guild._id)">submit guild</button>-->
+</div>
+
+</div>
+
+
+<div class="fade" ng-click="close()"></div>

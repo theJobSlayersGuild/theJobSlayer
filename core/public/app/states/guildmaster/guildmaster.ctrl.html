@@ -1,5 +1,23 @@
-guildmaster view
+<div class="guildmasterWrapper">
 
-<dir-nav-bar></dir-nav-bar>
+<dir-nav-bar hero="hero"></dir-nav-bar>
 
-{{test}}
+<a ui-sref="profile({id:'56cbaa30e4519bd90bf118ab'})">TEMP LinK</a>
+
+<div><h1>GUILDMASTER</h1></div>
+<div><button ng-click="openGuildModal()">New Guild</button></div>
+<br/>
+
+<div class="guildList" ng-repeat="guild in guilds">
+  <h2><br/>{{guild.name}}</h2>
+  <button ng-click="openEditGuildModal(guild)">Edit</button>
+  <button ng-click="deleteGuild(guild._id)">Delete</button>
+  <p>GUILDMASTER:</p> {{guild._guildMaster.name}}
+  <div ng-repeat="member in guild._guildMembers">
+    <p>GUILDMEMBERS: </p>
+    {{member.name}}
+  </div>
+</div>
+{{member.name}}
+
+</div>
