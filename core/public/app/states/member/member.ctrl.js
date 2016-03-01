@@ -1,4 +1,4 @@
-app.controller('profileCtrl', function($scope, jobService, resourceService, hero, ModalService, authService, heroService, guildService) {
+app.controller('memberCtrl', function($scope, jobService, resourceService, hero, ModalService, authService, heroService, guildService) {
 
   $scope.hero = hero;
 
