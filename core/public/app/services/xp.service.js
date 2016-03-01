@@ -23,6 +23,7 @@ angular.module('app').service('xpService', function(heroService) {
   };
 
   this.add = function(hero, num) {
+
     hero.xp += num;
     var oldLevel = hero.level;
 
@@ -35,7 +36,7 @@ angular.module('app').service('xpService', function(heroService) {
 
     var newLevel = hero.level;
 
-    console.log(response.name + ' has gained ' + num + ' xp!');
+    console.log(hero.name + ' has gained ' + num + ' xp!');
     if (newLevel !== oldLevel) { console.log('You leveled up, moron!'); }
 
     return hero;
