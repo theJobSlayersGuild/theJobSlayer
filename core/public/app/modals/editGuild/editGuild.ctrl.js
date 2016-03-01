@@ -8,7 +8,6 @@ angular.module("app").controller("editGuildCtrl", function($scope, close, guildS
   };
 
   $scope.guild = guild;
-  console.log(guild._guildMaster);
   $scope.members = guild._guildMembers;
   $scope.guild._guildMembers = [];
 

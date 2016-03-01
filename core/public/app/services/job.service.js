@@ -2,7 +2,7 @@
  * Created by brandonhebbert on 2/22/16.
  */
 angular.module('app')
-  .service('jobService', function($http) {
+  .service('jobService', function($q, $http) {
 
     this.createJob = function(job) {
       return $http({
@@ -25,6 +25,19 @@ angular.module('app')
         });
     };
 
+      this.getJobByGuild = function(ids) {
+
+          return $http({
+              method: 'post',
+              url: '/api/job/guild',
+              data: {guilds: ids}
+          })
+              .then(function(response) {
+                  return response.data;
+                  console.log(response.data);
+              });
+      };
+
     this.getJob = function(id) {
       return $http({
           method: 'GET',
@@ -36,7 +49,6 @@ angular.module('app')
     };
 
     this.editJob = function(id, job) {
-        console.log(id, job);
       return $http({
           method: 'PUT',
           url: '/api/job/' + id,

@@ -24,17 +24,16 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         salary: null,
         equity: null,
         positionType: null,
-        public: null,
+
         _guild: []
     };
 
 
 
-   /* $scope.getguild = function () {
+    /*$scope.getguild = function () {
         guildService.getGuildsByMember($scope.id)
             .then(function (response) {
                 $scope.guilds = response;
-                //console.log(response);
             })
     }
 
@@ -48,7 +47,7 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
      $scope.guildsAdded.push(guildName);
      }*/
     $scope.updateJobGuildArray = function (guildName, guildId) {
-        console.log(guildName, guildId);
+        //console.log(guildName, guildId);
         if ($scope.name.indexOf(guildName) === -1) {
             $scope.job._guild.push(guildId)
             $scope.name.push(guildName);
@@ -62,8 +61,7 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
     }
 
     $scope.changeToPrivate = function () {
-
-        $scope.job.public = false;
+        $scope.job.public = !$scope.job.public;
     }
 
     /*$scope.removeGuildFromJobGuildArray = function(guildId, guildName) {
@@ -92,7 +90,11 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
     $scope.createQuest = function (job) {
         $scope.job._author = $scope.hero._id;
         jobService.createJob(job)
-            .then(function () {
+            .then(function (response) {
+                console.log(job, response);
+                for (var i = 0; i < job._guild.length; i++) {
+                    guildService.editGuild(job._guild[i], {$push: {jobs: response._id}});
+                }
                 close($scope.guilds);
                 alert("Quest Created");
             })

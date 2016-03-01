@@ -60,6 +60,7 @@ app.delete('/api/hero/:id', isAuthed, heroCtrl.deleteHero);
 
                 //JOB
 app.post('/api/job', isAuthed, jobCtrl.createJob);
+//app.post('/api/job/guild', isAuthed, jobCtrl.readJobsByGuild);
 app.get('/api/job', isAuthed, jobCtrl.readJobs);
 app.put('/api/job/:id', isAuthed, jobCtrl.updateJob);
 app.delete('/api/job/:id', isAuthed, jobCtrl.deleteJob);
