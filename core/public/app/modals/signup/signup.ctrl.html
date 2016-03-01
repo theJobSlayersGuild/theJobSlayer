@@ -3,13 +3,15 @@
     <form name="heroForm" ng-submit="submitForm(heroForm.$valid)" novalidate>    
         <label>Name</label><br>
         <input 
+            autofocus="true"
             name="name" 
             class="form-control" 
             ng-model="hero.name" 
             ng-minlength="3" 
             type="text" 
             placeholder="Name" 
-            required> <br> 
+            required> 
+        <br> 
         <p ng-show="heroForm.name.$invalid && !heroForm.name.$pristine" class="help-block">Name is required</p>     
         <label>Email</label><br>
         <input 
@@ -17,7 +19,8 @@
             class="form-control" 
             ng-model="hero.email" 
             required type="email" 
-            placeholder="Email"> <br>
+            placeholder="Email"> 
+        <br>
         <p ng-show="heroForm.email.$invalid && !heroForm.email.$pristine" class="help-block">Enter a valid email address</p>  
         <label>Password</label><br>
         <input 
