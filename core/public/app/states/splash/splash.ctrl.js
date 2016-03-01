@@ -1,9 +1,5 @@
 app.controller('splashCtrl', function ($state, $scope, ModalService, authService, xpService) {
 
-    $scope.hero = {
-        email: "dood@dood.com",
-        password: "dood"
-    };
 
     $scope.user = false;
 
