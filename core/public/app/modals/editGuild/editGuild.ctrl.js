@@ -25,7 +25,7 @@ for (var i = 0; i < $scope.members.length; i++) {
     heroService.getHeroByEmail(newMember)
     .then(function(response){
       if (response.length < 1) {
-        alert('Not a JobSlayer User');
+        modalService.alert('Not a JobSlayer User');
       } else {
         $scope.guild._guildMembers.push(response[0]._id);
         $scope.members.push(response[0]);
