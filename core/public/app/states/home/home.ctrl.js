@@ -1,9 +1,9 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService) {
+  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService, ModalService) {
 
     $scope.hero = hero;
 
-//EQUIPMENT SWITCH CASE
+    //EQUIPMENT SWITCH CASE
 
     switch ($scope.hero.level) {
       case 1:
@@ -46,7 +46,7 @@ angular.module('app')
 
     //other helmet ideas: batman mask? football helmet? propeller beanie? baseball hat with tag attached?
 
-//WISDOM GOAT TIPS
+    //WISDOM GOAT TIPS
 
     $scope.tips = [{
       title: 'resume',
@@ -63,8 +63,7 @@ angular.module('app')
         $scope.tips.splice(num, 1);
         $scope.currentTip = $scope.tips[num];
       }
-    },
-    {
+    }, {
       title: 'linkedin',
       goatSays: 'In this battle, a LinkedIn profile is your first line of defense.',
       inputs: 1,
@@ -79,8 +78,7 @@ angular.module('app')
         $scope.tips.splice(num, 1);
         $scope.currentTip = $scope.tips[num];
       }
-    },
-    {
+    }, {
       title: 'portfolioSite',
       goatSays: 'Shield yourself from looking dumb with a suh-weet portfolio website.',
       inputs: 1,
@@ -95,8 +93,7 @@ angular.module('app')
         $scope.tips.splice(num, 1);
         $scope.currentTip = $scope.tips[num];
       }
-    },
-    {
+    }, {
       title: 'meetups',
       goatSays: 'Meetups are golden, brah.',
       inputs: 0,
@@ -105,7 +102,7 @@ angular.module('app')
         $scope.hero.equipment.meetups++;
 
         $scope.hero = xpService.add($scope.hero, 10);
-        
+
         heroService.editHero($scope.hero);
         if (num < $scope.tips.length - 1) {
           num++;
@@ -114,8 +111,7 @@ angular.module('app')
         }
         $scope.currentTip = $scope.tips[num];
       }
-    },
-    {
+    }, {
       title: 'projects',
       goatSays: 'Baa-a-a-a-a-a do some projects. Something something gemeralds.',
       inputs: 2,
@@ -137,8 +133,7 @@ angular.module('app')
         }
         $scope.currentTip = $scope.tips[num];
       }
-    },
-    {
+    }, {
       title: 'skills',
       goatSays: 'Acquire skills you must. (Sorry, my first language English is not.)',
       inputs: 1,
@@ -192,13 +187,13 @@ angular.module('app')
       $scope.currentTip = $scope.tips[num];
     };
 
-//OTHER STUFF
+    //OTHER STUFF
 
     $scope.getQuests = function() {
       questService.getQuests(hero._id)
-      .then(function(response) {
-        $scope.quests = response;
-      });
+        .then(function(response) {
+          $scope.quests = response;
+        });
     };
 
     $scope.getQuests();
@@ -229,13 +224,24 @@ angular.module('app')
       }
     };
 
-    $scope.getJobs = function () {
+    $scope.getJobs = function() {
       jobService.getJobs()
-        .then(function (response) {
-            $scope.jobs = response;
+        .then(function(response) {
+          $scope.jobs = response;
         });
     };
 
     $scope.getJobs();
+
+    $scope.openQuestionModal = function() {
+      ModalService.showModal({
+        templateUrl: "./app/modals/question/question.ctrl.html",
+        controller: "questionCtrl"
+      }).then(function(modal) {
+        // Function that runs when modal closes
+        modal.close.then(function(then) {
+        });
+      });
+    };
 
   });
