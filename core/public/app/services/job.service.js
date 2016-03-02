@@ -24,24 +24,35 @@ angular.module('app')
           return response.data;
         });
     };
-
-      this.getJobByGuild = function(ids) {
-
+      this.getPubAndPrivateJobs = function(guildIds, heroId) {
           return $http({
-              method: 'post',
-              url: '/api/job/guild',
-              data: {guilds: ids}
+              method: 'POST',
+              url: '/api/job/public/private?_id=' + heroId
+              data: {
+                  guilds: guildIds
+              }
           })
               .then(function(response) {
                   return response.data;
-                  console.log(response.data);
               });
-      };
+      }
+
+
 
     this.getJob = function(id) {
       return $http({
           method: 'GET',
           url: '/api/job?_id=' + id
+        })
+        .then(function(response) {
+          return response.data;
+        });
+    };
+
+    this.getJobByAuthor = function(id) {
+      return $http({
+          method: 'GET',
+          url: '/api/job?_author=' + id
         })
         .then(function(response) {
           return response.data;

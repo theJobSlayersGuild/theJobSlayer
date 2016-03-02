@@ -24,7 +24,7 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         salary: null,
         equity: null,
         positionType: null,
-
+        public: true,
         _guild: []
     };
 

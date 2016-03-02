@@ -1,5 +1,6 @@
 angular.module('app')
     .directive('dirJobListing', function () {
+
             return {
                 restrict: 'AE',
                 templateUrl: './app/directives/postjobs/postjobs.dir.html',
@@ -45,7 +46,7 @@ angular.module('app')
                         guildService.getGuildsByMember($scope.id)
                             .then(function (response) {
                                 $scope.guilds = response;
-                                //console.log(response);
+                                console.log(response);
                                 for (var i = 0; i < $scope.guilds.length; i++) {
                                     var guild = $scope.guilds[i];
                                     for (var j = 0; j < stepService.length; j++) {
@@ -59,6 +60,43 @@ angular.module('app')
                     $scope.getguild();
 
                     /*console.log("array2 test" + $scope.array2);
+=======
+        return {
+            restrict: 'AE',
+            templateUrl: './app/directives/postjobs/postjobs.dir.html',
+            scope: {
+                job: '=',
+                hero: '=',
+                getQuests: '&'
+            },
+
+            controller: function ($scope, jobService, questService, ModalService, stepService, guildService, xpService) {
+
+                $scope.getAllSteps = function () {
+                    stepService.getSteps()
+                        .then(function (response) {
+                            $scope.stepsId = response;
+                        });
+                };
+                $scope.getAllSteps();
+
+                $scope.acceptQuest = function (jobId, heroId, stepsId) {
+                    questService.createQuest({_job: jobId, _hero: heroId, _steps: stepsId})
+                    .then(function() {
+                      xpService.addAndUpdate($scope.hero, 10);
+                      $scope.getQuests();
+                    });
+                };
+
+                $scope.editJob = function (jobId, heroId) {
+                    jobService.editJob({_job: jobId, _hero: heroId});
+                };
+
+                $scope.deleteJob = function (jobId) {
+                    jobService.deleteJob(jobId);
+                    $scope.getJobs();
+                };
+>>>>>>> development
 
                      function difference(a1, a2) {
                      console.log(a1, a2);
@@ -95,10 +133,14 @@ angular.module('app')
                         jobService.editJob({_job: jobId, _hero: heroId})
                     }
 
+                    //$scope.deleteJob = function (jobId) {
+                    //    jobService.deleteJob(jobId)
+                    //    //$scope.getJobsByGuild();
+                    //}
                     $scope.deleteJob = function (jobId) {
-                        jobService.deleteJob(jobId)
-                        $scope.getJobsByGuild();
-                    }
+                        jobService.deleteJob(jobId);
+                        $scope.getJobs();
+                    };
 
                     $scope.openEditJobModal = function (job) {
                         ModalService.showModal({
@@ -112,5 +154,7 @@ angular.module('app')
                     };
                 }
             }
+
         }
     );
+

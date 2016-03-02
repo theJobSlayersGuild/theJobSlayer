@@ -17,22 +17,45 @@ angular.module('app')
                     $scope.jobIds = [];
                     $scope.guildIds = [];
 
-                    /*$scope.getJobsByGuild = function () {
-                     console.log($scope.guildIds);
-                     jobService.getJobByGuild($scope.guildIds)
-                     .then(function (response) {
-                     $scope.guildJobs = response;
-                     console.log($scope.guildJobs);
-                     })
-                     }*/
 
-                    $scope.getJobs = function () {
+                    $scope.getPrivateAndPublic = function() {
+                        jobService.getPrivateAndPublic($scope.guildIds, $scope.id)
+                            .then(function(response) {
+                                console.log("pandB" + response);
+                            })
+                    }
+
+
+                    $scope.getguild = function () {
+                        guildService.getGuildsByMember($scope.id)
+                            .then(function (response) {
+                                $scope.guilds = response;
+                                console.log(response);
+
+                                for (var i = 0; i < $scope.guilds.length; i++) {
+                                    $scope.guildIds.push($scope.guilds._id);
+
+                                    if ($scope.guilds[i].jobs > 0) {
+                                        for (var j = 0; j < $scope.guilds.jobs[i].length; j++) {
+                                            $scope.realGuildJobs.push($scope.guilds.jobs[i]);
+                                            console.log($scope.realGuildJobs);
+                                        }
+                                    }
+
+                                }
+                                $scope.getPrivateAndPublic()
+
+                            })
+
+                    }
+
+                    $scope.getguild();
+
+                    /*$scope.getJobs = function () {
                         jobService.getJobs()
                             .then(function (response) {
                                 $scope.jobs = response;
-                                console.log(response);
-                                // if job.public === false push to private array
-
+                                //console.log(response);
                                 for (var i = 0; i < $scope.jobs.length; i++) {
                                     if ($scope.job.public === false) {
                                         $scope.privateJobs.push($scope.jobs[i]);
@@ -43,33 +66,34 @@ angular.module('app')
                                     else {
                                         $scope.guildJobs.push($scope.jobs[i]);
                                     }
-                                    console.log($scope.privateJobs);
-                                    console.log($scope.publicJobs);
-                                    console.log($scope.guildJobs);
+                                    //console.log($scope.privateJobs);
+                                    //console.log($scope.publicJobs);
+                                    //console.log($scope.guildJobs);
                                 }
 
                             })
                     }
 
-                    $scope.getJobs();
+                    $scope.getJobs();*/
 
 
-                    $scope.getguild = function () {
+/*                    $scope.getguild = function () {
                         guildService.getGuildsByMember($scope.id)
                             .then(function (response) {
                                 $scope.guilds = response;
-                                console.log(response);
+                                //console.log(response);
+                                //console.log("get guild");
                                 for (var i = 0; i < $scope.guilds.length; i++) {
                                     var guild = $scope.guilds[i];
                                     $scope.guildIds.push(guild._id);
 
                                 }
-
+                                //console.log($scope.guildIds);
                             })
 
                     }
 
-                    $scope.getguild();
+                    $scope.getguild();*/
 
                     /*console.log("array2 test" + $scope.array2);
 
