@@ -34,7 +34,7 @@ module.exports = {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send('user updated', result);
+            res.status('user updated').send(result);
         });
     },
 
@@ -43,7 +43,7 @@ module.exports = {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send('user deleted', result);
+            res.status('user deleted').send(result);
         });
     }
 

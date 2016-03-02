@@ -33,7 +33,7 @@ angular.module('app')
 
                 $scope.deleteJob = function (jobId) {
                     jobService.deleteJob(jobId);
-                    $scope.getJobs();
+                    $scope.getQuests();
                 };
 
                 $scope.openEditJobModal = function (job) {
