@@ -4,6 +4,7 @@ angular.module("app").controller("signUpCtrl", function($scope, close, authServi
   $scope.signUp = function (hero) {
       
       authService.signUp(hero).then(function (response) {
+           console.log(response);
            $scope.close();
       });
   };

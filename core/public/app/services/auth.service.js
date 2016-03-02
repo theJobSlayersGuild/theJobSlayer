@@ -9,7 +9,9 @@ angular.module('app')
         })
         .then(function(response) {
           return response;
-        });
+        }).catch(function (err) {
+            return "Email already exists in the database.  Use different Email."
+        })
     };
 
     this.login = function(hero) {
