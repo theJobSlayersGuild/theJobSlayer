@@ -5,10 +5,10 @@ module.exports = {
         Hero.create(req.body, function (err, result) {
             if (err) {
                 res.status(500).send(err);
-            }
-            newHero = result.toObject();
-            newHero.password = null;
-            res.status(200).send(newHero);
+            } else {
+            result.password = null;
+            res.status(200).send(result);
+          }
         });
     },
 

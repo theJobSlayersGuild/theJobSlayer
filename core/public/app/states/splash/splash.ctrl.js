@@ -1,4 +1,4 @@
-app.controller('splashCtrl', function ($state, $scope, ModalService, authService, xpService) {
+app.controller('splashCtrl', function ($state, $scope, ModalService, authService, xpService, modalService) {
 
 
     $scope.user = false;
@@ -17,7 +17,7 @@ app.controller('splashCtrl', function ($state, $scope, ModalService, authService
       authService.login(hero)
         .then(function (response) {
           if (!response.data) {
-              alert(response);
+              modalService.alert(response);
           }
           xpService.addAndUpdate(response.data, 1);
           $state.go('home');
