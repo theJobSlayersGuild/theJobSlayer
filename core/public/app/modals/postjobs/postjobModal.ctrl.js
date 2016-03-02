@@ -29,25 +29,7 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
     };
 
 
-
-    /*$scope.getguild = function () {
-        guildService.getGuildsByMember($scope.id)
-            .then(function (response) {
-                $scope.guilds = response;
-            })
-    }
-
-    $scope.getguild();*/
-
-
-
-    /*$scope.addGuildToJobGuildArray = function(guildId, guildName) {
-     console.log(guildName, guildId);
-     $scope.job._guild.push(guildId);
-     $scope.guildsAdded.push(guildName);
-     }*/
     $scope.updateJobGuildArray = function (guildName, guildId) {
-        //console.log(guildName, guildId);
         if ($scope.name.indexOf(guildName) === -1) {
             $scope.job._guild.push(guildId)
             $scope.name.push(guildName);
@@ -63,17 +45,6 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
     $scope.changeToPrivate = function () {
         $scope.job.public = !$scope.job.public;
     }
-
-    /*$scope.removeGuildFromJobGuildArray = function(guildId, guildName) {
-     console.log(guildName, guildId);
-
-     var guildNameToRemove = $scope.guildsAdded.indexOf(guildName);
-     $scope.guildsAdded.splice(guildNameToRemove, 1);
-
-     var guildIdToRemove = $scope.job._guild.indexOf(guildId);
-     $scope.job._guild.splice(guildIdToRemove, 1);
-     }*/
-
 
     $scope.addSkill = function (skill) {
         if (skill !== null && skill !== undefined && skill !== "") {
@@ -91,7 +62,6 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         $scope.job._author = $scope.hero._id;
         jobService.createJob(job)
             .then(function (response) {
-                console.log(job, response);
                 for (var i = 0; i < job._guild.length; i++) {
                     guildService.editGuild(job._guild[i], {$push: {jobs: response._id}});
                 }

@@ -31,10 +31,33 @@ module.exports = {
                 res.status(500).send(err)
             }
             jobs.private = privateJobs;
-            Job.find({public: true, guilds: {$ne: {$in: req.body.guilds}}}).exec(function (err, publicJobs) {
+            Job.find({public: true, _guild: {$size: 0}}).exec(function (err, publicJobs) {
                 if (err) {
                     res.status(500).send(err)
                 }
+
+                /*var guilds = req.body.guilds;
+
+                var results = [];*/
+
+                // For every job
+                /*for (var i = 0; i < publicJobs.length; i++) {
+                    // For every Guild ID
+
+                    var flag = false;
+                    for (var j = 0; j < guilds.length; j++) {
+                        // For every guild in job
+                        for (var k = 0; k < publicJobs[k]._guild.length; k++) {
+                            if (guilds[j] === publicJobs[i]._guild[k]) {
+                                flag = true;
+                            }
+                        }
+                    }
+                    if (!flag) {
+                        results.push(publicJobs[i]);
+                    }
+                }*/
+
                 jobs.public = publicJobs;
                 res.status(200).send(jobs)
             })
@@ -42,37 +65,6 @@ module.exports = {
         })
     },
 
-
-    /* readJobsByGuild: function (req, res) {
-     var jobs = [];
-
-     for (var i = 0; i < req.body.guilds.length; i++) {
-     Job.find({
-     _guilds: req.body.guilds[i]
-     }).exec(function(err, response) {
-     console.log(response);
-     if (jobs.length < 1) {
-     for (var d = 0; d < response.length; d++) {
-     jobs.push(response[d]);
-     }
-     } else {
-     for (var e = 0; e < response.length; e++) {
-     var flag = false;
-     for (var j = 0; j < jobs.length; j++) {
-     if (jobs[j]._id === response[e]._id) {
-     flag = true;
-     }
-     }
-     if (!flag) {
-     jobs.push(response[i]);
-     }
-     }
-     }
-     });
-     }
-
-     res.send(jobs);
-     },*/
 
     updateJob: function (req, res) {
         Job.findByIdAndUpdate(req.params.id, req.body, function (err, result) {

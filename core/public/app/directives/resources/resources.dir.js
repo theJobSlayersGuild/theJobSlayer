@@ -19,7 +19,9 @@ angular.module('app')
               resource: $scope.resource
             }
           }).then(function(modal) {
-            modal.close.then(function(then) {});
+            modal.close.then(function(then) {
+              $scope.getResources();
+            });
           });
         };
 

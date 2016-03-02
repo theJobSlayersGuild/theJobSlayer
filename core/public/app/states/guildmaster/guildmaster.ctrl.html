@@ -13,8 +13,8 @@
   <button ng-click="openEditGuildModal(guild)">Edit</button>
   <button ng-click="deleteGuild(guild._id)">Delete</button>
   <p>GUILDMASTER:</p> {{guild._guildMaster.name}}
-  <div ng-repeat="member in guild._guildMembers">
     <p>GUILDMEMBERS: </p>
+  <div ng-repeat="member in guild._guildMembers">
     {{member.name}}
   </div>
 </div>

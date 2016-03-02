@@ -25,35 +25,29 @@
 <div>private jobs</div>
 <div ng-repeat="job in privateJobs">
 
-    <dir-job-listing hero="hero" job="job"></dir-job-listing>
+    <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
 
 </div>
 <hr>
 <br>
 
 <div>guild jobs</div>
-<!--<div ng-repeat="job in guildJobs">-->
-    <div ng-repeat="guild in realGuildsJobs">
+<div ng-repeat="guild in guilds">
+    {{guild.name}}
+    <div ng-repeat="job in guild.jobs">
 
-        <dir-job-listing hero="hero" job="job"></dir-job-listing>
-
+    <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
+    </div>
 </div>
 <hr>
 <br>
 <div>public jobs</div>
 <div ng-repeat="job in publicJobs">
 
-    <dir-job-listing hero="hero" job="job"></dir-job-listing>
+    <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
 
 </div>
 
-<!--<div ng-repeat="guild in guilds">
-    &lt;!&ndash;<div ng-repeat="job in guild.jobs">&ndash;&gt;
-
-        <dir-guild-job-listing hero="hero" job="job" guild="guild"></dir-guild-job-listing>
-
-    </div>-->
-<!--</div>-->
 
 
 
