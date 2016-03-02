@@ -16,6 +16,9 @@ app.controller('splashCtrl', function ($state, $scope, ModalService, authService
     $scope.submitLogin = function (hero) {
       authService.login(hero)
         .then(function (response) {
+          if (!response.data) {
+              alert(response);
+          }
           xpService.addAndUpdate(response.data, 1);
           $state.go('home');
         });
