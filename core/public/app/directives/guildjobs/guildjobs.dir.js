@@ -1,9 +1,8 @@
 angular.module('app')
-    .directive('dirJobListing', function () {
-
+    .directive('dirGuildJobListing', function () {
             return {
                 restrict: 'AE',
-                templateUrl: './app/directives/postjobs/postjobs.dir.html',
+                templateUrl: './app/directives/guildjobs/guildjobs.dir.html',
                 scope: {
                     job: '=',
                     hero: '=',
@@ -13,22 +12,40 @@ angular.module('app')
                 controller: function ($scope, jobService, questService, ModalService, stepService, guildService) {
 
                     $scope.id = $scope.hero._id
+
                     $scope.jobIds = [];
                     $scope.guildIds = [];
+
+
+                    $scope.getPrivateAndPublic = function() {
+                        jobService.getPrivateAndPublic($scope.guildIds, $scope.id)
+                            .then(function(response) {
+                                console.log("pandB" + response);
+                            })
+                    }
 
 
                     $scope.getguild = function () {
                         guildService.getGuildsByMember($scope.id)
                             .then(function (response) {
                                 $scope.guilds = response;
+                                console.log(response);
+
                                 for (var i = 0; i < $scope.guilds.length; i++) {
-                                    var guild = $scope.guilds[i];
-                                    for (var j = 0; j < stepService.length; j++) {
-                                        var obj = stepService[j];
+                                    $scope.guildIds.push($scope.guilds._id);
+
+                                    if ($scope.guilds[i].jobs > 0) {
+                                        for (var j = 0; j < $scope.guilds.jobs[i].length; j++) {
+                                            $scope.realGuildJobs.push($scope.guilds.jobs[i]);
+                                            console.log($scope.realGuildJobs);
+                                        }
                                     }
-                                    $scope.guildIds.push(guild._id);
+
                                 }
+                                $scope.getPrivateAndPublic()
+
                             })
+
                     }
 
                     $scope.getguild();
@@ -54,13 +71,9 @@ angular.module('app')
                     }
 
                     $scope.deleteJob = function (jobId) {
-                        console.log("deleting job");
                         jobService.deleteJob(jobId)
-                            .then(function(response) {
-                                console.log("job deleted");
-                                $scope.getQuests();
-                            })
-                    };
+                        $scope.getJobsByGuild();
+                    }
 
                     $scope.openEditJobModal = function (job) {
                         ModalService.showModal({
@@ -74,7 +87,5 @@ angular.module('app')
                     };
                 }
             }
-
         }
     );
-
