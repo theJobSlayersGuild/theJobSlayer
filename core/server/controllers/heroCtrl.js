@@ -2,17 +2,14 @@ var Hero = require('../models/hero.model.js');
 
 module.exports = {
     createHero: function (req, res) {
-      Hero.on('index', function(error){
         Hero.create(req.body, function (err, result) {
             if (err) {
                 res.status(500).send(err);
             }
-            newHero = result;
+            newHero = result.toObject();
             newHero.password = null;
             res.status(200).send(newHero);
         });
-      });
-
     },
 
     me: function(req, res) {
