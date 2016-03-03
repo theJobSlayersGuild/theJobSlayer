@@ -1,5 +1,5 @@
 angular.module('app')
-  .service('guildService', function($http) {
+  .service('guildService', function($http, modalService) {
 
     this.createGuild = function(guild) {
       return $http({
@@ -64,7 +64,7 @@ angular.module('app')
         }
       })
       .then(function(response){
-        alert('You have left the ' + guild.name + ' guild');
+        modalService.alert('You have left the ' + guild.name + ' guild');
       });
     };
 
