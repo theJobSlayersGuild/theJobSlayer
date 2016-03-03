@@ -65,6 +65,7 @@ angular.module('app')
                             inputs: {hero: $scope.hero, job: job}
                         }).then(function (modal) {
                             modal.close.then(function (then) {
+                                $scope.getQuests();
                             });
                         });
                     };
