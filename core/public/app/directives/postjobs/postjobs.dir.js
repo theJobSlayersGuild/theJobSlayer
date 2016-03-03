@@ -23,9 +23,6 @@ angular.module('app')
                                 $scope.guilds = response;
                                 for (var i = 0; i < $scope.guilds.length; i++) {
                                     var guild = $scope.guilds[i];
-                                    for (var j = 0; j < stepService.length; j++) {
-                                        var obj = stepService[j];
-                                    }
                                     $scope.guildIds.push(guild._id);
                                 }
                             })
@@ -54,10 +51,9 @@ angular.module('app')
                     }
 
                     $scope.deleteJob = function (jobId) {
-                        console.log("deleting job");
-                        jobService.deleteJob(jobId)
+                        $scope.job.archived = true;
+                        jobService.editJob(jobId, $scope.job)
                             .then(function(response) {
-                                console.log("job deleted");
                                 $scope.getQuests();
                             })
                     };

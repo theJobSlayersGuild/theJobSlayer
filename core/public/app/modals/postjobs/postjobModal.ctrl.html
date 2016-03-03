@@ -1,4 +1,4 @@
-<div class="row">
+
     <div class="postjobOverlayWrapper">
         <div class="postJobInputContainer">
             <div><input ng-model="job.companyName" type="text" placeholder="companyName"></div>
@@ -34,14 +34,8 @@
             </div>
         </div>
 
-        <div ng-repeat="guild in guilds">
-            <div ng-repeat="job in guild.jobs">
-                {{job.companyName}}
-            </div>
-        </div>
-        <hr>
         <div>Share quest with guilds:</div>
-        <hr>
+
         <br>
 
         <div ng-repeat="guild in guilds">
@@ -54,8 +48,5 @@
         </div>
 
     </div>
-
-</div>
-</div>
 
 <div class="fade" ng-click="close()"></div>

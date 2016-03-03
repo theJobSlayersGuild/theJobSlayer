@@ -12,11 +12,11 @@ module.exports = {
 
     readGuildMembers: function (req, res) {
 
-        Guild.find(req.query).select('_id name _guildMaster jobs').populate('jobs').exec(function (err, results) {
+        Guild.find(req.query).select('_id name _guildMaster jobs').populate('jobs', null, {archived: false}).exec(function (err, results) {
             if (err) {
                 res.status(500).send(err);
             }
-            Guild.find({_guildMaster: req.query._guildMembers}).select('_id name _guildMaster jobs').populate('jobs').exec(function (err, guilds) {
+            Guild.find({_guildMaster: req.query._guildMembers}).select('_id name _guildMaster jobs').populate('jobs', null, {archived: false}).exec(function (err, guilds) {
                 if (err) {
                     res.status(500).send(err);
                 }
