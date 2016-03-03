@@ -30,11 +30,20 @@ module.exports = {
         Guild.find(req.query)
             .populate('_guildMaster')
             .populate('_guildMembers')
-            .exec(function (err, result) {
+            .exec(function (err, results) {
                 if (err) {
                     res.status(500).send(err);
                 }
-                res.status(200).send(result);
+                Guild.find({_guildMembers: req.query._guildMaster})
+                    .populate('_guildMaster')
+                    .populate('_guildMembers')
+                    .exec(function (err, guilds) {
+                    if (err) {
+                        res.status(500).send(err);
+                    }
+                    results = results.concat(guilds);
+                    res.status(200).send(results);
+                });
             });
     },
 
