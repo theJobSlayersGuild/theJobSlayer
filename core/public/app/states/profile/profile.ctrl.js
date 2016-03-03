@@ -1,4 +1,4 @@
-app.controller('profileCtrl', function($scope, jobService, resourceService, hero, ModalService, authService, heroService, guildService) {
+app.controller('profileCtrl', function($scope, jobService, resourceService, hero, ModalService, authService, heroService, guildService, modalService) {
 
   $scope.hero = hero;
 
@@ -87,26 +87,32 @@ app.controller('profileCtrl', function($scope, jobService, resourceService, hero
   $scope.getGuilds();
 
   $scope.leaveGuild = function(guild, hero) {
-    var leave = confirm('Are you sure you want to part ways with ' + guild.name + '?');
-    if (!leave) {
-      return;
-    }
-    if (guild._guildMaster === hero._id) {
-      if (!confirm('You cannot remove yourself from guilds you are the master of.  If you proceed, the guild will be deleted')) {
-        return;
-      } else {
-        guildService.deleteGuild(guild._id)
-          .then(function(response) {
-            $scope.getGuilds();
-            alert(guild.name + ' guild deleted');
-          });
-      }
-    } else {
-      guildService.leaveGuild(guild, [hero._id])
-        .then(function(response) {
-          $scope.getGuilds();
-        });
-    }
+    modalService.confirm('Are you sure you want to part ways with ' + guild.name + '?')
+      .then(function(leave) {
+        if (!leave) {
+          return;
+        }
+        if (guild._guildMaster === hero._id) {
+          modalService.confirm('You cannot remove yourself from guilds you are the master of.  If you proceed, the guild will be deleted')
+            .then(function(answer) {
+              if (!answer) {
+                return;
+              } else {
+                guildService.deleteGuild(guild._id)
+                  .then(function(response) {
+                    $scope.getGuilds();
+                    modalService.alert(guild.name + ' guild deleted');
+                  });
+              }
+
+            });
+        } else {
+          guildService.leaveGuild(guild, [hero._id])
+            .then(function(response) {
+              $scope.getGuilds();
+            });
+        }
+      });
   };
 
   $scope.getHero = function() {
