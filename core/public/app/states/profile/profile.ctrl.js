@@ -41,6 +41,9 @@ app.controller('profileCtrl', function($scope, jobService, resourceService, hero
       }
     }).then(function(modal) {
       modal.close.then(function(newInfo) {
+        if (!newInfo) {
+          return;
+        }
         switch (text) {
           case 'EDIT HERO':
             $scope.hero.name = newInfo.name;
