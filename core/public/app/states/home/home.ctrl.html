@@ -12,9 +12,9 @@
 
   <img ng-if="hero.equipment.linkedin.done" ng-src="./assets/images/equipment/200x200-armor{{hero.level}}.png" class="equipmentImg" />
 
-  <img ng-if="hero.equipment.resume.done" ng-src="./assets/images/equipment/200x200-weapon{{hero.level}}.png" />
+  <img ng-if="hero.equipment.resume.done" ng-src="./assets/images/equipment/200x200-weapon{{hero.level}}.png" class="equipmentImg" />
 
-  <img ng-if="hero.equipment.portfolioSite.done" ng-src="./assets/images/equipment/200x200-shield{{hero.level}}.png" />
+  <img ng-if="hero.equipment.portfolioSite.done" ng-src="./assets/images/equipment/200x200-shield{{hero.level}}.png" class="equipmentImg" />
 
 </div>
 
@@ -51,7 +51,9 @@
     <div>
       <div>
         <span ng-show="currentTip.inputs > 0">
-          {{currentTip.description1}}: <input type="text" ng-model="input1" placeholder="{{currentTip.description1}}"/>
+          {{currentTip.description1}}:
+          
+          <input type="text" ng-model="input1" placeholder="{{currentTip.description1}}"/>
         </span>
         <span ng-show="currentTip.inputs > 1">
           {{currentTip.description2}}: <input type="text" ng-model="input2" placeholder="{{currentTip.description2}}"/>
