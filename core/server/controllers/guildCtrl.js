@@ -11,20 +11,23 @@ module.exports = {
     },
 
     readGuildMembers: function (req, res) {
-        Guild.find(req.query).select('_id name _guildMaster').exec(function (err, results) {
+
+        Guild.find(req.query).select('_id name _guildMaster jobs').populate('jobs', null, {archived: false}).exec(function (err, results) {
             if (err) {
                 res.status(500).send(err);
             }
-            Guild.find({_guildMaster: req.query._guildMembers}).select('_id name _guildMaster').exec(function (err, guilds) {
+            Guild.find({_guildMaster: req.query._guildMembers}).select('_id name _guildMaster jobs').populate('jobs', null, {archived: false}).exec(function (err, guilds) {
                 if (err) {
                     res.status(500).send(err);
                 }
                 /*find all members put in results array find guild masters put in results2 array combine arrays*/
                 results = results.concat(guilds);
+
                 res.status(200).send(results);
             });
         });
     },
+
 
     readGuild: function (req, res) {
         Guild.find(req.query)
