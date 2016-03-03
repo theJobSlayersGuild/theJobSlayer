@@ -27,25 +27,25 @@
             <div class="postJobSkills">
                 <div class="skill" ng-repeat="skill in job.skillsRequired">
                     {{skill}}
-                    <button ng-click="removeSkill(skill)">X</button>
+                    <div class="deleteBones" ng-click="removeSkill(skill)"><img src="..\assets\25x25-crossbones.png"/>
+                    </div>
+
                 </div>
+            </div>
+
+            <div>Share quest with guilds:</div>
+
+            <br>
+
+            <div ng-repeat="guild in guilds">
+
+                {{guild.name}}
+
+
+                <input type="checkbox" ng-click="updateJobGuildArray(guild.name, guild._id)">
+
             </div>
         </div>
     </div>
-
-    <div>Share quest with guilds:</div>
-
-    <br>
-
-    <div ng-repeat="guild in guilds">
-
-        {{guild.name}}
-
-
-        <input type="checkbox" ng-click="updateJobGuildArray(guild.name, guild._id)">
-
-    </div>
-
 </div>
-
-<div class="fade" ng-click="close()"></div>
+    <div class="fade" ng-click="close()"></div>

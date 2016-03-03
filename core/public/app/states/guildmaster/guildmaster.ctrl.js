@@ -1,5 +1,5 @@
 
-app.controller('guildMasterCtrl', function ($scope, ModalService, guildService, hero) {
+app.controller('guildMasterCtrl', function ($scope, ModalService, guildService, hero, modalService) {
 
     $scope.hero = hero;
 
@@ -32,10 +32,11 @@ app.controller('guildMasterCtrl', function ($scope, ModalService, guildService, 
     };
 
     $scope.getGuilds = function() {
-      guildService.getGuildsByMaster(hero._id)
-      .then(function(response){
-        $scope.guilds = response;
-      });
+      guildService.getGuildsByMaster($scope.hero._id)
+        .then(function(response) {
+          console.log(response);
+          $scope.guilds = response;
+        });
     };
 
     $scope.getGuilds();
@@ -45,6 +46,35 @@ app.controller('guildMasterCtrl', function ($scope, ModalService, guildService, 
       .then(function(response){
         $scope.getGuilds();
       });
+    };
+
+    $scope.leaveGuild = function(guild, hero) {
+      modalService.confirm('Are you sure you want to part ways with ' + guild.name + '?')
+        .then(function(leave) {
+          if (!leave) {
+            return;
+          }
+          if (guild._guildMaster._id === hero._id) {
+            modalService.confirm('You cannot remove yourself from guilds you are the master of.  If you proceed, the guild will be deleted')
+              .then(function(answer) {
+                if (!answer) {
+                  return;
+                } else {
+                  guildService.deleteGuild(guild._id)
+                    .then(function(response) {
+                      $scope.getGuilds();
+                      modalService.alert(guild.name + ' guild deleted');
+                    });
+                }
+
+              });
+          } else {
+            guildService.leaveGuild(guild, [hero._id])
+              .then(function(response) {
+                $scope.getGuilds();
+              });
+          }
+        });
     };
 
 });
