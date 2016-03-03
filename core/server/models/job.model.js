@@ -23,7 +23,8 @@ var jobSchema = mongoose.Schema({
     equity: { type: Boolean },
     positionType: { type: String }, //full-time, part-time, internship, apprenticeship,
     public: { type: Boolean, default: true },
-    _guild: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Guild' }]
+    archived: { type: Boolean, default: false },
+    _guild: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Guild' }],
 });
 
 module.exports = mongoose.model('Job', jobSchema);
