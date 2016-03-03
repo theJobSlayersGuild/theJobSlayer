@@ -1,4 +1,4 @@
-angular.module("app").controller("editGuildCtrl", function($scope, close, guildService, guild, heroService) {
+angular.module("app").controller("editGuildCtrl", function($scope, close, guildService, guild, heroService, modalService) {
 
   $scope.editGuild = function(guild) {
     guildService.editGuild(guild._id, guild)
@@ -18,14 +18,14 @@ for (var i = 0; i < $scope.members.length; i++) {
   $scope.addMember = function(newMember) {
     for (var i = 0; i < $scope.members.length; i++) {
       if(newMember === $scope.members[i].email || newMember === guild._guildMaster.email) {
-        alert('User already a member of this guild');
+        modalService.alert('User already a member of this guild');
         return;
       }
     }
     heroService.getHeroByEmail(newMember)
     .then(function(response){
       if (response.length < 1) {
-        alert('Not a JobSlayer User');
+        modalService.alert('Not a JobSlayer User');
       } else {
         $scope.guild._guildMembers.push(response[0]._id);
         $scope.members.push(response[0]);

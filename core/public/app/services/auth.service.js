@@ -9,6 +9,8 @@ angular.module('app')
         })
         .then(function(response) {
           return response;
+        }).catch(function (err) {
+            return "Email already exists in the database.  Use different Email.";
         });
     };
 
@@ -20,6 +22,8 @@ angular.module('app')
         })
         .then(function(response) {
           return response;
+        }).catch(function (err) {
+            return "Email or password is incorrect.  Please try again.";
         });
     };
 

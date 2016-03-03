@@ -2,5 +2,5 @@
    <span ng-if="hero._id !== resource._author._id">Posted by: {{resource._author.name}} | </span>Title: {{resource.title}} | Url: <a href="{{resource.url}}">{{resource.url}}</a> | Description: {{resource.description}}
 </div>
 
-<button ng-if="hero._id === resource._author._id" ng-click="openEditResourceModal(resource)">edit</button>
+<div class="editQuill" ng-if="hero._id === resource._author._id" ng-click="openEditResourceModal(resource)"><img src="..\assets\25x25-quill.png" /></div>
 <button ng-if="hero._id === resource._author._id" ng-click="deleteResource(resource._id)">delete</button>

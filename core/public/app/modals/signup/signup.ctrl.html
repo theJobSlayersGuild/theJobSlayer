@@ -3,13 +3,15 @@
     <form name="heroForm" ng-submit="submitForm(heroForm.$valid)" novalidate>    
         <label>Name</label><br>
         <input 
+            autofocus="true"
             name="name" 
             class="form-control" 
             ng-model="hero.name" 
             ng-minlength="3" 
             type="text" 
             placeholder="Name" 
-            required> <br> 
+            required> 
+        <br> 
         <p ng-show="heroForm.name.$invalid && !heroForm.name.$pristine" class="help-block">Name is required</p>     
         <label>Email</label><br>
         <input 
@@ -17,8 +19,9 @@
             class="form-control" 
             ng-model="hero.email" 
             required type="email" 
-            placeholder="Email"> <br>
-        <p ng-show="heroForm.email.$invalid && !heroForm.email.$pristine" class="help-block">Enter a valid email address</p>  
+            placeholder="Email"> 
+        <br>
+        <p ng-show="heroForm.email.$invalid && !heroForm.email.$pristine" class="help-text">Enter a valid email address</p>  
         <label>Password</label><br>
         <input 
             name="password" 
@@ -30,10 +33,18 @@
             type="password" 
             placeholder="Password">   
         <br>
-        <p ng-show="heroForm.password.$error.minlength" class="help-block">Password must be as least six characters</p>
-        <p ng-show="heroForm.password.$error.maxlength" class="help-block">Password must be less than eighteen characters</p>
-        <!--<label>Confirm Password</label><br>
-        <input  name="confirmPassword"  type="password" required placeholder="Password Again..."> <br>-->
+        <p ng-show="heroForm.password.$error.minlength" class="help-text">Password must be as least six characters</p>
+        <p ng-show="heroForm.password.$error.maxlength" class="help-text">Password must be less than eighteen characters</p>
+        <label>Confirm Password</label><br>
+        <input  
+            name="confirmPassword"  
+            type="password"
+            ng-model="password2" 
+            required 
+            placeholder="Password Again..."> 
+        <br>
+        <p ng-if="hero.password !== password2 &&!heroForm.confirmPassword.$pristine" class="help-text">Passwords don't match! Keep at it!</p>
+        <p ng-show="hero.password === password2 &&!heroForm.confirmPassword.$pristine" class="help-text">Got it!</p>
         <button type="submit" ng-click="signUp(hero)" ng-disabled="heroForm.$invalid">Start New Campaign!</button>
     </form>
 </div>

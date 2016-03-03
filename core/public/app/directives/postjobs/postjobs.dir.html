@@ -1,16 +1,11 @@
 
 
-<a ng-src="{{job.companyUrl}}">{{job.companyName}}</a>
+<a ng-href="{{job.companyUrl}}">{{job.companyName}}</a>
 position{{job.position}}
 location{{job.location}}
 
-    <button ng-click="acceptQuest(job._id, hero._id, stepsId)">accept</button>
-    <button ng-if="hero._id === job._author" ng-click="openEditJobModal(job)" ng-click="editJob(job._id, hero._id)">edit</button>
+
+    <button ng-if="!job.accepted" ng-click="acceptQuest(job._id, hero._id, stepsId)">accept</button>
+    <div class="editQuill" ng-if="hero._id === job._author" ng-click="openEditJobModal(job)" ng-click="editJob(job._id, hero._id)"><img src="..\assets\25x25-quill.png" /></div>
+
     <button ng-if="hero._id === job._author" ng-click="deleteJob(job._id)">delete</button>
-
-
-
-
-
-
-

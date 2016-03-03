@@ -1,54 +1,65 @@
 <div class="profileWrapper">
 
-<dir-nav-bar hero="hero"></dir-nav-bar>
+  <dir-nav-bar hero="hero"></dir-nav-bar>
 
-<h1>Profile</h1>
+  <h1>Profile</h1>
 
-<div class-"profileImageWrapper" style="display: inline-block">
-<img class="profileImage" ng-src="{{hero.profileImage}}" ng-click="openProfileImageModal()" title="Edit Avatar"/>
-</div>
-
-<div style="display: inline-block">
-  <br /> <h2>{{hero.name}} {{hero.title}}</h2>
-  <br />Questing Since: {{hero.dateCreated | date:'shortDate'}}
-  <br />Level: {{hero.level}}
-  <br />XP: {{hero.xp}}
-</div>
-
-<div style="display: inline-block">
-  <br /> <h2>ACHIEVEMENTS</h2>
-  <br />Resume: {{hero.equipment.resume.url}}
-  <br />LinkedIn: {{hero.equipment.linkedin.url}}
-  <br />Portfolio: {{hero.equipment.portfolio.url}}
-</div>
-
-<div>
-  <br /> <h2>{{hero.name}}'s Guilds</h2>
-  <div ng-repeat="guild in guilds">
-    {{guild.name}}
+  <div class="profileImageWrapper">
+    <div class="editQuill"><img src="..\assets\25x25-quill.png" /></div>
+    <img class="profileImage" ng-src="{{hero.profileImage}}" ng-click="openProfileImageModal()" title="Edit Avatar" />
   </div>
-  <div ng-if="guilds.length < 1">You do not belong to any guilds yet</div>
-</div>
 
-<div>
-  <br /> <h2>Jobs Submitted</h2>
-  <div ng-repeat="job in jobs">
-    <dir-job-listing job="job" hero="hero"></dir-job-listing>
+  <div style="display: inline-block">
+    <br />
+    <h2 style="text-transform: uppercase; display: inline-block">{{hero.name}} {{hero.title}}</h2>
+    <div class="editQuill" ng-click="openEditHeroModal('EDIT HERO')"><img src="..\assets\25x25-quill.png" /></div>
+    <br />Questing Since: {{hero.dateCreated | date:'shortDate'}}
+    <br />Level: {{hero.level}}
+    <br />XP: {{hero.xp}}
   </div>
-  <div ng-if="jobs.length < 1">You have not posted any jobs yet</div>
-</div>
 
-<div>
-  <br /> <h2>Resources Submitted</h2>
-  <div ng-repeat="resource in resources">
-    <dir-resources resource="resource" hero="hero"></dir-resources>
+  <div style="display: inline-block">
+    <!-- <br /> <h2>ACHIEVEMENTS</h2> -->
+    <br />Resume: <a href="{{hero.equipment.resume.url}}">link</a>
+    <div class="editQuill" ng-click="openEditHeroModal('EDIT RESUME')"><img src="..\assets\25x25-quill.png" /></div>
+    <br />LinkedIn: <a href="{{hero.equipment.linkedin.url}}">link</a>
+    <div class="editQuill" ng-click="openEditHeroModal('EDIT LINKEDIN')"><img src="..\assets\25x25-quill.png" /></div>
+    <br />Portfolio: <a href="{{hero.equipment.portfolioSite.url}}">link</a>
+    <div class="editQuill" ng-click="openEditHeroModal('EDIT PORTFOLIO')"><img src="..\assets\25x25-quill.png" /></div>
   </div>
-  <div ng-if="resources.length < 1">You have not posted any resources yet</div>
-</div>
 
-<div>
-  <br /> <h2>Progress</h2>
-  <div class="progressChart">Chart Placeholder</div>
-</div>
+  <div>
+    <br />
+    <h2>{{hero.name}}'s Guilds</h2>
+    <div ng-repeat="guild in guilds">
+      {{guild.name}}
+      <button ng-click="leaveGuild(guild, hero)">Leave Guild</button>
+    </div>
+    <div ng-if="guilds.length < 1">You do not belong to any guilds yet</div>
+  </div>
+
+  <div>
+    <br />
+    <h2>Jobs Submitted</h2>
+    <div ng-repeat="job in jobs">
+      <dir-job-listing job="job" hero="hero" get-quests="getJobs()"></dir-job-listing>
+    </div>
+    <div ng-if="jobs.length < 1">You have not posted any jobs yet</div>
+  </div>
+
+  <div>
+    <br />
+    <h2>Resources Submitted</h2>
+    <div ng-repeat="resource in resources">
+      <dir-resources resource="resource" hero="hero" get-resources="getResources()"></dir-resources>
+    </div>
+    <div ng-if="resources.length < 1">You have not posted any resources yet</div>
+  </div>
+
+  <div>
+    <br />
+    <h2>Progress</h2>
+    <div class="progressChart">Chart Placeholder</div>
+  </div>
 
 </div>

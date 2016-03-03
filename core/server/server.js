@@ -12,6 +12,7 @@ var passport = require('./services/passport');
 
 //POLICIES
 var isAuthed = function(req, res, next) {
+  console.log("I be logged in...");
   if (!req.isAuthenticated()) return res.status(401).send();
   return next();
 };
@@ -25,6 +26,7 @@ var stepCtrl = require('./controllers/stepCtrl');
 var resourceCtrl = require('./controllers/resourceCtrl');
 
 //EXPRESS
+console.log(guildCtrl);
 
 var app = express();
 app.use(express.static(__dirname + './../public'));
@@ -60,6 +62,8 @@ app.delete('/api/hero/:id', isAuthed, heroCtrl.deleteHero);
 
                 //JOB
 app.post('/api/job', isAuthed, jobCtrl.createJob);
+//app.post('/api/job/guild', isAuthed, jobCtrl.readJobsByGuild);
+app.post('/api/job/public/private', isAuthed, jobCtrl.readPublicAndPrivateJobs);
 app.get('/api/job', isAuthed, jobCtrl.readJobs);
 app.put('/api/job/:id', isAuthed, jobCtrl.updateJob);
 app.delete('/api/job/:id', isAuthed, jobCtrl.deleteJob);
@@ -68,7 +72,8 @@ app.delete('/api/job/:id', isAuthed, jobCtrl.deleteJob);
 app.post('/api/guild', isAuthed, guildCtrl.createGuild);
 app.get('/api/guild', isAuthed, guildCtrl.readGuild);
 app.get('/api/guild/member', isAuthed, guildCtrl.readGuildMembers);
-app.put('/api/guild/:id', isAuthed, guildCtrl.updateGuild);
+app.put('/api/guild/leave',  guildCtrl.leaveGuild);
+app.put('/api/guild/update/:id', isAuthed, guildCtrl.updateGuild);
 app.delete('/api/guild/:id', isAuthed, guildCtrl.deleteGuild);
 
                 //QUEST

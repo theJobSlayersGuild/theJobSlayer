@@ -2,19 +2,17 @@
 
 <dir-nav-bar hero="hero"></dir-nav-bar>
 
-<a ui-sref="profile({id:'56cbaa30e4519bd90bf118ab'})">TEMP LinK</a>
-
-<div><h1>GUILDMASTER</h1></div>
+<div><h1>GUILD HALL</h1></div>
 <div><button ng-click="openGuildModal()">New Guild</button></div>
 <br/>
 
 <div class="guildList" ng-repeat="guild in guilds">
   <h2><br/>{{guild.name}}</h2>
-  <button ng-click="openEditGuildModal(guild)">Edit</button>
+  <div class="editQuill" ng-click="openEditGuildModal(guild)"><img src="..\assets\25x25-quill.png" /></div>
   <button ng-click="deleteGuild(guild._id)">Delete</button>
   <p>GUILDMASTER:</p> {{guild._guildMaster.name}}
-  <div ng-repeat="member in guild._guildMembers">
     <p>GUILDMEMBERS: </p>
+  <div ng-repeat="member in guild._guildMembers">
     {{member.name}}
   </div>
 </div>
