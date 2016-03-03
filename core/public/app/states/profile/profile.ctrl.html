@@ -20,17 +20,25 @@
 
   <div style="display: inline-block">
     <!-- <br /> <h2>ACHIEVEMENTS</h2> -->
-    <br />Resume: <a href="{{hero.equipment.resume.url}}">link</a>
+    <br />Resume: <a target="_blank" href="{{hero.equipment.resume.url}}">link</a>
     <div class="editQuill" ng-click="openEditHeroModal('EDIT RESUME')"><img src="..\assets\25x25-quill.png" /></div>
-    <br />LinkedIn: <a href="{{hero.equipment.linkedin.url}}">link</a>
+    <br />LinkedIn: <a target="_blank" href="{{hero.equipment.linkedin.url}}">link</a>
     <div class="editQuill" ng-click="openEditHeroModal('EDIT LINKEDIN')"><img src="..\assets\25x25-quill.png" /></div>
-    <br />Portfolio: <a href="{{hero.equipment.portfolioSite.url}}">link</a>
+    <br />Portfolio: <a target="_blank" href="{{hero.equipment.portfolioSite.url}}">link</a>
     <div class="editQuill" ng-click="openEditHeroModal('EDIT PORTFOLIO')"><img src="..\assets\25x25-quill.png" /></div>
   </div>
 
   <h2>Your skills</h2>
-  <div class="skillsWrapper" ng-repeat="skill in hero.skills">
+  <div class="skillsWrapper" ng-repeat="skill in hero.equipment.skills track by $index">
       {{skill}}
+    <div ng-if="hero.equipment.skills.length < 1">You have not added any skills yet</div>
+  </div>
+  
+  <h2>Your projects</h2>
+  <div class="projectsWrapper" ng-repeat="project in hero.equipment.projects">
+      <h3>{{project.name}}</h3>
+      <a target="_blank" href="{{project.url}}">{{project.url}}</a>
+      <div ng-if="hero.equipment.projects.length < 1" >You have not added any projects</div>
   </div>
   
   <div>
@@ -60,11 +68,12 @@
     </div>
     <div ng-if="resources.length < 1">You have not posted any resources yet</div>
   </div>
-
-  <div>
+  
+  <button ng-click="deleteProfile">Delete Profile</button>
+  <!--<div>
     <br />
     <h2>Progress</h2>
     <div class="progressChart">Chart Placeholder</div>
-  </div>
+  </div>-->
 
 </div>

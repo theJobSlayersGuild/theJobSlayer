@@ -1,7 +1,7 @@
 app.controller('profileCtrl', function($scope, jobService, resourceService, hero, ModalService, authService, heroService, guildService, modalService) {
 
   $scope.hero = hero;
-
+ 
   $scope.getJobs = function() {
     jobService.getJobByAuthor(hero._id)
       .then(function(response) {
@@ -128,6 +128,13 @@ app.controller('profileCtrl', function($scope, jobService, resourceService, hero
       .then(function(response) {
         $scope.getHero();
       });
+  };
+  
+  $scope.deleteProfile = function() {
+      heroService.removeHero($scope.hero._id)
+      .then(function(response) {
+          return response;
+      }); 
   };
 
 });
