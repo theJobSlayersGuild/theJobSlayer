@@ -3,48 +3,50 @@
   <dir-nav-bar hero="hero"></dir-nav-bar>
 
   <h1>Profile</h1>
-
-  <div class="profileImageWrapper">
+  
+  <div class="profileHeader">
+    <div class="profileImageWrapper">
     <div class="editQuill"><img src="..\assets\25x25-quill.png" /></div>
     <img class="profileImage" ng-src="{{hero.profileImage}}" ng-click="openProfileImageModal()" title="Edit Avatar" />
-  </div>
+    </div>
 
-  <div style="display: inline-block">
-    <br />
-    <h2 style="text-transform: uppercase; display: inline-block">{{hero.name}} {{hero.title}}</h2>
-    <div class="editQuill" ng-click="openEditHeroModal('EDIT HERO')"><img src="..\assets\25x25-quill.png" /></div>
-    <br />Questing Since: {{hero.dateCreated | date:'shortDate'}}
-    <br />Level: {{hero.level}}
-    <br />XP: {{hero.xp}}
-  </div>
+    <div class="heroInfo">
+        <h2 style="text-transform: uppercase; display: inline-block">{{hero.name}} {{hero.title}}</h2>
+        <div class="editQuill" ng-click="openEditHeroModal('EDIT HERO')"><img src="..\assets\25x25-quill.png" /></div>
+        <br />Questing Since: {{hero.dateCreated | date:'shortDate'}}
+        <br />Level: {{hero.level}}
+        <br />XP: {{hero.xp}}
+    </div>
 
-  <div style="display: inline-block">
-    <!-- <br /> <h2>ACHIEVEMENTS</h2> -->
-    <br />Resume: <a target="_blank" href="{{hero.equipment.resume.url}}">link</a>
-    <div class="editQuill" ng-click="openEditHeroModal('EDIT RESUME')"><img src="..\assets\25x25-quill.png" /></div>
-    <br />LinkedIn: <a target="_blank" href="{{hero.equipment.linkedin.url}}">link</a>
-    <div class="editQuill" ng-click="openEditHeroModal('EDIT LINKEDIN')"><img src="..\assets\25x25-quill.png" /></div>
-    <br />Portfolio: <a target="_blank" href="{{hero.equipment.portfolioSite.url}}">link</a>
-    <div class="editQuill" ng-click="openEditHeroModal('EDIT PORTFOLIO')"><img src="..\assets\25x25-quill.png" /></div>
+    <div class="linksWrapper">
+        <!-- <br /> <h2>ACHIEVEMENTS</h2> -->
+        <br />Resume: <a target="_blank" href="{{hero.equipment.resume.url}}">link</a>
+        <div class="editQuill" ng-click="openEditHeroModal('EDIT RESUME')"><img src="..\assets\25x25-quill.png" /></div>
+        <br />LinkedIn: <a target="_blank" href="{{hero.equipment.linkedin.url}}">link</a>
+        <div class="editQuill" ng-click="openEditHeroModal('EDIT LINKEDIN')"><img src="..\assets\25x25-quill.png" /></div>
+        <br />Portfolio: <a target="_blank" href="{{hero.equipment.portfolioSite.url}}">link</a>
+        <div class="editQuill" ng-click="openEditHeroModal('EDIT PORTFOLIO')"><img src="..\assets\25x25-quill.png" /></div>
+    </div>
   </div>
-
-  <h2>Your skills</h2>
+  
+  
+  <div class="centerColumn">
+      <h2>Your skills</h2>
   <div class="skillsWrapper" ng-repeat="skill in hero.equipment.skills track by $index">
       {{skill}}
-    <div ng-if="hero.equipment.skills.length < 1">You have not added any skills yet</div>
   </div>
+  <div ng-if="hero.equipment.skills.length < 1">You have not added any skills yet</div>
   
   <h2>Your projects</h2>
   <div class="projectsWrapper" ng-repeat="project in hero.equipment.projects">
       <h3>{{project.name}}</h3>
       <a target="_blank" href="{{project.url}}">{{project.url}}</a>
-      <div ng-if="hero.equipment.projects.length < 1" >You have not added any projects</div>
   </div>
-  
+  <div ng-if="hero.equipment.projects.length < 1" >You have not added any projects</div>
   <div>
     <br />
     <h2>{{hero.name}}'s Guilds</h2>
-    <div ng-repeat="guild in guilds">
+    <div class="profileGuilds" ng-repeat="guild in guilds">
       {{guild.name}}
       <button ng-click="leaveGuild(guild, hero)">Leave Guild</button>
     </div>
@@ -54,7 +56,7 @@
   <div>
     <br />
     <h2>Jobs Submitted</h2>
-    <div ng-repeat="job in jobs">
+    <div class="profileJobs" ng-repeat="job in jobs">
       <dir-job-listing job="job" hero="hero" get-quests="getJobs()"></dir-job-listing>
     </div>
     <div ng-if="jobs.length < 1">You have not posted any jobs yet</div>
@@ -68,8 +70,10 @@
     </div>
     <div ng-if="resources.length < 1">You have not posted any resources yet</div>
   </div>
+  </div>
   
-  <button ng-click="deleteProfile">Delete Profile</button>
+  
+  <button ng-click="deleteProfile()">Delete Profile</button>
   <!--<div>
     <br />
     <h2>Progress</h2>
