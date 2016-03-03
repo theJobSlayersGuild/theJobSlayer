@@ -1,15 +1,53 @@
-
 <dir-nav-bar hero="hero"></dir-nav-bar>
 
 <button ng-click="openPostJobModal()">Post Job</button>
 
-<h1>Bounty Board</h1>
-<h3>Adventurer's Wanted</h3>
-<div ng-repeat="job in jobs">
+<div id="bountyBoardTitle">
+    <h1>Bounty Board</h1>
 
-<dir-job-listing hero="hero" job="job"></dir-job-listing>
-<!--<div ng-repeat="guild in guilds"></div>-->
 </div>
+<br>
+<div id="jobTabs">Adventurer's Wanted</div>
+<br>
+<div id="jobTabs">Job Categories</div>
+<br>
+<div id="jobTabs">
+    <div>public</div>
+    &nbsp;
+    <div>guild</div>
+    &nbsp;
+    <div>private</div>
+</div>
+
+<br>
+<br>
+
+<div>private jobs</div>
+<div ng-repeat="job in privateJobs">
+
+    <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
+
+</div>
+<hr>
+<br>
+
+<div>guild jobs</div>
+<div ng-repeat="guild in guilds">
+    {{guild.name}}
+    <div ng-repeat="job in guild.jobs">
+
+    <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
+    </div>
+</div>
+<hr>
+<br>
+<div>public jobs</div>
+<div ng-repeat="job in publicJobs">
+
+    <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
+
+</div>
+
 
 
 
