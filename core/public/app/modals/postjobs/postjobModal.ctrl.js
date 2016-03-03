@@ -1,11 +1,14 @@
 angular.module("app").controller("postjobCtrl", function($scope, jobService, questService, close, hero, guildService, guilds, xpService, modalService) {
 
+
   $scope.close = close;
 
   $scope.hero = hero;
   $scope.id = hero._id;
+
   $scope.name = [];
   $scope.guilds = guilds;
+
   $scope.job = {
     companyName: null,
     companyUrl: null,
@@ -31,7 +34,7 @@ angular.module("app").controller("postjobCtrl", function($scope, jobService, que
 
   $scope.updateJobGuildArray = function(guildName, guildId) {
     if ($scope.name.indexOf(guildName) === -1) {
-      $scope.job._guild.push(guildId)
+      $scope.job._guild.push(guildId);
       $scope.name.push(guildName);
     } else {
 
@@ -40,23 +43,23 @@ angular.module("app").controller("postjobCtrl", function($scope, jobService, que
         $scope.name.splice($scope.name.indexOf(guildName), 1);
       }
     }
-  }
+  };
 
   $scope.changeToPrivate = function() {
     $scope.job.public = !$scope.job.public;
-  }
+  };
 
   $scope.addSkill = function(skill) {
     if (skill !== null && skill !== undefined && skill !== "") {
       $scope.job.skillsRequired.push(skill);
     }
     $scope.skills = "";
-  }
+  };
 
   $scope.removeSkill = function(skill) {
     var skillToRemove = $scope.job.skillsRequired.indexOf(skill);
     $scope.job.skillsRequired.splice(skillToRemove, 1);
-  }
+  };
 
   $scope.createJob = function(job) {
     $scope.job._author = $scope.hero._id;
@@ -75,6 +78,5 @@ angular.module("app").controller("postjobCtrl", function($scope, jobService, que
       modalService.alert("Quest Created");
     });
   };
-
 
 });
