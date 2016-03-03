@@ -1,8 +1,8 @@
 
 
 <a ng-src="{{job.companyUrl}}">{{job.companyName}}</a>
-position{{job.position}}
-location{{job.location}}
+| position{{job.position}} |
+location: {{job.location.city}}, {{job.location.state}}
 
     <button ng-click="acceptQuest(job._id, hero._id, stepsId)">accept</button>
     <div class="editQuill" ng-if="hero._id === job._author" ng-click="openEditJobModal(job)" ng-click="editJob(job._id, hero._id)"><img src="..\assets\25x25-quill.png" /></div>
