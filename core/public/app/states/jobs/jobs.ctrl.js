@@ -24,9 +24,9 @@ angular.module('app')
                         }
                         $scope.guildIds.push($scope.guilds._id);
                     }
-                    $scope.getPrivateAndPublic()
-                })
-        }
+                    $scope.getPrivateAndPublic();
+                });
+        };
 
         $scope.getguild();
 
@@ -39,8 +39,8 @@ angular.module('app')
                     $scope.publicAndPrivateJobs = $scope.publicJobs.concat($scope.privateJobs);
                     $scope.allJobs = $scope.publicAndPrivateJobs.concat($scope.realGuildJobs);
                     $scope.getCurrentHeroQuests();
-                })
-        }
+                });
+        };
 
         $scope.getCurrentHeroQuests = function () {
             questService.getQuests($scope.id)
@@ -53,8 +53,8 @@ angular.module('app')
                             }
                         }
                     }
-                })
-        }
+                });
+        };
 
 
         $scope.openPostJobModal = function () {

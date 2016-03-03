@@ -3,6 +3,21 @@ angular.module('app')
 
     $scope.hero = hero;
 
+    $scope.getHero = function() {
+      authService.currentHero()
+        .then(function(response) {
+          $scope.hero = response.data;
+        });
+    };
+
+    $scope.updateHero = function() {
+      delete $scope.hero.password;
+      heroService.editHero($scope.hero)
+        .then(function(response) {
+          $scope.getHero();
+        });
+    };
+
     //EQUIPMENT SWITCH CASE
 
     switch ($scope.hero.level) {
@@ -233,15 +248,24 @@ angular.module('app')
 
     $scope.getJobs();
 
+    //MODALS
+
     $scope.openQuestionModal = function() {
       ModalService.showModal({
         templateUrl: "./app/modals/question/question.ctrl.html",
         controller: "questionCtrl"
       }).then(function(modal) {
         // Function that runs when modal closes
-        modal.close.then(function(then) {
-        });
+        modal.close.then(function(then) {});
       });
+    };
+
+    $scope.setTip = function(title) {
+      for (var i = 0; i < $scope.tips.length; i++) {
+        if ($scope.tips[i].title === title) {
+          $scope.currentTip = $scope.tips[i];
+        }
+      }
     };
 
   });

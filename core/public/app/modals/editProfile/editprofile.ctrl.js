@@ -4,6 +4,7 @@ angular.module("app").controller("editProfileCtrl", function($scope, close, text
 
   $scope.edit = function(newInfo, title) {
     console.log(newInfo);
+
     switch (text) {
       case 'EDIT HERO':
         close({
