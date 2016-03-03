@@ -4,7 +4,7 @@
 
   <h1>Hall of Heroes</h1>
 
-  <div class="heroList" ng-repeat="hero in heroes" ui-sref="member({id:hero._id})">
+  <div class="heroList" ng-repeat="hero in heroes | orderBy: '-xp'" ui-sref="member({id:hero._id})">
 
     <div class="heroImageWrapper" style="display: inline-block">
       <img class="heroImage" ng-src="{{hero.profileImage}}"/>
