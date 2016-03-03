@@ -1,11 +1,18 @@
+<div class="jobInfoWrapper"><!--flex row-->
+    <div class="acceptQuestButtonDirWrapper"> <!--flex column/ width100-->
+        <button ng-if="!job.accepted" ng-click="acceptQuest(job._id, hero._id, stepsId)">accept</button>
+    </div>
+    <div class="jobInfoDirWrapper">
+        <a ng-href="{{job.companyUrl}}">{{job.companyName}}</a>
+        position{{job.position}}
+        location state:{{job.location.state}}
+        city: {{job.location.city}}
 
 
-<a ng-href="{{job.companyUrl}}">{{job.companyName}}</a>
-position{{job.position}}
-location{{job.location}}
+        <div class="editQuill editButton" ng-if="hero._id === job._author" ng-click="openEditJobModal(job)"
+             ng-click="editJob(job._id, hero._id)"><img src="..\assets\25x25-quill.png"/></div>
 
+        <button ng-if="hero._id === job._author" ng-click="deleteJob(job._id)">delete</button>
+    </div>
+</div>
 
-    <button ng-if="!job.accepted" ng-click="acceptQuest(job._id, hero._id, stepsId)">accept</button>
-    <div class="editQuill" ng-if="hero._id === job._author" ng-click="openEditJobModal(job)" ng-click="editJob(job._id, hero._id)"><img src="..\assets\25x25-quill.png" /></div>
-
-    <button ng-if="hero._id === job._author" ng-click="deleteJob(job._id)">delete</button>

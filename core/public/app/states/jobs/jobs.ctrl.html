@@ -9,45 +9,42 @@
 <br>
 <div id="jobTabs">Adventurer's Wanted</div>
 <br>
-<div id="jobTabs">Job Categories</div>
-<br>
-<div id="jobTabs">
-    <div>public</div>
-    &nbsp;
-    <div>guild</div>
-    &nbsp;
-    <div>private</div>
-</div>
-
+<div id="jobTabs"><button ng-click="openPostJobModal()">Post Job</button></div>
 <br>
 <br>
 
-<div>private jobs</div>
-<div ng-repeat="job in privateJobs">
+<div class="outerJobsWrapper">
+    <div class="jobsWrapper">
+        <div class="jobClassTitleWrapper">
+            <div class="jobClassTitle">private jobs</div>
+        </div>
+        <br>
+        <div ng-repeat="job in privateJobs">
+            <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
+        </div>
 
-    <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
+        <br>
+        <div class="jobClassTitleWrapper">
+            <div class="jobClassTitle">guild jobs</div>
+        </div>
+        <div ng-repeat="guild in guilds">
+            {{guild.name}}
+            <div ng-repeat="job in guild.jobs">
+                <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
+            </div>
+        </div>
 
-</div>
-<hr>
-<br>
+        <br>
+        <div class="jobClassTitleWrapper">
+            <div class="jobClassTitle">public jobs</div>
+        </div>
+        <div ng-repeat="job in publicJobs">
 
-<div>guild jobs</div>
-<div ng-repeat="guild in guilds">
-    {{guild.name}}
-    <div ng-repeat="job in guild.jobs">
+            <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
 
-    <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
+        </div>
     </div>
 </div>
-<hr>
-<br>
-<div>public jobs</div>
-<div ng-repeat="job in publicJobs">
-
-    <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
-
-</div>
-
 
 
 
