@@ -70,6 +70,7 @@
 
 <div>
   <h2>Current Quests</h2>
+
   <div ng-repeat="quest in quests | filter:{archived:false}">
     {{quest._job.position}} at {{quest._job.companyName}}
     <p ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is inside!</p>
