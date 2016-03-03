@@ -1,4 +1,4 @@
-angular.module("app").controller("postjobCtrl", function ($scope, jobService, questService, close, hero, guildService, stepService) {
+angular.module("app").controller("postjobCtrl", function ($scope, jobService, questService, close, hero, guildService, stepService, xpService) {
     $scope.close = close;
 
     $scope.hero = hero;
@@ -31,8 +31,8 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         guildService.getGuildsByMember($scope.id)
             .then(function (response) {
                 $scope.guilds = response;
-            })
-    }
+            });
+    };
 
     $scope.getguild();
 
@@ -43,22 +43,25 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
         jobService.getJobs()
             .then(function (response) {
                 $scope.jobs = response;
-            })
-    }
+            });
+    };
 
     $scope.addSkill = function (skill) {
         $scope.job.skillsRequired.push(skill);
-    }
+    };
 
     $scope.removeSkill = function (skill) {
         var skillToRemove = $scope.job.skillsRequired.indexOf(skill);
-    }
+    };
 
-    $scope.createQuest = function (job) {
+    $scope.createJob = function (job) {
         $scope.job._author = $scope.hero._id;
         jobService.createJob(job)
-        $scope.getJobs();
-    }
+        .then(function(response) {
+          xpService.addAndUpdate($scope.hero, 10);
+          $scope.getJobs();
+        });
+    };
 
 
 });
