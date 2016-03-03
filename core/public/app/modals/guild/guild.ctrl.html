@@ -3,7 +3,7 @@
   Add User:<input ng-model="newMember" type="email" placeholder="User Email">
   <button ng-click="addMember(newMember)">Add Member</button>
   <div ng-repeat="member in members track by $index">
-    {{member.name}}
+    <img ng-src="{{member.profileImage}}"/>{{member.name}}
     <button ng-click="deleteMember($index)">X</button>
   </div>
 <button ng-click="addGuild(guild)">SUBMIT</button>
