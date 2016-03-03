@@ -12,7 +12,7 @@
   <h2><br/>{{guild.name}}</h2>
   <div class="editQuill" ng-click="openEditGuildModal(guild)"><img src="..\assets\25x25-quill.png" /></div>
   <button ng-click="leaveGuild(guild, hero)">Leave</button>
-  <button ng-click="deleteGuild(guild._id)">Delete</button>
+  <div class="deleteBones" ng-click="deleteGuild(guild._id)"><img src="..\assets\25x25-crossbones.png" /></div>
   <p>GUILDMASTER:</p> {{guild._guildMaster.name}}
     <p>GUILDMEMBERS: </p>
   <div ng-repeat="member in guild._guildMembers">
