@@ -35,7 +35,7 @@ angular.module('app')
                 .then(function (response) {
                     return response.data;
                 });
-        }
+        };
 
 
         this.getJob = function (id) {
