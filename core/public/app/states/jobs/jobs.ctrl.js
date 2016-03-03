@@ -9,7 +9,7 @@ angular.module('app')
         $scope.realGuildJobs = [];
         $scope.privateJobs = [];
         $scope.publicJobs = [];
-        $scope.publicAndPrivateJobs = []
+        $scope.publicAndPrivateJobs = [];
         $scope.allJobs = [];
         $scope.currentQuests = [];
 
@@ -37,7 +37,7 @@ angular.module('app')
                     $scope.privateJobs = response.private;
                     $scope.publicJobs = response.public;
                     $scope.publicAndPrivateJobs = $scope.publicJobs.concat($scope.privateJobs);
-                    $scope.allJobs = $scope.publicAndPrivateJobs.concat($scope.realGuildJobs)
+                    $scope.allJobs = $scope.publicAndPrivateJobs.concat($scope.realGuildJobs);
                     $scope.getCurrentHeroQuests();
                 })
         }
