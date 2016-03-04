@@ -80,7 +80,7 @@ angular.module('app')
       }
     }, {
       title: 'linkedin',
-      goatSays: 'In this battle, a LinkedIn profile is your first line of defense.',
+      goatSays: 'If you\'ve got a good head on your shoulders, you\'ll wear a helmet. And make a linkedin profile.',
       inputs: 1,
       description1: "LinkedIn URL",
       buttonText: 'I have a LinkedIn profile!',
