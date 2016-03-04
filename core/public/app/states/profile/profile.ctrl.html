@@ -3,21 +3,19 @@
   <dir-nav-bar hero="hero"></dir-nav-bar>
 
   <h1>Profile</h1>
-  
   <div class="profileHeader">
     <div class="profileImageWrapper">
-    <div class="editQuill"><img src="..\assets\25x25-quill.png" /></div>
+    <div class="editQuill"><img src="../assets/images/25x25-quill.png" /></div>
     <img class="profileImage" ng-src="{{hero.profileImage}}" ng-click="openProfileImageModal()" title="Edit Avatar" />
     </div>
-
     <div class="heroInfo">
         <div class="heroName">
            <h2 style="text-transform: uppercase; display: inline-block">{{hero.name}} {{hero.title}}</h2>
             <div class="editQuill" ng-click="openEditHeroModal('EDIT HERO')">
-                <img src="..\assets\25x25-quill.png" />
-            </div> 
+                <img src="../assets/images/25x25-quill.png" />
+            </div>
         </div>
-       
+
         Questing Since: {{hero.dateCreated | date:'shortDate'}}
         <br/>Level: {{hero.level}}
         <br/>XP: {{hero.xp}}
@@ -26,22 +24,22 @@
     <div class="linksWrapper">
         <!-- <br /> <h2>ACHIEVEMENTS</h2> -->
         <br />Resume: <a target="_blank" href="{{hero.equipment.resume.url}}">link</a>
-        <div class="editQuill" ng-click="openEditHeroModal('EDIT RESUME')"><img src="..\assets\25x25-quill.png" /></div>
+        <div class="editQuill" ng-click="openEditHeroModal('EDIT RESUME')"><img src="../assets/images/25x25-quill.png" /></div>
         <br />LinkedIn: <a target="_blank" href="{{hero.equipment.linkedin.url}}">link</a>
-        <div class="editQuill" ng-click="openEditHeroModal('EDIT LINKEDIN')"><img src="..\assets\25x25-quill.png" /></div>
+        <div class="editQuill" ng-click="openEditHeroModal('EDIT LINKEDIN')"><img src="../assets/images/25x25-quill.png" /></div>
         <br />Portfolio: <a target="_blank" href="{{hero.equipment.portfolioSite.url}}">link</a>
-        <div class="editQuill" ng-click="openEditHeroModal('EDIT PORTFOLIO')"><img src="..\assets\25x25-quill.png" /></div>
+        <div class="editQuill" ng-click="openEditHeroModal('EDIT PORTFOLIO')"><img src="../assets/images/25x25-quill.png" /></div>
     </div>
   </div>
-  
-  
+
+
   <div class="centerColumn">
       <h2>Your skills</h2>
   <div class="skillsWrapper" ng-repeat="skill in hero.equipment.skills track by $index">
       {{skill}}
   </div>
   <div ng-if="hero.equipment.skills.length < 1">You have not added any skills yet</div>
-  
+
   <h2>Your projects</h2>
   <div class="projectsWrapper" ng-repeat="project in hero.equipment.projects">
       <h3>{{project.name}}</h3>
@@ -76,8 +74,8 @@
     <div ng-if="resources.length < 1">You have not posted any resources yet</div>
   </div>
   </div>
-  
-  
+
+
   <button ng-click="deleteProfile()">Delete Profile</button>
   <!--<div>
     <br />

@@ -10,14 +10,14 @@
 
         <div class="editQuestButton">
             <div class="editQuill editButton" ng-if="hero._id === job._author" ng-click="openEditJobModal(job)"
-                 ng-click="editJob(job._id, hero._id)"><img src="..\assets\25x25-quill.png"/></div>
+                 ng-click="editJob(job._id, hero._id)"><img src="../assets/images/25x25-quill.png"/></div>
         </div>
 
         <div ng-if="hero._id === job._author" ng-click="deleteJob(job._id)"><img
-                src="..\assets\25x25-crossbones.png"/></div>
+                src="../assets/images/25x25-crossbones.png"/></div>
 
 
     </div>
 </div>
 
-
+    <div class="deleteBones" ng-if="hero._id === job._author" ng-click="deleteJob(job._id)"><img src="../assets/images/25x25-crossbones.png" /></div>
