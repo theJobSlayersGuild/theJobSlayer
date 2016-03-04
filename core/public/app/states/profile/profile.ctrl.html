@@ -50,7 +50,7 @@
   <div ng-if="hero.equipment.projects.length < 1" >You have not added any projects</div>
   <div>
     <br />
-    <h2>{{hero.name}}'s Guilds</h2>
+    <h2>Guilds You Belong To</h2>
     <div class="profileGuilds" ng-repeat="guild in guilds">
       {{guild.name}}
       <button ng-click="leaveGuild(guild, hero)">Leave Guild</button>
