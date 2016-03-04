@@ -7,15 +7,18 @@
 
 <div class="equippedAvatar">
 
-  <img class="avatarImage" ng-src="{{hero.avatarImage}}" />
+    <img class="avatarImage" ng-src="{{hero.avatarImage}}"/>
 
-  <!-- <img ng-if="hero.equipment.???.done" ng-src="./assets/images/equipment/200x200-hat{{hero.level}}.png" /> -->
+    <!-- <img ng-if="hero.equipment.???.done" ng-src="./assets/images/equipment/200x200-hat{{hero.level}}.png" /> -->
 
   <img ng-if="hero.equipment.linkedin.done" ng-src="./assets/images/equipment/200x200-hat{{hero.level}}.png" class="equipmentImg" />
 
-  <img ng-if="hero.equipment.resume.done" ng-src="./assets/images/equipment/200x200-weapon{{hero.level}}.png" class="equipmentImg"/>
 
-  <img ng-if="hero.equipment.portfolioSite.done" ng-src="./assets/images/equipment/200x200-shield{{hero.level}}.png" class="equipmentImg"/>
+    <img ng-if="hero.equipment.resume.done" ng-src="./assets/images/equipment/200x200-weapon{{hero.level}}.png"
+         class="equipmentImg"/>
+
+    <img ng-if="hero.equipment.portfolioSite.done" ng-src="./assets/images/equipment/200x200-shield{{hero.level}}.png"
+         class="equipmentImg"/>
 
 </div>
 
@@ -42,32 +45,48 @@
   <!-- maybe a new contact is gold, meetup is silver? -->
 
   <br />
+
 </div>
 
 <div>
+    <br>
+    <div class="wisdomGoatSaysTitle">
+        <h2>Jedi Infinite Wisdom Goat Wizard Says:</h2>
+    </div>
+    <br>
+    <div class="wisdomGoatContentWrapper">
+        <div class="wisdomGoatButtonsAlignment">
+            <div class="previousButton" ng-show="showPreviousButton" ng-click="previousTip()"> < </div>
+            <!--<button ng-show="showPreviousButton" ng-click="previousTip()"><</button>-->
+            <div class="wisdomGoatContent">
 
-  <h2>Jedi Infinite Wisdom Goat Wizard Says:</h2>
-  <div>
-    {{ currentTip.goatSays }}
-    <div>
-      <form>
-        <div>
+                <div class=""><img class="wisdomGoatPic wisdomGoatPicWrapper" src="../../../assets/images/angry_unicorn.png" alt=""><!--goat image--></div>
+
+                {{ currentTip.goatSays }}
+                <div>
+
+                    <form>
+                        <div>
           <span ng-show="currentTip.inputs > 0">
-            {{currentTip.description1}}: <input type="text" ng-model="input1" placeholder="{{currentTip.description1}}"/>
+            {{currentTip.description1}}: <input type="text" ng-model="input1"
+                                                placeholder="{{currentTip.description1}}"/>
           </span>
           <span ng-show="currentTip.inputs > 1">
-            {{currentTip.description2}}: <input type="text" ng-model="input2" placeholder="{{currentTip.description2}}"/>
+            {{currentTip.description2}}: <input type="text" ng-model="input2"
+                                                placeholder="{{currentTip.description2}}"/>
           </span>
+                        </div>
+                        <button type="submit" ng-click="currentTip.invoked()">{{currentTip.buttonText}}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="nextButton" ng-click="nextTip()"> > </div>
         </div>
-      <button type="submit" ng-click="currentTip.invoked()">{{currentTip.buttonText}}</button>
-      </form>
+
+        <!--<button ng-click="nextTip()">Next Tip</button>-->
     </div>
-  </div>
 
-</div>
-
-<button ng-show="showPreviousButton" ng-click="previousTip()">Previous Tip</button>
-<button ng-click="nextTip()">Next Tip</button>
+    </div>
 
 <div>
   <h2>Current Quests</h2>
@@ -90,10 +109,18 @@
     <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt="" />
   </div>
 </div>
+<br>
+    <div>
+        <div class="homeBountyBoardTitle">
+            <h2>Bounty Board</h2>
+        </div>
+        <div class="homeBountyBoardOuterJobWrapper">
+            <div class="homeBountyBoardJobWrapper">
+                <div ng-repeat="job in jobs | limitTo:8">
 
-<div>
-  <h2>Bounty Board</h2>
-  <div ng-repeat="job in jobs | limitTo:5">
-    <dir-job-listing hero="hero" job="job" get-quests="getQuests()"></dir-job-listing>
-  </div>
-</div>
+                    <dir-job-listing hero="hero" job="job" get-quests="getQuests()"></dir-job-listing>
+
+                </div>
+            </div>
+        </div>
+    </div>

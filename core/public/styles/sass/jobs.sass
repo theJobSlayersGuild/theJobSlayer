@@ -10,10 +10,9 @@
   justify-content: flex-start
   //width: 40%
 
-#bountyBoardTitle
-  justify-content: center
+.bountyBoardTitle
   display: flex
-  flex-direction: column
+  justify-content: center
   width: 100%
 
 .jobClassTitleWrapper
@@ -30,6 +29,9 @@
   flex-direction: row
   justify-content: center
   width: 100%
+
+
+
 //////////// post job dir /////////////
 
 .jobInfoWrapper
@@ -57,14 +59,13 @@
 
 ///////////////////// post job modal ///////////////
 .postjobOverlayWrapper
-  justify-content: center
   display: flex
   flex-wrap: wrap
-  flex-direction: column
+  flex-direction: row
   color: black
   position: fixed
-  width: 70em
-  height: 30em
+  width: 25em
+  height: 27em
   left: 20%
   top: 20%
   border: 2px solid black
@@ -78,11 +79,15 @@
   display: flex
   flex-direction: column
   justify-content: center
-  padding-top: 15em
   z-index: 100
   width: 8em
   height: 30em
   border: 1px solid black
+
+.postJobModalButton
+  display: flex
+  width: 100%
+  justify-content: center
 
 .submitSkill
   width: 10em
@@ -91,8 +96,6 @@
   display: flex
   flex-direction: row
   flex-wrap: wrap
-
-  //width: 30em
   height: 20em
   color: black
   left: 30%
