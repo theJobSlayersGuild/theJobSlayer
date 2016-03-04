@@ -69,25 +69,41 @@
 <button ng-click="nextTip()">Next Tip</button>
 
 <div>
-  <h2>Current Quests</h2>
+  <h2 class="questH2">Current Quests</h2>
 
   <div ng-repeat="quest in quests | filter:{archived:false}">
-    {{quest._job.position}} at {{quest._job.companyName}}
-    <div class="deleteBones" ng-click="deleteQuest(quest)"><img src="../assets/images/25x25-crossbones.png" /></div>
-    <button ng-click="archiveQuest(quest)">Archive</button>
 
-    <div ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is inside!</div>
-    <div class="stepsWrapper" ng-repeat="step in quest._steps">
-      <div class="step" ng-class="{completed: quest.progress >= step.order}"></div>
-      <div class="progressBar" ng-class="{completed: quest.progress >= step.order}" ng-if="!$last"></div>
-      <img src="./assets/images/50x50-deadEnemy.png" ng-show="quest.progress >= step.order">
-      <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
-      <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
-      <span ng-show="quest.progress + 1 === step.order">Wisdom Goat Says: {{step.flavorText}} {{step.description}}<a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a></span>
+    <div class="questTitle">
+      {{quest._job.position}} at {{quest._job.companyName}}
+      <div class="deleteBones" ng-click="deleteQuest(quest)"><img src="../assets/images/25x25-crossbones.png" /></div>
+      <button ng-click="archiveQuest(quest)">Archive</button>
     </div>
+
+    <div class="questStartText" ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is inside!</div>
+
+    <div class="stepsWrapper" ng-repeat="step in quest._steps">
+      <div class="stepColumn">
+        <div class="topStepImageWrapper">
+          <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
+          <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
+        </div>
+          <div class="progressCircle" ng-class="{completed: quest.progress >= step.order}"></div>
+          <div class="progressBarWrapper">
+          <div class="progressBar" ng-class="{completed: quest.progress >= step.order}" ng-if="!$last"></div>
+          </div>
+        <img src="./assets/images/50x50-deadEnemy.png" ng-show="quest.progress >= step.order">
+        <span ng-show="quest.progress + 1 === step.order">
+          <!-- Wisdom Goat Says: {{step.flavorText}} {{step.description}} -->
+          <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a>
+        </span>
+      </div>
+    </div>
+
     <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt="" />
     <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt="" />
+
   </div>
+
 </div>
 
 <div>
