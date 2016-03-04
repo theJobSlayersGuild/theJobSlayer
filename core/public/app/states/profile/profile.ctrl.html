@@ -11,11 +11,16 @@
     </div>
 
     <div class="heroInfo">
-        <h2 style="text-transform: uppercase; display: inline-block">{{hero.name}} {{hero.title}}</h2>
-        <div class="editQuill" ng-click="openEditHeroModal('EDIT HERO')"><img src="..\assets\25x25-quill.png" /></div>
-        <br />Questing Since: {{hero.dateCreated | date:'shortDate'}}
-        <br />Level: {{hero.level}}
-        <br />XP: {{hero.xp}}
+        <div class="heroName">
+           <h2 style="text-transform: uppercase; display: inline-block">{{hero.name}} {{hero.title}}</h2>
+            <div class="editQuill" ng-click="openEditHeroModal('EDIT HERO')">
+                <img src="..\assets\25x25-quill.png" />
+            </div> 
+        </div>
+       
+        Questing Since: {{hero.dateCreated | date:'shortDate'}}
+        <br/>Level: {{hero.level}}
+        <br/>XP: {{hero.xp}}
     </div>
 
     <div class="linksWrapper">
