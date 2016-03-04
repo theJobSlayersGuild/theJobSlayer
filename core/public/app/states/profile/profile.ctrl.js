@@ -1,7 +1,6 @@
-app.controller('profileCtrl', function($scope, jobService, resourceService, hero, ModalService, authService, heroService, guildService, modalService) {
+app.controller('profileCtrl', function($scope, $state, jobService, resourceService, hero, ModalService, authService, heroService, guildService, modalService) {
 
   $scope.hero = hero;
-
   $scope.getJobs = function() {
     jobService.getJobByAuthor(hero._id)
       .then(function(response) {
@@ -131,6 +130,15 @@ app.controller('profileCtrl', function($scope, jobService, resourceService, hero
       .then(function(response) {
         $scope.getHero();
       });
+  };
+  
+  $scope.deleteProfile = function() {
+      console.log('fired')
+      heroService.removeHero($scope.hero._id)
+      .then(function(response) {
+          alert(response.name + 'has been deleted.  Have a nice life!');
+          $state.go('splash');
+      }); 
   };
 
 });
