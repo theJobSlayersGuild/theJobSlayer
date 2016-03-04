@@ -5,14 +5,14 @@
   <h1>Profile</h1>
 
   <div class="profileImageWrapper">
-    <div class="editQuill"><img src="..\assets\25x25-quill.png" /></div>
+    <div class="editQuill"><img src="../assets/images/25x25-quill.png" /></div>
     <img class="profileImage" ng-src="{{hero.profileImage}}" ng-click="openProfileImageModal()" title="Edit Avatar" />
   </div>
 
   <div style="display: inline-block">
     <br />
     <h2 style="text-transform: uppercase; display: inline-block">{{hero.name}} {{hero.title}}</h2>
-    <div class="editQuill" ng-click="openEditHeroModal('EDIT HERO')"><img src="..\assets\25x25-quill.png" /></div>
+    <div class="editQuill" ng-click="openEditHeroModal('EDIT HERO')"><img src="../assets/images/25x25-quill.png" /></div>
     <br />Questing Since: {{hero.dateCreated | date:'shortDate'}}
     <br />Level: {{hero.level}}
     <br />XP: {{hero.xp}}
@@ -21,11 +21,11 @@
   <div style="display: inline-block">
     <!-- <br /> <h2>ACHIEVEMENTS</h2> -->
     <br />Resume: <a href="{{hero.equipment.resume.url}}">link</a>
-    <div class="editQuill" ng-click="openEditHeroModal('EDIT RESUME')"><img src="..\assets\25x25-quill.png" /></div>
+    <div class="editQuill" ng-click="openEditHeroModal('EDIT RESUME')"><img src="../assets/images/25x25-quill.png" /></div>
     <br />LinkedIn: <a href="{{hero.equipment.linkedin.url}}">link</a>
-    <div class="editQuill" ng-click="openEditHeroModal('EDIT LINKEDIN')"><img src="..\assets\25x25-quill.png" /></div>
+    <div class="editQuill" ng-click="openEditHeroModal('EDIT LINKEDIN')"><img src="../assets/images/25x25-quill.png" /></div>
     <br />Portfolio: <a href="{{hero.equipment.portfolioSite.url}}">link</a>
-    <div class="editQuill" ng-click="openEditHeroModal('EDIT PORTFOLIO')"><img src="..\assets\25x25-quill.png" /></div>
+    <div class="editQuill" ng-click="openEditHeroModal('EDIT PORTFOLIO')"><img src="../assets/images/25x25-quill.png" /></div>
   </div>
 
   <div>
