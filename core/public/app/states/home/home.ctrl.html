@@ -1,101 +1,112 @@
-    <div class="pageHeader">
-       <dir-nav-bar hero="hero"></dir-nav-bar>
-    </div>
+<div class="pageHeader">
+  <dir-nav-bar hero="hero"></dir-nav-bar>
+</div>
 
 <h1>Home</h1>
 
-
 <div class="equippedAvatar">
 
-    <img class="avatarImage" ng-src="{{hero.avatarImage}}"/>
+  <img class="avatarImage" ng-src="{{hero.avatarImage}}"/>
 
-    <!-- <img ng-if="hero.equipment.???.done" ng-src="./assets/images/equipment/200x200-hat{{hero.level}}.png" /> -->
+  <!-- <img ng-if="hero.equipment.???.done" ng-src="./assets/images/equipment/200x200-hat{{hero.level}}.png" /> -->
 
-  <img ng-if="hero.equipment.linkedin.done" ng-src="./assets/images/equipment/200x200-hat{{hero.level}}.png" class="equipmentImg" />
+  <img ng-if="hero.equipment.linkedin.done" ng-src="./assets/images/equipment/200x200-hat{{hero.level}}.png" class="equipmentImg"/>
 
+  <img ng-if="hero.equipment.resume.done" ng-src="./assets/images/equipment/200x200-weapon{{hero.level}}.png" class="equipmentImg"/>
 
-    <img ng-if="hero.equipment.resume.done" ng-src="./assets/images/equipment/200x200-weapon{{hero.level}}.png"
-         class="equipmentImg"/>
-
-    <img ng-if="hero.equipment.portfolioSite.done" ng-src="./assets/images/equipment/200x200-shield{{hero.level}}.png"
-         class="equipmentImg"/>
+  <img ng-if="hero.equipment.portfolioSite.done" ng-src="./assets/images/equipment/200x200-shield{{hero.level}}.png" class="equipmentImg"/>
 
 </div>
 
 <div style="display: inline-block">
-  <br />Name: {{hero.name}} {{hero.title}}
-  <br />Level: {{hero.level}}
-  <br />XP: {{hero.xp}}
-  <br />INVENTORY <button ng-click="openQuestionModal()">?</button>
-  <br /><a ng-click="setTip('resume')">Weapon</a>:
+  <br/>Name:
+  {{hero.name}}
+  {{hero.title}}
+  <br/>Level:
+  {{hero.level}}
+  <br/>XP:
+  {{hero.xp}}
+  <br/>INVENTORY
+  <button ng-click="openQuestionModal()">?</button>
+  <br/>
+  <a ng-click="setTip('resume')">Weapon</a>:
   <span ng-show="hero.equipment.resume.done">{{weapon}}</span>
   <span ng-hide="hero.equipment.resume.done">None</span>
-  <br /><a ng-click="setTip('linkedin')">Helmet</a>:
+  <br/>
+  <a ng-click="setTip('linkedin')">Helmet</a>:
   <span ng-show="hero.equipment.linkedin.done">{{helmet}}</span>
   <span ng-hide="hero.equipment.linkedin.done">None</span>
-  <br /><a ng-click="setTip('portfolioSite')">Shield</a>:
+  <br/>
+  <a ng-click="setTip('portfolioSite')">Shield</a>:
   <span ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
   <span ng-hide="hero.equipment.portfolioSite.done">None</span>
   <!-- <br />Helmet:
   <span ng-show="hero.equipment.portfolioSite.done">{{helmet}}</span> -->
   <!-- <span ng-hide="hero.equipment.portfolioSite.done">None</span> -->
-  <br />{{hero.equipment.projects.length}} <a ng-click="setTip('projects')">Majickal Gemeralds</a>
-  <br />{{hero.equipment.skills.length}} <a ng-click="setTip('skills')">Spellbooks</a>
-  <br />{{hero.equipment.meetups}} <a ng-click="setTip('meetups')">Gold Pieces</a>
+  <br/>{{hero.equipment.projects.length}}
+  <a ng-click="setTip('projects')">Majickal Gemeralds</a>
+  <br/>{{hero.equipment.skills.length}}
+  <a ng-click="setTip('skills')">Spellbooks</a>
+  <br/>{{hero.equipment.meetups}}
+  <a ng-click="setTip('meetups')">Gold Pieces</a>
   <!-- maybe a new contact is gold, meetup is silver? -->
 
-  <br />
+  <br/>
 
 </div>
 
 <div>
-    <br>
-    <div class="wisdomGoatSaysTitle">
-        <h2>Jedi Infinite Wisdom Goat Wizard Says:</h2>
-    </div>
-    <br>
-    <div class="wisdomGoatContentWrapper">
-        <div class="wisdomGoatButtonsAlignment">
-            <div class="previousButton" ng-show="showPreviousButton" ng-click="previousTip()"> < </div>
-            <!--<button ng-show="showPreviousButton" ng-click="previousTip()"><</button>-->
-            <div class="wisdomGoatContent">
+  <br>
+  <div class="wisdomGoatSaysTitle">
+    <h2>Jedi Infinite Wisdom Goat Wizard Says:</h2>
+  </div>
+  <br>
+  <div class="wisdomGoatContentWrapper">
+    <div class="wisdomGoatButtonsAlignment">
+      <div class="previousButton" ng-show="showPreviousButton" ng-click="previousTip()">< </div>
+      <!--<button ng-show="showPreviousButton" ng-click="previousTip()"><</button>-->
+      <div class="wisdomGoatContent">
 
-                <div class=""><img class="wisdomGoatPic wisdomGoatPicWrapper" src="../../../assets/images/angry_unicorn.png" alt=""><!--goat image--></div>
+        <div class=""><img class="wisdomGoatPic wisdomGoatPicWrapper" src="../../../assets/images/angry_unicorn.png" alt=""><!--goat image--></div>
 
-                {{ currentTip.goatSays }}
-                <div>
+        {{ currentTip.goatSays }}
+        <div>
 
-                    <form>
-                        <div>
-          <span ng-show="currentTip.inputs > 0">
-            {{currentTip.description1}}: <input type="text" ng-model="input1"
-                                                placeholder="{{currentTip.description1}}"/>
-          </span>
-          <span ng-show="currentTip.inputs > 1">
-            {{currentTip.description2}}: <input type="text" ng-model="input2"
-                                                placeholder="{{currentTip.description2}}"/>
-          </span>
-                        </div>
-                        <button type="submit" ng-click="currentTip.invoked()">{{currentTip.buttonText}}</button>
-                    </form>
-                </div>
+          <form>
+            <div>
+              <span ng-show="currentTip.inputs > 0">
+                {{currentTip.description1}}:
+                <input type="text" ng-model="input1" placeholder="{{currentTip.description1}}"/>
+              </span>
+              <span ng-show="currentTip.inputs > 1">
+                {{currentTip.description2}}:
+                <input type="text" ng-model="input2" placeholder="{{currentTip.description2}}"/>
+              </span>
             </div>
-            <div class="nextButton" ng-click="nextTip()"> > </div>
+            <button type="submit" ng-click="currentTip.invoked()">{{currentTip.buttonText}}</button>
+          </form>
         </div>
-
-        <!--<button ng-click="nextTip()">Next Tip</button>-->
+      </div>
+      <div class="nextButton" ng-click="nextTip()">
+        >
+      </div>
     </div>
+  </div>
 
-    </div>
+</div>
 
 <div>
+
+  <br/>
   <h2 class="questH2">Current Quests</h2>
 
   <div ng-repeat="quest in quests | filter:{archived:false}">
 
     <div class="questTitle">
-      {{quest._job.position}} at {{quest._job.companyName}}
-      <div class="deleteBones" ng-click="deleteQuest(quest)"><img src="../assets/images/25x25-crossbones.png" /></div>
+      {{quest._job.position}}
+      at
+      {{quest._job.companyName}}
+      <div class="deleteBones" ng-click="deleteQuest(quest)"><img src="../assets/images/25x25-crossbones.png"/></div>
       <button ng-click="archiveQuest(quest)">Archive</button>
     </div>
 
@@ -107,10 +118,10 @@
           <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
           <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
         </div>
-          <div class="progressCircle" ng-class="{completed: quest.progress >= step.order}"></div>
-          <div class="progressBarWrapper">
+        <div class="progressCircle" ng-class="{completed: quest.progress >= step.order}"></div>
+        <div class="progressBarWrapper">
           <div class="progressBar" ng-class="{completed: quest.progress >= step.order}" ng-if="!$last"></div>
-          </div>
+        </div>
         <img src="./assets/images/50x50-deadEnemy.png" ng-show="quest.progress >= step.order">
         <span ng-show="quest.progress + 1 === step.order">
           <!-- Wisdom Goat Says: {{step.flavorText}} {{step.description}} -->
@@ -119,13 +130,15 @@
       </div>
     </div>
 
-    <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt="" />
-    <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt="" />
+    <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt=""/>
+    <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt=""/>
 
   </div>
 
 </div>
 
 <div>
-<p>To acquire new quests, seek out the <a ui-sref="jobs">Bounty Board</a></p>
+  <p>To acquire new quests, seek out the
+    <a ui-sref="jobs">Bounty Board</a>
+  </p>
 </div>
