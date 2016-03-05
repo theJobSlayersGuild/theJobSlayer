@@ -158,13 +158,7 @@ angular.module('app')
         $scope.hero.equipment.skills.push($scope.input1);
         $scope.hero = xpService.add($scope.hero, 15);
         heroService.editHero($scope.hero);
-        if (num < $scope.tips.length - 1) {
-          num++;
-        } else {
-          num = 0;
-        }
         $scope.input1 = "";
-        $scope.currentTip = $scope.tips[num];
       }
     }];
 
@@ -179,6 +173,7 @@ angular.module('app')
         $scope.tips.splice(i, 1);
       }
     }
+
     var num = 0;
 
     $scope.currentTip = $scope.tips[num];
