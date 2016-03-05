@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService, ModalService) {
+  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService, ModalService, authService) {
 
     $scope.hero = hero;
 
@@ -7,6 +7,7 @@ angular.module('app')
       authService.currentHero()
         .then(function(response) {
           $scope.hero = response.data;
+          assignEquipment();
         });
     };
 
@@ -19,45 +20,48 @@ angular.module('app')
     };
 
     //EQUIPMENT SWITCH CASE
+    var assignEquipment = function() {
+      switch ($scope.hero.level) {
+        case 1:
+          $scope.weapon = 'Thumping Stick';
+          $scope.shield = 'Stop Sign';
+          $scope.armor = 'Peasant Robe';
+          $scope.helmet = 'Feathered Cap';
+          break;
+        case 2:
+          $scope.weapon = 'Dagger';
+          $scope.shield = 'Buckler';
+          $scope.armor = 'Leather Armor';
+          $scope.helmet = 'Viking Helmet';
+          break;
+        case 3:
+          $scope.weapon = 'Warhammer';
+          $scope.shield = 'Wooden Shield';
+          $scope.armor = 'Chain Mail';
+          $scope.helmet = 'Spartan Helmet';
+          break;
+        case 4:
+          $scope.weapon = 'Longsword';
+          $scope.shield = 'Steel Shield';
+          $scope.armor = 'Plate Mail';
+          $scope.helmet = 'Knight Helmet';
+          break;
+        case 5:
+          $scope.weapon = 'Battle Axe';
+          $scope.shield = 'Mithril Tower Shield';
+          $scope.armor = 'Spiked Plate Mail';
+          $scope.helmet = 'Dragon Skull Helmet';
+          break;
+        case 6:
+          $scope.weapon = 'Lightsaber';
+          $scope.shield = 'Legendary Golden Shield of Aslan';
+          $scope.armor = 'Dragon Scale Armor';
+          $scope.helmet = 'Darth Vader Helmet';
+          break;
+      }
+    };
 
-    switch ($scope.hero.level) {
-      case 1:
-        $scope.weapon = 'Thumping Stick';
-        $scope.shield = 'Stop Sign';
-        $scope.armor = 'Peasant Robe';
-        $scope.helmet = 'Feathered Cap';
-        break;
-      case 2:
-        $scope.weapon = 'Dagger';
-        $scope.shield = 'Buckler';
-        $scope.armor = 'Leather Armor';
-        $scope.helmet = 'Viking Helmet';
-        break;
-      case 3:
-        $scope.weapon = 'Warhammer';
-        $scope.shield = 'Wooden Shield';
-        $scope.armor = 'Chain Mail';
-        $scope.helmet = 'Spartan Helmet';
-        break;
-      case 4:
-        $scope.weapon = 'Longsword';
-        $scope.shield = 'Steel Shield';
-        $scope.armor = 'Plate Mail';
-        $scope.helmet = 'Knight Helmet';
-        break;
-      case 5:
-        $scope.weapon = 'Battle Axe';
-        $scope.shield = 'Mithril Tower Shield';
-        $scope.armor = 'Spiked Plate Mail';
-        $scope.helmet = 'Dragon Skull Helmet';
-        break;
-      case 6:
-        $scope.weapon = 'Lightsaber';
-        $scope.shield = 'Legendary Golden Shield of Aslan';
-        $scope.armor = 'Dragon Scale Armor';
-        $scope.helmet = 'Darth Vader Helmet';
-        break;
-    }
+    assignEquipment();
 
     //other helmet ideas: batman mask? football helmet? propeller beanie? baseball hat with tag attached?
 
@@ -73,7 +77,10 @@ angular.module('app')
         $scope.hero.equipment.resume.url = $scope.input1;
         $scope.hero.equipment.resume.done = true;
         $scope.hero = xpService.add($scope.hero, 20);
-        heroService.editHero($scope.hero);
+        heroService.editHero($scope.hero)
+          .then(function(response) {
+            $scope.getHero();
+          });
         $scope.input1 = "";
         $scope.tips.splice(num, 1);
         $scope.currentTip = $scope.tips[num];
@@ -88,7 +95,10 @@ angular.module('app')
         $scope.hero.equipment.linkedin.url = $scope.input1;
         $scope.hero.equipment.linkedin.done = true;
         $scope.hero = xpService.add($scope.hero, 15);
-        heroService.editHero($scope.hero);
+        heroService.editHero($scope.hero)
+          .then(function(response) {
+            $scope.getHero();
+          });
         $scope.input1 = "";
         $scope.tips.splice(num, 1);
         $scope.currentTip = $scope.tips[num];
@@ -103,7 +113,10 @@ angular.module('app')
         $scope.hero.equipment.portfolioSite.url = $scope.input1;
         $scope.hero.equipment.portfolioSite.done = true;
         $scope.hero = xpService.add($scope.hero, 25);
-        heroService.editHero($scope.hero);
+        heroService.editHero($scope.hero)
+          .then(function(response) {
+            $scope.getHero();
+          });
         $scope.input1 = "";
         $scope.tips.splice(num, 1);
         $scope.currentTip = $scope.tips[num];
@@ -118,7 +131,10 @@ angular.module('app')
 
         $scope.hero = xpService.add($scope.hero, 10);
 
-        heroService.editHero($scope.hero);
+        heroService.editHero($scope.hero)
+          .then(function(response) {
+            $scope.getHero();
+          });
         if (num < $scope.tips.length - 1) {
           num++;
         } else {
@@ -139,7 +155,10 @@ angular.module('app')
         newProject.url = $scope.input2;
         $scope.hero.equipment.projects.push(newProject);
         $scope.hero = xpService.add($scope.hero, 30);
-        heroService.editHero($scope.hero);
+        heroService.editHero($scope.hero)
+          .then(function(response) {
+            $scope.getHero();
+          });
         $scope.input1 = "";
         if (num < $scope.tips.length - 1) {
           num++;
@@ -157,14 +176,11 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.skills.push($scope.input1);
         $scope.hero = xpService.add($scope.hero, 15);
-        heroService.editHero($scope.hero);
-        if (num < $scope.tips.length - 1) {
-          num++;
-        } else {
-          num = 0;
-        }
+        heroService.editHero($scope.hero)
+          .then(function(response) {
+            $scope.getHero();
+          });
         $scope.input1 = "";
-        $scope.currentTip = $scope.tips[num];
       }
     }];
 
@@ -179,6 +195,7 @@ angular.module('app')
         $scope.tips.splice(i, 1);
       }
     }
+
     var num = 0;
 
     $scope.currentTip = $scope.tips[num];
@@ -217,10 +234,16 @@ angular.module('app')
       currentQuest.progress++;
 
       if (currentQuest.progress === currentQuest._steps.length) {
-        xpService.addAndUpdate(hero, 15);
+        xpService.addAndUpdate(hero, 15)
+          .then(function(response) {
+            $scope.getHero();
+          });
         currentQuest.completed = true;
       } else {
-        xpService.addAndUpdate(hero, 10);
+        xpService.addAndUpdate(hero, 10)
+          .then(function(response) {
+            $scope.getHero();
+          });
       }
       questService.editQuest(currentQuest._id, currentQuest);
     };

@@ -44,6 +44,7 @@
   font-size: 2em
 
 //////// Bounty Board ////////
+
 .homeBountyBoardTitle
   display: flex
   justify-content: center
@@ -65,23 +66,51 @@
   padding-right: 13%
 
 //////// Quest Steps //////////
+
+.questH2
+  text-align: center
+
+.questTitle
+  text-align: center
+
+.questStartText
+  text-align: center
+
 .stepsWrapper
   display: inline-block
 
-.step
+.stepColumn
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  height: 200px
+  width: 120px
+
+.topStepImageWrapper
+  height: 50px
+  width: 50px
+
+.progressBarWrapper
+  position: relative
+
+.progressCircle
   border-radius: 100%
   border: 2px solid #000
   height: 20px
   width: 20px
   display: inline-block
+  z-index: 1
+  background-color: white
 
 .completed
-  background-color: red
+  background-color: black
 
 .progressBar
-  border-top: 2px solid #000
-  border-bottom: 2px solid #000
   height: 10px
-  width: 80px
+  width: 120px
   display: inline-block
-
+  // left: 45px
+  bottom: 5px
+  position: absolute
+  z-index: 0
