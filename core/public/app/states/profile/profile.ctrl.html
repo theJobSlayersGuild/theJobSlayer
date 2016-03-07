@@ -58,7 +58,7 @@
     <div>
         <br/>
         <h2>Jobs Submitted</h2>
-        <div class="profileJobs" ng-repeat="job in jobs">
+        <div class="profileJobs" ng-repeat="job in jobs | filter: {archived: false}">
         <dir-job-listing job="job" hero="hero" get-quests="getJobs()"></dir-job-listing>
         </div>
         <div ng-if="jobs.length < 1">You have not posted any jobs yet</div>
