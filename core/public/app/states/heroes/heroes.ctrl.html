@@ -1,27 +1,30 @@
-<div class="pageHeader">
-    <dir-nav-bar hero="hero"></dir-nav-bar> 
-</div>
-<br>
-<div class="hallOfHeroesTitle">Hall of Heroes</div>
-<br>
+<div class="heroesPageWrapper">
+    <div class="pageHeader">
+        <dir-nav-bar hero="hero"></dir-nav-bar> 
+    </div>
+    <br>
+    <h1>Hall of Heroes</h1>
+    <br>
 
 
-<div class="heroesWrapper">
-    <div class="heroesContentWrapper">
-        <div ng-repeat="hero in heroes | orderBy: '-xp'" ui-sref="member({id:hero._id})">
-            <div class="heroListWrapper">
+    <div class="heroesWrapper">
+        <div class="heroesContentWrapper">
+            <div ng-repeat="hero in heroes | orderBy: '-xp'" ui-sref="member({id:hero._id})">
+                <div class="heroListWrapper">
 
-                    <div class="heroImageWrapper" style="display: inline-block">
-                        <img class="heroImage" ng-src="{{hero.profileImage}}"/>
-                    </div>
-
-                    <div class="heroesInfoWrapper">
-                        <div style="display: inline-block">
-                            <h2><br/>{{hero.name}} {{hero.title}}</h2> Level: {{hero.level}} XP: {{hero.xp}}
+                        <div class="heroImageWrapper" style="display: inline-block">
+                            <img class="heroImage" ng-src="{{hero.profileImage}}"/>
                         </div>
-                    </div>
 
+                        <div class="heroesInfoWrapper">
+                            <div style="display: inline-block">
+                                <h2><br/>{{hero.name}} {{hero.title}}</h2> Level: {{hero.level}} XP: {{hero.xp}}
+                            </div>
+                        </div>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
+</div>    
+    
