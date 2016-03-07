@@ -1,6 +1,25 @@
+.homeWrapper
+
 .homeContent
   width: 80%
   margin: 40px auto
+
+//// profile and Goat Placement/////
+
+.avatarAndGoatWrapper
+  display: flex
+  width: 100%
+  flex-direction: row
+
+.avatarWrapper
+  display: flex
+  justify-content: center
+  width: 50%
+
+.goatWrapper
+  display: flex
+  justify-content: center
+  width: 50%
 
 ////// Wisdom Goat ////////
 
@@ -11,6 +30,7 @@
 
 .previousButton
   font-size: 2em
+  cursor: pointer
 
 .wisdomGoatContentWrapper
   display: flex
@@ -39,13 +59,45 @@
 .wisdomGoatContent
   display: flex
   position: relative
+  flex-direction: column
+  justify-content: center
+  align-items: center
   height: 10em
   width: 20em
-  border: 1px solid black
+  border: 3px solid black
   border-radius: 25px
+  background-color: #C6E7FE
+
+.tipAndSpeechCentering
+  display: flex
+  flex-direction: column
+  width: 100%
+  justify-content: center
+  align-items: center
+
+.goatTip
+  display: flex
+  width: 100%
+  justify-content: center
+  padding-left: 1.85em
+  padding-right: 1em
+  margin-bottom: .5em
+
+.goatSubmitTipButton
+  position: absolute
+  //display: flex
+  //align-content: flex-end
+  //width: 100%
+  bottom: 5%
+  left: 35%
+
+.firstTip
+
+.secondTip
 
 .nextButton
   font-size: 2em
+  cursor: pointer
 
 //////// Quest Steps //////////
 
