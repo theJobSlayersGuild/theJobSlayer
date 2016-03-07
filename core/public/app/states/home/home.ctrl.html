@@ -115,6 +115,10 @@
     <div class="stepsWrapper" ng-repeat="step in quest._steps">
       <div class="stepColumn">
         <div class="topStepImageWrapper">
+          <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
+            {{step.flavorText}} {{step.description}}
+            <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a>
+          </div>
           <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
           <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
         </div>
@@ -123,10 +127,7 @@
           <div class="progressBar" ng-class="{completed: quest.progress >= step.order}" ng-if="!$last"></div>
         </div>
         <img src="./assets/images/50x50-deadEnemy.png" ng-show="quest.progress >= step.order">
-        <span ng-show="quest.progress + 1 === step.order">
-          <!-- Wisdom Goat Says: {{step.flavorText}} {{step.description}} -->
-          <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a>
-        </span>
+
       </div>
     </div>
 
