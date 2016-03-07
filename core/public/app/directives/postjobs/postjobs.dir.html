@@ -1,6 +1,7 @@
 <div class="jobInfoWrapper"><!--flex row-->
     <div class="acceptQuestButtonDirWrapper"> <!--flex column/ width100-->
         <button ng-if="!job.accepted" ng-click="acceptQuest(job._id, hero._id, stepsId)">accept</button>
+        <button ng-if="job.accepted" ui-sref="home">view quest</button>
     </div>
     <div class="jobInfoDirWrapper">
         <a ng-href="{{job.companyUrl}}">{{job.companyName}}</a>&nbsp;|
