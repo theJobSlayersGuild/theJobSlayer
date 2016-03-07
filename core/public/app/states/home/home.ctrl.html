@@ -1,5 +1,8 @@
 <dir-nav-bar hero="hero"></dir-nav-bar>
 
+<div class="homeWrapper">
+<div class="homeContent">
+
 <h1>Home</h1>
 <div class="avatarAndGoatWrapper">
     <div class="avatarWrapper">
@@ -114,44 +117,44 @@
     </div>
 </div>
 
-<div>
+  <div class="questsWrapper">
 
     <br/>
     <h2 class="questH2">Current Quests</h2>
 
     <div ng-repeat="quest in quests | filter:{archived:false}">
 
+      <div class="questTitle">
+        {{quest._job.position}}
+        at
+        {{quest._job.companyName}}
+        <div class="deleteBones" ng-click="deleteQuest(quest)"><img src="../assets/images/25x25-crossbones.png"/></div>
+        <button ng-click="archiveQuest(quest)">Archive</button>
+      </div>
 
-        <div class="questTitle">
-            {{quest._job.position}}
-            at
-            {{quest._job.companyName}}
-            <div class="deleteBones" ng-click="deleteQuest(quest)"><img src="../assets/images/25x25-crossbones.png"/>
-            </div>
-            <button ng-click="archiveQuest(quest)">Archive</button>
+      <div class="questStartText" ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is inside!</div>
+
+        <div class="imgWrapper50px inline-block">
+          <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === 0">
         </div>
-
-        <div class="questStartText" ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is
-            inside!
-        </div>
-
         <div class="stepsWrapper" ng-repeat="step in quest._steps">
-            <div class="stepColumn">
-                <div class="topStepImageWrapper">
-                    <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
-                        {{step.flavorText}} {{step.description}}
-                        <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a>
-                    </div>
-                    <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
-                    <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
-                </div>
-                <div class="progressCircle" ng-class="{completed: quest.progress >= step.order}"></div>
-                <div class="progressBarWrapper">
-                    <div class="progressBar" ng-class="{completed: quest.progress >= step.order}" ng-if="!$last"></div>
-                </div>
-                <img src="./assets/images/50x50-deadEnemy.png" ng-show="quest.progress >= step.order">
-
+          <div class="stepColumn">
+            <div class="topStepImageWrapper">
+              <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
+                <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span> <hr> {{step.description}}
+                <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a>
+              </div>
+              <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
+              <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
             </div>
+            <div class="progressCircle" ng-class="{completed: quest.progress >= step.order}"></div>
+            <div class="progressBarWrapper">
+              <div class="progressBar" ng-class="{completed: quest.progress >= step.order}" ng-if="!$last"></div>
+            </div>
+            <div class="deadEnemyWrapper">
+              <img src="./assets/images/50x50-deadEnemy.png" ng-show="quest.progress >= step.order">
+            </div>
+          </div>
         </div>
 
         <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt=""/>
@@ -159,10 +162,13 @@
 
     </div>
 
-</div>
+  </div>
 
-<div>
-    <p>To acquire new quests, seek out the
-        <a ui-sref="jobs">Bounty Board</a>
+  <div>
+    <p class="newQuestsP">To acquire new quests, seek out the
+      <a ui-sref="jobs">Bounty Board</a>
     </p>
+  </div>
+
+</div>
 </div>
