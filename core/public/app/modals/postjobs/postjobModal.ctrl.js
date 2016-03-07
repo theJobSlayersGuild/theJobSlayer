@@ -75,7 +75,7 @@ angular.module("app").controller("postjobCtrl", function($scope, jobService, que
       }
       xpService.addAndUpdate($scope.hero, 10);
       close();
-      modalService.alert("Quest Created");
+      modalService.alert("Job Created");
     });
   };
 
