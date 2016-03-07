@@ -1,4 +1,15 @@
+.navbarWrapper
+    background: rgba(32,124,229,1);
+    background: -moz-linear-gradient(top, rgba(32,124,229,1) 0%, rgba(32,124,229,0.9) 39%, rgba(56,142,232,0.81) 74%, rgba(73,155,234,0.81) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(32,124,229,1)), color-stop(39%, rgba(32,124,229,0.9)), color-stop(74%, rgba(56,142,232,0.81)), color-stop(100%, rgba(73,155,234,0.81)));
+    background: -webkit-linear-gradient(top, rgba(32,124,229,1) 0%, rgba(32,124,229,0.9) 39%, rgba(56,142,232,0.81) 74%, rgba(73,155,234,0.81) 100%);
+    background: -o-linear-gradient(top, rgba(32,124,229,1) 0%, rgba(32,124,229,0.9) 39%, rgba(56,142,232,0.81) 74%, rgba(73,155,234,0.81) 100%);
+    background: -ms-linear-gradient(top, rgba(32,124,229,1) 0%, rgba(32,124,229,0.9) 39%, rgba(56,142,232,0.81) 74%, rgba(73,155,234,0.81) 100%);
+    background: linear-gradient(to bottom, rgba(32,124,229,1) 0%, rgba(32,124,229,0.9) 39%, rgba(56,142,232,0.81) 74%, rgba(73,155,234,0.81) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207ce5', endColorstr='#499bea', GradientType=0 );
+
 .navbar
+  width: 100%
   line-height: 2.5em
   display: flex
   justify-content: space-around
@@ -6,3 +17,45 @@
   a
     color: black
     font-size: 22px
+
+.sky
+    
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+.titleScroll   
+    display: flex 
+    flex-direction: column
+    justify-content: center
+    background: url("../assets/images/navScroll.png")
+    background-size: cover
+    background-repeat: no-repeat
+    width: 710px
+    height: 200px
+    
+    
+    h1
+        
+        
+
+.littleGuys
+    display: flex
+    justify-content: space-between
+    position: relative
+    padding: 0em 6em 0em 6em
+    width: 100%
+    height: 20px
+    
+    
+.goatImage
+    position: relative
+    bottom: 10px
+    
+    
+.grass
+    background: url("../assets/images/navGrass.png")
+    width: 100
+    background-size: cover
+    height: 40px
