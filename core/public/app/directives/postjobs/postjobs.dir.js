@@ -51,10 +51,12 @@ angular.module('app')
                     }
 
                     $scope.deleteJob = function (jobId) {
+                        console.log('fired');
                         $scope.job.archived = true;
                         jobService.editJob(jobId, $scope.job)
                             .then(function(response) {
                                 $scope.getQuests();
+                                console.log(response);
                             })
                     };
 
