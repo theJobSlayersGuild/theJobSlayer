@@ -77,34 +77,33 @@
                         <!--<div class="tipAndSpeechCentering">-->
                         <div class="goatTip">
                             {{ currentTip.goatSays }}
-                            </div>
+                        </div>
 
-                            <div>
+                        <div>
 
 
-
-                                <form>
-                                    <div>
-                                        <div class="firstTip">
+                            <form>
+                                <div>
+                                    <div class="firstTip">
                                        <span ng-show="currentTip.inputs > 0">
                 {{currentTip.description1}}:
                 <input type="text" ng-model="input1" placeholder="{{currentTip.description1}}"/>
               </span>
-                                        </div>
+                                    </div>
 
-                                        <div class="secondTip">
+                                    <div class="secondTip">
                  <span ng-show="currentTip.inputs > 1">
                 {{currentTip.description2}}:
                 <input type="text" ng-model="input2" placeholder="{{currentTip.description2}}"/>
               </span>
-                                        </div>
                                     </div>
-                                    <div class="goatSubmitTipButton">
-                                        <button type="submit" ng-click="currentTip.invoked()">{{currentTip.buttonText}}
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="goatSubmitTipButton">
+                                    <button type="submit" ng-click="currentTip.invoked()">{{currentTip.buttonText}}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                         <!--</div>-->
                     </div>
                     <div class="nextButton" ng-click="nextTip()">
@@ -123,6 +122,7 @@
     <h2 class="questH2">Current Quests</h2>
 
     <div ng-repeat="quest in quests | filter:{archived:false}">
+
 
         <div class="questTitle">
             {{quest._job.position}}
