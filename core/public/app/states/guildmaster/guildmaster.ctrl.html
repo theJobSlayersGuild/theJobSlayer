@@ -5,9 +5,10 @@
 
 
 <div><h1>GUILD HALL</h1></div>
-<div><button ng-click="openGuildModal()">New Guild</button></div>
+
 <br/>
 <div class="guildsCenterColumn">
+    <div class="newGuildButton"><button ng-click="openGuildModal()">New Guild</button></div>
     <div class="guildList" ng-repeat="guild in guilds">
         <div class="guildHeader">
             <h2><br/>{{guild.name}}</h2>
