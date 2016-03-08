@@ -138,7 +138,6 @@
           <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === 0">
         </div>
         <div class="stepsWrapper" ng-repeat="step in quest._steps">
-<<<<<<< HEAD
             <div class="stepColumn">
                 <div class="topStepImageWrapper">
                     <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
@@ -153,25 +152,8 @@
                 <div class="progressBarWrapper">
                     <div class="progressBar" ng-class="{completed: quest.progress >= step.order}" ng-if="!$last"></div>
                 </div>
-                <img src="./assets/images/50x50-deadEnemy.png" ng-show="quest.progress >= step.order">
-
-=======
-          <div class="stepColumn">
-            <div class="topStepImageWrapper">
-              <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
-                <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span> <hr> {{step.description}}
-                <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a>
-              </div>
-              <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
-              <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
-            </div>
-            <div class="progressCircle" ng-class="{completed: quest.progress >= step.order}"></div>
-            <div class="progressBarWrapper">
-              <div class="progressBar" ng-class="{completed: quest.progress >= step.order}" ng-if="!$last"></div>
-            </div>
-            <div class="deadEnemyWrapper">
+                <div class="deadEnemyWrapper">
               <img src="./assets/images/50x50-deadEnemy.png" ng-show="quest.progress >= step.order">
->>>>>>> development
             </div>
           </div>
         </div>
