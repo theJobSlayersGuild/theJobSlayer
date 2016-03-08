@@ -24,9 +24,9 @@
         </div>
 
         <div style="display: inline-block">
-            <br/>Name:
+            <br/><h2>
             {{hero.name}}
-            {{hero.title}}
+            {{hero.title}}</h2>
             <br/>Level:
             {{hero.level}}
             <br/>XP:
@@ -138,6 +138,24 @@
           <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === 0">
         </div>
         <div class="stepsWrapper" ng-repeat="step in quest._steps">
+<<<<<<< HEAD
+            <div class="stepColumn">
+                <div class="topStepImageWrapper">
+                    <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
+                        {{step.flavorText}} {{step.description}}
+                        <!-- <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a> -->
+                        <img class="stepCheck" src="./assets/images/25x25-check.png" ng-click="nextStep(quest)" title="Complete!" />
+                    </div>
+                    <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
+                    <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
+                </div>
+                <div class="progressCircle" ng-class="{completed: quest.progress >= step.order}"></div>
+                <div class="progressBarWrapper">
+                    <div class="progressBar" ng-class="{completed: quest.progress >= step.order}" ng-if="!$last"></div>
+                </div>
+                <img src="./assets/images/50x50-deadEnemy.png" ng-show="quest.progress >= step.order">
+
+=======
           <div class="stepColumn">
             <div class="topStepImageWrapper">
               <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
@@ -153,6 +171,7 @@
             </div>
             <div class="deadEnemyWrapper">
               <img src="./assets/images/50x50-deadEnemy.png" ng-show="quest.progress >= step.order">
+>>>>>>> development
             </div>
           </div>
         </div>
