@@ -25,11 +25,11 @@
 
         <div class="linksWrapper">
             <!-- <br /> <h2>ACHIEVEMENTS</h2> -->
-            <br />Resume: <a target="_blank" href="{{hero.equipment.resume.url}}">link</a>
+            <br />Resume: <a ng-if="hero.equipment.resume.url" target="_blank" ng-href="https://{{hero.equipment.resume.url}}">View</a>
             <div class="editQuill" ng-click="openEditHeroModal('EDIT RESUME')"><img src="../assets/images/25x25-quill.png" /></div>
-            <br />LinkedIn: <a target="_blank" href="{{hero.equipment.linkedin.url}}">link</a>
+            <br />LinkedIn: <a ng-if="hero.equipment.linkedin.url" target="_blank" ng-href="https://{{hero.equipment.linkedin.url}}">View</a>
             <div class="editQuill" ng-click="openEditHeroModal('EDIT LINKEDIN')"><img src="../assets/images/25x25-quill.png" /></div>
-            <br />Portfolio: <a target="_blank" href="{{hero.equipment.portfolioSite.url}}">link</a>
+            <br />Portfolio: <a ng-if="hero.equipment.portfolioSite.url" target="_blank" ng-href="https://{{hero.equipment.portfolioSite.url}}">View</a>
             <div class="editQuill" ng-click="openEditHeroModal('EDIT PORTFOLIO')"><img src="../assets/images/25x25-quill.png" /></div>
         </div>
     </div>
