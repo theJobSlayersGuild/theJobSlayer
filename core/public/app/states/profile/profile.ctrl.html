@@ -34,9 +34,14 @@
         </div>
     </div>
     <div class="centerColumn">
-        <h2>Your skills</h2><img src="../assets/images/25x25-quill.png" ng-click="openEditSkillsModal">
-        <div class="skillsWrapper" ng-repeat="skill in hero.equipment.skills track by $index">
-            <div class="profileSkill">{{skill}}</div>
+        <div class="skillsHeader">
+            <h2>Your skills</h2>
+            <div class="editQuill" ng-click="openEditSkillsModal">
+                <img   src="../assets/images/25x25-quill.png">
+            </div>
+        </div>
+        <div class="skillsWrapper" style="display: inline-block" ng-repeat="skill in hero.equipment.skills track by $index">
+            <span class="profileSkill" >{{skill}}<span ng-if="!$last">,</span></span>
         </div>
         <div ng-if="hero.equipment.skills.length < 1">You have not added any skills yet</div>
         <br>
