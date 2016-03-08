@@ -26,11 +26,9 @@
         <div style="display: inline-block">
             <br/><h2>
             {{hero.name}}
-            {{hero.title}}</h2>
-            <br/>Level:
-            {{hero.level}}
-            <br/>XP:
-            {{hero.xp}}
+            {{hero.title}}
+            </h2>
+            <br/>Level: {{hero.level}} XP: {{hero.xp}}
             <br/>INVENTORY
             <button ng-click="openQuestionModal()">?</button>
             <br/>
@@ -45,15 +43,20 @@
             <a ng-click="setTip('portfolioSite')">Shield</a>:
             <span ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
             <span ng-hide="hero.equipment.portfolioSite.done">None</span>
-            <!-- <br />Helmet:
-            <span ng-show="hero.equipment.portfolioSite.done">{{helmet}}</span> -->
-            <!-- <span ng-hide="hero.equipment.portfolioSite.done">None</span> -->
-            <br/>{{hero.equipment.projects.length}}
-            <a ng-click="setTip('projects')">Majickal Gemeralds</a>
-            <br/>{{hero.equipment.skills.length}}
-            <a ng-click="setTip('skills')">Spellbooks</a>
-            <br/>{{hero.equipment.meetups}}
-            <a ng-click="setTip('meetups')">Gold Pieces</a>
+            <br/>
+            <a ng-click="setTip('projects')">
+              <img src="./assets/images/equipment/25x25-gem.png" alt="" /> {{hero.equipment.projects.length}} Majickal Gemeralds
+            </a>
+            <br/>
+            <a ng-click="setTip('skills')">
+              <img src="./assets/images/equipment/25x25-spell.png" alt="" />
+              {{hero.equipment.skills.length}} Spellbooks
+            </a>
+            <br/>
+            <a ng-click="setTip('meetups')">
+              <img src="./assets/images/equipment/25x25-gold.png" alt="" />
+              {{hero.equipment.meetups}} Gold Pieces
+            </a>
             <!-- maybe a new contact is gold, meetup is silver? -->
 
             <br/>
@@ -64,13 +67,12 @@
         <div>
             <br>
             <div class="wisdomGoatSaysTitle">
-                <h2>Jedi Infinite Wisdom Goat Wizard Says:</h2>
+                <h3>Jedi Infinite Wisdom Goat Wizard Says:</h3>
             </div>
             <br>
             <div class="wisdomGoatContentWrapper">
                 <div class="wisdomGoatButtonsAlignment">
-                    <div class="previousButton" ng-show="showPreviousButton" ng-click="previousTip()"><</div>
-                    <!--<button ng-show="showPreviousButton" ng-click="previousTip()"><</button>-->
+                    <div class="previousButton" ng-class="{hiddenPreviousButton: !showPreviousButton}" ng-click="previousTip()"><</div>
                     <div class="wisdomGoatContent">
 
                         <div class=""><img class="wisdomGoatPic wisdomGoatPicWrapper"
@@ -120,16 +122,19 @@
   <div class="questsWrapper">
 
     <br/>
-    <h2 class="questH2">Current Quests</h2>
+    <br/>
+    <h1 class="questH2">Current Quests</h1>
+    <br/>
 
     <div class="quest" ng-repeat="quest in quests | filter:{archived:false}">
 
       <div class="questTitle">
-        {{quest._job.position}}
+        <h2>{{quest._job.position}}
         at
         {{quest._job.companyName}}
         <div class="deleteBones" ng-click="deleteQuest(quest)"><img src="../assets/images/25x25-crossbones.png"/></div>
         <button ng-click="archiveQuest(quest)">Archive</button>
+        </h2>
       </div>
 
       <div class="questStartText" ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is inside!</div>
@@ -160,9 +165,9 @@
 
         <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt=""/>
         <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt=""/>
-
+      <hr ng-if="!$last">
+      <br ng-if="!$last">
     </div>
-
   </div>
 
   <div>
