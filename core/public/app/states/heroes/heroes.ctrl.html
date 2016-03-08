@@ -1,6 +1,6 @@
 <div class="heroesPageWrapper">
     <div class="pageHeader">
-        <dir-nav-bar hero="hero"></dir-nav-bar> 
+        <dir-nav-bar hero="hero"></dir-nav-bar>
     </div>
     <br>
     <h1>Hall of Heroes</h1>
@@ -9,7 +9,7 @@
 
     <div class="heroesWrapper">
         <div class="heroesContentWrapper">
-            <div ng-repeat="hero in heroes | orderBy: '-xp'" ui-sref="member({id:hero._id})">
+            <div class="heroesContent" ng-repeat="hero in heroes | orderBy: '-xp'" ui-sref="member({id:hero._id})">
                 <div class="heroListWrapper">
 
                         <div class="heroImageWrapper" style="display: inline-block">
@@ -26,5 +26,4 @@
             </div>
         </div>
     </div>
-</div>    
-    
+</div>

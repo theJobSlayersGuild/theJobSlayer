@@ -23,9 +23,9 @@
         </div>
 
         <div style="display: inline-block">
-            <br/>Name:
+            <br/><h2>
             {{hero.name}}
-            {{hero.title}}
+            {{hero.title}}</h2>
             <br/>Level:
             {{hero.level}}
             <br/>XP:
@@ -142,7 +142,8 @@
                 <div class="topStepImageWrapper">
                     <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
                         {{step.flavorText}} {{step.description}}
-                        <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a>
+                        <!-- <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a> -->
+                        <img class="stepCheck" src="./assets/images/25x25-check.png" ng-click="nextStep(quest)" title="Complete!" />
                     </div>
                     <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
                     <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
