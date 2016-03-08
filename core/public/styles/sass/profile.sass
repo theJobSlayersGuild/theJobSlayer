@@ -13,6 +13,9 @@
 .profileContentWrapper
   background: white
   margin: 0em 7em 0em 7em
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
 
 .pageHeader
   background-image: url("../assets/images/navgraphicv2.png")
@@ -63,12 +66,19 @@
   flex-direction: column
   margin-bottom: 5em
 
-  h2
-    color: #257AD3
-    text-transform: uppercase
+
+
+.skillsHeader
+  display: flex
+  align-self: center
 
 .skillsWrapper
-
+    display: flex
+    flex-direction: row
+   
+    
+    .profileSkill
+      display: flex
 
 .projectsWrapper
 
@@ -79,7 +89,10 @@
 
 .profileJobs
   display: flex
+  
+  .jobInfoWrapper
+    margin: 0em
 
   dir-job-listing
     display: flex
-    justify-content: space-around
+    margin: 0em
