@@ -110,7 +110,7 @@
                         <!--</div>-->
                     </div>
                     <div class="nextButton" ng-click="nextTip()">
-                        >
+                      >
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
         </h2>
       </div>
 
-      <div class="questStartText" ng-show="quest.progress === 0">You and goat have found a castle. Perhaps No Jobba is inside!</div>
+      <!-- <div class="questStartText" ng-show="quest.progress === 0">You and goat have found a castle. Perhaps Jobba is inside!</div> -->
 
         <div class="imgWrapper50px inline-block">
           <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === 0">
@@ -146,8 +146,7 @@
             <div class="stepColumn">
                 <div class="topStepImageWrapper">
                     <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
-                        {{step.flavorText}} {{step.description}}
-                        <!-- <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a> -->
+                        <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span> <hr> {{step.description}}
                         <img class="stepCheck" src="./assets/images/25x25-check.png" ng-click="nextStep(quest)" title="Complete!" />
                     </div>
                     <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
