@@ -1,13 +1,7 @@
 <div class="resource">
     <div class="resourceInfo">
        <a target="_blank" href="{{resource.url}}">{{resource.title}}</a> | {{resource.description}} | Posted by: {{resource._author.name}} 
-    </div>
-    <div class="resourceButtons">
-        <div class="editQuill" ng-if="hero._id === resource._author._id" ng-click="openEditResourceModal(resource)">
-            <img src="../assets/images/25x25-quill.png" />
-        </div>
-        <div class="deleteBones" ng-if="hero._id === resource._author._id" ng-click="deleteResource(resource._id)">
-            <img src="../assets/images/25x25-crossbones.png" />
-        </div>
+       <img class="editQuill" ng-if="hero._id === resource._author._id" ng-click="openEditResourceModal(resource)"  src="../assets/images/25x25-quill.png"/>
+        <img class="deleteBones" ng-if="hero._id === resource._author._id" ng-click="deleteResource(resource._id)" src="../assets/images/25x25-crossbones.png"/>
     </div>
 </div>

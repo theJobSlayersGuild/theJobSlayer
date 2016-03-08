@@ -1,11 +1,12 @@
-<div class="overlay">
-    <h4>Edit Resource</h4>
-    <label>Title</label>
-    <input ng-model="resource.title" type="text" placeholder="Title">
-    <label>Url</label>
-    <input ng-model="resource.url" type="text" placeholder="Url">
-    <label>Description</label>
-    <input ng-model="resource.description" type="text" placeholder="Description">
-    <button ng-click="updateResource(resource._id, resource)">Submit Resource</button>
+<div class="fade" ng-click="close()">
+    <div class="overlay">
+        <h4>Edit Resource</h4>
+        <label>Title</label>
+        <input ng-model="resource.title" type="text" placeholder="Title">
+        <label>Url</label>
+        <input ng-model="resource.url" type="text" placeholder="Url">
+        <label>Description</label>
+        <input ng-model="resource.description" type="text" placeholder="Description">
+        <button ng-click="updateResource(resource._id, resource)">Submit Resource</button>
+    </div>
 </div>
-<div class="fade" ng-click="close()"></div>

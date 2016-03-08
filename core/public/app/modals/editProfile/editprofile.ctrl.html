@@ -1,20 +1,19 @@
-<div class="overlay">
-  <h2>{{text}}</h2>
+<div class="fade" ng-click="close(null)">
+   <div class="overlay">
+        <h2>{{text}}</h2>
 
-  <div ng-if="text !== 'EDIT HERO'">
-    Url:
-    <input ng-model="url">
-    <button ng-click="edit(url)">SUBMIT</button>
-  </div>
+        <div ng-if="text !== 'EDIT HERO'">
+            Url:
+            <input ng-model="url">
+            <button ng-click="edit(url)">SUBMIT</button>
+        </div>
 
-  <div ng-if="text === 'EDIT HERO'">
-    Hero Name:
-    <input ng-model="name">
-    Hero Title:
-    <input ng-model="title">
-    <button ng-click="edit(name, title)">SUBMIT</button>
-  </div>
+        <div ng-if="text === 'EDIT HERO'">
+            Hero Name:
+            <input ng-model="name">
+            Hero Title:
+            <input ng-model="title">
+            <button ng-click="edit(name, title)">SUBMIT</button>
+        </div>
+    </div> 
 </div>
-
-
-<div class="fade" ng-click="close(null)"></div>
