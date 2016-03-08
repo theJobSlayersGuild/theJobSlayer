@@ -12,61 +12,63 @@
                         <img class="avatarImage" ng-src="{{hero.avatarImage}}"/>
 
                         <!-- <img ng-if="hero.equipment.???.done" ng-src="./assets/images/equipment/200x200-hat{{hero.level}}.png" /> -->
-                        <div class="heroe">
-                            <img ng-if="hero.equipment.linkedin.done"
-                                 ng-src="./assets/images/equipment/200x200-hat{{hero.level}}.png"
-                                 class="equipmentImg"/>
 
-                            <img ng-if="hero.equipment.resume.done"
-                                 ng-src="./assets/images/equipment/200x200-weapon{{hero.level}}.png"
-                                 class="equipmentImg"/>
+                        <img ng-if="hero.equipment.linkedin.done"
+                             ng-src="./assets/images/equipment/200x200-hat{{hero.level}}.png"
+                             class="equipmentImg"/>
 
-                            <img ng-if="hero.equipment.portfolioSite.done"
-                                 ng-src="./assets/images/equipment/200x200-shield{{hero.level}}.png"
-                                 class="equipmentImg"/>
-                        </div>
+                        <img ng-if="hero.equipment.resume.done"
+                             ng-src="./assets/images/equipment/200x200-weapon{{hero.level}}.png"
+                             class="equipmentImg"/>
+
+                        <img ng-if="hero.equipment.portfolioSite.done"
+                             ng-src="./assets/images/equipment/200x200-shield{{hero.level}}.png"
+                             class="equipmentImg"/>
+
                     </div>
                 </div>
-                <div style="display: inline-block">
-                    <br/>
-                    <h2>
-                        {{hero.name}}
-                        {{hero.title}}
-                    </h2>
-                    <br/>Level: {{hero.level}} XP: {{hero.xp}}
-                    <br/>INVENTORY
-                    <button ng-click="openQuestionModal()">?</button>
-                    <br/>
-                    <a ng-click="setTip('resume')">Weapon</a>:
-                    <span ng-show="hero.equipment.resume.done">{{weapon}}</span>
-                    <span ng-hide="hero.equipment.resume.done">None</span>
-                    <br/>
-                    <a ng-click="setTip('linkedin')">Helmet</a>:
-                    <span ng-show="hero.equipment.linkedin.done">{{helmet}}</span>
-                    <span ng-hide="hero.equipment.linkedin.done">None</span>
-                    <br/>
-                    <a ng-click="setTip('portfolioSite')">Shield</a>:
-                    <span ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
-                    <span ng-hide="hero.equipment.portfolioSite.done">None</span>
-                    <br/>
-                    <a ng-click="setTip('projects')">
-                        <img src="./assets/images/equipment/25x25-gem.png" alt=""/> {{hero.equipment.projects.length}}
-                        Majickal Gemeralds
-                    </a>
-                    <br/>
-                    <a ng-click="setTip('skills')">
-                        <img src="./assets/images/equipment/25x25-spell.png" alt=""/>
-                        {{hero.equipment.skills.length}} Spellbooks
-                    </a>
-                    <br/>
-                    <a ng-click="setTip('meetups')">
-                        <img src="./assets/images/equipment/25x25-gold.png" alt=""/>
-                        {{hero.equipment.meetups}} Gold Pieces
-                    </a>
-                    <!-- maybe a new contact is gold, meetup is silver? -->
+                <div class="alignHeroEquip">
+                    <div style="display: inline-block">
+                        <br/>
+                        <h2>
+                            {{hero.name}}
+                            {{hero.title}}
+                        </h2>
+                        <br/>Level: {{hero.level}} XP: {{hero.xp}}
+                        <br/>INVENTORY
+                        <button ng-click="openQuestionModal()">?</button>
+                        <br/>
+                        <a ng-click="setTip('resume')">Weapon</a>:
+                        <span ng-show="hero.equipment.resume.done">{{weapon}}</span>
+                        <span ng-hide="hero.equipment.resume.done">None</span>
+                        <br/>
+                        <a ng-click="setTip('linkedin')">Helmet</a>:
+                        <span ng-show="hero.equipment.linkedin.done">{{helmet}}</span>
+                        <span ng-hide="hero.equipment.linkedin.done">None</span>
+                        <br/>
+                        <a ng-click="setTip('portfolioSite')">Shield</a>:
+                        <span ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
+                        <span ng-hide="hero.equipment.portfolioSite.done">None</span>
+                        <br/>
+                        <a ng-click="setTip('projects')">
+                            <img src="./assets/images/equipment/25x25-gem.png" alt=""/>
+                            {{hero.equipment.projects.length}}
+                            Majickal Gemeralds
+                        </a>
+                        <br/>
+                        <a ng-click="setTip('skills')">
+                            <img src="./assets/images/equipment/25x25-spell.png" alt=""/>
+                            {{hero.equipment.skills.length}} Spellbooks
+                        </a>
+                        <br/>
+                        <a ng-click="setTip('meetups')">
+                            <img src="./assets/images/equipment/25x25-gold.png" alt=""/>
+                            {{hero.equipment.meetups}} Gold Pieces
+                        </a>
+                        <!-- maybe a new contact is gold, meetup is silver? -->
 
-                    <br/>
-
+                        <br/>
+                    </div>
                 </div>
             </div>
             <div class="goatWrapper">
