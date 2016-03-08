@@ -42,9 +42,6 @@
             <a ng-click="setTip('portfolioSite')">Shield</a>:
             <span ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
             <span ng-hide="hero.equipment.portfolioSite.done">None</span>
-            <!-- <br />Helmet:
-            <span ng-show="hero.equipment.portfolioSite.done">{{helmet}}</span> -->
-            <!-- <span ng-hide="hero.equipment.portfolioSite.done">None</span> -->
             <br/>
             <a ng-click="setTip('projects')">
               <img src="./assets/images/equipment/25x25-gem.png" alt="" /> {{hero.equipment.projects.length}} Majickal Gemeralds
@@ -74,8 +71,7 @@
             <br>
             <div class="wisdomGoatContentWrapper">
                 <div class="wisdomGoatButtonsAlignment">
-                    <div class="previousButton" ng-show="showPreviousButton" ng-click="previousTip()"><</div>
-                    <!--<button ng-show="showPreviousButton" ng-click="previousTip()"><</button>-->
+                    <div class="previousButton" ng-class="{hiddenPreviousButton: !showPreviousButton}" ng-click="previousTip()"><</div>
                     <div class="wisdomGoatContent">
 
                         <div class=""><img class="wisdomGoatPic wisdomGoatPicWrapper"
