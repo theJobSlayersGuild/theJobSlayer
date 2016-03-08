@@ -34,11 +34,7 @@ angular.module("app").controller("editjobCtrl", function($scope, jobService, que
         var skillToRemove = $scope.job.skillsRequired.indexOf(skill);
     }
 
-    $scope.createQuest = function(job) {
-        $scope.job._author = $scope.hero._id;
-        jobService.createJob(job)
-        $scope.getJobs();
-    }
+    
 
     $scope.editJobs = function(id, job) {
         jobService.editJob(id, job)
