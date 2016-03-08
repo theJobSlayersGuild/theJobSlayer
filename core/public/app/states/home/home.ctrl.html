@@ -1,9 +1,7 @@
-<dir-nav-bar hero="hero"></dir-nav-bar>
-
 <div class="homeWrapper">
+    <dir-nav-bar hero="hero"></dir-nav-bar>
+    <h1>Home</h1>
     <div class="homeContent">
-
-        <h1>Home</h1>
         <div class="avatarAndGoatWrapper">
             <div class="avatarWrapper">
                 <div class="alignAvatarAndInfo">
@@ -32,36 +30,35 @@
                     <h2>
                         {{hero.name}}
                         {{hero.title}}
+                        <button ng-click="openQuestionModal()">?</button>
                     </h2>
-                    <br/>Level: {{hero.level}} XP: {{hero.xp}}
-                    <br/>INVENTORY
-                    <button ng-click="openQuestionModal()">?</button>
                     <br/>
-                    <a ng-click="setTip('resume')">Weapon</a>:
-                    <span ng-show="hero.equipment.resume.done">{{weapon}}</span>
+                    <span class="equipmentTitle">Level:</span> <span class="equipmentSpecific">0{{hero.level}}</span> <span class="equipmentTitle">XP:</span> <span class="equipmentSpecific">{{hero.xp}}</span>
+                    <br/>
+
+                    <br/><span style="line-height: 35px">INVENTORY</span>
+                    <br/>
+
+                    <a ng-click="setTip('resume')"><span class="equipmentTitle">Weapon:</span></a>
+                    <span ng-show="hero.equipment.resume.done" class="equipmentSpecific">{{weapon}}</span>
                     <span ng-hide="hero.equipment.resume.done">None</span>
                     <br/>
-                    <a ng-click="setTip('linkedin')">Helmet</a>:
-                    <span ng-show="hero.equipment.linkedin.done">{{helmet}}</span>
+                    <a ng-click="setTip('linkedin')"><span class="equipmentTitle">Helmet:</span></a>
+                    <span class="equipmentSpecific" ng-show="hero.equipment.linkedin.done">{{helmet}}</span>
                     <span ng-hide="hero.equipment.linkedin.done">None</span>
                     <br/>
-                    <a ng-click="setTip('portfolioSite')">Shield</a>:
-                    <span ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
+                    <a ng-click="setTip('portfolioSite')"><span class="equipmentTitle">Shield:</span></a>
+                    <span class="equipmentSpecific" ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
                     <span ng-hide="hero.equipment.portfolioSite.done">None</span>
                     <br/>
-                    <a ng-click="setTip('projects')">
-                        <img src="./assets/images/equipment/25x25-gem.png" alt=""/> {{hero.equipment.projects.length}}
-                        Majickal Gemeralds
-                    </a>
-                    <br/>
-                    <a ng-click="setTip('skills')">
-                        <img src="./assets/images/equipment/25x25-spell.png" alt=""/>
-                        {{hero.equipment.skills.length}} Spellbooks
-                    </a>
-                    <br/>
-                    <a ng-click="setTip('meetups')">
-                        <img src="./assets/images/equipment/25x25-gold.png" alt=""/>
-                        {{hero.equipment.meetups}} Gold Pieces
+                    <a class="equipmentSpecific" ng-click="setTip('projects')">
+                      <img src="./assets/images/equipment/25x25-gem.png" alt="Majickal Gemeralds"/>x0{{hero.equipment.projects.length}}
+                    </a>&nbsp;
+                    <a class="equipmentSpecific" ng-click="setTip('skills')">
+                        <img src="./assets/images/equipment/25x25-spell.png" alt="Spellbooks"/>x0{{hero.equipment.skills.length}}
+                    </a>&nbsp;
+                    <a class="equipmentSpecific" style="line-height: 50px" ng-click="setTip('meetups')">
+                        <img src="./assets/images/equipment/25x25-gold.png" alt="Gold Pieces"/>x0{{hero.equipment.meetups}}
                     </a>
                     <!-- maybe a new contact is gold, meetup is silver? -->
 
