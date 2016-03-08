@@ -27,49 +27,51 @@
 
                     </div>
                 </div>
-                <div class="alignHeroEquip">
+
+                <!--<div class="alignHeroEquip">-->
                     <div style="display: inline-block">
                         <br/>
                         <h2>
                             {{hero.name}}
                             {{hero.title}}
+                            <button ng-click="openQuestionModal()">?</button>
                         </h2>
-                        <br/>Level: {{hero.level}} XP: {{hero.xp}}
-                        <br/>INVENTORY
-                        <button ng-click="openQuestionModal()">?</button>
                         <br/>
-                        <a ng-click="setTip('resume')">Weapon</a>:
-                        <span ng-show="hero.equipment.resume.done">{{weapon}}</span>
+                        <span class="equipmentTitle">Level:</span> <span
+                            class="equipmentSpecific">0{{hero.level}}</span> <span class="equipmentTitle">XP:</span>
+                        <span class="equipmentSpecific">{{hero.xp}}</span>
+                        <br/>
+
+                        <br/><span style="line-height: 35px">INVENTORY</span>
+                        <br/>
+
+                        <a ng-click="setTip('resume')"><span class="equipmentTitle">Weapon:</span></a>
+                        <span ng-show="hero.equipment.resume.done" class="equipmentSpecific">{{weapon}}</span>
                         <span ng-hide="hero.equipment.resume.done">None</span>
                         <br/>
-                        <a ng-click="setTip('linkedin')">Helmet</a>:
-                        <span ng-show="hero.equipment.linkedin.done">{{helmet}}</span>
+                        <a ng-click="setTip('linkedin')"><span class="equipmentTitle">Helmet:</span></a>
+                        <span class="equipmentSpecific" ng-show="hero.equipment.linkedin.done">{{helmet}}</span>
                         <span ng-hide="hero.equipment.linkedin.done">None</span>
                         <br/>
-                        <a ng-click="setTip('portfolioSite')">Shield</a>:
-                        <span ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
+                        <a ng-click="setTip('portfolioSite')"><span class="equipmentTitle">Shield:</span></a>
+                        <span class="equipmentSpecific" ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
                         <span ng-hide="hero.equipment.portfolioSite.done">None</span>
                         <br/>
-                        <a ng-click="setTip('projects')">
-                            <img src="./assets/images/equipment/25x25-gem.png" alt=""/>
-                            {{hero.equipment.projects.length}}
-                            Majickal Gemeralds
-                        </a>
                         <br/>
-                        <a ng-click="setTip('skills')">
-                            <img src="./assets/images/equipment/25x25-spell.png" alt=""/>
-                            {{hero.equipment.skills.length}} Spellbooks
+                        <a class="equipmentSpecific" ng-click="setTip('projects')">
+                            <img src="./assets/images/equipment/25x25-gem.png" alt="Spellbooks"/>x0{{hero.equipment.projects.length}}
                         </a>
-                        <br/>
-                        <a ng-click="setTip('meetups')">
-                            <img src="./assets/images/equipment/25x25-gold.png" alt=""/>
-                            {{hero.equipment.meetups}} Gold Pieces
+                        <a class="equipmentSpecific" ng-click="setTip('skills')">
+                            <img src="./assets/images/equipment/25x25-spell.png" alt="Spellbooks"/>x0{{hero.equipment.skills.length}}
+                        </a>
+                        <a class="equipmentSpecific" ng-click="setTip('meetups')">
+                            <img src="./assets/images/equipment/25x25-gold.png" alt="Gold Pieces"/>x0{{hero.equipment.meetups}}
                         </a>
                         <!-- maybe a new contact is gold, meetup is silver? -->
 
                         <br/>
                     </div>
-                </div>
+                <!--</div>-->
             </div>
             <div class="goatWrapper">
                 <div>
@@ -163,7 +165,9 @@
                         <div class="topStepImageWrapper">
                             <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
 
-                                <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span> <hr> {{step.description}}
+                                <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span>
+                                <hr>
+                                {{step.description}}
                                 <!-- <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a> -->
                                 <img class="stepCheck" src="./assets/images/25x25-check.png" ng-click="nextStep(quest)"
                                      title="Complete!"/>
