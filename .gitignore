@@ -1,7 +1,3 @@
 node_modules/
 bower_components/
-bundle.js
-style.css
-config.js
 npm-debug.log
-
