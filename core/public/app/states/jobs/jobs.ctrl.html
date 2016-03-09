@@ -13,14 +13,6 @@
         <div class="jobsWrapper">
             <div id="jobTabs"><button ng-click="openPostJobModal()">Post Job</button></div>
             <div class="jobClassTitleWrapper">
-                <h2 class="jobClassTitle">PRIVATE JOBS</h2>
-            </div>
-            <div ng-repeat="job in privateJobs">
-                <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
-            </div>
-            <div class="jobClassTitleWrapper" ng-if="privateJobs.length === 0">You have not listed any private jobs, get on it!</div>
-            <br>
-            <div class="jobClassTitleWrapper">
                 <h2 class="jobClassTitle">GUILD JOBS</h2>
                 <div ng-if="realGuildJobs.length === 0">You Have Not Listed Any Guild Jobs</div>
             </div>
@@ -32,6 +24,14 @@
                 </div>
             </div>
 
+            <br>
+            <div class="jobClassTitleWrapper">
+                <h2 class="jobClassTitle">PRIVATE JOBS</h2>
+            </div>
+            <div ng-repeat="job in privateJobs">
+                <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
+            </div>
+            <div class="jobClassTitleWrapper" ng-if="privateJobs.length === 0">You have not listed any private jobs, get on it!</div>
             <br>
             <div class="jobClassTitleWrapper">
                 <h2 class="jobClassTitle">PUBLIC JOBS</h2>
