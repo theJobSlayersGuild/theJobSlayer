@@ -1,5 +1,5 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService, ModalService, authService) {
+  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService, ModalService, authService, $state) {
 
     $scope.hero = hero;
 
@@ -183,6 +183,14 @@ angular.module('app')
             $scope.getHero();
           });
         $scope.input1 = "";
+      }
+    }, {
+      title: 'bounty',
+      goatSays: 'Go accept quests from the Bounty Board! Follow the instructions, and you\'ll soon find Jobba.',
+      inputs: 0,
+      buttonText: 'Check the Bounty Board',
+      invoked: function() {
+        $state.go('jobs');
       }
     }];
 
