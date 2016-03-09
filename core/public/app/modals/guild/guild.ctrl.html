@@ -1,5 +1,8 @@
-<div class="fade" ng-click="close()">
+<div class="fade">
     <div class="overlay">
+    <button class="closeButton" ng-click="close()">X</button>
+    <h2>Create A Guild</h2>
+    <br>
     Guild Name: <input ng-model="guild.name" placeholder:"Guild Name">
     Add User:<input ng-model="newMember" type="email" placeholder="User Email">
     <button ng-click="addMember(newMember)">Add Member</button>
@@ -8,6 +11,5 @@
         <div class="deleteBones" ng-click="deleteMember($index)"><img src="../assets/images/25x25-crossbones.png" /></div>
     </div>
     <button ng-click="addGuild(guild)">SUBMIT</button>
-    <button ng-click="close()">CANCEL</button>
     </div>
 </div>

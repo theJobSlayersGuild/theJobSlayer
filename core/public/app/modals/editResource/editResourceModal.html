@@ -1,6 +1,8 @@
-<div class="fade" ng-click="close()">
+<div class="fade">
     <div class="overlay">
-        <h4>Edit Resource</h4>
+        <button class="closeButton" ng-click="close()">X</button>
+        <h2>Edit Resource</h2>
+        <br>
         <label>Title</label>
         <input ng-model="resource.title" type="text" placeholder="Title">
         <label>Url</label>
