@@ -4,9 +4,11 @@
   "description": "",
   "main": "core/server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node core/server/server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "4.1.1"
+  }
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theJobSlayersGuild/theJobSlayer.git"
