@@ -3,6 +3,8 @@ angular.module('app')
 
     $scope.hero = hero;
 
+    $scope.xpGainedNum = 20;
+
     $scope.getHero = function() {
       authService.currentHero()
         .then(function(response) {
