@@ -25,12 +25,6 @@ angular.module("app").controller("editjobCtrl", function($scope, jobService, que
     //    public: null
     //};
 
-    $scope.getJobs = function () {
-        jobService.getJobs()
-            .then(function (response) {
-                $scope.jobs = response;
-            })
-    }
 
     $scope.addSkill = function(skill) {
         $scope.job.skillsRequired.push(skill);
@@ -40,14 +34,13 @@ angular.module("app").controller("editjobCtrl", function($scope, jobService, que
         var skillToRemove = $scope.job.skillsRequired.indexOf(skill);
     }
 
-    $scope.createQuest = function(job) {
-        $scope.job._author = $scope.hero._id;
-        jobService.createJob(job)
-        $scope.getJobs();
-    }
+    
 
     $scope.editJobs = function(id, job) {
-        jobService.editJob(id, job);
+        jobService.editJob(id, job)
+            .then(function() {
+                close();
+            })
     }
 
 

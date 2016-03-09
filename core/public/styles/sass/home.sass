@@ -1,0 +1,295 @@
+.homeWrapper
+  background: #9b5a2e
+  padding-bottom: 5em
+  display: flex
+  flex-direction: column
+  justify-content: center
+  min-height: 100vh
+
+.homeContent
+  width: 90%
+  margin: 40px auto
+  background: white
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  
+  h2
+    text-align: center
+
+//// profile and Goat Placement/////
+
+.alignAvatarAndInfo
+  padding-top: 2em
+
+.avatarAndGoatWrapper
+  display: flex
+  width: 100%
+  flex-direction: row
+  //border: 1px solid black
+  padding-left: 3em
+  align-items: center
+  justify-content: space-around
+
+.equipmentItemWrapper
+  padding: 3.2em 0em 0em 2em
+  position: relative
+  
+
+.avatarWrapper
+  display: flex
+  justify-content: center
+  width: 50%
+
+.avatarImage
+  border: 3px solid black
+  border-radius: 25px
+
+.heroesEquip
+  display: flex
+  flex-direction: column
+
+.goatWrapper
+  display: flex
+  justify-content: center
+  width: 50%
+
+
+.equipmentTitle
+  text-transform: uppercase
+  font-size: 14px
+
+.equipmentSpecific, .pressStartSmall
+  font-family: 'Press Start 2P', sans-serif
+  font-size: 12px
+
+.equipmentSpecific
+  cursor: pointer
+
+////// Wisdom Goat ////////
+
+.wisdomGoatSaysTitle
+  display: flex
+  justify-content: center
+  width: 100%
+  padding-bottom: .5em
+
+.previousButton
+  font-size: 2em
+  cursor: pointer
+
+.hiddenPreviousButton
+  color: white
+
+.wisdomGoatContentWrapper
+  display: flex
+  width: 100%
+  height: 10em
+  justify-content: center
+
+.wisdomGoatButtonsAlignment
+  display: flex
+  align-items: center
+
+.wisdomGoatPicWrapper
+  position: absolute
+  display: flex
+  right: -1.5em
+  bottom: -1.5em
+  height: 65px
+  width: 65px
+  background-color: #4E9FEE
+  border: 3px solid black
+  border-radius: 35px
+
+.wisdomGoatPic
+  z-index: 201
+  position: absolute
+  right: .1em
+  bottom: .02em
+  width: 3em
+  //border-bottom: 2px solid black
+  //border: 3px solid black
+
+.wisdomGoatContent
+  display: flex
+  position: relative
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  height: 10em
+  width: 20em
+  border: 3px solid black
+  border-radius: 25px
+  padding-bottom: 2em
+  background-color: #f1efdf
+
+.tipAndSpeechCentering
+  display: flex
+  flex-direction: column
+  width: 100%
+  justify-content: center
+  align-items: center
+
+.goatTip
+  display: flex
+  width: 100%
+  justify-content: center
+  padding-left: 1.85em
+  padding-right: 1em
+  margin-bottom: .5em
+
+.goatSubmitTipButton
+  position: absolute
+  display: flex
+  //align-content: flex-end
+  width: 100%
+  //justify-content: center
+  //margin-top: 5em
+  bottom: 10%
+  left: 25%
+
+.goatSubmit
+  width: 17em
+
+.nextButton
+  font-size: 2em
+  cursor: pointer
+
+//////// Quest Steps //////////
+
+.questsWrapper
+  margin: 0 auto
+
+.quest
+  width: 900px
+  margin: 0 auto
+
+.questH2
+  text-align: center
+
+.questTitle
+  text-align: center
+
+.questStartText
+  text-align: center
+
+.imgWrapper50px
+  height: 50px
+  width: 50px
+
+.inline-block
+  display: inline-block
+
+.stepsWrapper
+  display: inline-block
+
+.stepColumn
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  margin-top: 120px
+  height: 200px
+  width: 120px
+  position: relative
+
+.topStepImageWrapper
+  height: 50px
+  width: 50px
+
+.progressBarWrapper
+  position: relative
+
+.progressCircle
+  border-radius: 100%
+  border: 2px solid #000
+  height: 20px
+  width: 20px
+  display: inline-block
+  z-index: 1
+  background-color: white
+
+.completed
+  background-color: black
+
+.progressBar
+  height: 10px
+  width: 120px
+  display: inline-block
+  bottom: 5px
+  position: absolute
+  z-index: 0
+
+.speechBubbleTail
+    position: absolute
+    left: -133px
+    top: -23px
+    z-index: 3
+
+.stepDialogue
+  position: absolute
+  width: 300px
+  padding: 15px
+  border: 1px solid black
+  background: #f1efdf
+  border-radius: 10px
+  font-size: 12px
+  bottom: 180px
+  right: -100px
+  z-index: 2
+  text-align: center
+
+.stepCheck
+  position: relative
+  top: 6px
+
+.stepCheckCircle
+  cursor: pointer
+  background-color: black
+  width: 35px
+  height: 35px
+  border-radius: 100%
+  position: absolute
+  left: 274px
+  bottom: -11px
+
+  &:hover
+    background-color: #58A32A
+
+.flavorDialogue
+  font-size: 16px
+  display: table
+  margin: 0 auto
+  line-height: 30px
+
+.descriptionDialogue
+
+.deadEnemyWrapper
+  height: 50px
+  width: 50px
+
+.newQuestsP
+  text-align: center
+
+.xpGained
+  position: fixed
+  bottom: 10px
+  right: 10px
+  color: #58A32A
+  font-family: 'Press Start 2P', sans-serif
+  font-size: 20px
+  opacity: 0
+
+.animate
+  animation-name: xp
+  animation-duration: 2s
+
+@keyframes xp
+  from
+    bottom: 10px
+    display: block
+    opacity: 1
+  to
+    bottom: 50px
+    opacity: 0

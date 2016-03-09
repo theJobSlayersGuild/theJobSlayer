@@ -1,15 +1,18 @@
-<div class="overlay">
-    <h4>Create New Resource</h4>
-    <label>Title</label>
-    <form>
-        <input ng-model="resource.title" type="text" placeholder="Title">
-        <label>Url</label>
-        <input ng-model="resource.url" type="text" placeholder="Url">
-        <label>Description</label>
-        <input ng-model="resource.description" type="text" placeholder="Description">
-        <!--<label>Type</label>
-        <select name="type" id=""></select>-->
-        <button type="submit" ng-click="createResource(resource)">Submit Resource</button>
-    </form>
+<div class="fade">
+    <div class="overlay">
+        <button class="closeButton" ng-click="close()">X</button>
+        <h2>Create New Resource</h2>
+        <br>
+        <form>
+            <label>Title</label>
+            <input ng-model="resource.title" type="text" placeholder="Title">
+            <label>Url</label>
+            <input ng-model="resource.url" type="text" placeholder="Url">
+            <label>Description</label>
+            <input ng-model="resource.description" type="text" placeholder="Description">
+            <!--<label>Type</label>
+            <select name="type" id=""></select>-->
+            <button type="submit" ng-click="createResource(resource)">Submit Resource</button>
+        </form>
+    </div>
 </div>
-<div class="fade" ng-click="close()"></div>

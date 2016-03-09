@@ -1,22 +1,140 @@
 .profileWrapper
-  height: 100vh
+  min-height: 100vh
   width: 100%
-  background-color: #7ed8f0
-  background-image: url(http://33.media.tumblr.com/d9b947c4d9ea3bcd311101fbfab6c91a/tumblr_inline_mr7u2jrI171qz4rgp.gif)
-  background-size: cover
+  background: #9b5a2e
+  padding-bottom: 3em
+  display: flex
+  flex-direction: column
 
-.progressChart
-  width: 50%
-  height: 300px
-  background-color: white
-  opacity: 0.5
-  text-align: center
+  h2
+    text-align: center
+    margin-bottom: 4px
+
+.profileContentWrapper
+  align-self: center
+  display: flex
+  flex-direction: column
+  align-items: center
+  background: white
+  width: 80%
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+
+.heroName
+  margin-top: 1em
+
+  img
+    position: relative
+    top: 3px
+    right: 5px
+
+.profileHeader
+  width: 70%
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin: 0em 0em 2em 0em
+
+  span
+    font-family: 'Press Start 2P', sans-serif
+    font-size: 12px
+
+.heroInfo
+    display: flex
+    flex-direction: column
+
+.linksWrapper
+
+    img
+      position: relative
+      top: 5px
+      right: 5px
 
 .profileImageWrapper
-  width: 300px
-  height: 300px
+  width: 150px
+  height: 150px
+  display: inline-block
+  position: relative
+  border: 2px solid black
+  top: 35px
+  right: 20px
+
+  .editQuill
+    position: absolute
+    left: 2px
+    display: none
+
+  &:hover
+    .editQuill
+      display: block
 
 .profileImage
   cursor: pointer
-  max-width: 300px
-  max-height: 300px
+  height: 100%
+  width: auto
+  display: block
+  margin: 0 auto
+
+.heroInfo
+  display: flex
+
+.centerColumn
+  width: 90%
+  display: flex
+  flex-direction: column
+  margin-bottom: 3em
+
+
+
+.skillsHeader
+  display: flex
+  align-self: center
+
+  img
+    position: relative
+    bottom: 4px
+
+.skillsWrapper
+    display: inline-block
+    text-align: center
+
+
+.profileSkill
+     display: inline-block
+
+.projectsWrapper
+  width: 50%
+  align-self: center
+  text-align: center
+
+.profileGuildsWrapper
+  align-self: center
+  width: 60%
+
+.profileGuilds
+  display: flex
+  justify-content: space-between
+  margin-bottom: 4px
+
+.profileGuildsWarning, .profileJobsWarning, .profileResourcesWarning
+  text-align: center
+
+.profileJobs
+  display: flex
+  flex-wrap: wrap
+
+  .jobInfoWrapper
+    margin: 0em
+
+  dir-job-listing
+    display: flex
+    margin: 0em
+    width: 100%
+
+.deleteProfileButton
+  align-self: center
+  margin-top: 25px
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);

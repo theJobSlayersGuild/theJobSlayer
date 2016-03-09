@@ -5,10 +5,10 @@ module.exports = {
         Hero.create(req.body, function (err, result) {
             if (err) {
                 res.status(500).send(err);
-            }
-            newHero = result.toObject();
-            newHero.password = null;
-            res.status(200).send(newHero);
+            } else {
+            result.password = null;
+            res.status(200).send(result);
+          }
         });
     },
 
@@ -34,7 +34,7 @@ module.exports = {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send('user updated', result);
+            res.status('user updated').send(result);
         });
     },
 
@@ -43,7 +43,7 @@ module.exports = {
             if (err) {
                 res.status(500).send(err);
             }
-            res.status(200).send('user deleted', result);
+            res.status('user deleted').send(result);
         });
     }
 

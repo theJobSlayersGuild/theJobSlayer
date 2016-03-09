@@ -8,7 +8,7 @@ angular.module('app')
         hero: '=',
         getResources: '&'
       },
-      controller: function($scope, ModalService, resourceService, authService, xpService) {
+      controller: function($scope, ModalService, resourceService, authService, xpService, modalService) {
 
         $scope.openEditResourceModal = function(resource) {
           ModalService.showModal({
@@ -19,14 +19,16 @@ angular.module('app')
               resource: $scope.resource
             }
           }).then(function(modal) {
-            modal.close.then(function(then) {});
+            modal.close.then(function(then) {
+              $scope.getResources();
+            });
           });
         };
 
         $scope.deleteResource = function(resourceId) {
           resourceService.deleteResource(resourceId).then(function(response) {
             $scope.getResources();
-            alert("Resource Deleted!");
+            modalService.alert("Resource Deleted!");
           });
         };
 

@@ -1,12 +1,20 @@
 <div class="resourcePageWrapper">
-<dir-nav-bar hero="hero"></dir-nav-bar>
-<h1>Resources</h1>
-<button ng-click="openNewResourceModal()">Add New Resource</button>
-<div class="resourcesWrapper">
-    <div class="resourceWrapper" ng-repeat="resource in resources">
-    <dir-resources hero="hero" resource="resource" get-resources="getResources()"></dir-resources>
-    </div>
-</div>
-    
 
+  <dir-nav-bar hero="hero"></dir-nav-bar>
+
+  <div class="resourcesHeader">
+     <h1>Resources</h1>
+  </div>
+  <br>
+  <div class="resourcesWrapper">
+      <button class="newResourceButton" ng-click="openNewResourceModal()">Add New Resource</button>
+      <div class="resourceWrapper" ng-repeat="resource in resources">
+      <dir-resources hero="hero" resource="resource" get-resources="getResources()"></dir-resources>
+      </div>
+  </div>
+
+</div>
+
+<div class="xpGained" ng-class="{'animate': applyAnimation}">
+  +{{xpGainedNum}} XP!
 </div>

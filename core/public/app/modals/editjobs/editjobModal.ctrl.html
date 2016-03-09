@@ -1,32 +1,128 @@
-<div class="postjobOverlayWrapper">
-    <div><input ng-model="job.companyName" type="text" placeholder="companyName"></div>
-    <div><input ng-model="job.companyUrl" type="text" placeholder="companyUrl"></div>
-    <div><input ng-model="skills" type="text" placeholder="skillsRequired"></div>
-    <button class="submitSkill" ng-click="addSkill(skills)">submit skill</button>
-    <div><input ng-model="job.position" type="text" placeholder="job.position"></div>
-    <div><input ng-model="job.location.city" type="text" placeholder="job.city"></div>
-    <div><input ng-model="job.location.state" type="text" placeholder="job.state"></div>
-    <div><input ng-model="job.descriptionUrl" type="text" placeholder="descriptionUrl"></div>
-    <div><input ng-model="job.summary" type="text" placeholder="summary"></div>
-    <div><input ng-model="job.contact.name" type="text" placeholder="name"></div>
-    <div><input ng-model="job.contact.email" type="text" placeholder="email"></div>
-    <div><input ng-model="job.contact.phone" type="text" placeholder="phone"></div>
-    <div><input ng-model="job.salary" type="text" placeholder="salary"></div>
-    <div><input ng-model="job.equity" type="text" placeholder="equity"></div>
-    <div><input ng-model="job.positionType" type="text" placeholder="positionType"></div>
-    <!--public<input ng-model="job.public" type="checkbox">-->
-    <div>
-        <button ng-click="editJobs(job._id, job)">Edit Job</button>
-    </div>
-
-    <div class="postJobSkills">
-        <div class="skill" ng-repeat="skill in job.skillsRequired">
-            {{skill}}
-            <button ng-click="removeSkill(skill)">X</button>
+<div class="fade">
+    <div class="overlay">
+        <div class="exitButton">
+            <button ng-click="close()">&nbsp;X&nbsp;</button>
         </div>
+        <!--<div class="postjobOverlayWrapper">-->
+            <div class="postJobInputContainer">
+                <h2 class="postJobTitle">EDIT JOB</h2>
+
+                <div class="companyInfoContainer">
+
+                    <div class="jobInfoSpacing">
+                        <div class="jobInfo">COMPANY INFO</div>
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.companyName" type="text"
+                                                    placeholder="companyName"></div>
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.companyUrl" type="text"
+                                                    placeholder="companyUrl">
+                        </div>
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.descriptionUrl" type="text"
+                                                    placeholder="descriptionUrl">
+                        </div>
+                        <!--<div class="jobInfo"><input class="inputHeight" ng-model="job.summary" type="text" placeholder="summary"></div>-->
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.location.city" type="text"
+                                                    placeholder="city"></div>
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.location.state" type="text"
+                                                    placeholder="state"></div>
+                        <br>
+                    </div>
+
+                    <div class="jobInfoSpacing">
+                        <div class="jobInfo">COMPANY CONTACT</div>
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.contact.name" type="text"
+                                                    placeholder="name"></div>
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.contact.email" type="text"
+                                                    placeholder="email"></div>
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.contact.phone" type="text"
+                                                    placeholder="phone"></div>
+                        <br>
+                    </div>
+                    <div class="jobInfoSpacing d">
+                        <div class="jobInfo">POSITION INFO</div>
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.position" type="text"
+                                                    placeholder="position"></div>
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.salary" type="text"
+                                                    placeholder="salary"></div>
+                        <div class="jobInfo"><input class="inputHeight" ng-model="job.positionType" type="text"
+                                                    placeholder="positionType">
+                        </div>
+                        <form class="jobInfos">
+                            <div class="jobInfos"><input class="inputHeight" ng-model="skills" type="text"
+                                                         placeholder="skillsRequired">
+                                <button class="dButton" type="submit" class="submitSkill" ng-click="addSkill(skills)">
+                                    +
+                                </button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+
+                <div class="postJobSkills">
+                    <div class="skill" ng-repeat="skill in job.skillsRequired">
+                        {{skill}}
+                        <button class="dButton" type="submit" class="submitSkill" ng-click="removeSkill(skills)">X
+                        </button>
+                        <!--<div class="deleteBones" ng-click="removeSkill(skill)"> </div>-->
+
+                    </div>
+                </div>
+                <br>
+                <div class="jobInfo makePrivate"><input type="checkbox" ng-click="changeToPrivate()">&nbsp;<span>make private</span>
+                </div>
+                <br>
+                <div class="guildListContainer">
+                    <div class="jobInfo">Share quest with guilds:</div>
+
+                    <br>
+                    <div class="innerGuildContainer">
+                        <div ng-repeat="guild in guilds">
+                            <input type="checkbox" ng-click="updateJobGuildArray(guild.name, guild._id)">
+                            {{guild.name}}
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="postJobModalButton">
+                    <button ng-click="editJobs(job._id, job)">Edit Job</button>
+                    <!--<button ng-click="editJob(job)">&nbsp;Post Job&nbsp;</button>-->
+                </div>
+            </div>
+        <!--</div>-->
     </div>
-
 </div>
+<!--<div class="fade" ng-click="close()"></div>-->
 
+<!--<div class="overlay">
+    <div class="postjobOverlayWrapper">
+        <div><input ng-model="job.companyName" type="text" placeholder="companyName"></div>
+        <div><input ng-model="job.companyUrl" type="text" placeholder="companyUrl"></div>
+        <div><input ng-model="skills" type="text" placeholder="skillsRequired"></div>
+        <button class="submitSkill" ng-click="addSkill(skills)">submit skill</button>
+        <div><input ng-model="job.position" type="text" placeholder="job.position"></div>
+        <div><input ng-model="job.location.city" type="text" placeholder="job.city"></div>
+        <div><input ng-model="job.location.state" type="text" placeholder="job.state"></div>
+        <div><input ng-model="job.descriptionUrl" type="text" placeholder="descriptionUrl"></div>
+        <div><input ng-model="job.summary" type="text" placeholder="summary"></div>
+        <div><input ng-model="job.contact.name" type="text" placeholder="name"></div>
+        <div><input ng-model="job.contact.email" type="text" placeholder="email"></div>
+        <div><input ng-model="job.contact.phone" type="text" placeholder="phone"></div>
+        <div><input ng-model="job.salary" type="text" placeholder="salary"></div>
+        <div><input ng-model="job.equity" type="text" placeholder="equity"></div>
+        <div><input ng-model="job.positionType" type="text" placeholder="positionType"></div>
+        &lt;!&ndash;public<input ng-model="job.public" type="checkbox">&ndash;&gt;
+        <div>
+            <button ng-click="editJobs(job._id, job)">Edit Job</button>
+        </div>
 
-<div class="fade" ng-click="close()"></div>
+        <div class="postJobSkills">
+            <div class="skill" ng-repeat="skill in job.skillsRequired">
+                {{skill}}
+                <div class="deleteBones" ng-click="removeSkill(skill)"><img
+                        src="../assets/images/25x25-crossbones.png"/></div>
+            </div>
+        </div>
+
+    </div>
+</div>-->

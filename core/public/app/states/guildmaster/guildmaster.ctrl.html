@@ -1,23 +1,36 @@
 <div class="guildmasterWrapper">
 
-<dir-nav-bar hero="hero"></dir-nav-bar>
 
-<a ui-sref="profile({id:'56cbaa30e4519bd90bf118ab'})">TEMP LinK</a>
+  <dir-nav-bar hero="hero"></dir-nav-bar> 
 
-<div><h1>GUILDMASTER</h1></div>
-<div><button ng-click="openGuildModal()">New Guild</button></div>
+
+<div><h1>GUILD HALL</h1></div>
+
 <br/>
+<div class="guildsCenterColumn">
+    <div class="newGuildButton"><button ng-click="openGuildModal()">New Guild</button></div>
+    <div class="guildList" ng-repeat="guild in guilds">
+        <div class="guildHeader">
+            <h2><br/>{{guild.name}}</h2>
+            <div class="guildButtons">
+                <div ng-if="guild._guildmaster.name === hero.name" class="editQuill" ng-click="openEditGuildModal(guild)">
+                    <img src="../assets/images/25x25-quill.png" />
+                </div>
+                <div ng-if="guild._guildmaster.name === hero.name" class="deleteBones" ng-click="deleteGuild(guild._id)">
+                    <img src="../assets/images/25x25-crossbones.png" />
+                </div> 
+                <button ng-click="leaveGuild(guild, hero)">Leave</button>
+            </div>
+        </div>
+        <p>GUILDMASTER: {{guild._guildMaster.name}}</p>
+        <p>GUILDMEMBERS: </p>
+        <div ng-repeat="member in guild._guildMembers">
+        {{member.name}}, 
+        </div>
+        </div>
+        <div ng-if="guilds.length < 1">You do not belong to any guilds yet</div>
+        {{member.name}}
 
-<div class="guildList" ng-repeat="guild in guilds">
-  <h2><br/>{{guild.name}}</h2>
-  <button ng-click="openEditGuildModal(guild)">Edit</button>
-  <button ng-click="deleteGuild(guild._id)">Delete</button>
-  <p>GUILDMASTER:</p> {{guild._guildMaster.name}}
-  <div ng-repeat="member in guild._guildMembers">
-    <p>GUILDMEMBERS: </p>
-    {{member.name}}
-  </div>
+    </div>
 </div>
-{{member.name}}
 
-</div>

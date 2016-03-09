@@ -1,14 +1,14 @@
-<div class="overlay">
-  Guild Name: <input ng-model="guild.name" placeholder:"Guild Name">
-  Add User:<input ng-model="newMember" type="email" placeholder="User Email">
-  <button ng-click="addMember(newMember)">Add</button>
-  <div ng-repeat="member in members track by $index">
-    {{member.name}}
-    <button ng-click="deleteMember($index)">X</button>
-  </div>
-<button ng-click="editGuild(guild)">SUBMIT</button>
-<button ng-click="close()">CANCEL</button>
+<div class="fade">
+   <div class="overlay">
+       <button class="closeButton" ng-click="close()">X</button>
+        Guild Name: <input ng-model="guild.name" placeholder:"Guild Name">
+        Add User:<input ng-model="newMember" type="email" placeholder="User Email">
+        <button ng-click="addMember(newMember)">Add Member</button>
+        <div ng-repeat="member in members track by $index">
+        {{member.name}}
+        <div class="deleteBones" ng-click="deleteMember($index)"><img src="../assets/images/25x25-crossbones.png" /></div>
+        </div>
+        <button ng-click="editGuild(guild)">SUBMIT</button>
+        <button ng-click="close()">CANCEL</button>
+    </div> 
 </div>
-
-
-<div class="fade" ng-click="close()"></div>
