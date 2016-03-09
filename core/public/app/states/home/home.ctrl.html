@@ -83,8 +83,7 @@
                                 <div class="wisdomGoatPicWrapper"><img class="wisdomGoatPic"
                                                    src="../../../assets/images/50x75-talkingGoat.png" alt="">
                                 </div>
-                                    <!--goat image-->
-                                <!--<div class="tipAndSpeechCentering">-->
+
                                 <div class="goatTip">
                                     {{ currentTip.goatSays }}
                                 </div>
@@ -109,9 +108,11 @@
                                             </div>
                                         </div>
                                         <div class="goatSubmitTipButton">
-                                            <button type="submit" ng-click="currentTip.invoked()">
-                                                {{currentTip.buttonText}}
-                                            </button>
+                                            <button><div class="goatSubmit" type="submit" ng-click="currentTip.invoked()">
+                                                 <span class="goatSubmit">{{currentTip.buttonText}}</span>
+
+                                            </div>
+
                                         </div>
                                     </form>
                                 </div>
