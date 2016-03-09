@@ -36,8 +36,8 @@
                     <span class="equipmentTitle">Level:</span> <span class="equipmentSpecific">0{{hero.level}}</span> <span class="equipmentTitle">XP:</span> <span class="equipmentSpecific">{{hero.xp}}</span>
                     <br/>
 
-                    <br/><span style="line-height: 35px">INVENTORY</span>
-                    <br/>
+                    <!-- <br/><span style="line-height: 35px">INVENTORY</span>
+                    <br/> -->
 
                     <a ng-click="setTip('resume')"><span class="equipmentTitle">Weapon:</span></a>
                     <span ng-show="hero.equipment.resume.done" class="equipmentSpecific">{{weapon}}</span>
@@ -157,6 +157,7 @@
                 <div class="stepsWrapper" ng-repeat="step in quest._steps">
                     <div class="stepColumn">
                         <div class="topStepImageWrapper">
+                            <img class="speechBubbleTail" src="./assets/images/speechBubbleTail.png" alt="Speech Bubble" ng-show="quest.progress + 1 === step.order">
                             <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
 
                                 <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span> <hr> {{step.description}}
@@ -178,8 +179,11 @@
                     </div>
                 </div>
 
-                <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt=""/>
-                <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt=""/>
+                <div class="inline-block">
+                  <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt=""/>
+                  <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt=""/>
+                  <div class="pressStartSmall" ng-if="quest.completed === true">Complete!</div>
+                </div>
                 <hr ng-if="!$last">
                 <br ng-if="!$last">
             </div>
@@ -190,6 +194,7 @@
                 <a ui-sref="jobs">Bounty Board</a>
             </p>
         </div>
+        <br/>
 
     </div>
 </div>

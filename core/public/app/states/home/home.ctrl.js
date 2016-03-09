@@ -1,7 +1,9 @@
 angular.module('app')
-  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService, ModalService, authService) {
+  .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService, ModalService, authService, $state) {
 
     $scope.hero = hero;
+
+    $scope.xpGainedNum = 20;
 
     $scope.getHero = function() {
       authService.currentHero()
@@ -169,7 +171,7 @@ angular.module('app')
       }
     }, {
       title: 'skills',
-      goatSays: 'Acquire skills you must. (Sorry, my first language English is not.)',
+      goatSays: 'Acquire skills you must. (Sorry I am. English my first language is not.)',
       inputs: 1,
       description1: "Skill Name",
       buttonText: 'I learned a new skill!',
@@ -181,6 +183,38 @@ angular.module('app')
             $scope.getHero();
           });
         $scope.input1 = "";
+      }
+    }, {
+      title: 'bounty',
+      goatSays: 'Go create and accept quests from the Bounty Board! Follow the instructions, and you\'ll soon find Jobba.',
+      inputs: 0,
+      buttonText: 'Check the Bounty Board',
+      invoked: function() {
+        $state.go('jobs');
+      }
+    }, {
+      title: 'resources',
+      goatSays: 'The Adventurers\' Log is full of resources submitted by users--HEROES! I meant to say "heroes". Heroes just like you.',
+      inputs: 0,
+      buttonText: 'Visit the Adventurers\' Log',
+      invoked: function() {
+        $state.go('resources');
+      }
+    }, {
+      title: 'guildmaster',
+      goatSays: 'Want to make quests only visible to certain heroes? You\'re going to need a guild.',
+      inputs: 0,
+      buttonText: 'Visit the Guild Hall',
+      invoked: function() {
+        $state.go('guildmaster');
+      }
+    }, {
+      title: 'guildmaster',
+      goatSays: 'Want to see how well you stack up against other Jobba hunters? Of course you do.',
+      inputs: 0,
+      buttonText: 'Visit the Hall of Heroes',
+      invoked: function() {
+        $state.go('heroes');
       }
     }];
 
