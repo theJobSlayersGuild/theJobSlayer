@@ -15,17 +15,18 @@
             <div class="jobClassTitleWrapper">
                 <h2 class="jobClassTitle">PRIVATE JOBS</h2>
             </div>
-            <br>
             <div ng-repeat="job in privateJobs">
                 <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
             </div>
-
+            <div class="jobClassTitleWrapper" ng-if="privateJobs.length === 0">You have not listed any private jobs, get on it!</div>
             <br>
             <div class="jobClassTitleWrapper">
                 <h2 class="jobClassTitle">GUILD JOBS</h2>
+                <div ng-if="realGuildJobs.length === 0">You Have Not Listed Any Guild Jobs</div>
             </div>
+            <div class="jobClassTitleWrapper" ng-if="realGuildJobs.length === 0">You Have No Guild Jobs Listed</div>
             <div ng-repeat="guild in guilds">
-                {{guild.name}}
+                <!--{{guild.name}}-->
                 <div ng-repeat="job in guild.jobs">
                     <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
                 </div>
@@ -35,6 +36,7 @@
             <div class="jobClassTitleWrapper">
                 <h2 class="jobClassTitle">PUBLIC JOBS</h2>
             </div>
+            <div class="jobClassTitleWrapper" ng-if="publicJobs.length === 0">No Public Jobs... WHAT?!</div>
             <div ng-repeat="job in publicJobs">
 
                 <dir-job-listing hero="hero" job="job" get-quests="getguild()"></dir-job-listing>
