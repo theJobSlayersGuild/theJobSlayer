@@ -2,42 +2,63 @@
   min-height: 100vh
   width: 100%
   background: #9b5a2e
-  padding-bottom: 5em
-
+  padding-bottom: 3em
+  display: flex
+  flex-direction: column
   
-
   h2
     text-align: center
+    margin-bottom: 4px
 
 .profileContentWrapper
+  align-self: center
+  display: flex
+  flex-direction: column
+  align-items: center
   background: white
-  margin: 0em 7em 0em 7em
+  width: 70%
   -webkit-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
   -moz-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
   box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
 
-.pageHeader
-  background-image: url("../assets/images/navgraphicv2.png")
-  background-size: cover
-  width: 100%
-  height: 350px
+.heroName
+  margin-top: 1em
+  
+  img  
+    position: relative
+    top: 3px
+    right: 5px
 
 .profileHeader
-  width: 100%
+  width: 70%
   display: flex
-  padding: 1.5em 7em 0em 7em
+  justify-content: space-between
+  align-items: center
   margin: 0em 0em 2em 0em
+  
+  span
+    font-family: 'Press Start 2P', sans-serif
+    font-size: 12px
 
-  .heroInfo
-   display: flex
-   flex-direction: column
-   flex-grow: 1
+.heroInfo
+    display: flex
+    flex-direction: column
+   
+.linksWrapper
+    
+    img
+      position: relative
+      top: 5px
+      right: 5px
 
 .profileImageWrapper
   width: 150px
   height: 150px
   display: inline-block
   position: relative
+  border: 2px solid black
+  top: 35px
+  right: 20px
 
   .editQuill
     position: absolute
@@ -59,17 +80,20 @@
   display: flex
 
 .centerColumn
-  width: 100%
-  padding: 0em 7em 2em 7em
+  width: 90%
   display: flex
   flex-direction: column
-  margin-bottom: 5em
+  margin-bottom: 3em
 
 
 
 .skillsHeader
   display: flex
   align-self: center
+  
+  img
+    position: relative
+    bottom: 4px
 
 .skillsWrapper
     display: inline-block 
@@ -80,14 +104,22 @@
      display: inline-block
 
 .projectsWrapper
+  width: 50%
+  align-self: center
+  text-align: center
 
+.profileGuildsWrapper
+  align-self: center
+  width: 60%
 
 .profileGuilds
   display: flex
   justify-content: space-between
+  margin-bottom: 4px
 
 .profileJobs
   display: flex
+  flex-wrap: wrap
   
   .jobInfoWrapper
     margin: 0em
@@ -95,3 +127,14 @@
   dir-job-listing
     display: flex
     margin: 0em
+    width: 100%
+
+.noResourcesText
+  text-align: center
+
+.deleteProfileButton
+  align-self: center
+  margin-top: 25px
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
