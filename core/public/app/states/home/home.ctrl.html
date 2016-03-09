@@ -156,6 +156,7 @@
                 <div class="stepsWrapper" ng-repeat="step in quest._steps">
                     <div class="stepColumn">
                         <div class="topStepImageWrapper">
+                            <img class="speechBubbleTail" src="./assets/images/speechBubbleTail.png" alt="Speech Bubble" ng-show="quest.progress + 1 === step.order">
                             <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
 
                                 <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span> <hr> {{step.description}}
@@ -177,8 +178,11 @@
                     </div>
                 </div>
 
-                <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt=""/>
-                <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt=""/>
+                <div class="inline-block">
+                  <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt=""/>
+                  <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt=""/>
+                  <div class="pressStartSmall" ng-if="quest.completed === true">Complete!</div>
+                </div>
                 <hr ng-if="!$last">
                 <br ng-if="!$last">
             </div>
