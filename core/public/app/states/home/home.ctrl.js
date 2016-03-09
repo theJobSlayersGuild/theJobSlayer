@@ -2,8 +2,20 @@ angular.module('app')
   .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService, ModalService, authService, $state) {
 
     $scope.hero = hero;
+    $scope.xpGainedNum = 0;
+    $scope.applyAnimation = false;
 
-    $scope.xpGainedNum = 20;
+    var animateXp = function (resetTime, xpGainedNum) {
+      $scope.applyAnimation = true;
+      console.log('animateXp firing, $scope.applyAnimation', $scope.applyAnimation);
+
+      $scope.xpGainedNum = xpGainedNum;
+      setTimeout(function(){
+        $scope.applyAnimation = false;
+        console.log('setTimeout firing, $scope.applyAnimation', $scope.applyAnimation);
+        $scope.$apply();
+      }, resetTime);
+    };
 
     $scope.getHero = function() {
       authService.currentHero()
@@ -78,7 +90,10 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.resume.url = $scope.input1;
         $scope.hero.equipment.resume.done = true;
+
         $scope.hero = xpService.add($scope.hero, 20);
+        animateXp(2001, 20);
+
         heroService.editHero($scope.hero)
           .then(function(response) {
             $scope.getHero();
@@ -96,7 +111,10 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.linkedin.url = $scope.input1;
         $scope.hero.equipment.linkedin.done = true;
+
         $scope.hero = xpService.add($scope.hero, 15);
+        animateXp(2001, 15);
+
         heroService.editHero($scope.hero)
           .then(function(response) {
             $scope.getHero();
@@ -114,7 +132,10 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.portfolioSite.url = $scope.input1;
         $scope.hero.equipment.portfolioSite.done = true;
+
         $scope.hero = xpService.add($scope.hero, 25);
+        animateXp(2001, 25);
+
         heroService.editHero($scope.hero)
           .then(function(response) {
             $scope.getHero();
@@ -132,6 +153,8 @@ angular.module('app')
         $scope.hero.equipment.meetups++;
 
         $scope.hero = xpService.add($scope.hero, 10);
+        $scope.xpGainedNum = 10;
+        animateXp(2001, 10);
 
         heroService.editHero($scope.hero)
           .then(function(response) {
@@ -156,7 +179,10 @@ angular.module('app')
         newProject.name = $scope.input1;
         newProject.url = $scope.input2;
         $scope.hero.equipment.projects.push(newProject);
+
         $scope.hero = xpService.add($scope.hero, 30);
+        animateXp(2001, 30);
+
         heroService.editHero($scope.hero)
           .then(function(response) {
             $scope.getHero();
@@ -177,7 +203,10 @@ angular.module('app')
       buttonText: 'I learned a new skill!',
       invoked: function() {
         $scope.hero.equipment.skills.push($scope.input1);
+
         $scope.hero = xpService.add($scope.hero, 15);
+        animateXp(2001, 15);
+
         heroService.editHero($scope.hero)
           .then(function(response) {
             $scope.getHero();

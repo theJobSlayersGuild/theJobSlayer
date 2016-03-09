@@ -251,3 +251,25 @@
 
 .newQuestsP
   text-align: center
+
+.xpGained
+  position: fixed
+  bottom: 10px
+  right: 10px
+  color: #58A32A
+  font-family: 'Press Start 2P', sans-serif
+  font-size: 20px
+  opacity: 0
+
+.animate
+  animation-name: xp
+  animation-duration: 2s
+
+@keyframes xp
+  from
+    bottom: 0px
+    display: block
+    opacity: 1
+  to
+    bottom: 50px
+    opacity: 0
