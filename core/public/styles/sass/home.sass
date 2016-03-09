@@ -4,6 +4,7 @@
   display: flex
   flex-direction: column
   justify-content: center
+  min-height: 100vh
 
 .homeContent
   width: 80%
@@ -12,12 +13,14 @@
   -webkit-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
   -moz-box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
   box-shadow: 15px 13px 0px 0px rgba(0,0,0,0.64);
+  
+  h2
+    text-align: center
 
 //// profile and Goat Placement/////
 
 .alignAvatarAndInfo
-  padding-top: 4em
-  padding-right: 3em
+  padding-top: 2em
 
 .avatarAndGoatWrapper
   display: flex
@@ -25,9 +28,16 @@
   flex-direction: row
   //border: 1px solid black
   padding-left: 3em
+  align-items: center
+  justify-content: space-around
 
 .equipmentItemWrapper
-  padding: 1.3em 0em 2em 2em
+  padding: 3.2em 0em 0em 2em
+  position: relative
+  
+.questionButton
+  postion: relative
+  bottom: 30px
 
 .avatarWrapper
   display: flex
@@ -46,7 +56,6 @@
   display: flex
   justify-content: center
   width: 50%
-  padding-top: 2em
 
 
 .equipmentTitle
