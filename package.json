@@ -2,9 +2,8 @@
   "name": "the-job-slayer",
   "version": "1.0.0",
   "description": "",
-  "main": "node testServer.js",
+  "main": "core/server/server.js",
   "scripts": {
-    "start": "node testServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
