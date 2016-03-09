@@ -160,8 +160,10 @@
 
                                 <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span> <hr> {{step.description}}
                                 <!-- <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a> -->
-                                <img class="stepCheck" src="./assets/images/25x25-check.png" ng-click="nextStep(quest)"
+                                <div class="stepCheckCircle">
+                                  <img class="stepCheck" src="./assets/images/25x25-check.png" ng-click="nextStep(quest)"
                                      title="Complete!"/>
+                                </div>
                             </div>
                             <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
                             <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
