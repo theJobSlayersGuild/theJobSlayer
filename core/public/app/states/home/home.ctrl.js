@@ -186,11 +186,35 @@ angular.module('app')
       }
     }, {
       title: 'bounty',
-      goatSays: 'Go accept quests from the Bounty Board! Follow the instructions, and you\'ll soon find Jobba.',
+      goatSays: 'Go create and accept quests from the Bounty Board! Follow the instructions, and you\'ll soon find Jobba.',
       inputs: 0,
       buttonText: 'Check the Bounty Board',
       invoked: function() {
         $state.go('jobs');
+      }
+    }, {
+      title: 'resources',
+      goatSays: 'The Adventurers\' Log is full of resources submitted by other users--I MEAN HEROES! I meant to say "heroes". Oops.',
+      inputs: 0,
+      buttonText: 'Visit the Adventurers\' Log',
+      invoked: function() {
+        $state.go('resources');
+      }
+    }, {
+      title: 'guildmaster',
+      goatSays: 'Want to make quests only visible to certain heroes? You\'re going to need a guild.',
+      inputs: 0,
+      buttonText: 'Visit the Guild Hall',
+      invoked: function() {
+        $state.go('guildmaster');
+      }
+    }, {
+      title: 'guildmaster',
+      goatSays: 'Want to see how well you stack up against other Jobba hunters? Of course you do.',
+      inputs: 0,
+      buttonText: 'Visit the Hall of Heroes',
+      invoked: function() {
+        $state.go('heroes');
       }
     }];
 
