@@ -1,5 +1,6 @@
-<div class="fade" ng-click="close()">
+<div class="fade">
    <div class="overlay">
+       <button class="closeButton" ng-click="close()">X</button>
         Guild Name: <input ng-model="guild.name" placeholder:"Guild Name">
         Add User:<input ng-model="newMember" type="email" placeholder="User Email">
         <button ng-click="addMember(newMember)">Add Member</button>
