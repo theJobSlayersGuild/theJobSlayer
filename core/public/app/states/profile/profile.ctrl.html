@@ -6,18 +6,19 @@
   <h1>Profile</h1>
   <br>
   <div class="profileContentWrapper">
-      <div class="profileHeader">
-        <div class="profileImageWrapper">
-        <div class="editQuill"><img src="../assets/images/25x25-quill.png" /></div>
-        <img class="profileImage" ng-src="{{hero.profileImage}}" ng-click="openProfileImageModal()" title="Edit Avatar" />
-        </div>
-        <div class="heroInfo">
-            <div class="heroName">
+      <div class="heroName">
             <h2 style="text-transform: uppercase; display: inline-block">{{hero.name}} {{hero.title}}</h2>
                 <div class="editQuill" ng-click="openEditHeroModal('EDIT HERO')">
                     <img src="../assets/images/25x25-quill.png" />
                 </div>
             </div>
+      <div class="profileHeader">
+        <div class="profileImageWrapper">
+            <div class="editQuill"><img src="../assets/images/25x25-quill.png" /></div>
+            <img class="profileImage" ng-src="{{hero.profileImage}}" ng-click="openProfileImageModal()" title="Edit Avatar" />
+        </div>
+        <div class="heroInfo">
+            
 
             Questing Since: {{hero.dateCreated | date:'shortDate'}}
             <br/>Level: {{hero.level}}
@@ -48,8 +49,9 @@
         <br>
         <h2>Your projects</h2>
         <div class="projectsWrapper" ng-repeat="project in hero.equipment.projects">
-            <h3>{{project.name}}</h3>
-            <a target="_blank" href="{{project.url}}">{{project.url}}</a>
+            <div class="projectWrapper">
+                <a target="_blank" href="https://{{project.url}}"><h3>{{project.name}}</h3></a>
+            </div>  
         </div>
         <p ng-if="hero.equipment.projects.length < 0">You have not added any projects yet.</p>
         <div class="profileGuildsWrapper">
@@ -76,14 +78,14 @@
         <div ng-repeat="resource in resources">
         <dir-resources resource="resource" hero="hero" get-resources="getResources()"></dir-resources>
         </div>
-        <div ng-if="resources.length < 1">You have not posted any resources yet</div>
+        <div class="noResourcesText" ng-if="resources.length < 1">You have not posted any resources yet</div>
     </div>
     </div>
   </div>
   
 
 
-  <button ng-click="deleteProfile()">Delete Profile</button>
+  <button class="deleteProfileButton" ng-click="deleteProfile()">Delete Profile</button>
   <!--<div>
     <br />
     <h2>Progress</h2>
