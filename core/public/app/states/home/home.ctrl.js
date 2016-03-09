@@ -171,7 +171,7 @@ angular.module('app')
       }
     }, {
       title: 'skills',
-      goatSays: 'Acquire skills you must. (Sorry, my first language English is not.)',
+      goatSays: 'Acquire skills you must. (Sorry I am. English my first language is not.)',
       inputs: 1,
       description1: "Skill Name",
       buttonText: 'I learned a new skill!',
