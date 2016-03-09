@@ -7,41 +7,41 @@ Jobba: The Hunt is a Full Stack (MEAN) web application inspired by classic RPG's
 
 ###Team Members
 
-*David Moore - Home page, hand drawn graphics, Schemas, Styling 
-*Brandon Hebbert - Bountry board, Custom queries, Styling
-*Ty Hill - 8-bit graphics, Guilds page, Profile page, Styling
-*Richard Reynolds - Endpoints, Resources Page, Styling, Home page
+-David Moore - Home page, hand drawn graphics, Schemas, Styling 
+-Brandon Hebbert - Bountry board, Custom queries, Styling
+-Ty Hill - 8-bit graphics, Guilds page, Profile page, Styling
+-Richard Reynolds - Endpoints, Resources Page, Styling, Home page
 
 ###1. Front-end
 
 ####1.1 Member Features
  
- *Members can post jobs to the Bounty Board 
+ -Members can post jobs to the Bounty Board 
  
 ####1.2 Technologies
 
-*HTML
-*SASS
-*AngularJS
+-HTML
+-SASS
+-AngularJS
 
 ###2. Back-end
 
 ####2.1 Technologies
 
-*MongoDB
-*mLab
-*Heroku
-*Node.js
-    *Express
-    *Mongoose
-    *Passport (Local Auth, Bcrypt)
-    *Session
-    *bodyParser
+-MongoDB
+-mLab
+-Heroku
+-Node.js
+  -Express
+  -Mongoose
+  -Passport (Local Auth, Bcrypt)
+  -Session
+  -bodyParser
     
 ###3. Additional Tools
 
-*Bower
-*Gulp
+-Bower
+-Gulp
     
  
 
