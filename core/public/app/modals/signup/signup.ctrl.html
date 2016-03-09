@@ -1,5 +1,6 @@
-<div class="fade" ng-click="close()">
+<div class="fade">
     <div class="overlay">
+        <button class="closeButton" ng-click="close()">X</button>
         <h4>Create New Hero</h4>
         <form name="heroForm" ng-submit="submitForm(heroForm.$valid)" novalidate>    
             <label>Name</label><br>

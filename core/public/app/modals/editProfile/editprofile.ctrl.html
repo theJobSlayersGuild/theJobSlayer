@@ -1,7 +1,8 @@
-<div class="fade" ng-click="close(null)">
+<div class="fade">   
    <div class="overlay" ng-click="">
+        <button class="closeButton" ng-click="close()">X</button>
         <h2>{{text}}</h2>
-
+        <br>
         <div ng-if="text !== 'EDIT HERO'">
             Url:
             <input ng-model="url">
