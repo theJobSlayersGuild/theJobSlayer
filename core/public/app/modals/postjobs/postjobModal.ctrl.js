@@ -6,8 +6,8 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
     $scope.hero = hero;
     $scope.id = hero._id;
 
-    $scope.name = [];
-    $scope.guilds = guilds;
+  $scope.name = [];
+  $scope.guilds = guilds;
 
     $scope.job = {
         companyName: null,
@@ -74,8 +74,7 @@ angular.module("app").controller("postjobCtrl", function ($scope, jobService, qu
                     });
                 }
                 xpService.addAndUpdate($scope.hero, 10);
-                close();
-                modalService.alert("Job Created");
+                  close(10);
             });
     };
 

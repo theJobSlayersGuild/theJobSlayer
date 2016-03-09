@@ -14,6 +14,18 @@ angular.module('app')
         $scope.currentQuests = [];
         $scope.guildJobs = [];
 
+        $scope.xpGainedNum = 0;
+        $scope.applyAnimation = false;
+
+        var animateXp = function (resetTime, xpGainedNum) {
+          $scope.applyAnimation = false;
+          $scope.applyAnimation = true;
+          $scope.xpGainedNum = xpGainedNum;
+          setTimeout(function(){
+            $scope.applyAnimation = false;
+            $scope.$apply();
+          }, resetTime);
+        };
 
         $scope.getguild = function () {
             guildService.getGuildsByMember($scope.id)
@@ -65,11 +77,12 @@ angular.module('app')
                 inputs: {hero: $scope.hero, guilds: $scope.guilds}
             }).then(function (modal) {
                 modal.close.then(function (then) {
+                    if (then === 10) {
+                      animateXp(2001, 10);
+                    }
                     $scope.getguild();
                 });
             });
         };
 
     });
-
-
