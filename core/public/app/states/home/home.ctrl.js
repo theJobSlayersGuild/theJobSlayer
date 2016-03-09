@@ -2,7 +2,7 @@ angular.module('app')
   .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService, ModalService, authService, $state) {
 
     $scope.hero = hero;
-    
+
     $scope.xpGainedNum = 0;
     $scope.applyAnimation = false;
 
@@ -203,8 +203,8 @@ angular.module('app')
       invoked: function() {
         $scope.hero.equipment.skills.push($scope.input1);
 
-        $scope.hero = xpService.add($scope.hero, 15);
-        animateXp(2001, 15);
+        $scope.hero = xpService.add($scope.hero, 10);
+        animateXp(2001, 10);
 
         heroService.editHero($scope.hero)
           .then(function(response) {
