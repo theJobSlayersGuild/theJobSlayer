@@ -6,13 +6,11 @@ angular.module('app')
     $scope.applyAnimation = false;
 
     var animateXp = function (resetTime, xpGainedNum) {
+      $scope.applyAnimation = false;
       $scope.applyAnimation = true;
-      console.log('animateXp firing, $scope.applyAnimation', $scope.applyAnimation);
-
       $scope.xpGainedNum = xpGainedNum;
       setTimeout(function(){
         $scope.applyAnimation = false;
-        console.log('setTimeout firing, $scope.applyAnimation', $scope.applyAnimation);
         $scope.$apply();
       }, resetTime);
     };
@@ -298,9 +296,11 @@ angular.module('app')
 
       if (currentQuest.progress === currentQuest._steps.length) {
         xpService.addAndUpdate(hero, 15);
+        animateXp(2001, 15);
         currentQuest.completed = true;
       } else {
         xpService.addAndUpdate(hero, 10);
+        animateXp(2001, 10);
       }
       questService.editQuest(currentQuest._id, currentQuest);
     };
