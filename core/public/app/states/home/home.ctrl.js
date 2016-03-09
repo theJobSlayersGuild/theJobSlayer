@@ -194,7 +194,7 @@ angular.module('app')
       }
     }, {
       title: 'resources',
-      goatSays: 'The Adventurers\' Log is full of resources submitted by other users--I MEAN HEROES! I meant to say "heroes". Oops.',
+      goatSays: 'The Adventurers\' Log is full of resources submitted by users--HEROES! I meant to say "heroes". Heroes just like you.',
       inputs: 0,
       buttonText: 'Visit the Adventurers\' Log',
       invoked: function() {
