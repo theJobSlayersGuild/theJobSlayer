@@ -23,10 +23,11 @@
   display: flex
   width: 100%
   flex-direction: row
+  //border: 1px solid black
+  padding-left: 3em
 
-
-.alignHeroEquip
-  padding-left: 2em
+.equipmentItemWrapper
+  padding: 1.3em 0em 2em 2em
 
 .avatarWrapper
   display: flex
@@ -87,17 +88,22 @@
 .wisdomGoatPicWrapper
   position: absolute
   display: flex
-  width: 4em
-  background-color: white
-  border: 1px solid black
-  border-radius: 25px
+  right: -1.5em
+  bottom: -1.5em
+  height: 65px
+  width: 65px
+  background-color: #4E9FEE
+  border: 3px solid black
+  border-radius: 35px
 
 .wisdomGoatPic
+  z-index: 201
   position: absolute
-  left: -1.5em
-  top: -1.5em
+  right: .1em
+  bottom: .02em
   width: 3em
-  border: 3px solid black
+  //border-bottom: 2px solid black
+  //border: 3px solid black
 
 .wisdomGoatContent
   display: flex
@@ -109,8 +115,8 @@
   width: 20em
   border: 3px solid black
   border-radius: 25px
-  background: #f1efdf
-
+  padding-bottom: 2em
+  background-color: #f1efdf
 
 .tipAndSpeechCentering
   display: flex
@@ -129,15 +135,16 @@
 
 .goatSubmitTipButton
   position: absolute
-  //display: flex
+  display: flex
   //align-content: flex-end
-  //width: 100%
-  bottom: 5%
-  left: 35%
+  width: 100%
+  //justify-content: center
+  //margin-top: 5em
+  bottom: 10%
+  left: 25%
 
-.firstTip
-
-.secondTip
+.goatSubmit
+  width: 17em
 
 .nextButton
   font-size: 2em

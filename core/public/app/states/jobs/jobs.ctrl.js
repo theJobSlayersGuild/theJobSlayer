@@ -12,6 +12,7 @@ angular.module('app')
         $scope.publicAndPrivateJobs = [];
         $scope.allJobs = [];
         $scope.currentQuests = [];
+        $scope.guildJobs = [];
 
         $scope.xpGainedNum = 0;
         $scope.applyAnimation = false;
