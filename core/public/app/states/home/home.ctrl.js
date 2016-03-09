@@ -2,6 +2,7 @@ angular.module('app')
   .controller('homeCtrl', function($scope, hero, heroService, questService, jobService, xpService, ModalService, authService, $state) {
 
     $scope.hero = hero;
+    
     $scope.xpGainedNum = 0;
     $scope.applyAnimation = false;
 

@@ -77,6 +77,9 @@ angular.module('app')
                 inputs: {hero: $scope.hero, guilds: $scope.guilds}
             }).then(function (modal) {
                 modal.close.then(function (then) {
+                    if (then === 10) {
+                      animateXp(2001, 10);
+                    }
                     $scope.getguild();
                 });
             });
