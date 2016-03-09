@@ -4,9 +4,9 @@
   "description": "",
   "main": "node testServer.js",
   "scripts": {
-    "start": "node testServer.js"
+    "start": "node testServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theJobSlayersGuild/theJobSlayer.git"
