@@ -41,15 +41,15 @@
 
                     <a ng-click="setTip('resume')"><span class="equipmentTitle">Weapon:</span></a>
                     <span ng-show="hero.equipment.resume.done" class="equipmentSpecific">{{weapon}}</span>
-                    <span ng-hide="hero.equipment.resume.done">None</span>
+                    <span class="equipmentSpecific" ng-hide="hero.equipment.resume.done">None</span>
                     <br/>
                     <a ng-click="setTip('linkedin')"><span class="equipmentTitle">Helmet:</span></a>
                     <span class="equipmentSpecific" ng-show="hero.equipment.linkedin.done">{{helmet}}</span>
-                    <span ng-hide="hero.equipment.linkedin.done">None</span>
+                    <span class="equipmentSpecific" ng-hide="hero.equipment.linkedin.done">None</span>
                     <br/>
                     <a ng-click="setTip('portfolioSite')"><span class="equipmentTitle">Shield:</span></a>
                     <span class="equipmentSpecific" ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
-                    <span ng-hide="hero.equipment.portfolioSite.done">None</span>
+                    <span class="equipmentSpecific" ng-hide="hero.equipment.portfolioSite.done">None</span>
                     <br/>
                     <a class="equipmentSpecific" ng-click="setTip('projects')">
                       <img src="./assets/images/equipment/25x25-gem.png" alt="Majickal Gemeralds"/>x0{{hero.equipment.projects.length}}
@@ -162,8 +162,10 @@
 
                                 <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span> <hr> {{step.description}}
                                 <!-- <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a> -->
-                                <img class="stepCheck" src="./assets/images/25x25-check.png" ng-click="nextStep(quest)"
+                                <div class="stepCheckCircle">
+                                  <img class="stepCheck" src="./assets/images/25x25-check.png" ng-click="nextStep(quest)"
                                      title="Complete!"/>
+                                </div>
                             </div>
                             <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
                             <img src="./assets/images/50x50-goat.png" ng-show="quest.progress === step.order">
