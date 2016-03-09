@@ -7,7 +7,7 @@ angular.module('app').controller('newResourceCtrl', function ($scope, close, res
         $scope.resource._author = $scope.hero._id;
         resourceService.createResource(resource).then(function (response) {
             xpService.addAndUpdate($scope.hero, 5);
-            $scope.close();
+            $scope.close(5);
         });
     };
 });
