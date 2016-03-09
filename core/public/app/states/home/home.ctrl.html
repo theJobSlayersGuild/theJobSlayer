@@ -159,7 +159,14 @@
                             <img class="speechBubbleTail" src="./assets/images/speechBubbleTail.png" alt="Speech Bubble" ng-show="quest.progress + 1 === step.order">
                             <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
 
-                                <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span> <hr> {{step.description}}
+                                <span class="flavorDialogue">
+                                  &ldquo;{{step.flavorText}}&rdquo;
+                                </span>
+                                <br/>
+                                <span class="descriptionDialogue">
+                                   {{step.description}}
+                                 </span>
+
                                 <!-- <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a> -->
                                 <div class="stepCheckCircle">
                                   <img class="stepCheck" src="./assets/images/25x25-check.png" ng-click="nextStep(quest)"
