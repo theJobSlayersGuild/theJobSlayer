@@ -6,6 +6,19 @@ angular.module("app").controller("postjobCtrl", function($scope, jobService, que
   $scope.hero = hero;
   $scope.id = hero._id;
 
+  $scope.xpGainedNum = 0;
+  $scope.applyAnimation = false;
+
+  var animateXp = function (resetTime, xpGainedNum) {
+    $scope.applyAnimation = false;
+    $scope.applyAnimation = true;
+    $scope.xpGainedNum = xpGainedNum;
+    setTimeout(function(){
+      $scope.applyAnimation = false;
+      $scope.$apply();
+    }, resetTime);
+  };
+
   $scope.name = [];
   $scope.guilds = guilds;
 
@@ -74,6 +87,7 @@ angular.module("app").controller("postjobCtrl", function($scope, jobService, que
         });
       }
       xpService.addAndUpdate($scope.hero, 10);
+      animateXp(2001, 10);
       close();
       modalService.alert("Job Created");
     });

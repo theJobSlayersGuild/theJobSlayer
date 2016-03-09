@@ -2,6 +2,19 @@ app.controller('resourcesCtrl', function ($scope, resourceService, ModalService,
 
     $scope.hero = hero;
 
+    // $scope.xpGainedNum = 0;
+    // $scope.applyAnimation = false;
+    //
+    // var animateXp = function (resetTime, xpGainedNum) {
+    //   $scope.applyAnimation = false;
+    //   $scope.applyAnimation = true;
+    //   $scope.xpGainedNum = xpGainedNum;
+    //   setTimeout(function(){
+    //     $scope.applyAnimation = false;
+    //     $scope.$apply();
+    //   }, resetTime);
+    // };
+
 
      $scope.getResources = function () {
             resourceService.getResources().then(function(response) {
@@ -23,5 +36,5 @@ app.controller('resourcesCtrl', function ($scope, resourceService, ModalService,
         });
     };
 
-    
+
 });

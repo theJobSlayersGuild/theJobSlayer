@@ -13,6 +13,18 @@ angular.module('app')
         $scope.allJobs = [];
         $scope.currentQuests = [];
 
+        $scope.xpGainedNum = 0;
+        $scope.applyAnimation = false;
+
+        var animateXp = function (resetTime, xpGainedNum) {
+          $scope.applyAnimation = false;
+          $scope.applyAnimation = true;
+          $scope.xpGainedNum = xpGainedNum;
+          setTimeout(function(){
+            $scope.applyAnimation = false;
+            $scope.$apply();
+          }, resetTime);
+        };
 
         $scope.getguild = function () {
             guildService.getGuildsByMember($scope.id)
@@ -70,5 +82,3 @@ angular.module('app')
         };
 
     });
-
-
