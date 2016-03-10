@@ -946,7 +946,7 @@ input[type="password"] {
   flex-wrap: nowrap; }
 
 .splashWrapper {
-  padding: 2em;
+  padding-top: 2em;
   width: 100%;
   min-height: 100vh; }
   .splashWrapper h1 {
@@ -966,12 +966,12 @@ input[type="password"] {
   flex-direction: column;
   justify-content: center;
   border: 10px double white;
-  width: 13em;
+  width: 20em;
   height: auto;
   text-align: center;
   line-height: 1em;
-  margin: 2em 0em;
-  padding: 1em;
+  margin: 7em 0em 1em;
+  padding: 2.5em 4em;
   background-color: black;
   color: white; }
   .loginBox label {
@@ -982,24 +982,34 @@ input[type="password"] {
 
 .staticWrapper {
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  padding-top: 80px; }
 
 .blurb {
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 1em;
-  line-height: 50px;
+  padding: 3.5em 1em;
   min-width: 33%;
   background-color: rgba(149, 209, 244, 0.2); }
+  .blurb h2 {
+    padding: 20px 0; }
 
 .screenShot {
-  height: 8em;
-  width: 8em;
-  background: #FAEB95;
+  height: 280px;
+  width: 280px;
   border: 2px solid #2E2D67;
   align-self: center;
   border-radius: 50%; }
+
+.screenshotQuest {
+  background: url("/assets/images/screenshotQuest.png") no-repeat center top; }
+
+.screenshotEquipment {
+  background: url("/assets/images/screenshotEquipment.png") no-repeat right top; }
+
+.screenshotLevel {
+  background: url("/assets/images/screenshotLevel.png") no-repeat right top; }
 
 * {
   box-sizing: border-box;

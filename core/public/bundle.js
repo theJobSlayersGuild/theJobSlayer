@@ -1273,6 +1273,12 @@ angular.module("app").controller("postjobCtrl", ["$scope", "jobService", "questS
 
 }]);
 
+angular.module('app').controller('questionCtrl', ["$scope", "close", function($scope, close) {
+
+    $scope.close = close;
+
+}]);
+
 angular.module("app").controller("signUpCtrl", ["$scope", "close", "authService", "modalService", function($scope, close, authService, modalService) {
   $scope.close = close;
 
@@ -1290,12 +1296,6 @@ angular.module("app").controller("signUpCtrl", ["$scope", "close", "authService"
            $scope.close();
       });
   };
-
-}]);
-
-angular.module('app').controller('questionCtrl', ["$scope", "close", function($scope, close) {
-
-    $scope.close = close;
 
 }]);
 
@@ -1744,6 +1744,68 @@ angular.module('app')
 
   }]);
 
+app.controller('memberCtrl', ["$scope", "jobService", "resourceService", "hero", "ModalService", "authService", "heroService", "guildService", function($scope, jobService, resourceService, hero, ModalService, authService, heroService, guildService) {
+
+  $scope.hero = hero;
+
+  $scope.getJobs = function() {
+    jobService.getJobByAuthor(hero._id)
+      .then(function(response) {
+        $scope.jobs = response;
+      });
+  };
+
+  $scope.getJobs();
+
+  $scope.getResources = function() {
+    resourceService.getResourceByAuthor(hero._id)
+      .then(function(response) {
+        $scope.resources = response;
+      });
+  };
+
+  $scope.getResources();
+
+
+  $scope.openProfileImageModal = function() {
+    ModalService.showModal({
+      templateUrl: "./app/modals/editImage/editimage.ctrl.html",
+      controller: "editImageCtrl"
+    }).then(function(modal) {
+      modal.close.then(function(newImageUrl) {
+        $scope.hero.profileImage = newImageUrl;
+        $scope.updateHero();
+      });
+    });
+  };
+
+  $scope.getGuilds = function() {
+    guildService.getGuildsByMember($scope.hero._id)
+    .then(function(response){
+      console.log(response);
+      $scope.guilds = response;
+    });
+  };
+
+  $scope.getGuilds();
+
+  $scope.getHero = function(){
+    authService.currentHero()
+    .then(function(response){
+      $scope.hero = response.data;
+    });
+  };
+
+  $scope.updateHero = function(){
+    delete $scope.hero.password;
+    heroService.editHero($scope.hero)
+    .then(function(response){
+      $scope.getHero();
+    });
+  };
+
+}]);
+
 angular.module('app')
 
     .controller('jobsCtrl', ["$scope", "ModalService", "hero", "jobService", "xpService", "guildService", "questService", function ($scope, ModalService, hero, jobService, xpService, guildService, questService) {
@@ -1832,68 +1894,6 @@ angular.module('app')
         };
 
     }]);
-
-app.controller('memberCtrl', ["$scope", "jobService", "resourceService", "hero", "ModalService", "authService", "heroService", "guildService", function($scope, jobService, resourceService, hero, ModalService, authService, heroService, guildService) {
-
-  $scope.hero = hero;
-
-  $scope.getJobs = function() {
-    jobService.getJobByAuthor(hero._id)
-      .then(function(response) {
-        $scope.jobs = response;
-      });
-  };
-
-  $scope.getJobs();
-
-  $scope.getResources = function() {
-    resourceService.getResourceByAuthor(hero._id)
-      .then(function(response) {
-        $scope.resources = response;
-      });
-  };
-
-  $scope.getResources();
-
-
-  $scope.openProfileImageModal = function() {
-    ModalService.showModal({
-      templateUrl: "./app/modals/editImage/editimage.ctrl.html",
-      controller: "editImageCtrl"
-    }).then(function(modal) {
-      modal.close.then(function(newImageUrl) {
-        $scope.hero.profileImage = newImageUrl;
-        $scope.updateHero();
-      });
-    });
-  };
-
-  $scope.getGuilds = function() {
-    guildService.getGuildsByMember($scope.hero._id)
-    .then(function(response){
-      console.log(response);
-      $scope.guilds = response;
-    });
-  };
-
-  $scope.getGuilds();
-
-  $scope.getHero = function(){
-    authService.currentHero()
-    .then(function(response){
-      $scope.hero = response.data;
-    });
-  };
-
-  $scope.updateHero = function(){
-    delete $scope.hero.password;
-    heroService.editHero($scope.hero)
-    .then(function(response){
-      $scope.getHero();
-    });
-  };
-
-}]);
 
 app.controller('profileCtrl', ["$scope", "$state", "jobService", "resourceService", "hero", "ModalService", "authService", "heroService", "guildService", "modalService", function($scope, $state, jobService, resourceService, hero, ModalService, authService, heroService, guildService, modalService) {
 
