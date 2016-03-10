@@ -4,3 +4,10 @@ bundle.js
 style.css
 config.js
 npm-debug.log
+
+# for development only:
+# (comment out when deploying to heroku)
+config.js
+bower_components/
+style.css
+bundle.js
