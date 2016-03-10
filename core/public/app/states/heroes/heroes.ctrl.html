@@ -1,26 +1,37 @@
 <div class="heroesPageWrapper">
 
-        <dir-nav-bar hero="hero"></dir-nav-bar> 
+    <dir-nav-bar hero="hero"></dir-nav-bar>
 
-    
+
     <h1>Hall of Heroes</h1>
     <br>
-
 
     <div class="heroesWrapper">
         <div class="heroesContentWrapper">
             <div class="heroesContent" ng-repeat="hero in heroes | orderBy: '-xp'" ui-sref="member({id:hero._id})">
                 <div class="heroListWrapper">
 
+                    <div class="heroImageInfoContainer">
                         <div class="heroImageWrapper" style="display: inline-block">
                             <img class="heroImage" ng-src="{{hero.profileImage}}"/>
                         </div>
 
                         <div class="heroesInfoWrapper">
                             <div style="display: inline-block">
-                                <h2><br/>{{hero.name}} {{hero.title}}</h2> Level: {{hero.level}} XP: {{hero.xp}}
+                                <h2><br/>{{hero.name}} {{hero.title}}</h2> <span class="equipmentTitle">Level:</span> <span class="equipmentSpecific">
+                                {{hero.level}}</span> <span class="equipmentTitle">XP:</span> <span class="equipmentSpecific">{{hero.xp}}</span>
+                                &nbsp;&nbsp;<a class="equipmentSpecific" ng-click="setTip('projects')">
+                                    <img src="./assets/images/equipment/25x25-gem.png" alt="Majickal Gemeralds"/>x0{{hero.equipment.projects.length}}
+                                </a>&nbsp;
+                                <a class="equipmentSpecific" ng-click="setTip('skills')">
+                                    <img src="./assets/images/equipment/25x25-spell.png" alt="Spellbooks"/>x0{{hero.equipment.skills.length}}
+                                </a>&nbsp;
+                                <a class="equipmentSpecific" style="line-height: 50px" ng-click="setTip('meetups')">
+                                    <img src="./assets/images/equipment/25x25-gold.png" alt="Gold Pieces"/>x0{{hero.equipment.meetups}}
+                                </a>
                             </div>
                         </div>
+                    </div>
 
                 </div>
             </div>

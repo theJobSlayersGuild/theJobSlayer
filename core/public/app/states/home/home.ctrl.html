@@ -2,6 +2,8 @@
     <dir-nav-bar hero="hero"></dir-nav-bar>
     <h1>Home</h1>
     <div class="homeContent">
+        <br>
+        <h2>{{hero.name}} {{hero.title}}</h2>
         <div class="avatarAndGoatWrapper">
             <div class="avatarWrapper">
                 <div class="alignAvatarAndInfo">
@@ -25,45 +27,45 @@
                         </div>
                     </div>
                 </div>
-                <div style="display: inline-block">
-                    <br/>
-                    <h2>
-                        {{hero.name}}
-                        {{hero.title}}
-                        <button ng-click="openQuestionModal()">?</button>
-                    </h2>
-                    <br/>
-                    <span class="equipmentTitle">Level:</span> <span class="equipmentSpecific">0{{hero.level}}</span> <span class="equipmentTitle">XP:</span> <span class="equipmentSpecific">{{hero.xp}}</span>
-                    <br/>
+                
+                <div class="equipmentItemWrapper">
+                    <div style="display: inline-block">
+                        <span class="equipmentTitle">Level:</span> <span
+                            class="equipmentSpecific">0{{hero.level}}</span> <span class="equipmentTitle">XP:</span>
+                        <span class="equipmentSpecific">{{hero.xp}}</span>
+                        <br/>
 
-                    <!-- <br/><span style="line-height: 35px">INVENTORY</span>
-                    <br/> -->
+                        <!-- <br/><span style="line-height: 35px">INVENTORY</span>
+                        <br/> -->
 
-                    <a ng-click="setTip('resume')"><span class="equipmentTitle">Weapon:</span></a>
-                    <span ng-show="hero.equipment.resume.done" class="equipmentSpecific">{{weapon}}</span>
-                    <span class="equipmentSpecific" ng-hide="hero.equipment.resume.done">None</span>
-                    <br/>
-                    <a ng-click="setTip('linkedin')"><span class="equipmentTitle">Helmet:</span></a>
-                    <span class="equipmentSpecific" ng-show="hero.equipment.linkedin.done">{{helmet}}</span>
-                    <span class="equipmentSpecific" ng-hide="hero.equipment.linkedin.done">None</span>
-                    <br/>
-                    <a ng-click="setTip('portfolioSite')"><span class="equipmentTitle">Shield:</span></a>
-                    <span class="equipmentSpecific" ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
-                    <span class="equipmentSpecific" ng-hide="hero.equipment.portfolioSite.done">None</span>
-                    <br/>
-                    <a class="equipmentSpecific" ng-click="setTip('projects')">
-                      <img src="./assets/images/equipment/25x25-gem.png" alt="Majickal Gemeralds"/>x0{{hero.equipment.projects.length}}
-                    </a>&nbsp;
-                    <a class="equipmentSpecific" ng-click="setTip('skills')">
-                        <img src="./assets/images/equipment/25x25-spell.png" alt="Spellbooks"/>x0{{hero.equipment.skills.length}}
-                    </a>&nbsp;
-                    <a class="equipmentSpecific" style="line-height: 50px" ng-click="setTip('meetups')">
-                        <img src="./assets/images/equipment/25x25-gold.png" alt="Gold Pieces"/>x0{{hero.equipment.meetups}}
-                    </a>
-                    <!-- maybe a new contact is gold, meetup is silver? -->
+                        <a ng-click="setTip('resume')"><span class="equipmentTitle">Weapon:</span></a>
+                        <span ng-show="hero.equipment.resume.done" class="equipmentSpecific">{{weapon}}</span>
+                        <span class="equipmentSpecific" ng-hide="hero.equipment.resume.done">None</span>
+                        <br/>
+                        <a ng-click="setTip('linkedin')"><span class="equipmentTitle">Helmet:</span></a>
+                        <span class="equipmentSpecific" ng-show="hero.equipment.linkedin.done">{{helmet}}</span>
+                        <span class="equipmentSpecific" ng-hide="hero.equipment.linkedin.done">None</span>
+                        <br/>
+                        <a ng-click="setTip('portfolioSite')"><span class="equipmentTitle">Shield:</span></a>
+                        <span class="equipmentSpecific" ng-show="hero.equipment.portfolioSite.done">{{shield}}</span>
+                        <span class="equipmentSpecific" ng-hide="hero.equipment.portfolioSite.done">None</span>
+                        <br/>
+                        <a class="equipmentSpecific" ng-click="setTip('projects')">
+                            <img src="./assets/images/equipment/25x25-gem.png" title="Majickal Gemeralds"/>x0{{hero.equipment.projects.length}}
+                        </a>&nbsp;
+                        <a class="equipmentSpecific" ng-click="setTip('skills')">
+                            <img src="./assets/images/equipment/25x25-spell.png" title="Spellbooks"/>x0{{hero.equipment.skills.length}}
+                        </a>&nbsp;
+                        <a class="equipmentSpecific" style="line-height: 50px" ng-click="setTip('meetups')">
+                            <img src="./assets/images/equipment/25x25-gold.png" title="Gold Pieces"/>x0{{hero.equipment.meetups}}
+                        </a>
+                        <br>
+                        <button class="questionButton" ng-click="openQuestionModal()">?</button>
+                        <!-- maybe a new contact is gold, meetup is silver? -->
 
-                    <br/>
+                        <br/>
 
+                    </div>
                 </div>
             </div>
             <div class="goatWrapper">
@@ -72,7 +74,7 @@
                     <div class="wisdomGoatSaysTitle">
                         <h3>Jedi Infinite Wisdom Goat Wizard Says:</h3>
                     </div>
-                    <br>
+
                     <div class="wisdomGoatContentWrapper">
                         <div class="wisdomGoatButtonsAlignment">
                             <div class="previousButton" ng-class="{hiddenPreviousButton: !showPreviousButton}"
@@ -80,10 +82,11 @@
                             </div>
                             <div class="wisdomGoatContent">
 
-                                <div class=""><img class="wisdomGoatPic wisdomGoatPicWrapper"
-                                                   src="../../../assets/images/50x75-talkingGoat.png" alt="">
-                                    <!--goat image--></div>
-                                <!--<div class="tipAndSpeechCentering">-->
+                                <div class="wisdomGoatPicWrapper"><img class="wisdomGoatPic"
+                                                                       src="../../../assets/images/50x75-talkingGoat.png"
+                                                                       alt="">
+                                </div>
+
                                 <div class="goatTip">
                                     {{ currentTip.goatSays }}
                                 </div>
@@ -108,9 +111,12 @@
                                             </div>
                                         </div>
                                         <div class="goatSubmitTipButton">
-                                            <button type="submit" ng-click="currentTip.invoked()">
-                                                {{currentTip.buttonText}}
-                                            </button>
+                                            <button>
+                                                <div class="goatSubmit" type="submit" ng-click="currentTip.invoked()">
+                                                    <span class="goatSubmit">{{currentTip.buttonText}}</span>
+
+                                                </div>
+
                                         </div>
                                     </form>
                                 </div>
@@ -156,14 +162,23 @@
                 <div class="stepsWrapper" ng-repeat="step in quest._steps">
                     <div class="stepColumn">
                         <div class="topStepImageWrapper">
-                            <img class="speechBubbleTail" src="./assets/images/speechBubbleTail.png" alt="Speech Bubble" ng-show="quest.progress + 1 === step.order">
+                            <img class="speechBubbleTail" src="./assets/images/speechBubbleTail.png" alt="Speech Bubble"
+                                 ng-show="quest.progress + 1 === step.order">
                             <div class="stepDialogue" ng-show="quest.progress + 1 === step.order">
 
-                                <span class="flavorDialogue">&ldquo;{{step.flavorText}}&rdquo;</span> <hr> {{step.description}}
+                                <span class="flavorDialogue">
+                                  &ldquo;{{step.flavorText}}&rdquo;
+                                </span>
+                                <br/>
+                                <span class="descriptionDialogue">
+                                   {{step.description}}
+                                 </span>
+
                                 <!-- <a ng-click="nextStep(quest)" style="font-size: 18px">&#9989</a> -->
                                 <div class="stepCheckCircle">
-                                  <img class="stepCheck" src="./assets/images/25x25-check.png" ng-click="nextStep(quest)"
-                                     title="Complete!"/>
+                                    <img class="stepCheck" src="./assets/images/25x25-check.png"
+                                         ng-click="nextStep(quest)"
+                                         title="Complete!"/>
                                 </div>
                             </div>
                             <img src="./assets/images/50x50-livingEnemy.png" ng-show="quest.progress < step.order">
@@ -181,9 +196,9 @@
                 </div>
 
                 <div class="inline-block">
-                  <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt=""/>
-                  <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt=""/>
-                  <div class="pressStartSmall" ng-if="quest.completed === true">Complete!</div>
+                    <img ng-if="quest.completed === false" src="./assets/images/100x100-livingBoss.png" alt=""/>
+                    <img ng-if="quest.completed === true" src="./assets/images/100x100-deadBoss.png" alt=""/>
+                    <div class="pressStartSmall" ng-if="quest.completed === true">Complete!</div>
                 </div>
                 <hr ng-if="!$last">
                 <br ng-if="!$last">
@@ -198,4 +213,8 @@
         <br/>
 
     </div>
+</div>
+
+<div class="xpGained" ng-class="{animate: applyAnimation}">
+  +{{xpGainedNum}} XP!
 </div>
