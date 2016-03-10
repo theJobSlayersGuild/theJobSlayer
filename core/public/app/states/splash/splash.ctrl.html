@@ -1,23 +1,26 @@
 <div class="splashWrapper">
     <div class="loginWrapper">
-    <div class="loginBox">
-       <form>
-           <h2>Log in</h2>
-           <br>
-            <label>Email</label>
+        <div class="mainTitle">
+            <img src="../assets/images/mainTitle.png" alt="">
+        </div>
+        <div class="loginBox">
+        <form>
+            <h2>Log in</h2>
             <br>
-            <input ng-model="hero.email" type="text" placeholder="Email" autofocus>
+                <label>Email</label>
+                <br>
+                <input ng-model="hero.email" type="text" placeholder="Email" autofocus>
+                <br>
+                <label>Password</label>
+                <br>
+                <input ng-model="hero.password" type="password" placeholder="Password">
+                <br>
+                <button ng-click="submitLogin(hero)">Submit</button>
+            </form>
             <br>
-            <label>Password</label>
-            <br>
-            <input ng-model="hero.password" type="password" placeholder="Password">
-            <br>
-            <button ng-click="submitLogin(hero)">Submit</button>
-        </form>
-        <br>
-        <label>Not a member?</label>
-        <button ng-click="openSignUpModal()">Create New Character</button>
-    </div>
+            <label>Not a member?</label>
+            <button ng-click="openSignUpModal()">Create New Character</button>
+        </div>
     </div>
     <div class="splashGrassWrapper">
         <div class="splashGuys">
@@ -46,7 +49,7 @@
         <div class="blurb">
             <div class="screenShot screenshotLevel"></div>
             <h2>Level up!</h2>
-            <p>Gain XP as you do all the things! Upgrade your weapons, armor and everything as you accept quests, post jobs and do all of the things!</p>
+            <p>Gain XP, upgrade your weapons and armor and acquire fantastic wealth as you accept quests, post jobs and d!</p>
         </div>
     </div>
 </div>
