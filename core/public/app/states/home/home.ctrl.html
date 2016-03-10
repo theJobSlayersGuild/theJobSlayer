@@ -2,6 +2,8 @@
     <dir-nav-bar hero="hero"></dir-nav-bar>
     <h1>Home</h1>
     <div class="homeContent">
+        <br>
+        <h2>{{hero.name}} {{hero.title}}</h2>
         <div class="avatarAndGoatWrapper">
             <div class="avatarWrapper">
                 <div class="alignAvatarAndInfo">
@@ -25,15 +27,9 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="equipmentItemWrapper">
                     <div style="display: inline-block">
-                        <br/>
-                        <h2>
-                            {{hero.name}}
-                            {{hero.title}}
-                            <button ng-click="openQuestionModal()">?</button>
-                        </h2>
-                        <br/>
                         <span class="equipmentTitle">Level:</span> <span
                             class="equipmentSpecific">0{{hero.level}}</span> <span class="equipmentTitle">XP:</span>
                         <span class="equipmentSpecific">{{hero.xp}}</span>
@@ -63,6 +59,8 @@
                         <a class="equipmentSpecific" style="line-height: 50px" ng-click="setTip('meetups')">
                             <img src="./assets/images/equipment/25x25-gold.png" title="Gold Pieces"/>x0{{hero.equipment.meetups}}
                         </a>
+                        <br>
+                        <button class="questionButton" ng-click="openQuestionModal()">?</button>
                         <!-- maybe a new contact is gold, meetup is silver? -->
 
                         <br/>
