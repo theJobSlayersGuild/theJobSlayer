@@ -655,324 +655,6 @@ angular.module('app').service('xpService', ["heroService", function(heroService)
 
 }]);
 
-angular.module('app')
-    .directive('dirGuildJobListing', function () {
-            return {
-                restrict: 'AE',
-                templateUrl: './app/directives/guildjobs/guildjobs.dir.html',
-                scope: {
-                    job: '=',
-                    hero: '=',
-                    getQuests: '&',
-                },
-
-                controller: ["$scope", "jobService", "questService", "ModalService", "stepService", "guildService", function ($scope, jobService, questService, ModalService, stepService, guildService) {
-
-                    $scope.id = $scope.hero._id
-
-                    $scope.jobIds = [];
-                    $scope.guildIds = [];
-
-
-                    $scope.getPrivateAndPublic = function() {
-                        jobService.getPrivateAndPublic($scope.guildIds, $scope.id)
-                            .then(function(response) {
-                                console.log("pandB" + response);
-                            })
-                    }
-
-
-                    $scope.getguild = function () {
-                        guildService.getGuildsByMember($scope.id)
-                            .then(function (response) {
-                                $scope.guilds = response;
-                                console.log(response);
-
-                                for (var i = 0; i < $scope.guilds.length; i++) {
-                                    $scope.guildIds.push($scope.guilds._id);
-
-                                    if ($scope.guilds[i].jobs > 0) {
-                                        for (var j = 0; j < $scope.guilds.jobs[i].length; j++) {
-                                            $scope.realGuildJobs.push($scope.guilds.jobs[i]);
-                                            console.log($scope.realGuildJobs);
-                                        }
-                                    }
-
-                                }
-                                $scope.getPrivateAndPublic()
-
-                            })
-
-                    }
-
-                    $scope.getguild();
-
-                    $scope.getAllSteps = function () {
-                        stepService.getSteps()
-                            .then(function (response) {
-                                $scope.stepsId = response;
-                            })
-                    }
-                    $scope.getAllSteps();
-
-                    $scope.acceptQuest = function (jobId, heroId, stepsId) {
-                        questService.createQuest({_job: jobId, _hero: heroId, _steps: stepsId})
-                            .then(function () {
-                                $scope.getQuests();
-                            });
-
-                    }
-
-                    $scope.editJob = function (jobId, heroId) {
-                        jobService.editJob({_job: jobId, _hero: heroId})
-                    }
-
-                    $scope.deleteJob = function (jobId) {
-                        jobService.deleteJob(jobId)
-                        $scope.getJobsByGuild();
-                    }
-
-                    $scope.openEditJobModal = function (job) {
-                        ModalService.showModal({
-                            templateUrl: "./app/modals/editjobs/editjobModal.ctrl.html",
-                            controller: "editjobCtrl",
-                            inputs: {hero: $scope.hero, job: job}
-                        }).then(function (modal) {
-                            modal.close.then(function (then) {
-                            });
-                        });
-                    };
-                }]
-            }
-        }
-    );
-angular.module('app')
-    .directive('dirMemberJobListing', function () {
-        return {
-            restrict: 'AE',
-            templateUrl: './app/directives/memberJobs/memberJobs.dir.html',
-            scope: {
-                job: '=',
-                hero: '=',
-                getQuests: '&'
-            },
-
-            controller: ["$scope", "jobService", "questService", "ModalService", "stepService", "guildService", function ($scope, jobService, questService, ModalService, stepService, guildService) {
-
-                $scope.getAllSteps = function () {
-                    stepService.getSteps()
-                        .then(function (response) {
-                            $scope.stepsId = response;
-                        });
-                };
-                $scope.getAllSteps();
-
-                $scope.acceptQuest = function (jobId, heroId, stepsId) {
-                    questService.createQuest({_job: jobId, _hero: heroId, _steps: stepsId})
-                    .then(function() {
-                      $scope.getQuests();
-                    });
-                };
-
-                $scope.editJob = function (jobId, heroId) {
-                    jobService.editJob({_job: jobId, _hero: heroId});
-                };
-
-                $scope.deleteJob = function (jobId) {
-                    jobService.deleteJob(jobId);
-                    $scope.getJobs();
-                };
-
-                $scope.openEditJobModal = function (job) {
-                    ModalService.showModal({
-                        templateUrl: "./app/modals/editjobs/editjobModal.ctrl.html",
-                        controller: "editjobCtrl",
-                        inputs: {hero: $scope.hero, job: job}
-                    }).then(function (modal) {
-                        modal.close.then(function (then) {
-                        });
-                    });
-                };
-            }]
-        };
-    });
-
-angular.module('app')
-  .directive('dirMemberResources', function() {
-    return {
-      restrict: 'AE',
-      templateUrl: './app/directives/memberResources/memberResources.dir.html',
-      scope: {
-        resource: '=',
-        hero: '='
-      },
-      controller: ["$scope", "ModalService", "resourceService", "authService", "modalService", function($scope, ModalService, resourceService, authService, modalService) {
-
-        $scope.openEditResourceModal = function(resource) {
-          ModalService.showModal({
-            templateUrl: "./app/modals/editResource/editResourceModal.html",
-            controller: "editResourceModal",
-            inputs: {
-              hero: $scope.hero,
-              resource: $scope.resource
-            }
-          }).then(function(modal) {
-            modal.close.then(function(then) {});
-          });
-        };
-        $scope.deleteResource = function(resourceId) {
-          resourceService.deleteResource(resourceId).then(function(response) {
-            modalService.alert("Resource Deleted!");
-          });
-        };
-
-      }]
-    };
-  });
-
-angular.module('app')
-  .directive('dirNavBar', function() {
-    return {
-      restrict: 'AE',
-      templateUrl: './app/directives/navbar/navbar.dir.html',
-      scope: {
-        hero: '='
-      },
-      controller: ["$scope", "$state", "authService", function($scope, $state, authService) {
-
-        $scope.logout = function() {
-
-          authService.logout()
-            .then(function(response) {
-            });
-          $state.go('splash');
-        };
-      }]
-    };
-  });
-
-angular.module('app')
-    .directive('dirJobListing', function () {
-
-            return {
-                restrict: 'AE',
-                templateUrl: './app/directives/postjobs/postjobs.dir.html',
-                scope: {
-                    job: '=',
-                    hero: '=',
-                    getQuests: '&',
-                },
-
-                controller: ["$scope", "jobService", "questService", "ModalService", "stepService", "guildService", function ($scope, jobService, questService, ModalService, stepService, guildService) {
-
-                    $scope.id = $scope.hero._id
-                    $scope.jobIds = [];
-                    $scope.guildIds = [];
-
-
-                    $scope.getguild = function () {
-                        guildService.getGuildsByMember($scope.id)
-                            .then(function (response) {
-                                $scope.guilds = response;
-                                for (var i = 0; i < $scope.guilds.length; i++) {
-                                    var guild = $scope.guilds[i];
-                                    $scope.guildIds.push(guild._id);
-                                }
-                            })
-                    }
-
-                    $scope.getguild();
-
-                    $scope.getAllSteps = function () {
-                        stepService.getSteps()
-                            .then(function (response) {
-                                $scope.stepsId = response;
-                            })
-                    }
-                    $scope.getAllSteps();
-
-                    $scope.acceptQuest = function (jobId, heroId, stepsId) {
-                        questService.createQuest({_job: jobId, _hero: heroId, _steps: stepsId})
-                            .then(function () {
-                                $scope.getQuests();
-                            });
-
-                    }
-
-                    $scope.editJob = function (jobId, heroId) {
-                        jobService.editJob({_job: jobId, _hero: heroId})
-                    }
-
-                    $scope.deleteJob = function (jobId) {
-                        console.log('fired');
-                        $scope.job.archived = true;
-                        jobService.editJob(jobId, $scope.job)
-                            .then(function(response) {
-                                $scope.getQuests();
-                                console.log(response);
-                            })
-                    };
-
-                    $scope.openEditJobModal = function (job) {
-                        ModalService.showModal({
-                            templateUrl: "./app/modals/editjobs/editjobModal.ctrl.html",
-                            controller: "editjobCtrl",
-                            inputs: {hero: $scope.hero, job: job}
-                        }).then(function (modal) {
-                            modal.close.then(function (then) {
-                                $scope.getQuests();
-                            });
-                        });
-                    };
-                }]
-            }
-
-        }
-    );
-
-
-angular.module('app')
-  .directive('dirResources', function() {
-    return {
-      restrict: 'AE',
-      templateUrl: './app/directives/resources/resources.dir.html',
-      scope: {
-        resource: '=',
-        hero: '=',
-        getResources: '&'
-      },
-      controller: ["$scope", "ModalService", "resourceService", "authService", "xpService", "modalService", function($scope, ModalService, resourceService, authService, xpService, modalService) {
-
-        $scope.openEditResourceModal = function(resource) {
-          ModalService.showModal({
-            templateUrl: "./app/modals/editResource/editResourceModal.html",
-            controller: "editResourceModal",
-            inputs: {
-              hero: $scope.hero,
-              resource: $scope.resource
-            }
-          }).then(function(modal) {
-            modal.close.then(function(then) {
-              $scope.getResources();
-            });
-          });
-        };
-
-        $scope.deleteResource = function(resourceId) {
-          resourceService.deleteResource(resourceId).then(function(response) {
-            $scope.getResources();
-            modalService.alert("Resource Deleted!");
-          });
-        };
-
-        $scope.addXp = function() {
-          xpService.addAndUpdate($scope.hero, 5);
-        };
-
-      }]
-    };
-  });
-
 angular.module("app").controller("alertCtrl", ["$scope", "close", "text", function($scope, close, text) {
   $scope.close = close;
   $scope.text = text;
@@ -1042,53 +724,6 @@ angular.module("app").controller("editImageCtrl", ["$scope", "close", function($
 
 }]);
 
-angular.module("app").controller("editjobCtrl", ["$scope", "jobService", "questService", "close", "hero", "job", function($scope, jobService, questService, close, hero, job) {
-    $scope.close = close;
-
-    $scope.hero = hero;
-    $scope.job = job;
-    //$scope.job = {
-    //    companyName: null,
-    //    companyUrl: null,
-    //    skillsRequired: [],
-    //    position: null,
-    //    location: {
-    //        city: null,
-    //        state: null,
-    //    },
-    //    descriptionUrl: null,
-    //    summary: null,
-    //    contact: {
-    //        name: null,
-    //        email: null,
-    //        phone: null,
-    //    },
-    //    salary: null,
-    //    equity: null,
-    //    positionType: null,
-    //    public: null
-    //};
-
-
-    $scope.addSkill = function(skill) {
-        $scope.job.skillsRequired.push(skill);
-    }
-
-    $scope.removeSkill = function(skill) {
-        var skillToRemove = $scope.job.skillsRequired.indexOf(skill);
-    }
-
-    
-
-    $scope.editJobs = function(id, job) {
-        jobService.editJob(id, job)
-            .then(function() {
-                close();
-            })
-    }
-
-
-}]);
 angular.module("app").controller("editProfileCtrl", ["$scope", "close", "text", function($scope, close, text) {
   $scope.close = close;
   $scope.text = text;
@@ -1136,6 +771,53 @@ angular.module("app").controller("editResourceModal", ["$scope", "resourceServic
     };
 }]);
 
+angular.module("app").controller("editjobCtrl", ["$scope", "jobService", "questService", "close", "hero", "job", function($scope, jobService, questService, close, hero, job) {
+    $scope.close = close;
+
+    $scope.hero = hero;
+    $scope.job = job;
+    //$scope.job = {
+    //    companyName: null,
+    //    companyUrl: null,
+    //    skillsRequired: [],
+    //    position: null,
+    //    location: {
+    //        city: null,
+    //        state: null,
+    //    },
+    //    descriptionUrl: null,
+    //    summary: null,
+    //    contact: {
+    //        name: null,
+    //        email: null,
+    //        phone: null,
+    //    },
+    //    salary: null,
+    //    equity: null,
+    //    positionType: null,
+    //    public: null
+    //};
+
+
+    $scope.addSkill = function(skill) {
+        $scope.job.skillsRequired.push(skill);
+    }
+
+    $scope.removeSkill = function(skill) {
+        var skillToRemove = $scope.job.skillsRequired.indexOf(skill);
+    }
+
+    
+
+    $scope.editJobs = function(id, job) {
+        jobService.editJob(id, job)
+            .then(function() {
+                close();
+            })
+    }
+
+
+}]);
 angular.module("app").controller("guildCtrl", ["$scope", "close", "guildService", "_guildMaster", "heroService", "xpService", "modalService", function($scope, close, guildService, _guildMaster, heroService, xpService, modalService) {
 
   $scope.addGuild = function(guild) {
@@ -1189,6 +871,12 @@ angular.module('app').controller('newResourceCtrl', ["$scope", "close", "resourc
             $scope.close(5);
         });
     };
+}]);
+
+angular.module('app').controller('questionCtrl', ["$scope", "close", function($scope, close) {
+
+    $scope.close = close;
+
 }]);
 
 angular.module("app").controller("postjobCtrl", ["$scope", "jobService", "questService", "close", "hero", "guildService", "guilds", "xpService", "modalService", function ($scope, jobService, questService, close, hero, guildService, guilds, xpService, modalService) {
@@ -1270,12 +958,6 @@ angular.module("app").controller("postjobCtrl", ["$scope", "jobService", "questS
                   close(10);
             });
     };
-
-}]);
-
-angular.module('app').controller('questionCtrl', ["$scope", "close", function($scope, close) {
-
-    $scope.close = close;
 
 }]);
 
@@ -1378,17 +1060,6 @@ app.controller('guildMasterCtrl', ["$scope", "ModalService", "guildService", "he
         });
     };
 
-}]);
-
-app.controller('heroesCtrl', ["$scope", "heroService", "hero", function($scope, heroService, hero) {
-    $scope.hero = hero;
-  $scope.getHeroes = function(){
-    heroService.getHeroes()
-    .then(function(response){
-      $scope.heroes = response;
-    });
-  };
-  $scope.getHeroes();
 }]);
 
 angular.module('app')
@@ -1744,6 +1415,17 @@ angular.module('app')
 
   }]);
 
+app.controller('heroesCtrl', ["$scope", "heroService", "hero", function($scope, heroService, hero) {
+    $scope.hero = hero;
+  $scope.getHeroes = function(){
+    heroService.getHeroes()
+    .then(function(response){
+      $scope.heroes = response;
+    });
+  };
+  $scope.getHeroes();
+}]);
+
 angular.module('app')
 
     .controller('jobsCtrl', ["$scope", "ModalService", "hero", "jobService", "xpService", "guildService", "questService", function ($scope, ModalService, hero, jobService, xpService, guildService, questService) {
@@ -1895,6 +1577,396 @@ app.controller('memberCtrl', ["$scope", "jobService", "resourceService", "hero",
 
 }]);
 
+app.controller('resourcesCtrl', ["$scope", "resourceService", "ModalService", "hero", "xpService", function ($scope, resourceService, ModalService, hero, xpService) {
+
+    $scope.hero = hero;
+
+    $scope.xpGainedNum = 0;
+    $scope.applyAnimation = false;
+
+    var animateXp = function (resetTime, xpGainedNum) {
+      $scope.applyAnimation = false;
+      $scope.applyAnimation = true;
+      $scope.xpGainedNum = xpGainedNum;
+      setTimeout(function(){
+        $scope.applyAnimation = false;
+        $scope.$apply();
+      }, resetTime);
+    };
+
+
+     $scope.getResources = function () {
+            resourceService.getResources().then(function(response) {
+            $scope.resources = response;
+          });
+        };
+
+    $scope.getResources();
+
+     $scope.openNewResourceModal = function() {
+        ModalService.showModal({
+            templateUrl: "./app/modals/newResource/newResource.ctrl.html",
+            controller: "newResourceCtrl",
+            inputs: {hero: $scope.hero}
+        }).then(function (modal) {
+            modal.close.then(function (then) {
+                if (then === 5) {
+                  animateXp(2001, 5);
+                }
+                $scope.getResources();
+            });
+        });
+    };
+
+
+}]);
+
+angular.module('app')
+    .directive('dirGuildJobListing', function () {
+            return {
+                restrict: 'AE',
+                templateUrl: './app/directives/guildjobs/guildjobs.dir.html',
+                scope: {
+                    job: '=',
+                    hero: '=',
+                    getQuests: '&',
+                },
+
+                controller: ["$scope", "jobService", "questService", "ModalService", "stepService", "guildService", function ($scope, jobService, questService, ModalService, stepService, guildService) {
+
+                    $scope.id = $scope.hero._id
+
+                    $scope.jobIds = [];
+                    $scope.guildIds = [];
+
+
+                    $scope.getPrivateAndPublic = function() {
+                        jobService.getPrivateAndPublic($scope.guildIds, $scope.id)
+                            .then(function(response) {
+                                console.log("pandB" + response);
+                            })
+                    }
+
+
+                    $scope.getguild = function () {
+                        guildService.getGuildsByMember($scope.id)
+                            .then(function (response) {
+                                $scope.guilds = response;
+                                console.log(response);
+
+                                for (var i = 0; i < $scope.guilds.length; i++) {
+                                    $scope.guildIds.push($scope.guilds._id);
+
+                                    if ($scope.guilds[i].jobs > 0) {
+                                        for (var j = 0; j < $scope.guilds.jobs[i].length; j++) {
+                                            $scope.realGuildJobs.push($scope.guilds.jobs[i]);
+                                            console.log($scope.realGuildJobs);
+                                        }
+                                    }
+
+                                }
+                                $scope.getPrivateAndPublic()
+
+                            })
+
+                    }
+
+                    $scope.getguild();
+
+                    $scope.getAllSteps = function () {
+                        stepService.getSteps()
+                            .then(function (response) {
+                                $scope.stepsId = response;
+                            })
+                    }
+                    $scope.getAllSteps();
+
+                    $scope.acceptQuest = function (jobId, heroId, stepsId) {
+                        questService.createQuest({_job: jobId, _hero: heroId, _steps: stepsId})
+                            .then(function () {
+                                $scope.getQuests();
+                            });
+
+                    }
+
+                    $scope.editJob = function (jobId, heroId) {
+                        jobService.editJob({_job: jobId, _hero: heroId})
+                    }
+
+                    $scope.deleteJob = function (jobId) {
+                        jobService.deleteJob(jobId)
+                        $scope.getJobsByGuild();
+                    }
+
+                    $scope.openEditJobModal = function (job) {
+                        ModalService.showModal({
+                            templateUrl: "./app/modals/editjobs/editjobModal.ctrl.html",
+                            controller: "editjobCtrl",
+                            inputs: {hero: $scope.hero, job: job}
+                        }).then(function (modal) {
+                            modal.close.then(function (then) {
+                            });
+                        });
+                    };
+                }]
+            }
+        }
+    );
+angular.module('app')
+    .directive('dirMemberJobListing', function () {
+        return {
+            restrict: 'AE',
+            templateUrl: './app/directives/memberJobs/memberJobs.dir.html',
+            scope: {
+                job: '=',
+                hero: '=',
+                getQuests: '&'
+            },
+
+            controller: ["$scope", "jobService", "questService", "ModalService", "stepService", "guildService", function ($scope, jobService, questService, ModalService, stepService, guildService) {
+
+                $scope.getAllSteps = function () {
+                    stepService.getSteps()
+                        .then(function (response) {
+                            $scope.stepsId = response;
+                        });
+                };
+                $scope.getAllSteps();
+
+                $scope.acceptQuest = function (jobId, heroId, stepsId) {
+                    questService.createQuest({_job: jobId, _hero: heroId, _steps: stepsId})
+                    .then(function() {
+                      $scope.getQuests();
+                    });
+                };
+
+                $scope.editJob = function (jobId, heroId) {
+                    jobService.editJob({_job: jobId, _hero: heroId});
+                };
+
+                $scope.deleteJob = function (jobId) {
+                    jobService.deleteJob(jobId);
+                    $scope.getJobs();
+                };
+
+                $scope.openEditJobModal = function (job) {
+                    ModalService.showModal({
+                        templateUrl: "./app/modals/editjobs/editjobModal.ctrl.html",
+                        controller: "editjobCtrl",
+                        inputs: {hero: $scope.hero, job: job}
+                    }).then(function (modal) {
+                        modal.close.then(function (then) {
+                        });
+                    });
+                };
+            }]
+        };
+    });
+
+angular.module('app')
+  .directive('dirNavBar', function() {
+    return {
+      restrict: 'AE',
+      templateUrl: './app/directives/navbar/navbar.dir.html',
+      scope: {
+        hero: '='
+      },
+      controller: ["$scope", "$state", "authService", function($scope, $state, authService) {
+
+        $scope.logout = function() {
+
+          authService.logout()
+            .then(function(response) {
+            });
+          $state.go('splash');
+        };
+      }]
+    };
+  });
+
+angular.module('app')
+    .directive('dirJobListing', function () {
+
+            return {
+                restrict: 'AE',
+                templateUrl: './app/directives/postjobs/postjobs.dir.html',
+                scope: {
+                    job: '=',
+                    hero: '=',
+                    getQuests: '&',
+                },
+
+                controller: ["$scope", "jobService", "questService", "ModalService", "stepService", "guildService", function ($scope, jobService, questService, ModalService, stepService, guildService) {
+
+                    $scope.id = $scope.hero._id
+                    $scope.jobIds = [];
+                    $scope.guildIds = [];
+
+
+                    $scope.getguild = function () {
+                        guildService.getGuildsByMember($scope.id)
+                            .then(function (response) {
+                                $scope.guilds = response;
+                                for (var i = 0; i < $scope.guilds.length; i++) {
+                                    var guild = $scope.guilds[i];
+                                    $scope.guildIds.push(guild._id);
+                                }
+                            })
+                    }
+
+                    $scope.getguild();
+
+                    $scope.getAllSteps = function () {
+                        stepService.getSteps()
+                            .then(function (response) {
+                                $scope.stepsId = response;
+                            })
+                    }
+                    $scope.getAllSteps();
+
+                    $scope.acceptQuest = function (jobId, heroId, stepsId) {
+                        questService.createQuest({_job: jobId, _hero: heroId, _steps: stepsId})
+                            .then(function () {
+                                $scope.getQuests();
+                            });
+
+                    }
+
+                    $scope.editJob = function (jobId, heroId) {
+                        jobService.editJob({_job: jobId, _hero: heroId})
+                    }
+
+                    $scope.deleteJob = function (jobId) {
+                        console.log('fired');
+                        $scope.job.archived = true;
+                        jobService.editJob(jobId, $scope.job)
+                            .then(function(response) {
+                                $scope.getQuests();
+                                console.log(response);
+                            })
+                    };
+
+                    $scope.openEditJobModal = function (job) {
+                        ModalService.showModal({
+                            templateUrl: "./app/modals/editjobs/editjobModal.ctrl.html",
+                            controller: "editjobCtrl",
+                            inputs: {hero: $scope.hero, job: job}
+                        }).then(function (modal) {
+                            modal.close.then(function (then) {
+                                $scope.getQuests();
+                            });
+                        });
+                    };
+                }]
+            }
+
+        }
+    );
+
+
+app.controller('splashCtrl', ["$state", "$scope", "ModalService", "authService", "xpService", "modalService", function ($state, $scope, ModalService, authService, xpService, modalService) {
+
+
+    $scope.user = false;
+
+    $scope.openSignUpModal = function () {
+        ModalService.showModal({
+            templateUrl: "./app/modals/signup/signup.ctrl.html",
+            controller: "signUpCtrl"
+        }).then(function (modal) {
+            modal.close.then(function (then) {
+            });
+        });
+    };
+
+    $scope.submitLogin = function (hero) {
+      authService.login(hero)
+        .then(function (response) {
+          if (!response.data) {
+              modalService.alert(response);
+          }
+          xpService.addAndUpdate(response.data, 1);
+          $state.go('home');
+        });
+    };
+
+}]);
+
+angular.module('app')
+  .directive('dirMemberResources', function() {
+    return {
+      restrict: 'AE',
+      templateUrl: './app/directives/memberResources/memberResources.dir.html',
+      scope: {
+        resource: '=',
+        hero: '='
+      },
+      controller: ["$scope", "ModalService", "resourceService", "authService", "modalService", function($scope, ModalService, resourceService, authService, modalService) {
+
+        $scope.openEditResourceModal = function(resource) {
+          ModalService.showModal({
+            templateUrl: "./app/modals/editResource/editResourceModal.html",
+            controller: "editResourceModal",
+            inputs: {
+              hero: $scope.hero,
+              resource: $scope.resource
+            }
+          }).then(function(modal) {
+            modal.close.then(function(then) {});
+          });
+        };
+        $scope.deleteResource = function(resourceId) {
+          resourceService.deleteResource(resourceId).then(function(response) {
+            modalService.alert("Resource Deleted!");
+          });
+        };
+
+      }]
+    };
+  });
+
+angular.module('app')
+  .directive('dirResources', function() {
+    return {
+      restrict: 'AE',
+      templateUrl: './app/directives/resources/resources.dir.html',
+      scope: {
+        resource: '=',
+        hero: '=',
+        getResources: '&'
+      },
+      controller: ["$scope", "ModalService", "resourceService", "authService", "xpService", "modalService", function($scope, ModalService, resourceService, authService, xpService, modalService) {
+
+        $scope.openEditResourceModal = function(resource) {
+          ModalService.showModal({
+            templateUrl: "./app/modals/editResource/editResourceModal.html",
+            controller: "editResourceModal",
+            inputs: {
+              hero: $scope.hero,
+              resource: $scope.resource
+            }
+          }).then(function(modal) {
+            modal.close.then(function(then) {
+              $scope.getResources();
+            });
+          });
+        };
+
+        $scope.deleteResource = function(resourceId) {
+          resourceService.deleteResource(resourceId).then(function(response) {
+            $scope.getResources();
+            modalService.alert("Resource Deleted!");
+          });
+        };
+
+        $scope.addXp = function() {
+          xpService.addAndUpdate($scope.hero, 5);
+        };
+
+      }]
+    };
+  });
+
 app.controller('profileCtrl', ["$scope", "$state", "jobService", "resourceService", "hero", "ModalService", "authService", "heroService", "guildService", "modalService", function($scope, $state, jobService, resourceService, hero, ModalService, authService, heroService, guildService, modalService) {
 
   $scope.hero = hero;
@@ -1930,7 +2002,7 @@ app.controller('profileCtrl', ["$scope", "$state", "jobService", "resourceServic
 
   $scope.openEditHeroModal = function(text) {
     ModalService.showModal({
-      templateUrl: "./app/modals/editProfile/editProfile.ctrl.html",
+      templateUrl: "./app/modals/editProfile/editprofile.ctrl.html",
       controller: "editProfileCtrl",
       inputs: {
         text: text
@@ -2028,87 +2100,15 @@ app.controller('profileCtrl', ["$scope", "$state", "jobService", "resourceServic
         $scope.getHero();
       });
   };
-  
+
   $scope.deleteProfile = function() {
       console.log('fired')
       heroService.removeHero($scope.hero._id)
       .then(function(response) {
           alert(response.name + 'has been deleted.  Have a nice life!');
           $state.go('splash');
-      }); 
+      });
   };
-
-}]);
-
-app.controller('resourcesCtrl', ["$scope", "resourceService", "ModalService", "hero", "xpService", function ($scope, resourceService, ModalService, hero, xpService) {
-
-    $scope.hero = hero;
-
-    $scope.xpGainedNum = 0;
-    $scope.applyAnimation = false;
-
-    var animateXp = function (resetTime, xpGainedNum) {
-      $scope.applyAnimation = false;
-      $scope.applyAnimation = true;
-      $scope.xpGainedNum = xpGainedNum;
-      setTimeout(function(){
-        $scope.applyAnimation = false;
-        $scope.$apply();
-      }, resetTime);
-    };
-
-
-     $scope.getResources = function () {
-            resourceService.getResources().then(function(response) {
-            $scope.resources = response;
-          });
-        };
-
-    $scope.getResources();
-
-     $scope.openNewResourceModal = function() {
-        ModalService.showModal({
-            templateUrl: "./app/modals/newResource/newResource.ctrl.html",
-            controller: "newResourceCtrl",
-            inputs: {hero: $scope.hero}
-        }).then(function (modal) {
-            modal.close.then(function (then) {
-                if (then === 5) {
-                  animateXp(2001, 5);
-                }
-                $scope.getResources();
-            });
-        });
-    };
-
-
-}]);
-
-app.controller('splashCtrl', ["$state", "$scope", "ModalService", "authService", "xpService", "modalService", function ($state, $scope, ModalService, authService, xpService, modalService) {
-
-
-    $scope.user = false;
-
-    $scope.openSignUpModal = function () {
-        ModalService.showModal({
-            templateUrl: "./app/modals/signup/signup.ctrl.html",
-            controller: "signUpCtrl"
-        }).then(function (modal) {
-            modal.close.then(function (then) {
-            });
-        });
-    };
-
-    $scope.submitLogin = function (hero) {
-      authService.login(hero)
-        .then(function (response) {
-          if (!response.data) {
-              modalService.alert(response);
-          }
-          xpService.addAndUpdate(response.data, 1);
-          $state.go('home');
-        });
-    };
 
 }]);
 

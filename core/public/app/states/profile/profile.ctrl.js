@@ -33,7 +33,7 @@ app.controller('profileCtrl', function($scope, $state, jobService, resourceServi
 
   $scope.openEditHeroModal = function(text) {
     ModalService.showModal({
-      templateUrl: "./app/modals/editProfile/editProfile.ctrl.html",
+      templateUrl: "./app/modals/editProfile/editprofile.ctrl.html",
       controller: "editProfileCtrl",
       inputs: {
         text: text
@@ -131,14 +131,14 @@ app.controller('profileCtrl', function($scope, $state, jobService, resourceServi
         $scope.getHero();
       });
   };
-  
+
   $scope.deleteProfile = function() {
       console.log('fired')
       heroService.removeHero($scope.hero._id)
       .then(function(response) {
           alert(response.name + 'has been deleted.  Have a nice life!');
           $state.go('splash');
-      }); 
+      });
   };
 
 });
