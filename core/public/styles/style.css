@@ -971,7 +971,7 @@ dir-nav-bar {
 .splashWrapper {
   width: 100%;
   min-height: 100vh;
-  background-color: #CD6839; }
+  background-color: #9b5a2e; }
   .splashWrapper h1 {
     text-align: center; }
   .splashWrapper h3 {
@@ -1043,14 +1043,13 @@ dir-nav-bar {
 .splashGrass {
   width: 100%;
   overflow: hidden; }
-  
   .splashGrass img {
     height: 80px; }
 
 .staticWrapper {
   display: flex;
   justify-content: space-around;
-  background-color: #CD6839;
+  background-color: #9b5a2e;
   position: relative;
   bottom: 80px; }
 
