@@ -1,0 +1,1089 @@
+button {
+  font-family: free-pixel, sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  background-color: #3c3c3d;
+  border: 3px solid #6f6f6f;
+  color: white;
+  padding: 2px;
+  cursor: pointer; }
+  button:hover {
+    color: white;
+    background: #6f6f6f;
+    border: 3px solid #257AD3; }
+
+.editQuill {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0px 4px;
+  height: 25px;
+  align-self: center; }
+  .editQuill :hover {
+    transform: rotate(-20deg); }
+
+.deleteBones {
+  display: inline-block;
+  cursor: pointer;
+  height: 25px; }
+  .deleteBones :hover {
+    transform: rotate(10deg); }
+
+@font-face {
+  font-family: free-pixel;
+  src: url("/assets/fonts/FreePixel.ttf") format("truetype"); }
+
+@font-face {
+  font-family: pixel-play;
+  src: url("/assets/fonts/pixelplay.ttf") format("truetype"); }
+
+body {
+  font-family: free-pixel, sans-serif;
+  font-weight: bold;
+  font-size: 18px; }
+
+h1 {
+  font-family: 'Press Start 2P', sans-serif;
+  text-align: center; }
+
+h2 {
+  font-family: free-pixel, serif;
+  color: #257AD3;
+  text-transform: uppercase; }
+
+p {
+  font-family: free-pixel, sans-serif; }
+
+input[type="text"] {
+  font-family: free-pixel, sans-serif; }
+
+input[type="email"] {
+  font-family: free-pixel, sans-serif; }
+
+input[type="password"] {
+  font-family: free-pixel, sans-serif; }
+
+.guildmasterWrapper {
+  height: auto;
+  width: 100%;
+  background: #9b5a2e;
+  padding-bottom: 5em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; }
+
+.guildsHeader {
+  align-self: center; }
+
+.guildsCenterColumn {
+  width: 60%;
+  align-self: center;
+  background: white;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64); }
+
+.newGuildButton {
+  align-self: flex-start; }
+
+.guildList {
+  line-height: 25px;
+  width: 400px;
+  display: flex;
+  flex-direction: column; }
+
+.guildHeader {
+  align-self: center;
+  display: flex;
+  align-items: center; }
+  .guildHeader h2 {
+    color: #257AD3;
+    margin-bottom: 4px; }
+  .guildHeader button {
+    align-self: center; }
+  .guildHeader .guildButtons {
+    height: 25px; }
+
+.heroesPageWrapper {
+  background: #9b5a2e;
+  padding-bottom: 5em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; }
+
+.heroesHeader {
+  align-self: center; }
+
+.heroesWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%; }
+
+.heroImageInfoContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  width: 50em;
+  padding-left: 15%;
+  padding-right: 10%; }
+
+.heroesContent {
+  cursor: pointer; }
+
+.heroListWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  border: 1px solid black;
+  width: 100%;
+  width: 50em;
+  background: white;
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64); }
+
+.heroImageWrapper {
+  display: flex;
+  align-content: center;
+  height: 100%;
+  padding-left: 3em; }
+
+.heroImage {
+  height: 3em; }
+
+.heroesInfoWrapper {
+  padding-left: 2em;
+  padding-bottom: 1.3em; }
+  .heroesInfoWrapper h2 {
+    padding-top: 0xp; }
+
+.homeWrapper {
+  background: #9b5a2e;
+  padding-bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; }
+
+dir-nav-bar {
+  width: 100%; }
+
+.homeHeader {
+  align-self: center;
+  height: 82px; }
+
+.homeContent {
+  width: 90%;
+  background: white;
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64); }
+  .homeContent h2 {
+    text-align: center; }
+
+.alignAvatarAndInfo {
+  padding-top: 2em; }
+
+.avatarAndGoatWrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  padding-left: 3em;
+  align-items: center;
+  justify-content: space-around; }
+
+.equipmentItemWrapper {
+  padding: 3.2em 0em 0em 2em;
+  position: relative; }
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  width: 50%; }
+
+.avatarImage {
+  border: 3px solid black;
+  border-radius: 25px; }
+
+.heroesEquip {
+  display: flex;
+  flex-direction: column; }
+
+.goatWrapper {
+  display: flex;
+  justify-content: center;
+  width: 50%; }
+
+.equipmentTitle {
+  text-transform: uppercase;
+  font-size: 14px; }
+
+.equipmentSpecific, .pressStartSmall {
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 12px; }
+
+.equipmentSpecific {
+  cursor: pointer; }
+
+.wisdomGoatSaysTitle {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: .5em; }
+
+.previousButton {
+  font-size: 2em;
+  cursor: pointer; }
+
+.hiddenPreviousButton {
+  color: white; }
+
+.wisdomGoatContentWrapper {
+  display: flex;
+  width: 100%;
+  height: 10em;
+  justify-content: center; }
+
+.wisdomGoatButtonsAlignment {
+  display: flex;
+  align-items: center; }
+
+.wisdomGoatPicWrapper {
+  position: absolute;
+  display: flex;
+  right: -1.5em;
+  bottom: -1.5em;
+  height: 65px;
+  width: 65px;
+  background-color: #4E9FEE;
+  border: 3px solid black;
+  border-radius: 35px; }
+
+.wisdomGoatPic {
+  z-index: 201;
+  position: absolute;
+  right: .1em;
+  bottom: .02em;
+  width: 3em; }
+
+.wisdomGoatContent {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10em;
+  width: 20em;
+  border: 3px solid black;
+  border-radius: 25px;
+  padding-bottom: 2em;
+  background-color: #f1efdf; }
+
+.tipAndSpeechCentering {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center; }
+
+.goatTip {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-left: 1.85em;
+  padding-right: 1em;
+  margin-bottom: .5em; }
+
+.goatSubmitTipButton {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  bottom: 10%;
+  left: 25%; }
+
+.goatSubmit {
+  width: 17em; }
+
+.nextButton {
+  font-size: 2em;
+  cursor: pointer; }
+
+.questsWrapper {
+  margin: 0 auto; }
+
+.quest {
+  width: 900px;
+  margin: 0 auto; }
+
+.questH2 {
+  text-align: center; }
+
+.questTitle {
+  text-align: center; }
+
+.questStartText {
+  text-align: center; }
+
+.imgWrapper50px {
+  height: 50px;
+  width: 50px; }
+
+.inline-block {
+  display: inline-block; }
+
+.stepsWrapper {
+  display: inline-block; }
+
+.stepColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 120px;
+  height: 200px;
+  width: 120px;
+  position: relative; }
+
+.topStepImageWrapper {
+  height: 50px;
+  width: 50px; }
+
+.progressBarWrapper {
+  position: relative; }
+
+.progressCircle {
+  border-radius: 100%;
+  border: 2px solid #000;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  z-index: 1;
+  background-color: white; }
+
+.completed {
+  background-color: black; }
+
+.progressBar {
+  height: 10px;
+  width: 120px;
+  display: inline-block;
+  bottom: 5px;
+  position: absolute;
+  z-index: 0; }
+
+.speechBubbleTail {
+  position: absolute;
+  left: -133px;
+  top: -23px;
+  z-index: 3; }
+
+.stepDialogue {
+  position: absolute;
+  width: 300px;
+  padding: 15px;
+  border: 1px solid black;
+  background: #f1efdf;
+  border-radius: 10px;
+  font-size: 12px;
+  bottom: 180px;
+  right: -100px;
+  z-index: 2;
+  text-align: center; }
+
+.stepCheck {
+  position: relative;
+  top: 6px; }
+
+.stepCheckCircle {
+  cursor: pointer;
+  background-color: black;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  position: absolute;
+  left: 274px;
+  bottom: -11px; }
+  .stepCheckCircle:hover {
+    background-color: #58A32A; }
+
+.flavorDialogue {
+  font-size: 16px;
+  display: table;
+  margin: 0 auto;
+  line-height: 30px; }
+
+.deadEnemyWrapper {
+  height: 50px;
+  width: 50px; }
+
+.newQuestsP {
+  text-align: center; }
+
+.xpGained {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color: #58A32A;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 20px;
+  opacity: 0; }
+
+.animate {
+  animation-name: xp;
+  animation-duration: 2s; }
+
+@keyframes xp {
+  from {
+    bottom: 10px;
+    display: block;
+    opacity: 1; }
+  to {
+    bottom: 50px;
+    opacity: 0; } }
+
+.equippedAvatar {
+  display: inline-block;
+  position: relative;
+  height: 200px;
+  width: 200px; }
+
+.equipmentImg {
+  position: absolute;
+  left: 0px;
+  top: 0px; }
+
+.modalProfImage {
+  height: 25px;
+  margin: 0 10px; }
+
+.jobsPageWrapper {
+  background: #9b5a2e;
+  padding-bottom: 5em;
+  min-height: 100vh; }
+
+.outerJobsWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center; }
+
+.jobsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #ffffff;
+  width: 70%;
+  padding: 1em;
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64); }
+
+.bountyBoardTitle {
+  display: flex;
+  justify-content: center;
+  width: 100%; }
+
+.jobClassTitleWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center; }
+
+.jobClassTitle {
+  font-size: 1.5em; }
+
+#jobTabs {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  width: 100%; }
+
+.jobInfoWrapper {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 2.5em;
+  flex-wrap: nowrap;
+  margin-left: 0em;
+  margin-right: 1em; }
+
+.acceptQuestButtonDirWrapper {
+  display: flex;
+  align-items: center;
+  width: 7em;
+  margin-left: 6em; }
+
+.jobInfoDirWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%; }
+
+.editQuestButton {
+  padding-top: .25em; }
+
+.deleteBones {
+  padding-top: 0em; }
+
+.overlay {
+  position: relative;
+  display: inline;
+  color: white;
+  padding: 25px;
+  border: 10px double white;
+  background-color: black;
+  z-index: 100;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64); }
+  .overlay h4 {
+    text-align: center;
+    text-transform: uppercase; }
+  .overlay .help-text {
+    font-color: red;
+    font-size: 10px; }
+
+.fade {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  background-color: rgba(5, 5, 5, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.postjobOverlayWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+  position: fixed;
+  width: 35em;
+  height: 37em;
+  left: 20%;
+  top: 10%;
+  border: 2px solid black;
+  background-color: #ffffff;
+  z-index: 100;
+  overflow: auto;
+  border-radius: 2px;
+  border: 1px solid #C0C3C5; }
+
+.exitButton {
+  position: absolute;
+  z-index: 200;
+  top: 1%;
+  left: 1.3%;
+  height: 2em;
+  width: 4em; }
+
+.postJobInputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 100;
+  width: 30em;
+  height: 29em;
+  border: 1px solid black; }
+
+.postJobTitle {
+  width: 100%;
+  padding-bottom: 1em;
+  display: flex;
+  justify-content: center; }
+
+.companyInfoContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center; }
+
+.jobInfo {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: .25em 0em 0em 0em; }
+
+.d {
+  position: relative; }
+
+.jobInfos {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  padding: .15em 0em 0em 0em; }
+
+.jbutton {
+  margin-left: .5em;
+  width: 2.5em;
+  height: 2.5em; }
+
+.dButton {
+  margin-top: .15em;
+  margin-left: .5em;
+  width: 2em;
+  height: 2em; }
+
+.inputHeight {
+  height: 2em; }
+
+.jobInfoSpacing {
+  padding: 1em; }
+
+.postJobModalButton {
+  padding-top: 2em;
+  display: flex;
+  width: 100%;
+  justify-content: center; }
+
+.submitSkill {
+  width: 10em; }
+
+.postJobSkills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  color: white;
+  left: 30%;
+  background-color: black;
+  z-index: 100; }
+
+.skill {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  border: 1px solid black;
+  height: 1em;
+  padding: 1px;
+  margin: 1px; }
+
+.makePrivate {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding-top: .95em; }
+
+.guildListContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 3em;
+  justify-content: center;
+  position: relative; }
+
+.innerGuildContainer {
+  position: absolute;
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  justify-content: center;
+  left: 34%; }
+
+.overlay {
+  color: white;
+  padding: 25px;
+  border: 10px double white;
+  background-color: black;
+  z-index: 100;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64); }
+  .overlay h2 {
+    text-align: center; }
+
+.closeButton {
+  position: relative;
+  bottom: 15px;
+  right: 17px; }
+  .closeButton h4 {
+    text-align: center;
+    text-transform: uppercase; }
+  .closeButton .help-text {
+    font-color: red;
+    font-size: 10px; }
+
+.fade {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  background-color: rgba(5, 5, 5, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.navbarWrapper {
+  background: #2881e6;
+  background: -moz-linear-gradient(top, #2881e6 0%, #2881e6 17%, #52a1eb 49%, #52a1eb 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #2881e6), color-stop(17%, #2881e6), color-stop(49%, #52a1eb), color-stop(100%, #52a1eb));
+  background: -webkit-linear-gradient(top, #2881e6 0%, #2881e6 17%, #52a1eb 49%, #52a1eb 100%);
+  background: -o-linear-gradient(top, #2881e6 0%, #2881e6 17%, #52a1eb 49%, #52a1eb 100%);
+  background: -ms-linear-gradient(top, #2881e6 0%, #2881e6 17%, #52a1eb 49%, #52a1eb 100%);
+  background: linear-gradient(to bottom, #2881e6 0%, #2881e6 17%, #52a1eb 49%, #52a1eb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2881e6', endColorstr='#52a1eb', GradientType=0 );
+  margin-bottom: 2em; }
+
+.sky {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30px; }
+
+.navbar {
+  width: 100%;
+  line-height: 2.5em;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: 20px; }
+  .navbar a {
+    color: black;
+    font-size: 22px; }
+    .navbar a:hover {
+      color: white;
+      background: black; }
+
+.navImages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; }
+
+.titleScroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: url("../assets/images/navScroll.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 710px;
+  height: 200px;
+  position: relative;
+  top: 65px; }
+
+.littleGuys {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 0em 6em 0em 6em;
+  width: 100%;
+  height: 20px; }
+
+.goatImage {
+  position: relative;
+  bottom: 8px; }
+
+.grass {
+  background: url("../assets/images/navGrass.png");
+  width: 100;
+  background-size: cover;
+  height: 80px; }
+
+.profileWrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: #9b5a2e;
+  padding-bottom: 3em;
+  display: flex;
+  flex-direction: column; }
+  .profileWrapper h2 {
+    text-align: center;
+    margin-bottom: 4px; }
+
+.profilePageHeader {
+  align-self: center; }
+
+.profileContentWrapper {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  width: 80%;
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64); }
+
+.heroName {
+  margin-top: 1em; }
+  .heroName img {
+    position: relative;
+    top: 3px;
+    right: 5px; }
+
+.profileHeader {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0em 0em 2em 0em; }
+  .profileHeader span {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 12px; }
+
+.heroInfo {
+  display: flex;
+  flex-direction: column; }
+
+.linksWrapper img {
+  position: relative;
+  top: 5px;
+  right: 5px; }
+
+.profileImageWrapper {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  position: relative;
+  border: 2px solid black;
+  top: 35px;
+  right: 20px; }
+  .profileImageWrapper .editQuill {
+    position: absolute;
+    left: 2px;
+    display: none; }
+  .profileImageWrapper:hover .editQuill {
+    display: block; }
+
+.profileImage {
+  cursor: pointer;
+  height: 100%;
+  width: auto;
+  display: block;
+  margin: 0 auto; }
+
+.heroInfo {
+  display: flex; }
+
+.centerColumn {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3em; }
+
+.skillsHeader {
+  display: flex;
+  align-self: center; }
+  .skillsHeader img {
+    position: relative;
+    bottom: 4px; }
+
+.skillsWrapper {
+  align-self: center;
+  display: flex; }
+
+.profileSkill {
+  display: inline-block; }
+
+.projectsWrapper {
+  width: 50%;
+  align-self: center;
+  text-align: center; }
+
+.profileGuildsWrapper {
+  align-self: center;
+  width: 60%; }
+
+.profileGuilds {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px; }
+
+.profileGuildsWarning, .profileJobsWarning, .profileResourcesWarning {
+  text-align: center; }
+
+.profileJobs {
+  display: flex;
+  flex-wrap: wrap; }
+  .profileJobs .jobInfoWrapper {
+    margin: 0em; }
+  .profileJobs dir-job-listing {
+    display: flex;
+    margin: 0em;
+    width: 100%; }
+
+.deleteProfileButton {
+  align-self: center;
+  margin-top: 25px;
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64); }
+
+.resourcePageWrapper {
+  background: #9b5a2e;
+  min-height: 100vh;
+  padding-bottom: 5em;
+  display: flex;
+  flex-direction: column; }
+  .resourcePageWrapper h1 {
+    text-align: center; }
+
+.resourcesHeader {
+  align-self: center;
+  height: 85px; }
+
+.resourcesWrapper {
+  padding: 1em 2em 2em 2em;
+  margin: 0em 5em 0em 5em;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  -webkit-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
+  box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64); }
+
+.newResourceButton {
+  align-self: flex-start; }
+
+.resource {
+  line-height: 2em;
+  display: flex;
+  flex-wrap: nowrap; }
+
+.resourceButtons {
+  display: flex;
+  flex-wrap: nowrap; }
+
+.splashWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #CD6839; }
+  .splashWrapper h1 {
+    text-align: center; }
+  .splashWrapper h3 {
+    text-align: center; }
+
+.loginWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 95vh;
+  background: #2881e6;
+  background: -moz-linear-gradient(top, #2881e6 0%, #2881e6 17%, #52a1eb 49%, #52a1eb 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #2881e6), color-stop(17%, #2881e6), color-stop(49%, #52a1eb), color-stop(100%, #52a1eb));
+  background: -webkit-linear-gradient(top, #2881e6 0%, #2881e6 17%, #52a1eb 49%, #52a1eb 100%);
+  background: -o-linear-gradient(top, #2881e6 0%, #2881e6 17%, #52a1eb 49%, #52a1eb 100%);
+  background: -ms-linear-gradient(top, #2881e6 0%, #2881e6 17%, #52a1eb 49%, #52a1eb 100%);
+  background: linear-gradient(to bottom, #2881e6 0%, #2881e6 17%, #52a1eb 49%, #52a1eb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2881e6', endColorstr='#52a1eb', GradientType=0 ); }
+
+.mainTitle {
+  width: 793px;
+  transform: rotate(-17deg); }
+
+.loginBox {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center;
+  border: 10px double white;
+  width: 20em;
+  height: auto;
+  text-align: center;
+  line-height: 1em;
+  padding: 2.5em 4em;
+  background-color: black;
+  color: white;
+  position: relative;
+  bottom: 40px; }
+  .loginBox label {
+    font-size: 12px; }
+  .loginBox input {
+    margin-bottom: .5em;
+    text-align: center; }
+
+.splashGrassWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 70px; }
+
+.splashGuys {
+  width: 60%;
+  height: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.splashGoat {
+  position: relative;
+  bottom: 3px; }
+
+.splashHero {
+  position: relative;
+  top: 1px; }
+
+.splashGrass {
+  width: 100%;
+  overflow: hidden; }
+  .splashGrass img {
+    height: 80px; }
+
+.staticWrapper {
+  display: flex;
+  justify-content: space-around;
+  background-color: #CD6839;
+  position: relative;
+  bottom: 80px; }
+
+.blurb {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 3.5em 1em;
+  min-width: 33%; }
+  .blurb h2 {
+    padding: 35px 0 20px; }
+
+.screenShot {
+  height: 280px;
+  width: 280px;
+  border: 2px solid #2E2D67;
+  align-self: center;
+  border-radius: 50%;
+  -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.64);
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.64); }
+
+.screenshotQuest {
+  background: url("/assets/images/screenshotQuest.png") no-repeat center top; }
+
+.screenshotEquipment {
+  background: url("/assets/images/screenshotEquipment.png") no-repeat right top; }
+
+.screenshotLevel {
+  background: url("/assets/images/screenshotLevel.png") no-repeat right top; }
+
+* {
+  box-sizing: border-box;
+  margin: 0; }
+
+a {
+  display: inline-block; }
