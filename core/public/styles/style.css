@@ -989,6 +989,7 @@ input[type="password"] {
   display: flex;
   flex-direction: column;
   padding: 1em;
+  line-height: 50px;
   min-width: 33%;
   background-color: rgba(149, 209, 244, 0.2); }
 
