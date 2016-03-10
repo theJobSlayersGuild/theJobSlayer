@@ -1042,53 +1042,6 @@ angular.module("app").controller("editImageCtrl", ["$scope", "close", function($
 
 }]);
 
-angular.module("app").controller("editProfileCtrl", ["$scope", "close", "text", function($scope, close, text) {
-  $scope.close = close;
-  $scope.text = text;
-
-  $scope.edit = function(newInfo, title) {
-    console.log(newInfo);
-
-    switch (text) {
-      case 'EDIT HERO':
-        close({
-          name: newInfo,
-          title: title
-        });
-        break;
-      case 'EDIT RESUME':
-        close({
-          resume: newInfo
-        });
-        break;
-      case 'EDIT LINKEDIN':
-        close({
-          linkedin: newInfo
-        });
-        break;
-      case 'EDIT PORTFOLIO':
-        close({
-          portfolioSite: newInfo
-        });
-        break;
-    }
-  };
-
-}]);
-
-angular.module("app").controller("editResourceModal", ["$scope", "resourceService", "close", "hero", "resource", "modalService", function($scope, resourceService, close, hero, resource, modalService) {
-    $scope.close = close;
-    $scope.hero = hero;
-    $scope.resource = resource;
-
-    $scope.updateResource = function (id, resource) {
-        resourceService.editResource(id, resource).then(function (response) {
-            $scope.close();
-            modalService.alert('Resource updated successfully!');
-        });
-    };
-}]);
-
 angular.module("app").controller("editjobCtrl", ["$scope", "jobService", "questService", "close", "hero", "job", function($scope, jobService, questService, close, hero, job) {
     $scope.close = close;
 
@@ -1136,6 +1089,53 @@ angular.module("app").controller("editjobCtrl", ["$scope", "jobService", "questS
 
 
 }]);
+angular.module("app").controller("editProfileCtrl", ["$scope", "close", "text", function($scope, close, text) {
+  $scope.close = close;
+  $scope.text = text;
+
+  $scope.edit = function(newInfo, title) {
+    console.log(newInfo);
+
+    switch (text) {
+      case 'EDIT HERO':
+        close({
+          name: newInfo,
+          title: title
+        });
+        break;
+      case 'EDIT RESUME':
+        close({
+          resume: newInfo
+        });
+        break;
+      case 'EDIT LINKEDIN':
+        close({
+          linkedin: newInfo
+        });
+        break;
+      case 'EDIT PORTFOLIO':
+        close({
+          portfolioSite: newInfo
+        });
+        break;
+    }
+  };
+
+}]);
+
+angular.module("app").controller("editResourceModal", ["$scope", "resourceService", "close", "hero", "resource", "modalService", function($scope, resourceService, close, hero, resource, modalService) {
+    $scope.close = close;
+    $scope.hero = hero;
+    $scope.resource = resource;
+
+    $scope.updateResource = function (id, resource) {
+        resourceService.editResource(id, resource).then(function (response) {
+            $scope.close();
+            modalService.alert('Resource updated successfully!');
+        });
+    };
+}]);
+
 angular.module("app").controller("guildCtrl", ["$scope", "close", "guildService", "_guildMaster", "heroService", "xpService", "modalService", function($scope, close, guildService, _guildMaster, heroService, xpService, modalService) {
 
   $scope.addGuild = function(guild) {
