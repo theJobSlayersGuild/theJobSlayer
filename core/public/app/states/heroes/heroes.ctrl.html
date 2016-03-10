@@ -1,11 +1,8 @@
 <div class="heroesPageWrapper">
-
     <dir-nav-bar hero="hero"></dir-nav-bar>
-
-
-    <h1>Hall of Heroes</h1>
-    <br>
-
+    <div class="heroesHeader">
+        <img src="../assets/images/hallOfHeroesHeader.png" alt="">
+    </div>
     <div class="heroesWrapper">
         <div class="heroesContentWrapper">
             <div class="heroesContent" ng-repeat="hero in heroes | orderBy: '-xp'" ui-sref="member({id:hero._id})">
