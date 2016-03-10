@@ -66,7 +66,8 @@ input[type="password"] {
   height: auto;
   width: 100%;
   background: #9b5a2e;
-  padding-bottom: 5em; }
+  padding-bottom: 5em;
+  min-height: 100vh; }
   .guildmasterWrapper h1 {
     margin-top: 1em; }
 
@@ -105,7 +106,8 @@ input[type="password"] {
 
 .heroesPageWrapper {
   background: #9b5a2e;
-  padding-bottom: 5em; }
+  padding-bottom: 5em;
+  min-height: 100vh; }
 
 .heroesWrapper {
   display: flex;
@@ -160,7 +162,8 @@ input[type="password"] {
   padding-bottom: 5em;
   display: flex;
   flex-direction: column;
-  justify-content: center; }
+  justify-content: center;
+  min-height: 100vh; }
 
 .homeContent {
   width: 90%;
@@ -169,19 +172,23 @@ input[type="password"] {
   -webkit-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
   -moz-box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64);
   box-shadow: 15px 13px 0px 0px rgba(0, 0, 0, 0.64); }
+  .homeContent h2 {
+    text-align: center; }
 
 .alignAvatarAndInfo {
-  padding-top: 4em;
-  padding-right: 3em; }
+  padding-top: 2em; }
 
 .avatarAndGoatWrapper {
   display: flex;
   width: 100%;
   flex-direction: row;
-  padding-left: 3em; }
+  padding-left: 3em;
+  align-items: center;
+  justify-content: space-around; }
 
 .equipmentItemWrapper {
-  padding: 1.3em 0em 2em 0em; }
+  padding: 3.2em 0em 0em 2em;
+  position: relative; }
 
 .avatarWrapper {
   display: flex;
@@ -199,8 +206,7 @@ input[type="password"] {
 .goatWrapper {
   display: flex;
   justify-content: center;
-  width: 50%;
-  padding-top: 2em; }
+  width: 50%; }
 
 .equipmentTitle {
   text-transform: uppercase;
@@ -446,7 +452,8 @@ input[type="password"] {
 
 .jobsPageWrapper {
   background: #9b5a2e;
-  padding-bottom: 5em; }
+  padding-bottom: 5em;
+  min-height: 100vh; }
 
 .outerJobsWrapper {
   display: flex;
