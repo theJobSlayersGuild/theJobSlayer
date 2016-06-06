@@ -24,6 +24,7 @@ angular.module('app')
                     return response.data;
                 });
         };
+        
         this.getPubAndPrivateJobs = function (guildIds, heroId) {
             return $http({
                 method: 'POST',
@@ -59,7 +60,7 @@ angular.module('app')
         };
 
         this.editJob = function (id, job) {
-            console.log('also fired')
+            console.log('also fired');
             return $http({
                 method: 'PUT',
                 url: '/api/job/' + id,

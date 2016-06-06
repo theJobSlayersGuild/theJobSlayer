@@ -5,9 +5,14 @@ angular.module('app')
                 restrict: 'AE',
                 templateUrl: './app/directives/postjobs/postjobs.dir.html',
                 scope: {
-                    job: '=',
-                    hero: '=',
-                    getQuests: '&',
+                    job: '=', //expect to receive an object
+                    hero: '=',  //@ is better for passing in numbers.
+                    getQuests: '&', //let's us execute a function in the parent scope instead
+                    //of the isolate scope.
+                    //@indicates that a string will be passed in.
+                    //transculsion is embedding html inside of a directive.  We are replacing
+                    //everthing inside the name of the element with what's in our template (made
+                    //in the directive. Must put transclude to true.
                 },
 
                 controller: function ($scope, jobService, questService, ModalService, stepService, guildService) {

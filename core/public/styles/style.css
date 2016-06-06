@@ -457,8 +457,8 @@ dir-nav-bar {
 
 .equipmentImg {
   position: absolute;
-  left: 0px;
-  top: 0px; }
+  left: 4px;
+  top: 5px; }
 
 .modalProfImage {
   height: 25px;
